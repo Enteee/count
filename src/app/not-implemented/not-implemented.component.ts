@@ -29,11 +29,4 @@ export class NotImplementedComponent {
     return await this.modal.present();
   }
 
-  async dismissModal() {
-    if ( this.modal !== null ) {
-      await this.modal.dismiss();
-      this.modal = null;
-    }
-  }
-
 }
