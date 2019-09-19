@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      List
+      Counters
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -16,27 +16,30 @@
         description="Decrement counter by one."
         issueId="1"
       >
-        <ion-button color="danger">
+        <ion-button size="large" color="danger">
           <ion-icon name="remove"></ion-icon>
         </ion-button>
       </app-not-implemented>
-      <ion-label>
-        <h2>{{item.title}}</h2>
-        <h3>{{item.count}}</h3>
+      <ion-label class="ion-text-center">
+        <h1>{{item.title}}</h1>
+        <h1>{{item.count}}</h1>
       </ion-label>
       <app-not-implemented
         description="Increment counter by one."
         issueId="1"
       >
-        <ion-button color="success">
+        <ion-button size="large" color="success">
           <ion-icon name="add"></ion-icon>
         </ion-button>
       </app-not-implemented>
     </ion-item>
   </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+  <app-not-implemented
+    description="Add a new counter."
+    issueId="1"
+  >
+    <ion-button size="large" expand="full">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+  </app-not-implemented>
 </ion-content>

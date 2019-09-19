@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: 'list.page.html',
-  styleUrls: ['list.page.scss']
+  selector: 'app-counters',
+  templateUrl: 'counters.page.html',
+  styleUrls: ['counters.page.scss']
 })
-export class ListPage implements OnInit {
+export class CountersPage implements OnInit {
   private selectedItem: any;
   public items: Array<{ title: string; count: number;}> = [];
   constructor() {
@@ -21,6 +21,6 @@ export class ListPage implements OnInit {
   }
   // add back when alpha.4 is out
   // navigate(item) {
-  //   this.router.navigate(['/list', JSON.stringify(item)]);
+  //   this.router.navigate(['/counters', JSON.stringify(item)]);
   // }
 }
