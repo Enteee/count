@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <app-not-implemented
+        description="Decrement counter by one."
+        issueId="1"
+      >
+        <ion-button color="danger">
+          <ion-icon name="remove"></ion-icon>
+        </ion-button>
+      </app-not-implemented>
+      <ion-label>
+        <h2>{{item.title}}</h2>
+        <h3>{{item.count}}</h3>
+      </ion-label>
+      <app-not-implemented
+        description="Increment counter by one."
+        issueId="1"
+      >
+        <ion-button color="success">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </app-not-implemented>
+    </ion-item>
+  </ion-list>
+  <!--
+    <div *ngIf="selectedItem" padding>
+      You navigated here from <b>{{selectedItem.title }}</b>
+    </div>
+  -->
+</ion-content>
