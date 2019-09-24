@@ -6,42 +6,85 @@ with (import <nixpkgs> {
 });
 
 let
+  node = nodejs;
+  jdk = openjdk;
+  unpatched-sdk =
+    let version = "4333796";
+    in stdenv.mkDerivation {
+      name = "unpatched-sdk";
+      src = fetchzip {
+        url = "https://dl.google.com/android/repository/sdk-tools-linux-${version}.zip";
+        sha256 = "0010za2n8vycr29j846qscbdb4vq2b9g1fplqqw16hb0hhn9n039";
+      };
+      installPhase = ''
+        mkdir -p $out
+        cp -r * $out/
+      '';
+      dontPatchELF = true;
+    };
+    android-fhsEnv = rec {
+      shell = pkgs.buildFHSUserEnv {
+        name = "shell";
+      };
 
-  androidComposition = androidenv.composeAndroidPackages {
-#    platformToolsVersion = "29.0.4";
-#    toolsVersion = "26.1.1";
-  };
-#  androidComposition = androidenv.androidPkgs_9_0;
+      serve = pkgs.buildFHSUserEnv {
+        name = "serve";
+        runScript = "ionic serve -l";
+      };
 
-in stdenv.mkDerivation {
-  name = "count";
+      run = pkgs.buildFHSUserEnv {
+        name = "run";
+        runScript = "ionic cordova run android -l";
+      };
 
-  src = null;
+      # Not working
+      #emulate = pkgs.buildFHSUserEnv {
+      #  name = "emulate";
+      #  runScript = ''
+      #    sdkmanager "emulator" "system-images;android-28;default;x86"
+      #    ionic cordova emulate android
+      #  '';
+      #};
+    };
+in
+  stdenv.mkDerivation {
+    name = "ionic-android";
+    nativeBuildInputs = [
+      android-fhsEnv.shell
+      android-fhsEnv.serve
+      android-fhsEnv.run
+    ];
+    buildInputs = [
+      coreutils
+      node
+      unpatched-sdk
+      gradle
+    ];
 
-  buildInputs = [
-    nodejs
-    python27 # for node-gyp
-    jdk
-    gradle
-    androidComposition.androidsdk
-    androidComposition.platform-tools
-  ];
 
-  shellHook = ''
-    export NPM_CONFIG_PREFIX="$(${mktemp.outPath}/bin/mktemp -d -t npm_XXXXXXX)"
-    export PATH="''${PATH}:''${NPM_CONFIG_PREFIX}/bin"
-    npm set prefix "''${NPM_CONFIG_PREFIX}/.npm-global"
-    npm install -g ionic cordova cordova-res native-run
+    shellHook = ''
+      export JAVA_HOME=${jdk}
+      export ANDROID_HOME=$PWD/.android/
+      export ANDROID_SDK_ROOT=$PWD/.android/sdk/
+      export PATH="$ANDROID_SDK_ROOT/bin:$PWD/node_modules/.bin:$PATH"
 
-    # Android related
-    export ANDROID_SDK_ROOT="${androidComposition.androidsdk}"
+      echo "=> get ionic-cli"
+      npm install --no-save ionic cordova cordova-res native-run
 
-    # Accept Anroid license
-    #yes | sdkmanager --update
-  '';
+      if ! test -d .android ; then
+        echo doing hacky setup stuff:
 
-  exitHook = ''
-    rm -rf ''${NPM_CONFIG_PREFIX}
-  '';
+        echo "=> pull the sdk out of the nix store and into a writeable directory"
+        mkdir -p .android/sdk
+        cp -r ${unpatched-sdk}/* .android/sdk/
 
-}
+        (
+          cd .android/sdk
+
+          sdkmanager --update
+          echo "=> installing platform stuff (you'll need to accept a license in a second)..."
+          sdkmanager "platforms;android-28" "build-tools;28.0.3"
+        )
+      fi
+    '';
+  }
