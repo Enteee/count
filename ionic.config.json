@@ -1,5 +1,7 @@
 {
   "name": "count",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
