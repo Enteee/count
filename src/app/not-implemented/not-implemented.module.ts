@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { NotImplementedComponent } from './not-implemented.component';
 import { NotImplementedModalPage } from './not-implemented-modal.page';
+import { NotImplementedDirective } from './not-implemented.directive';
 
 @NgModule({
   imports: [
@@ -17,12 +18,14 @@ import { NotImplementedModalPage } from './not-implemented-modal.page';
   declarations: [
     NotImplementedComponent,
     NotImplementedModalPage,
+    NotImplementedDirective,
   ],
   entryComponents: [
     NotImplementedModalPage,
   ],
   exports: [
     NotImplementedComponent,
+    NotImplementedDirective,
   ]
 })
 export class NotImplementedModule {}
