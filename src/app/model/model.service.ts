@@ -7,7 +7,13 @@ import { Model } from './model';
 
 /**
  * A generic ModelService which stores models in a Ionic Storage.
- * It also implements basic separation of models using constructor names.
+ *
+ * Ionic Storage is just a simple key/value storage, which means this will store
+ * all the model information at the same place. This is obviously not ideal.
+ * On the upside Ionic Storage is highly portable and should work on all devices
+ * as well as in a web browser without cordova support.
+ *
+ * ModelService implements basic separation of models using constructor names.
  */
 export class ModelService<M extends Model> {
 

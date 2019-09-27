@@ -38,7 +38,10 @@ export class CountersPage implements OnInit {
     counter.count += count;
     this.counterService.save(counter);
     this.instanceService.save(
-      new Instance(count)
+      new Instance(
+        counter.id,
+        count
+      )
     );
   }
 

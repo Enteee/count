@@ -6,12 +6,14 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @inheritSerialization(Model)
 export class Instance extends Model {
-  @autoserialize public count:number = 0;
+  @autoserialize public counterId:string;
+  @autoserialize public count:number;
   @autoserialize public timestamp:Date = new Date();
   @autoserialize public location:Geolocation = new Geolocation();
 
-  constructor(count: number) {
+  constructor(counterId: string, count: number) {
     super();
+    this.counterId = counterId;
     this.count = count;
   }
 }
