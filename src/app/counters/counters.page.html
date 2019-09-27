@@ -13,22 +13,37 @@
   <ion-list #listCounters>
     <ion-item-sliding *ngFor="let counter of counters">
       <ion-item>
-        <app-not-implemented
-          description="Decrement counter by one."
-          issueId="1"
+        <ion-button
+          size="large"
+          color="danger"
+          (click)="addInstance(counter, counter.minusCount)"
         >
-          <ion-button size="large" color="danger">
+          <div *ngIf="counter.minusCount === -1; then thenBlock else elseBlock"></div>
+          <ng-template #thenBlock>
             <ion-icon name="remove"></ion-icon>
-          </ion-button>
-        </app-not-implemented>
+          </ng-template>
+          <ng-template #elseBlock>
+            {{counter.minusCount}}
+          </ng-template>
+        </ion-button>
 
         <ion-label class="ion-text-center">
           <h1>{{counter.title}}</h1>
           <h1>{{counter.count}}</h1>
         </ion-label>
 
-        <ion-button size="large" color="success">
-          <ion-icon name="add" (click)="counter.addInstance(1)"></ion-icon>
+        <ion-button
+          size="large"
+          color="success"
+          (click)="addInstance(counter, counter.plusCount)"
+        >
+          <div *ngIf="counter.plusCount === 1; then thenBlock else elseBlock"></div>
+          <ng-template #thenBlock>
+            <ion-icon name="add"></ion-icon>
+          </ng-template>
+          <ng-template #elseBlock>
+            {{counter.minusCount}}
+          </ng-template>
         </ion-button>
       </ion-item>
 
@@ -37,7 +52,7 @@
           <ion-icon slot="icon-only" name="trash" (click)="deleteCounter(counter)"></ion-icon>
         </ion-item-option>
 
-        <ion-item-option color="success" appNotImplemented description="Basic analytics" issueId="6">
+        <ion-item-option color="success" appNotImplemented description="Show basic analytics" issueId="6">
           <ion-icon slot="icon-only" name="analytics"></ion-icon>
         </ion-item-option>
 

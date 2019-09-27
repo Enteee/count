@@ -1,11 +1,15 @@
+import { autoserialize } from 'cerialize';
+
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { v4 as uuid } from 'uuid';
 
 export class Counter {
-  public id: string = uuid();
-  public title: string = 'new Counter';
-  public count: number = 0;
-  public instance: Array<{
+  @autoserialize public id: string = uuid();
+  @autoserialize public title: string = 'new Counter';
+  @autoserialize public count: number = 0;
+  @autoserialize public plusCount: number = 1;
+  @autoserialize public minusCount: number = -1;
+  public instances: Array<{
       count: number;
       timestamp: Date;
       location: Geolocation;
@@ -13,18 +17,4 @@ export class Counter {
 
   constructor() {
   }
-
-  addInstance(
-    count:number,
-    timestamp:Date = new Date(),
-    location:Geolocation = new Geolocation()
-  ) {
-    this.count += count;
-    this.instance.push({
-      count,
-      timestamp,
-      location
-    });
-  }
-
 }

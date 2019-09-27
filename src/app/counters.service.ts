@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
+import { Serialize, Deserialize } from 'cerialize';
+
 import { Counter } from './model/counter';
 
 
@@ -18,19 +20,22 @@ export class CountersService {
 
   public async init() {
     await this._storage.forEach(
-      (v, k) => {
-        this._counters[k] = v;
+      (v:Object, k:string) => {
+        this._counters[k] = <Counter> Deserialize(v, Counter);
       }
     );
   }
 
-  get counters() {
-    return Object.values(this._counters)
+  get counters(): Array<Counter> {
+    return Object.values(this._counters);
   }
 
   public async save(counter: Counter) {
     this._counters[counter.id] = counter;
-    await this._storage.set(counter.id, counter);
+    await this._storage.set(
+      counter.id,
+      Serialize(counter)
+    );
   }
 
   public async delete(counter: Counter) {
@@ -38,8 +43,7 @@ export class CountersService {
     delete this._counters[counter.id];
   }
 
-  public getCounterById(id: string) {
-    // lookup counter
+  public getCounterById(id: string): Counter {
     return this._counters[id];
   }
 
