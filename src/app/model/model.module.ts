@@ -4,13 +4,19 @@ import { CommonModule } from '@angular/common';
 import { CounterService } from './counter.service';
 import { Counter } from './counter';
 
+import { InstanceService } from './instance.service';
+import { Instance } from './instance';
 
 export function initializeModelServices(
-  counterService: CounterService
+  counterService: CounterService,
+  instanceService: InstanceService
 ) {
   return async () => {
-    await counterService.init(Counter);
-  }
+    Promise.all([
+      counterService.init(Counter),
+      instanceService.init(Instance),
+    ]);
+  };
 }
 
 
@@ -29,11 +35,13 @@ export class ModelModule {
       ngModule: ModelModule,
       providers: [
         CounterService,
+        InstanceService,
         {
           provide: APP_INITIALIZER,
           useFactory: initializeModelServices,
           deps: [
-            CounterService
+            CounterService,
+            InstanceService,
           ],
           multi: true,
         },

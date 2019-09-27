@@ -5,6 +5,10 @@ import { Serialize, Deserialize } from 'cerialize';
 
 import { Model } from './model';
 
+/**
+ * A generic ModelService which stores models in a Ionic Storage.
+ * It also implements basic separation of models using constructor names.
+ */
 export class ModelService<M extends Model> {
 
   private models: Record<string, M> = {};
@@ -20,7 +24,14 @@ export class ModelService<M extends Model> {
 
     await this.storage.forEach(
       (v:Object, k:string) => {
-        this.models[k] = <M> Deserialize(v, this.MCtor);
+        // only load instance of this class
+        if (k.startsWith(this.MCtor.name)){
+          let model = <M> Deserialize(
+            v,
+            this.MCtor
+          );
+          this.models[model.id] = model;
+        }
       }
     );
   }
@@ -32,13 +43,15 @@ export class ModelService<M extends Model> {
   public async save(m: M) {
     this.models[m.id] = m;
     await this.storage.set(
-      m.id,
+      this.MCtor.name + m.id,
       Serialize(m, this.MCtor)
     );
   }
 
   public async delete(m: M) {
-    await this.storage.remove(m.id);
+    await this.storage.remove(
+      this.MCtor.name + m.id,
+    );
     delete this.models[m.id];
   }
 

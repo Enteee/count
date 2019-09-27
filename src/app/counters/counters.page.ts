@@ -3,6 +3,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Counter } from '../model/counter';
 import { CounterService } from '../model/counter.service';
 
+import { Instance } from '../model/instance';
+import { InstanceService } from '../model/instance.service';
+
 @Component({
   selector: 'app-counters',
   templateUrl: 'counters.page.html',
@@ -11,7 +14,10 @@ import { CounterService } from '../model/counter.service';
 export class CountersPage implements OnInit {
   private selectedItem: any;
 
-  constructor(private counterService: CounterService) {
+  constructor(
+    private counterService: CounterService,
+    private instanceService: InstanceService
+  ) {
   }
 
   get counters() {
@@ -31,6 +37,9 @@ export class CountersPage implements OnInit {
   public addInstance(counter: Counter, count: number) {
     counter.count += count;
     this.counterService.save(counter);
+    this.instanceService.save(
+      new Instance(count)
+    );
   }
 
   ngOnInit() {
