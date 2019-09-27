@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Counter } from '../model/counter';
-import { CountersService } from '../counters.service';
-
-import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { CounterService } from '../model/counter.service';
 
 @Component({
   selector: 'app-counters',
@@ -13,29 +11,26 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 export class CountersPage implements OnInit {
   private selectedItem: any;
 
-  constructor(private countersService: CountersService) {
+  constructor(private counterService: CounterService) {
   }
 
   get counters() {
-    return this.countersService.counters;
+    return this.counterService.all;
   }
 
   public addCounter() {
-    this.countersService.save(
+    this.counterService.save(
       new Counter()
     );
   }
 
   public deleteCounter(counter: Counter) {
-    this.countersService.delete(counter);
+    this.counterService.delete(counter);
   }
 
   public addInstance(counter: Counter, count: number) {
-    let timestamp:Date = new Date();
-    let location:Geolocation = new Geolocation();
-
     counter.count += count;
-    this.countersService.save(counter);
+    this.counterService.save(counter);
   }
 
   ngOnInit() {

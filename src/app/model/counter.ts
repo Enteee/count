@@ -1,14 +1,11 @@
-import { autoserialize } from 'cerialize';
+import { inheritSerialization, autoserialize } from 'cerialize';
 
-import { v4 as uuid } from 'uuid';
+import { Model } from './model';
 
-export class Counter {
-  @autoserialize public id: string = uuid();
+@inheritSerialization(Model)
+export class Counter extends Model {
   @autoserialize public title: string = 'new Counter';
   @autoserialize public count: number = 0;
   @autoserialize public plusCount: number = 1;
   @autoserialize public minusCount: number = -1;
-
-  constructor() {
-  }
 }

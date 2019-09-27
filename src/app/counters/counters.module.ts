@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { CountersPage } from './counters.page';
 
+import { ModelModule } from '../model/model.module';
 import { NotImplementedModule } from '../not-implemented/not-implemented.module';
 
 @NgModule({
@@ -13,6 +14,7 @@ import { NotImplementedModule } from '../not-implemented/not-implemented.module'
     CommonModule,
     FormsModule,
     IonicModule,
+    ModelModule,
     NotImplementedModule,
     RouterModule.forChild([
       {
@@ -21,6 +23,9 @@ import { NotImplementedModule } from '../not-implemented/not-implemented.module'
       }
     ])
   ],
-  declarations: [CountersPage]
+  declarations: [
+    CountersPage
+  ],
+  providers: []
 })
 export class CountersPageModule {}
