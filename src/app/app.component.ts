@@ -23,6 +23,7 @@ export class AppComponent {
     {
       title: 'Report Issue',
       icon: 'bug',
+      url: '/bug',
     },
     {
       title: 'Counter to Home Screen',
