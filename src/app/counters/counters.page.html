@@ -10,36 +10,46 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <app-not-implemented
-        description="Decrement counter by one."
-        issueId="1"
-      >
-        <ion-button size="large" color="danger">
-          <ion-icon name="remove"></ion-icon>10
-        </ion-button>
-      </app-not-implemented>
-      <ion-label class="ion-text-center">
-        <h1>{{item.title}}</h1>
-        <h1>{{item.count}}</h1>
-      </ion-label>
-      <app-not-implemented
-        description="Increment counter by one."
-        issueId="1"
-      >
+  <ion-list #listCounters>
+    <ion-item-sliding *ngFor="let counter of counters">
+      <ion-item>
+        <app-not-implemented
+          description="Decrement counter by one."
+          issueId="1"
+        >
+          <ion-button size="large" color="danger">
+            <ion-icon name="remove"></ion-icon>
+          </ion-button>
+        </app-not-implemented>
+
+        <ion-label class="ion-text-center">
+          <h1>{{counter.title}}</h1>
+          <h1>{{counter.count}}</h1>
+        </ion-label>
+
         <ion-button size="large" color="success">
-          <ion-icon name="add"></ion-icon>1
+          <ion-icon name="add" (click)="counter.addInstance(1)"></ion-icon>
         </ion-button>
-      </app-not-implemented>
-    </ion-item>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="danger">
+          <ion-icon slot="icon-only" name="trash" (click)="deleteCounter(counter)"></ion-icon>
+        </ion-item-option>
+
+        <ion-item-option color="success">
+          <ion-icon slot="icon-only" name="analytics"></ion-icon>
+        </ion-item-option>
+
+        <ion-item-option expandable>
+          <ion-icon slot="icon-only" name="create" expandable></ion-icon>
+        </ion-item-option>
+
+      </ion-item-options>
+
+    </ion-item-sliding>
   </ion-list>
-  <app-not-implemented
-    description="Add a new counter."
-    issueId="1"
-  >
-    <ion-button size="large" expand="full">
-      <ion-icon name="add"></ion-icon>
-    </ion-button>
-  </app-not-implemented>
+  <ion-button size="large" expand="full" (click)="addCounter()">
+    <ion-icon name="add"></ion-icon>
+  </ion-button>
 </ion-content>

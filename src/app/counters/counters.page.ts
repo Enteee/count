@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+import { Counter } from '../model/counter';
+import { CountersService } from '../counters.service';
 
 @Component({
   selector: 'app-counters',
@@ -7,14 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountersPage implements OnInit {
   private selectedItem: any;
-  public items: Array<{ title: string; count: number;}> = [];
-  constructor() {
-    for (let i = 1; i < 3; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        count: 123,
-      });
-    }
+
+  constructor(private countersService: CountersService) {
+  }
+
+  get counters() {
+    return this.countersService.counters;
+  }
+
+  public addCounter() {
+    this.countersService.save(
+      new Counter()
+    );
+  }
+
+  public deleteCounter(counter: Counter){
+    this.countersService.delete(counter);
   }
 
   ngOnInit() {

@@ -63,13 +63,17 @@ in
 
 
     shellHook = ''
+      export NPM_CONFIG_PREFIX="$(${mktemp.outPath}/bin/mktemp -d -t npm_XXXXXXX)"
+      export PATH="''${PATH}:''${NPM_CONFIG_PREFIX}/bin"
+      npm set prefix "''${NPM_CONFIG_PREFIX}/.npm-global"
+
       export JAVA_HOME=${jdk}
       export ANDROID_HOME=$PWD/.android/
       export ANDROID_SDK_ROOT=$PWD/.android/sdk/
       export PATH="$ANDROID_SDK_ROOT/bin:$PWD/node_modules/.bin:$PATH"
 
       echo "=> get ionic-cli"
-      npm install --no-save ionic cordova cordova-res native-run
+      npm install -g --no-save ionic cordova cordova-res native-run
 
       if ! test -d .android ; then
         echo doing hacky setup stuff:
@@ -86,5 +90,9 @@ in
           sdkmanager "platforms;android-28" "build-tools;28.0.3"
         )
       fi
+    '';
+
+    exitHook = ''
+      rm -rf ''${NPM_CONFIG_PREFIX}
     '';
   }
