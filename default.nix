@@ -43,6 +43,7 @@ let
       source ${makeWrapper}/nix-support/setup-hook
       wrapProgram $out/bin/${name} \
         --set JAVA_HOME "${openjdk}" \
+        --set CHROME_BIN "${chromium}/bin/chromium" \
         --run "init-${name}"
     '';
   };

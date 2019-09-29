@@ -26,8 +26,18 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
-        npm run build --if-present
-        npm test
+        #npm run build --if-present
+        #npm test
+      env:
+        CI: true
+    - name: ionic cordova build
+      run: |
+        npm install -g --no-save \
+          ionic \
+          native-run \
+          cordova \
+          cordova-res
+        ionic cordova build android
       env:
         CI: true
 
