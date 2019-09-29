@@ -13,38 +13,50 @@
   <ion-list #listCounters>
     <ion-item-sliding *ngFor="let counter of counters">
       <ion-item>
-        <ion-button
-          size="large"
-          color="danger"
-          (click)="addInstance(counter, counter.minusCount)"
-        >
-          <div *ngIf="counter.minusCount === -1; then thenBlock else elseBlock"></div>
-          <ng-template #thenBlock>
-            <ion-icon name="remove"></ion-icon>
-          </ng-template>
-          <ng-template #elseBlock>
-            {{counter.minusCount}}
-          </ng-template>
-        </ion-button>
+
+        <ng-template [ngIf]="counter.minusCount < 0">
+          <ion-button
+            size="large"
+            color="danger"
+            (click)="addInstance(counter, counter.minusCount)"
+          >
+          <div [ngSwitch]="counter.minusCount">
+            <div *ngSwitchCase="-1">
+              <ion-icon name="add"></ion-icon>
+            </div>
+
+            <div *ngSwitchDefault>
+              {{counter.minusCount}}
+            </div>
+
+          </div>
+          </ion-button>
+        </ng-template>
 
         <ion-label class="ion-text-center">
           <h1>{{counter.title}}</h1>
           <h1>{{counter.count}}</h1>
         </ion-label>
 
-        <ion-button
-          size="large"
-          color="success"
-          (click)="addInstance(counter, counter.plusCount)"
-        >
-          <div *ngIf="counter.plusCount === 1; then thenBlock else elseBlock"></div>
-          <ng-template #thenBlock>
-            <ion-icon name="add"></ion-icon>
-          </ng-template>
-          <ng-template #elseBlock>
-            {{counter.minusCount}}
-          </ng-template>
-        </ion-button>
+        <ng-template [ngIf]="counter.plusCount > 0">
+          <ion-button
+            size="large"
+            color="success"
+            (click)="addInstance(counter, counter.plusCount)"
+          >
+          <div [ngSwitch]="counter.plusCount">
+            <div *ngSwitchCase="1">
+              <ion-icon name="add"></ion-icon>
+            </div>
+
+            <div *ngSwitchDefault>
+              +{{counter.plusCount}}
+            </div>
+
+          </div>
+          </ion-button>
+        </ng-template>
+
       </ion-item>
 
       <ion-item-options side="end">

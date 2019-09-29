@@ -7,5 +7,5 @@ export class Counter extends Model {
   @autoserialize public title = 'new Counter';
   @autoserialize public count = 0;
   @autoserialize public plusCount = 1;
-  @autoserialize public minusCount = -1;
+  @autoserialize public minusCount = 0;
 }
