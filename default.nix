@@ -67,20 +67,18 @@ in
     ];
 
     shellHook = ''
-      export NPM_CONFIG_PREFIX=".npm-global"
+      export NPM_CONFIG_PREFIX="$PWD/.npm-global"
       export PATH="''${PATH}:''${NPM_CONFIG_PREFIX}/bin"
       npm set prefix "''${NPM_CONFIG_PREFIX}/.npm-global"
 
       export JAVA_HOME=${jdk}
 
       npm install
-
-      echo "=> get ionic-cli"
-      #npm install -g --no-save \
+      npm install -g --no-save \
         ionic \
         native-run \
         cordova \
-        cordova-res \
+        cordova-res
 
       #mkdir .android
       #(
