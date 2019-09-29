@@ -16,10 +16,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Use JDK ${{ matrix.java-version }}
-      uses: actions/setup-java@v1
-      with:
-        java-version: ${{ matrix.java-version }}
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -32,6 +28,10 @@ jobs:
       run: npm run build --if-present
     - name: npm test
       run: npm test
+    - name: Use JDK ${{ matrix.java-version }}
+      uses: actions/setup-java@v1
+      with:
+        java-version: ${{ matrix.java-version }}
     - name: ionic cordova build
       run: |
         npm install -g --no-save \
