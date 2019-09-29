@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NotImplemented } from './not-implemented'
+import { NotImplemented } from './not-implemented';
 
 @Component({
   selector: 'app-not-implemented',

@@ -29,13 +29,13 @@ export class ModelService<M extends Model> {
     this.MCtor = MCtor;
 
     await this.storage.forEach(
-      (v:Object, k:string) => {
+      (v: object, k: string) => {
         // only load instance of this class
-        if (k.startsWith(this.MCtor.name)){
-          let model = <M> Deserialize(
+        if (k.startsWith(this.MCtor.name)) {
+          const model = Deserialize(
             v,
             this.MCtor
-          );
+          ) as M;
           this.models[model.id] = model;
         }
       }

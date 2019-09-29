@@ -17,8 +17,8 @@ export class NotImplemented {
     this.modal = await this.modalController.create({
       component: NotImplementedModalPage,
       componentProps: {
-        'issueId': this.issueId,
-        'description': this.description,
+        issueId: this.issueId,
+        description: this.description,
       }
     });
     return await this.modal.present();
