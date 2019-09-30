@@ -59,16 +59,20 @@
 
       </ion-item>
 
-      <ion-item-options side="end">
+      <ion-item-options side="end" appNotImplemented description="Edit instances" issueId="8" on="ionSwipe">
         <ion-item-option color="danger">
           <ion-icon slot="icon-only" name="trash" (click)="deleteCounter(counter)"></ion-icon>
+        </ion-item-option>
+
+        <ion-item-option color="warning" >
+          <ion-icon slot="icon-only" name="build"></ion-icon>
         </ion-item-option>
 
         <ion-item-option color="success" appNotImplemented description="Show basic analytics" issueId="6">
           <ion-icon slot="icon-only" name="analytics"></ion-icon>
         </ion-item-option>
 
-        <ion-item-option expandable>
+        <ion-item-option expandable appNotImplemented description="Edit instances" issueId="8">
           <ion-icon slot="icon-only" name="create" expandable></ion-icon>
         </ion-item-option>
 
