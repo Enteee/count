@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Counter Settings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Title<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required [(ngModel)]="counter.title" type="text" placeholder="title"></ion-input>
+      </ion-item>
+  </ion-list>
+</ion-content>

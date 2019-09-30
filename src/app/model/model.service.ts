@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
 import { Serialize, Deserialize } from 'cerialize';
 
@@ -15,7 +16,7 @@ import { Model } from './model';
  *
  * ModelService implements basic separation of models using constructor names.
  */
-export class ModelService<M extends Model> {
+export class ModelService<M extends Model> implements Resolve<M> {
 
   private models: Record<string, M> = {};
   private MCtor: new (...args: any[]) => M;
@@ -59,6 +60,12 @@ export class ModelService<M extends Model> {
       this.MCtor.name + m.id,
     );
     delete this.models[m.id];
+  }
+
+  public resolve(route: ActivatedRouteSnapshot) {
+    return this.getById(
+      route.paramMap.get('id')
+    );
   }
 
   public getById(id: string): M {

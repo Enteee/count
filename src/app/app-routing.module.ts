@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { CounterService } from './model/counter.service';
+
 const routes: Routes = [
   {
     path: '',
@@ -9,7 +11,14 @@ const routes: Routes = [
   },
   {
     path: 'counters',
-    loadChildren: () => import('./counters/counters.module').then(m => m.CountersPageModule)
+    loadChildren: './counters/counters.module#CountersPageModule'
+  },
+  {
+    path: 'counter-settings/:id',
+    resolve: {
+      counter: CounterService,
+    },
+    loadChildren: './counter-settings/counter-settings.module#CounterSettingsPageModule'
   }
 ];
 

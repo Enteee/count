@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-list #listCounters>
+  <ion-list>
     <ion-item-sliding *ngFor="let counter of counters">
       <ion-item>
 
@@ -64,7 +64,7 @@
           <ion-icon slot="icon-only" name="trash" (click)="deleteCounter(counter)"></ion-icon>
         </ion-item-option>
 
-        <ion-item-option color="warning" >
+        <ion-item-option color="warning" [routerLink]="['/counter-settings', counter.id]">
           <ion-icon slot="icon-only" name="build"></ion-icon>
         </ion-item-option>
 
