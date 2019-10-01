@@ -8,15 +8,6 @@
     </ion-title>
     <ion-buttons slot="end">
       <ion-back-button color="danger" text="Discard" icon=""></ion-back-button>
-      <!--
-      <ion-back-button
-        color="success"
-        text="Save"
-        icon=""
-        type="submit"
-        [disabled]="!counterSettingsForm.valid"
-      ></ion-back-button>
-      -->
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -29,8 +20,35 @@
   >
       <ion-list>
           <ion-item>
-            <ion-label position="stacked">Title<ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required formControlName="title" type="text" placeholder="my Counter"></ion-input>
+            <ion-label position="stacked">Title</ion-label>
+            <ion-input
+              required
+              formControlName="title"
+              type="text"
+              placeholder="my Counter"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Plus Count</ion-label>
+            <ion-input
+              required
+              formControlName="plusCount"
+              type="number"
+              placeholder="1"
+              (ionBlur)="clampPlusCount()"
+            >
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Minus Count</ion-label>
+            <ion-input
+              required
+              formControlName="minusCount"
+              type="number"
+              placeholder="-1"
+              (ionBlur)="clampMinusCount()"
+            >
+            </ion-input>
           </ion-item>
       </ion-list>
       <ion-button

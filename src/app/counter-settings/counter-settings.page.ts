@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { NavController } from '@ionic/angular';
 
@@ -16,7 +16,23 @@ export class CounterSettingsPage implements OnInit {
 
   private counter: Counter;
   counterSettingsForm = new FormGroup({
-    title : new FormControl(''),
+    title : new FormControl(
+      '',
+      [
+      ]
+    ),
+    plusCount : new FormControl(
+      1,
+      [
+        Validators.min(0)
+      ]
+    ),
+    minusCount : new FormControl(
+      -1,
+      [
+        Validators.max(0)
+      ]
+    ),
   });
 
   constructor(
@@ -41,6 +57,24 @@ export class CounterSettingsPage implements OnInit {
       )
     );
     this.navController.pop();
+  }
+
+  clampMinusCount() {
+    this.counterSettingsForm.patchValue({
+      minusCount: Math.min(
+        0,
+        this.counterSettingsForm.get('minusCount').value
+      )
+    });
+  }
+
+  clampPlusCount() {
+    this.counterSettingsForm.patchValue({
+      plusCount: Math.max(
+        0,
+        this.counterSettingsForm.get('plusCount').value
+      )
+    });
   }
 }
 
