@@ -14,7 +14,7 @@ import { CounterService } from '../model/counter.service';
 })
 export class CounterSettingsPage implements OnInit {
 
-  private counter: Counter;
+  counter: Counter;
   counterSettingsForm: FormGroup;
 
   constructor(
