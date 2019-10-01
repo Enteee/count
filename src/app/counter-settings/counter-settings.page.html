@@ -4,16 +4,41 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Counter Settings
+      Settings
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button color="danger" text="Discard" icon=""></ion-back-button>
+      <!--
+      <ion-back-button
+        color="success"
+        text="Save"
+        icon=""
+        type="submit"
+        [disabled]="!counterSettingsForm.valid"
+      ></ion-back-button>
+      -->
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-      <ion-item>
-        <ion-label position="stacked">Title<ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required [(ngModel)]="counter.title" type="text" placeholder="title"></ion-input>
-      </ion-item>
-  </ion-list>
+  <form
+    id="ngForm"
+    [formGroup]="counterSettingsForm"
+    (ngSubmit)="onSubmit()"
+  >
+      <ion-list>
+          <ion-item>
+            <ion-label position="stacked">Title<ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required formControlName="title" type="text" placeholder="my Counter"></ion-input>
+          </ion-item>
+      </ion-list>
+      <ion-button
+        size="large"
+        expand="full"
+        color="success"
+        type="submit"
+        [disabled]="!counterSettingsForm.valid"
+      >Save</ion-button>
+  </form>
 </ion-content>
