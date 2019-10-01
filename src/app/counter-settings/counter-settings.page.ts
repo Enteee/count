@@ -53,6 +53,30 @@ export class CounterSettingsPage implements OnInit {
         }
       }
     );
+    const negativeWrapAround = new FormControl(
+      {
+        value: this.counter.negativeWrapAround,
+        disabled: !this.counter.negativeWrapAroundActive,
+      },
+      [
+        Validators.max(-1)
+      ]
+    );
+    const negativeWrapAroundActive = new FormControl(
+      this.counter.negativeWrapAroundActive,
+      [
+      ]
+    );
+    // enable disable input boxed based on checkbox
+    negativeWrapAroundActive.valueChanges.subscribe(
+      enabled => {
+        if (enabled) {
+          negativeWrapAround.enable();
+        } else {
+          negativeWrapAround.disable();
+        }
+      }
+    );
 
     this.counterSettingsForm = new FormGroup({
       title : new FormControl(
@@ -74,6 +98,8 @@ export class CounterSettingsPage implements OnInit {
       ),
       positiveWrapAround,
       positiveWrapAroundActive,
+      negativeWrapAround,
+      negativeWrapAroundActive,
     });
   }
 
@@ -87,7 +113,7 @@ export class CounterSettingsPage implements OnInit {
     this.navController.pop();
   }
 
-  clampMin(formControlName: string, min: number = -1) {
+  clampMin(formControlName: string, min: number = 0) {
     console.log(min);
     this.counterSettingsForm.patchValue({
       [formControlName]: Math.min(
@@ -97,7 +123,7 @@ export class CounterSettingsPage implements OnInit {
     });
   }
 
-  clampMax(formControlName: string, max: number = 1) {
+  clampMax(formControlName: string, max: number = 0) {
     this.counterSettingsForm.patchValue({
       [formControlName]: Math.max(
         max,

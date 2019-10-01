@@ -65,6 +65,21 @@
             >
             </ion-input>
           </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Negative Wraparound</ion-label>
+            <ion-checkbox
+              slot="start"
+              formControlName="negativeWrapAroundActive"
+            >
+            </ion-checkbox>
+            <ion-input
+              formControlName="negativeWrapAround"
+              type="number"
+              placeholder="0"
+              (ionBlur)="clampMin('negativeWrapAround', -1)"
+            >
+            </ion-input>
+          </ion-item>
       </ion-list>
       <ion-button
         size="large"
