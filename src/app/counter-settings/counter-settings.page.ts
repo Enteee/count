@@ -15,25 +15,7 @@ import { CounterService } from '../model/counter.service';
 export class CounterSettingsPage implements OnInit {
 
   private counter: Counter;
-  counterSettingsForm = new FormGroup({
-    title : new FormControl(
-      '',
-      [
-      ]
-    ),
-    plusCount : new FormControl(
-      1,
-      [
-        Validators.min(0)
-      ]
-    ),
-    minusCount : new FormControl(
-      -1,
-      [
-        Validators.max(0)
-      ]
-    ),
-  });
+  counterSettingsForm: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,9 +26,55 @@ export class CounterSettingsPage implements OnInit {
 
   ngOnInit() {
     this.counter = this.route.snapshot.data.counter;
-    if (this.counter) {
-      this.counterSettingsForm.patchValue(this.counter);
-    }
+
+    // enable disable input boxed based on checkbox
+    // TODO: this should become a component
+    const positiveWrapAround = new FormControl(
+      {
+        value: this.counter.positiveWrapAround,
+        disabled: !this.counter.positiveWrapAroundActive,
+      },
+      [
+        Validators.min(1)
+      ]
+    );
+    const positiveWrapAroundActive = new FormControl(
+      this.counter.positiveWrapAroundActive,
+      [
+      ]
+    );
+    // enable disable input boxed based on checkbox
+    positiveWrapAroundActive.valueChanges.subscribe(
+      enabled => {
+        if (enabled) {
+          positiveWrapAround.enable();
+        } else {
+          positiveWrapAround.disable();
+        }
+      }
+    );
+
+    this.counterSettingsForm = new FormGroup({
+      title : new FormControl(
+        this.counter.title,
+        [
+        ]
+      ),
+      plusCount : new FormControl(
+        this.counter.plusCount,
+        [
+          Validators.min(0)
+        ]
+      ),
+      minusCount : new FormControl(
+        this.counter.minusCount,
+        [
+          Validators.max(0)
+        ]
+      ),
+      positiveWrapAround,
+      positiveWrapAroundActive,
+    });
   }
 
   async onSubmit() {
@@ -59,20 +87,21 @@ export class CounterSettingsPage implements OnInit {
     this.navController.pop();
   }
 
-  clampMinusCount() {
+  clampMin(formControlName: string, min: number = -1) {
+    console.log(min);
     this.counterSettingsForm.patchValue({
-      minusCount: Math.min(
-        0,
-        this.counterSettingsForm.get('minusCount').value
+      [formControlName]: Math.min(
+        min,
+        this.counterSettingsForm.get(formControlName).value
       )
     });
   }
 
-  clampPlusCount() {
+  clampMax(formControlName: string, max: number = 1) {
     this.counterSettingsForm.patchValue({
-      plusCount: Math.max(
-        0,
-        this.counterSettingsForm.get('plusCount').value
+      [formControlName]: Math.max(
+        max,
+        this.counterSettingsForm.get(formControlName).value
       )
     });
   }

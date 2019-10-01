@@ -36,6 +36,7 @@ export class CountersPage implements OnInit {
 
   public addInstance(counter: Counter, count: number) {
     counter.count += count;
+
     this.counterService.save(counter);
     this.instanceService.save(
       new Instance(
