@@ -5,6 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
+import { NotImplementedModule } from '../not-implemented/not-implemented.module';
+
 import { CounterSettingsPage } from './counter-settings.page';
 
 const routes: Routes = [
@@ -19,7 +21,8 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NotImplementedModule
   ],
   declarations: [CounterSettingsPage]
 })

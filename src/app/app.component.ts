@@ -26,12 +26,13 @@ export class AppComponent {
       url: '/bug',
     },
     {
-      title: 'Counter to Home Screen',
-      icon: 'phone-portrait',
-    },
-    {
       title: 'Help',
       icon: 'help',
+    },
+    {
+      title: 'Settings',
+      icon: 'settings',
+      url: '/settings/',
     },
   ];
 

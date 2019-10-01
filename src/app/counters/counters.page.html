@@ -4,6 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
+      <ion-icon name="infinite"></ion-icon>
       Counters
     </ion-title>
   </ion-toolbar>
@@ -59,7 +60,10 @@
 
       </ion-item>
 
-      <ion-item-options side="end" appNotImplemented description="Edit instances" issueId="8" on="ionSwipe">
+      <ion-item-options
+        side="end"
+        appNotImplemented description="Edit instances" issueId="8" on="ionSwipe"
+      >
         <ion-item-option color="danger">
           <ion-icon slot="icon-only" name="trash" (click)="deleteCounter(counter)"></ion-icon>
         </ion-item-option>
