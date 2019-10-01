@@ -17,7 +17,7 @@ export class CounterSettingsPage implements OnInit {
   private counter: Counter;
   counterSettingsForm = new FormGroup({
     title : new FormControl(''),
-  }); 
+  });
 
   constructor(
     private route: ActivatedRoute,
@@ -27,8 +27,8 @@ export class CounterSettingsPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.counter = this.route.snapshot.data['counter'];
-    if (this.counter){
+    this.counter = this.route.snapshot.data.counter;
+    if (this.counter) {
       this.counterSettingsForm.patchValue(this.counter);
     }
   }
