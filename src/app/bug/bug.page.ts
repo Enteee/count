@@ -13,7 +13,7 @@ export class BugPage implements OnInit {
 
   static readonly GITHUB_URL = 'https://github.com';
   static readonly PROJECT_NAME = 'Enteee/count';
-  static readonly TEMPLATE_ARGS = 'template=bug_report.md'
+  static readonly TEMPLATE_ARGS = 'template=bug_report.md';
   static readonly EMAIL_BODY = '/assets/email-templates/bug_report.md';
   static readonly EMAIL = {
     to: 'count-bug@duckpond.ch',
@@ -41,11 +41,11 @@ export class BugPage implements OnInit {
         this.email = {
           ...BugPage.EMAIL,
           ...{
-            body: body,
+            body,
           }
-        }
+        };
       }
-    )
+    );
   }
 
   openNewIssue() {

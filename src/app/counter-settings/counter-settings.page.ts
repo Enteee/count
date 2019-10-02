@@ -119,7 +119,7 @@ export class CounterSettingsPage implements OnInit {
     this.navController.pop();
   }
 
-  async reset(){
+  async reset() {
     this.counter.count = 0;
     // TODO: Should we add an instance here as well?
     await this.counterService.save(
@@ -129,8 +129,8 @@ export class CounterSettingsPage implements OnInit {
   }
 
   clampMin(formControlName: string, min: number = 0) {
-    let value = this.counterSettingsForm.get(formControlName).value;
-    if(value) {
+    const value = this.counterSettingsForm.get(formControlName).value;
+    if (value) {
       this.counterSettingsForm.patchValue({
         [formControlName]: Math.min(min, value)
       });
@@ -138,10 +138,10 @@ export class CounterSettingsPage implements OnInit {
   }
 
   clampMax(formControlName: string, max: number = 0) {
-    let value = this.counterSettingsForm.get(formControlName).value
-    if(value) {
+    const value = this.counterSettingsForm.get(formControlName).value;
+    if (value) {
       this.counterSettingsForm.patchValue({
-        [formControlName]: Math.max(max,value)
+        [formControlName]: Math.max(max, value)
       });
     }
   }
