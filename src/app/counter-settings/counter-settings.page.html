@@ -19,6 +19,7 @@
     (ngSubmit)="onSubmit()"
   >
       <ion-list>
+
           <ion-item>
             <ion-label position="stacked">Title</ion-label>
             <ion-input
@@ -28,8 +29,11 @@
               placeholder="my Counter"
             ></ion-input>
           </ion-item>
+
           <ion-item>
-            <ion-label position="stacked">Plus Count</ion-label>
+            <ion-label position="stacked">
+              Plus Count
+            </ion-label>
             <ion-input
               required
               formControlName="plusCount"
@@ -37,19 +41,25 @@
               placeholder="0"
               (ionChange)="clampMax('plusCount')"
             >
+              <ion-icon slot="start" name="add"></ion-icon>
             </ion-input>
           </ion-item>
+
           <ion-item>
-            <ion-label position="stacked">Minus Count</ion-label>
+            <ion-label position="stacked">
+              Minus Count
+            </ion-label>
             <ion-input
               required
               formControlName="minusCount"
               type="number"
               placeholder="0"
-              (ionChange)="clampMin('minusCount')"
+              (ionChange)="clampMax('minusCount')"
             >
+              <ion-icon slot="start" name="remove"></ion-icon>
             </ion-input>
           </ion-item>
+
           <ion-item>
             <ion-label position="stacked">Positive Wraparound</ion-label>
             <ion-checkbox
@@ -64,8 +74,10 @@
               placeholder="0"
               (ionChange)="clampMax('positiveWrapAround', 1)"
             >
+              <ion-icon slot="start" name="add"></ion-icon>
             </ion-input>
           </ion-item>
+
           <ion-item>
             <ion-label position="stacked">Negative Wraparound</ion-label>
             <ion-checkbox
@@ -78,18 +90,14 @@
               formControlName="negativeWrapAround"
               type="number"
               placeholder="0"
-              (ionChange)="clampMin('negativeWrapAround', -1)"
+              (ionChange)="clampMax('negativeWrapAround', 1)"
             >
+              <ion-icon slot="start" name="remove"></ion-icon>
             </ion-input>
           </ion-item>
+
       </ion-list>
-      <ion-button
-        size="large"
-        expand="full"
-        appNotImplemented description="Add counter widget to home screen" issueId="2" on="click"
-      >
-        Add to Home Screen
-      </ion-button>
+
       <ion-button
         size="large"
         expand="full"
@@ -97,7 +105,18 @@
         type="submit"
         [disabled]="!counterSettingsForm.valid"
       >
+        <ion-icon name="save"></ion-icon>
         Save
       </ion-button>
+
+      <ion-button
+        size="large"
+        expand="full"
+        appNotImplemented description="Add counter widget to home screen" issueId="2" on="click"
+      >
+        <ion-icon name="phone-portrait"></ion-icon>
+        Add to Home Screen
+      </ion-button>
+
   </form>
 </ion-content>

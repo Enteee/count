@@ -55,11 +55,11 @@ export class CounterSettingsPage implements OnInit {
     );
     const negativeWrapAround = new FormControl(
       {
-        value: this.counter.negativeWrapAround,
+        value: -this.counter.negativeWrapAround,
         disabled: !this.counter.negativeWrapAroundActive,
       },
       [
-        Validators.max(-1)
+        Validators.min(1)
       ]
     );
     const negativeWrapAroundActive = new FormControl(
@@ -91,9 +91,9 @@ export class CounterSettingsPage implements OnInit {
         ]
       ),
       minusCount : new FormControl(
-        this.counter.minusCount,
+        -this.counter.minusCount,
         [
-          Validators.max(0)
+          Validators.min(0)
         ]
       ),
       positiveWrapAround,
@@ -104,6 +104,8 @@ export class CounterSettingsPage implements OnInit {
   }
 
   async onSubmit() {
+    this.counterSettingsForm.value.minusCount = -this.counterSettingsForm.value.minusCount;
+    this.counterSettingsForm.value.negativeWrapAround = -this.counterSettingsForm.value.negativeWrapAround;
     await this.counterService.save(
       Object.assign(
         this.counter,
