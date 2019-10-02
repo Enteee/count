@@ -36,7 +36,7 @@
               formControlName="plusCount"
               type="number"
               placeholder="0"
-              (ionBlur)="clampMax('plusCount')"
+              (ionChange)="clampMax('plusCount')"
             >
             </ion-input>
           </ion-item>
@@ -47,7 +47,7 @@
               formControlName="minusCount"
               type="number"
               placeholder="0"
-              (ionBlur)="clampMin('minusCount')"
+              (ionChange)="clampMin('minusCount')"
             >
             </ion-input>
           </ion-item>
@@ -59,10 +59,11 @@
             >
             </ion-checkbox>
             <ion-input
+              required
               formControlName="positiveWrapAround"
               type="number"
               placeholder="0"
-              (ionBlur)="clampMax('positiveWrapAround', 1)"
+              (ionChange)="clampMax('positiveWrapAround', 1)"
             >
             </ion-input>
           </ion-item>
@@ -74,10 +75,11 @@
             >
             </ion-checkbox>
             <ion-input
+              required
               formControlName="negativeWrapAround"
               type="number"
               placeholder="0"
-              (ionBlur)="clampMin('negativeWrapAround', -1)"
+              (ionChange)="clampMin('negativeWrapAround', -1)"
             >
             </ion-input>
           </ion-item>

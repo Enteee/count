@@ -114,22 +114,21 @@ export class CounterSettingsPage implements OnInit {
   }
 
   clampMin(formControlName: string, min: number = 0) {
-    console.log(min);
-    this.counterSettingsForm.patchValue({
-      [formControlName]: Math.min(
-        min,
-        this.counterSettingsForm.get(formControlName).value
-      )
-    });
+    let value = this.counterSettingsForm.get(formControlName).value;
+    if(value) {
+      this.counterSettingsForm.patchValue({
+        [formControlName]: Math.min(min, value)
+      });
+    }
   }
 
   clampMax(formControlName: string, max: number = 0) {
-    this.counterSettingsForm.patchValue({
-      [formControlName]: Math.max(
-        max,
-        this.counterSettingsForm.get(formControlName).value
-      )
-    });
+    let value = this.counterSettingsForm.get(formControlName).value
+    if(value) {
+      this.counterSettingsForm.patchValue({
+        [formControlName]: Math.max(max,value)
+      });
+    }
   }
 }
 
