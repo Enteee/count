@@ -7,16 +7,13 @@
       <ion-icon name="build"></ion-icon>
       {{counter.title}}
     </ion-title>
-    <ion-buttons slot="end">
-      <ion-back-button color="danger" text="Discard" icon=""></ion-back-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <form
     [formGroup]="counterSettingsForm"
-    (ngSubmit)="onSubmit()"
+    (ngSubmit)="submit()"
   >
       <ion-list>
 
@@ -98,25 +95,66 @@
 
       </ion-list>
 
-      <ion-button
-        size="large"
-        expand="full"
-        color="success"
-        type="submit"
-        [disabled]="!counterSettingsForm.valid"
-      >
-        <ion-icon name="save"></ion-icon>
-        Save
-      </ion-button>
+      <ion-grid>
+        <ion-row>
 
-      <ion-button
-        size="large"
-        expand="full"
-        appNotImplemented description="Add counter widget to home screen" issueId="2" on="click"
-      >
-        <ion-icon name="phone-portrait"></ion-icon>
-        Add to Home Screen
-      </ion-button>
+          <ion-col>
+            <ion-button
+              size="large"
+              expand="full"
+              color="success"
+              type="submit"
+              [disabled]="!counterSettingsForm.valid"
+            >
+              <ion-icon name="save"></ion-icon>
+              Save
+            </ion-button>
+          </ion-col>
+
+          <ion-col>
+            <ion-button
+              size="large"
+              expand="full"
+              color="danger"
+              (click)="discard()"
+            >
+              <ion-icon name="backspace"></ion-icon>
+              Discard
+            </ion-button>
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-button
+              size="large"
+              expand="full"
+              color="warning"
+              (click)="reset()"
+            >
+              <ion-icon name="refresh"></ion-icon>
+              Reset
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+
+            <ion-button
+              size="large"
+              expand="full"
+              appNotImplemented description="Add counter widget to home screen" issueId="2" on="click"
+            >
+              <ion-icon name="phone-portrait"></ion-icon>
+              Add to Home Screen
+            </ion-button>
+
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
 
   </form>
 </ion-content>

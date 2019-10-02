@@ -103,7 +103,7 @@ export class CounterSettingsPage implements OnInit {
     });
   }
 
-  async onSubmit() {
+  async submit() {
     this.counterSettingsForm.value.minusCount = -this.counterSettingsForm.value.minusCount;
     this.counterSettingsForm.value.negativeWrapAround = -this.counterSettingsForm.value.negativeWrapAround;
     await this.counterService.save(
@@ -111,6 +111,19 @@ export class CounterSettingsPage implements OnInit {
         this.counter,
         this.counterSettingsForm.value
       )
+    );
+    this.navController.pop();
+  }
+
+  async discard() {
+    this.navController.pop();
+  }
+
+  async reset(){
+    this.counter.count = 0;
+    // TODO: Should we add an instance here as well?
+    await this.counterService.save(
+      this.counter
     );
     this.navController.pop();
   }
