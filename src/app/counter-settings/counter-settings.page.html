@@ -102,12 +102,11 @@
             <ion-button
               size="large"
               expand="full"
-              color="success"
-              type="submit"
-              [disabled]="!counterSettingsForm.valid"
+              color="danger"
+              (click)="discard()"
             >
-              <ion-icon name="save"></ion-icon>
-              Save
+              <ion-icon name="backspace"></ion-icon>
+              Discard
             </ion-button>
           </ion-col>
 
@@ -115,11 +114,12 @@
             <ion-button
               size="large"
               expand="full"
-              color="danger"
-              (click)="discard()"
+              color="success"
+              type="submit"
+              [disabled]="!counterSettingsForm.valid"
             >
-              <ion-icon name="backspace"></ion-icon>
-              Discard
+              <ion-icon name="save"></ion-icon>
+              Save
             </ion-button>
           </ion-col>
 
