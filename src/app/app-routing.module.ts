@@ -19,6 +19,10 @@ const routes: Routes = [
       counter: CounterService,
     },
     loadChildren: './counter-settings/counter-settings.module#CounterSettingsPageModule'
+  },
+  {
+    path: 'bug',
+    loadChildren: './bug/bug.module#BugPageModule'
   }
 ];
 

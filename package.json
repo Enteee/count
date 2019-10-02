@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
     "@ionic-native/core": "^5.0.0",
+    "@ionic-native/email-composer": "^5.14.0",
     "@ionic-native/geolocation": "^5.14.0",
     "@ionic-native/in-app-browser": "^5.14.0",
     "@ionic-native/splash-screen": "^5.0.0",
@@ -29,6 +30,8 @@
     "@ionic/storage": "^2.2.0",
     "cerialize": "^0.1.18",
     "cordova-android": "^8.1.0",
+    "cordova-browser": "^6.0.0",
+    "cordova-plugin-email-composer": "^0.9.2",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-inappbrowser": "^3.1.0",
     "cordova-sqlite-storage": "^3.3.0",
@@ -84,10 +87,12 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-geolocation": {},
       "cordova-sqlite-storage": {},
-      "cordova-plugin-inappbrowser": {}
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-email-composer": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "browser"
     ]
   }
 }

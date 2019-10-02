@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name="bug"></ion-icon>
+      Report Issue
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <p>
+        We are tracking issues on Github. If you have an account on Github, you can
+        report any issues there.
+      </p>
+    </ion-item>
+    <ion-button slot="end" size="large" expand="full" (click)="openNewIssue()">
+      <ion-icon name="logo-github"></ion-icon>
+      New Issue
+    </ion-button>
+    <ion-item>
+      <p>
+      In case you don't have an account on Github, you can also get in touch via email.
+      </p>
+    </ion-item>
+    <ion-button slot="end" size="large" expand="full" (click)="openNewIssueViaMail()">
+      <ion-icon name="mail"></ion-icon>
+      Send email
+    </ion-button>
+    <ion-item>
+      <p>
+        Thank you for you making this open source app a little bit better.
+        <ion-icon name="heart"></ion-icon>
+        <ion-icon name="heart"></ion-icon>
+        <ion-icon name="heart"></ion-icon>
+      </p>
+    </ion-item>
+  </ion-list>
+</ion-content>
