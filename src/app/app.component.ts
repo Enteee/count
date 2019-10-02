@@ -32,7 +32,7 @@ export class AppComponent {
     {
       title: 'Settings',
       icon: 'settings',
-      url: '/settings/',
+      url: '/settings',
     },
   ];
 

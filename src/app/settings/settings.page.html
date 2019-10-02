@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon name="settings"></ion-icon>
+      Settings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-icon slot="start" name="text"></ion-icon>
+      <ion-label>Language</ion-label>
+      <ion-select slot="end" placeholder="Select One"
+        appNotImplemented description="Select language" issueId="12" on="ionChange"
+      >
+        <ion-select-option value="english">English</ion-select-option>
+        <ion-select-option value="german">German</ion-select-option>
+        <ion-select-option value="french">French</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="moon"></ion-icon>
+      <ion-label>Dark Mode</ion-label>
+      <ion-checkbox
+        slot="end"
+        appNotImplemented description="Toggle dark mode" issueId="10" on="ionChange"
+      >
+      </ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="pin"></ion-icon>
+      <ion-label>Record location</ion-label>
+      <ion-checkbox
+        slot="end"
+        appNotImplemented description="Toggle record location" issueId="1" on="ionChange"
+      >
+      </ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="cash"></ion-icon>
+      <ion-label>Enable Advertisements</ion-label>
+      <ion-checkbox
+        slot="end"
+        appNotImplemented description="Enable Advertisements / Disable Fuel" issueId="11" on="ionChange"
+      >
+      </ion-checkbox>
+    </ion-item>
+
+    <ion-item-sliding>
+      <ion-item>
+        <ion-icon slot="start" name="trash"></ion-icon>
+        <ion-label>Factory reset</ion-label>
+        <ion-icon slot="end" name="arrow-back"></ion-icon>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+</ion-content>

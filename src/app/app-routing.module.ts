@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'bug',
     loadChildren: './bug/bug.module#BugPageModule'
+  },
+  {
+    path: 'settings',
+    loadChildren: './settings/settings.module#SettingsPageModule'
   }
 ];
 
