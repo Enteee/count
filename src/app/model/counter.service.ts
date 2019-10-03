@@ -4,14 +4,14 @@ import { Storage } from '@ionic/storage';
 import { ModelService } from './model.service';
 import { Counter } from './counter';
 
-import { InstanceService } from './instance.service';
+import { CountEventService } from './count-event.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CounterService extends ModelService<Counter> {
 
-  constructor(storage: Storage, private instanceService: InstanceService) {
+  constructor(storage: Storage, private countEventService: CountEventService) {
     super(storage);
   }
 
@@ -39,10 +39,10 @@ export class CounterService extends ModelService<Counter> {
     // which should be create better user experience.
     await super.delete(counter);
 
-    // then, delete all instance of this counter
+    // then, delete all events of this counter
     await Promise.all(
-      this.instanceService.getByCounter(counter).map(
-        (i) => this.instanceService.delete(i)
+      this.countEventService.getByCounter(counter).map(
+        (i) => this.countEventService.delete(i)
       )
     );
   }

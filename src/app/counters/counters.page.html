@@ -19,7 +19,7 @@
           <ion-button
             size="large"
             color="danger"
-            (click)="addInstance(counter, counter.minusCount)"
+            (click)="addCountEvent(counter, counter.minusCount)"
           >
           <div [ngSwitch]="counter.minusCount">
             <div *ngSwitchCase="-1">
@@ -43,7 +43,7 @@
           <ion-button
             size="large"
             color="success"
-            (click)="addInstance(counter, counter.plusCount)"
+            (click)="addCountEvent(counter, counter.plusCount)"
           >
           <div [ngSwitch]="counter.plusCount">
             <div *ngSwitchCase="1">
@@ -62,7 +62,7 @@
 
       <ion-item-options
         side="end"
-        appNotImplemented description="Edit instances" issueId="8" on="ionSwipe"
+        appNotImplemented description="Edit count events" issueId="8" on="ionSwipe"
       >
         <ion-item-option color="danger">
           <ion-icon slot="icon-only" name="trash" (click)="deleteCounter(counter)"></ion-icon>
@@ -76,7 +76,7 @@
           <ion-icon slot="icon-only" name="analytics"></ion-icon>
         </ion-item-option>
 
-        <ion-item-option expandable appNotImplemented description="Edit instances" issueId="8">
+        <ion-item-option expandable appNotImplemented description="Edit count events" issueId="8">
           <ion-icon slot="icon-only" name="create" expandable></ion-icon>
         </ion-item-option>
 

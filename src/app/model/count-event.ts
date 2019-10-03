@@ -5,7 +5,7 @@ import { Model } from './model';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @inheritSerialization(Model)
-export class Instance extends Model {
+export class CountEvent extends Model {
   @autoserialize public counterId: string;
   @autoserialize public count: number;
   @autoserialize public timestamp: Date = new Date();

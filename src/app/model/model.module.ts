@@ -7,19 +7,19 @@ import { AppState } from './app-state';
 import { CounterService } from './counter.service';
 import { Counter } from './counter';
 
-import { InstanceService } from './instance.service';
-import { Instance } from './instance';
+import { CountEventService } from './count-event.service';
+import { CountEvent } from './count-event';
 
 export function initializeModelServices(
   appStateService: AppStateService,
   counterService: CounterService,
-  instanceService: InstanceService
+  countEventService: CountEventService
 ) {
   return async () => {
     Promise.all([
       appStateService.init(AppState),
       counterService.init(Counter),
-      instanceService.init(Instance),
+      countEventService.init(CountEvent),
     ]);
   };
 }
@@ -41,14 +41,14 @@ export class ModelModule {
       providers: [
         AppStateService,
         CounterService,
-        InstanceService,
+        CountEventService,
         {
           provide: APP_INITIALIZER,
           useFactory: initializeModelServices,
           deps: [
             AppStateService,
             CounterService,
-            InstanceService,
+            CountEventService,
           ],
           multi: true,
         },

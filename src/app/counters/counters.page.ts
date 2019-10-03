@@ -3,8 +3,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Counter } from '../model/counter';
 import { CounterService } from '../model/counter.service';
 
-import { Instance } from '../model/instance';
-import { InstanceService } from '../model/instance.service';
+import { CountEvent } from '../model/count-event';
+import { CountEventService } from '../model/count-event.service';
 
 @Component({
   selector: 'app-counters',
@@ -16,7 +16,7 @@ export class CountersPage implements OnInit {
 
   constructor(
     private counterService: CounterService,
-    private instanceService: InstanceService
+    private countEventService: CountEventService
   ) {
   }
 
@@ -34,12 +34,12 @@ export class CountersPage implements OnInit {
     this.counterService.delete(counter);
   }
 
-  public addInstance(counter: Counter, count: number) {
+  public addCountEvent(counter: Counter, count: number) {
     counter.count += count;
 
     this.counterService.save(counter);
-    this.instanceService.save(
-      new Instance(
+    this.countEventService.save(
+      new CountEvent(
         counter.id,
         count
       )

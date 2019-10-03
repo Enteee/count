@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { InstanceService } from './instance.service';
+import { CountEventService } from './count-event.service';
 
-describe('InstanceService', () => {
+describe('CountEventService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: InstanceService = TestBed.get(InstanceService);
+    const service: CountEventService = TestBed.get(CountEventService);
     expect(service).toBeTruthy();
   });
 });
