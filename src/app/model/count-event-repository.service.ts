@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 import { ModelRepositoryService } from './model-repository.service';
 import { CountEvent } from './count-event';
-
 import { Counter } from './counter';
 
 @Injectable({

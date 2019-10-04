@@ -1,0 +1,60 @@
+import { Injectable } from '@angular/core';
+
+import { Counter } from '../model/counter';
+import { CounterRepositoryService } from '../model/counter-repository.service';
+
+import { CountEvent } from '../model/count-event';
+import { CountEventRepositoryService } from '../model/count-event-repository.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CounterService {
+
+  constructor(
+    private counterRepositoryService: CounterRepositoryService,
+    private countEventRepositoryService: CountEventRepositoryService,
+  ) {}
+
+  async delete(counter: Counter) {
+    // first delete the counter: this is so that the ui element disappers
+    // quicker which should be create better user experience.
+    await this.counterRepositoryService.delete(counter);
+
+    // then, delete all events of this counter
+    await Promise.all(
+      this.countEventRepositoryService.getByCounter(counter).map(
+        (i) => this.countEventRepositoryService.delete(i)
+      )
+    );
+  }
+
+  async count(
+    counter: Counter,
+    delta: number,
+  ) {
+    counter.count += delta;
+
+    // apply positive and negative wraparounds
+    if (
+      counter.positiveWrapAroundActive
+      && counter.count > counter.positiveWrapAround
+    ) {
+      counter.count = counter.count % counter.positiveWrapAround;
+    }
+    if (
+      counter.negativeWrapAroundActive
+      && counter.count < counter.negativeWrapAround
+    ) {
+      counter.count = counter.count % counter.negativeWrapAround;
+    }
+
+    this.counterRepositoryService.save(counter);
+    this.countEventRepositoryService.save(
+      new CountEvent(
+        counter.id,
+        delta
+      )
+    );
+  }
+}
