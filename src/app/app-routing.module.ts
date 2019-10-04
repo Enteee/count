@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { AppStateRepositoryService } from './model/app-state-repository.service';
 import { CounterRepositoryService } from './model/counter-repository.service';
 
 const routes: Routes = [
@@ -26,7 +27,10 @@ const routes: Routes = [
   },
   {
     path: 'settings',
-    loadChildren: './settings/settings.module#SettingsPageModule'
+    loadChildren: './settings/settings.module#SettingsPageModule',
+    resolve: {
+      appState: AppStateRepositoryService,
+    },
   }
 ];
 

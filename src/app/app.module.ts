@@ -11,7 +11,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { ModelModule } from './model/model.module';
+import { ServicesModule } from './services/services.module';
 import { NotImplementedModule } from './not-implemented/not-implemented.module';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { NotImplementedModule } from './not-implemented/not-implemented.module';
     IonicStorageModule.forRoot(),
     AppRoutingModule,
     ModelModule.forRoot(),
+    ServicesModule.forRoot(),
     NotImplementedModule.forRoot(),
   ],
   providers: [

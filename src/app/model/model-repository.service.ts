@@ -62,13 +62,14 @@ export class ModelRepositoryService<M extends Model> implements Resolve<M> {
     delete this.models[m.id];
   }
 
+  public getById(id: string): M {
+    return this.models[id];
+  }
+
   public resolve(route: ActivatedRouteSnapshot) {
     return this.getById(
       route.paramMap.get('id')
     );
   }
 
-  public getById(id: string): M {
-    return this.models[id];
-  }
 }

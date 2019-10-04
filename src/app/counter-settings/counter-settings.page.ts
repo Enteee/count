@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { NavController } from '@ionic/angular';
@@ -22,7 +22,6 @@ export class CounterSettingsPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private counterRepositoryService: CounterRepositoryService,
     private countEventRepositoryService: CountEventRepositoryService,
     private navController: NavController
