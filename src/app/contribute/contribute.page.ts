@@ -23,7 +23,7 @@ export class ContributePage {
   static readonly TEMPLATE_BUG = 'bug_report.md';
   static readonly TEMPLATE_FEATURE = 'feature_request.md';
 
-  static readonly LIBREPAY_URL= 'https://liberapay.com';
+  static readonly LIBREPAY_URL = 'https://liberapay.com';
   static readonly LIBREPAY_USER = 'Ente';
 
   constructor(
@@ -36,22 +36,22 @@ export class ContributePage {
   private getTemplateName(
     templateType: TemplateType
   ): string {
-    switch (templateType){
+    switch (templateType) {
       default:
       case 'bug':
         return ContributePage.TEMPLATE_BUG;
-      break;
+        break;
       case 'feature':
         return ContributePage.TEMPLATE_FEATURE;
-      break;
+        break;
     }
   }
 
   private async getEmailTemplate(
     templateType: TemplateType
-  ){
-    let templateName = this.getTemplateName(templateType);
-    let body = await this.httpClient.get(
+  ) {
+    const templateName = this.getTemplateName(templateType);
+    const body = await this.httpClient.get(
       `${ContributePage.EMAIL_BODY_TEMPLATES}/${templateName}`,
       {
         responseType: 'text'
@@ -61,14 +61,14 @@ export class ContributePage {
     return {
       to: `${ContributePage.EMAIL_PREFIX}${templateType}@${ContributePage.EMAIL_DOMAIN}`,
       subject: `[${templateType}]: `,
-      body: body,
-    }
+      body,
+    };
   }
 
   async openNewGithub(
     templateType: TemplateType
   ) {
-    let templateName = this.getTemplateName(templateType);
+    const templateName = this.getTemplateName(templateType);
     this.iab.create(
       `${ContributePage.GITHUB_URL}/${ContributePage.PROJECT_NAME}/issues/new?template=${templateName}`
     );
@@ -82,7 +82,7 @@ export class ContributePage {
     );
   }
 
-  async openDonate(){
+  async openDonate() {
     this.iab.create(
       `${ContributePage.LIBREPAY_URL}/${ContributePage.LIBREPAY_USER}`
     );
