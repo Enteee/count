@@ -35,6 +35,16 @@
     </ion-item>
 
     <ion-item>
+      <ion-icon slot="start" name="hand"></ion-icon>
+      <ion-label>Left-handed mode</ion-label>
+      <ion-checkbox
+        slot="end"
+        appNotImplemented description="Switch to left-handed mode" issueId="14" on="ionChange"
+      >
+      </ion-checkbox>
+    </ion-item>
+
+    <ion-item>
       <ion-icon slot="start" name="pin"></ion-icon>
       <ion-label>Record location</ion-label>
       <ion-checkbox
@@ -52,6 +62,26 @@
         appNotImplemented description="Enable Advertisements / Disable Fuel" issueId="11" on="ionChange"
       >
       </ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="download"></ion-icon>
+      <ion-label>Backup</ion-label>
+      <ion-button
+        expand="full"
+        color="success"
+        appNotImplemented description="Save to backup file" issueId="15" on="click"
+      >
+        Save
+      </ion-button>
+
+      <ion-button
+        expand="full"
+        color="danger"
+        appNotImplemented description="Restore from a saved backup" issueId="15" on="click"
+      >
+        Restore
+      </ion-button>
     </ion-item>
 
     <ion-item-sliding>
