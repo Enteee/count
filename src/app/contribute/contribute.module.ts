@@ -9,12 +9,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
-import { BugPage } from './bug.page';
+import { ContributePage } from './contribute.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: BugPage
+    component: ContributePage
   }
 ];
 
@@ -27,11 +27,11 @@ const routes: Routes = [
     HttpClientModule,
   ],
   declarations: [
-    BugPage
+    ContributePage
   ],
   providers: [
     InAppBrowser,
     EmailComposer,
   ]
 })
-export class BugPageModule {}
+export class ContributePageModule {}

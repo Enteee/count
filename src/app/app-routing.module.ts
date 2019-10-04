@@ -22,8 +22,8 @@ const routes: Routes = [
     loadChildren: './counter-settings/counter-settings.module#CounterSettingsPageModule'
   },
   {
-    path: 'bug',
-    loadChildren: './bug/bug.module#BugPageModule'
+    path: 'contribute',
+    loadChildren: './contribute/contribute.module#ContributePageModule'
   },
   {
     path: 'settings',

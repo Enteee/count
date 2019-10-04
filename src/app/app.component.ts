@@ -21,9 +21,9 @@ export class AppComponent {
       icon: 'cash'
     },
     {
-      title: 'Report Issue',
-      icon: 'bug',
-      url: '/bug',
+      title: 'Contribute',
+      icon: 'heart',
+      url: '/contribute',
     },
     {
       title: 'Help',
