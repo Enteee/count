@@ -15,6 +15,6 @@ export class ServicesModule {
       ngModule: ServicesModule,
       providers: [
       ]
-    }
+    };
   }
 }

@@ -22,14 +22,14 @@ export class PlusMinusCounterComponent implements OnInit {
     this.counterService.delete(this.counter);
   }
 
-  countPlus(){
+  countPlus() {
     this.counterService.count(
       this.counter,
       this.counter.plusCount,
     );
   }
 
-  countMinus(){
+  countMinus() {
     this.counterService.count(
       this.counter,
       this.counter.minusCount,

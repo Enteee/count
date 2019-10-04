@@ -19,9 +19,9 @@ export class NotImplemented  implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(this.appStateRepositoryService.state.disableNotImplemented){
+    if (this.appStateRepositoryService.state.disableNotImplemented) {
       this.elementRef.nativeElement.style.display = 'none';
-      return
+      return;
     }
   }
 

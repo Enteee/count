@@ -1,4 +1,4 @@
-import { Directive, Input, Renderer2, ElementRef } from '@angular/core';
+import { Directive, Input, Renderer2, ElementRef, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 import { NotImplemented } from './not-implemented';
@@ -8,7 +8,7 @@ import { AppStateRepositoryService } from '../model/app-state-repository.service
 @Directive({
   selector: '[appNotImplemented]',
 })
-export class NotImplementedDirective extends NotImplemented {
+export class NotImplementedDirective extends NotImplemented implements OnInit {
 
   @Input() public on = 'click';
 

@@ -37,6 +37,6 @@ export class NotImplementedModule {
       ngModule: NotImplementedModule,
       providers: [
       ]
-    }
+    };
   }
 }

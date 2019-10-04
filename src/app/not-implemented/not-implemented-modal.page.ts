@@ -3,7 +3,7 @@ import { ModalController } from '@ionic/angular';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
-import { AppStateService } from '../services/app-state.service'
+import { AppStateService } from '../services/app-state.service';
 
 @Component({
   selector: 'app-not-implemented-modal',

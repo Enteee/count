@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { AppState } from '../model/app-state';
-import { AppStateRepositoryService } from  '../model/app-state-repository.service';
+import { AppStateRepositoryService } from '../model/app-state-repository.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class AppStateService {
   ) { }
 
   async disableNotImplemented() {
-    let appState = this.appStateRepositoryService.state;
+    const appState = this.appStateRepositoryService.state;
     appState.disableNotImplemented = true;
     await this.appStateRepositoryService.save(appState);
   }
