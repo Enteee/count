@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
-import { ModelService } from './model.service';
+import { ModelRepositoryService } from './model-repository.service';
 import { Counter } from './counter';
 
-import { CountEventService } from './count-event.service';
+import { CountEventRepositoryService } from './count-event-repository.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CounterService extends ModelService<Counter> {
+export class CounterRepositoryService extends ModelRepositoryService<Counter> {
 
-  constructor(storage: Storage, private countEventService: CountEventService) {
+  constructor(storage: Storage, private countEventRepositoryService: CountEventRepositoryService) {
     super(storage);
   }
 
@@ -41,8 +41,8 @@ export class CounterService extends ModelService<Counter> {
 
     // then, delete all events of this counter
     await Promise.all(
-      this.countEventService.getByCounter(counter).map(
-        (i) => this.countEventService.delete(i)
+      this.countEventRepositoryService.getByCounter(counter).map(
+        (i) => this.countEventRepositoryService.delete(i)
       )
     );
   }

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { ModelService } from './model.service';
+import { ModelRepositoryService } from './model-repository.service';
 import { AppState } from './app-state';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AppStateService extends ModelService<AppState> {
+export class AppStateRepositoryService extends ModelRepositoryService<AppState> {
 
   /**
    * Get the app state, or create one if it does not exist

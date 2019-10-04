@@ -1,24 +1,24 @@
 import { NgModule, ModuleWithProviders, APP_INITIALIZER } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AppStateService } from './app-state.service';
+import { AppStateRepositoryService } from './app-state-repository.service';
 import { AppState } from './app-state';
 
-import { CounterService } from './counter.service';
+import { CounterRepositoryService } from './counter-repository.service';
 import { Counter } from './counter';
 
-import { CountEventService } from './count-event.service';
+import { CountEventRepositoryService } from './count-event-repository.service';
 import { CountEvent } from './count-event';
 
 export function initializeModelServices(
-  appStateService: AppStateService,
-  counterService: CounterService,
-  countEventService: CountEventService
+  appStateRepositoryService: AppStateRepositoryService,
+  counterRepositoryService: CounterRepositoryService,
+  countEventService: CountEventRepositoryService
 ) {
   return async () => {
     Promise.all([
-      appStateService.init(AppState),
-      counterService.init(Counter),
+      appStateRepositoryService.init(AppState),
+      counterRepositoryService.init(Counter),
       countEventService.init(CountEvent),
     ]);
   };
@@ -39,16 +39,16 @@ export class ModelModule {
     return {
       ngModule: ModelModule,
       providers: [
-        AppStateService,
-        CounterService,
-        CountEventService,
+        AppStateRepositoryService,
+        CounterRepositoryService,
+        CountEventRepositoryService,
         {
           provide: APP_INITIALIZER,
           useFactory: initializeModelServices,
           deps: [
-            AppStateService,
-            CounterService,
-            CountEventService,
+            AppStateRepositoryService,
+            CounterRepositoryService,
+            CountEventRepositoryService,
           ],
           multi: true,
         },

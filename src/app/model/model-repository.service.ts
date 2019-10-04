@@ -7,16 +7,16 @@ import { Serialize, Deserialize } from 'cerialize';
 import { Model } from './model';
 
 /**
- * A generic ModelService which stores models in a Ionic Storage.
+ * A generic ModelRepositoryService which stores models in a Ionic Storage.
  *
  * Ionic Storage is just a simple key/value storage, which means this will store
  * all the model information at the same place. This is obviously not ideal.
  * On the upside Ionic Storage is highly portable and should work on all devices
  * as well as in a web browser without cordova support.
  *
- * ModelService implements basic separation of models using constructor names.
+ * ModelRepositoryService implements basic separation of models using constructor names.
  */
-export class ModelService<M extends Model> implements Resolve<M> {
+export class ModelRepositoryService<M extends Model> implements Resolve<M> {
 
   private models: Record<string, M> = {};
   private MCtor: new (...args: any[]) => M;

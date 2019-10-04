@@ -5,10 +5,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 
 import { Counter } from '../model/counter';
-import { CounterService } from '../model/counter.service';
+import { CounterRepositoryService } from '../model/counter-repository.service';
 
 import { CountEvent } from '../model/count-event';
-import { CountEventService } from '../model/count-event.service';
+import { CountEventRepositoryService } from '../model/count-event-repository.service';
 
 @Component({
   selector: 'app-counter-settings',
@@ -23,8 +23,8 @@ export class CounterSettingsPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private counterService: CounterService,
-    private countEventService: CountEventService,
+    private counterRepositoryService: CounterRepositoryService,
+    private countEventRepositoryService: CountEventRepositoryService,
     private navController: NavController
   ) {}
 
@@ -111,7 +111,7 @@ export class CounterSettingsPage implements OnInit {
     this.counterSettingsForm.value.minusCount = -this.counterSettingsForm.value.minusCount;
     this.counterSettingsForm.value.negativeWrapAround = -this.counterSettingsForm.value.negativeWrapAround;
 
-    await this.counterService.save(
+    await this.counterRepositoryService.save(
       Object.assign(
         this.counter,
         this.counterSettingsForm.value
@@ -127,10 +127,10 @@ export class CounterSettingsPage implements OnInit {
   async reset() {
     this.counter.count = 0;
     await Promise.all([
-      this.counterService.save(
+      this.counterRepositoryService.save(
         this.counter
       ),
-      this.countEventService.save(
+      this.countEventRepositoryService.save(
         new CountEvent(
           this.counter.id,
           0,

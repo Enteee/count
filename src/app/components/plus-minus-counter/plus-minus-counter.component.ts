@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Counter } from '../../model/counter';
-import { CounterService } from '../../model/counter.service';
+import { CounterRepositoryService } from '../../model/counter-repository.service';
 
 import { CountEvent } from '../../model/count-event';
-import { CountEventService } from '../../model/count-event.service';
+import { CountEventRepositoryService } from '../../model/count-event-repository.service';
 
 @Component({
   selector: 'app-plus-minus-counter',
@@ -16,21 +16,21 @@ export class PlusMinusCounterComponent implements OnInit {
   @Input() counter: Counter;
 
   constructor(
-    private counterService: CounterService,
-    private countEventService: CountEventService
+    private counterRepositoryService: CounterRepositoryService,
+    private countEventRepositoryService: CountEventRepositoryService
   ) {}
 
   ngOnInit() {}
 
   public deleteCounter(counter: Counter) {
-    this.counterService.delete(counter);
+    this.counterRepositoryService.delete(counter);
   }
 
   public addCountEvent(counter: Counter, delta: number) {
     counter.count += delta;
 
-    this.counterService.save(counter);
-    this.countEventService.save(
+    this.counterRepositoryService.save(counter);
+    this.countEventRepositoryService.save(
       new CountEvent(
         counter.id,
         delta

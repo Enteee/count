@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AppState } from '../model/app-state';
-import { AppStateService } from '../model/app-state.service';
+import { AppStateRepositoryService } from '../model/app-state-repository.service';
 
 @Component({
   selector: 'app-settings',
@@ -11,7 +11,7 @@ import { AppStateService } from '../model/app-state.service';
 export class SettingsPage implements OnInit {
 
   constructor(
-    private appStateService: AppStateService
+    private appStateRepositoryService: AppStateRepositoryService
   ) { }
 
   ngOnInit() {

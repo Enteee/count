@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Counter } from '../model/counter';
-import { CounterService } from '../model/counter.service';
+import { CounterRepositoryService } from '../model/counter-repository.service';
 
 @Component({
   selector: 'app-counters',
@@ -12,7 +12,7 @@ export class CountersPage implements OnInit {
   private selectedItem: any;
 
   constructor(
-    private counterService: CounterService,
+    private counterRepositoryService: CounterRepositoryService,
   ) {
   }
 
@@ -20,11 +20,11 @@ export class CountersPage implements OnInit {
   }
 
   get counters() {
-    return this.counterService.all;
+    return this.counterRepositoryService.all;
   }
 
   public addCounter() {
-    this.counterService.save(
+    this.counterRepositoryService.save(
       new Counter()
     );
   }

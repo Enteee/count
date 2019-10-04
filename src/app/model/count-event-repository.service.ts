@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { ModelService } from './model.service';
+import { ModelRepositoryService } from './model-repository.service';
 import { CountEvent } from './count-event';
 
 import { Counter } from './counter';
@@ -8,7 +8,7 @@ import { Counter } from './counter';
 @Injectable({
   providedIn: 'root'
 })
-export class CountEventService extends ModelService<CountEvent> {
+export class CountEventRepositoryService extends ModelRepositoryService<CountEvent> {
 
   public getByCounter(counter: Counter): Array<CountEvent> {
     return this.all.filter(
