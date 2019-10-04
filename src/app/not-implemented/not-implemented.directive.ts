@@ -1,20 +1,33 @@
-import { Directive, Input, Renderer2, ElementRef, OnInit } from '@angular/core';
+import { Directive, Input, Renderer2, ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 import { NotImplemented } from './not-implemented';
 
+import { AppStateRepositoryService } from '../model/app-state-repository.service';
+
 @Directive({
   selector: '[appNotImplemented]',
 })
-export class NotImplementedDirective extends NotImplemented implements OnInit {
+export class NotImplementedDirective extends NotImplemented {
 
   @Input() public on = 'click';
 
-  constructor(public modalController: ModalController, private renderer: Renderer2, private elementRef: ElementRef) {
-    super(modalController);
+  constructor(
+    private renderer: Renderer2,
+    modalController: ModalController,
+    elementRef: ElementRef,
+    appStateRepositoryService: AppStateRepositoryService,
+  ) {
+    super(
+      modalController,
+      elementRef,
+      appStateRepositoryService,
+    );
   }
 
   ngOnInit() {
+    super.ngOnInit();
+
     this.renderer.listen(
       this.elementRef.nativeElement,
       this.on,

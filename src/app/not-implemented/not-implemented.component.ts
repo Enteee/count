@@ -8,5 +8,4 @@ import { NotImplemented } from './not-implemented';
   styleUrls: ['./not-implemented.component.scss'],
 })
 export class NotImplementedComponent extends NotImplemented {
-
 }

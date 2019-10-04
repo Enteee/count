@@ -11,13 +11,16 @@
 </ion-header>
 
 <ion-content>
+
   <ion-item>
     <p>This feature was not implemented, yet.</p>
   </ion-item>
+
   <ion-item *ngIf="description">
     <ion-label position="stacked">Summary</ion-label>
     <p>{{description}}</p>
   </ion-item>
+
   <ion-item *ngIf="issueId">
     <ion-label position="stacked">
       Support <ion-icon name="heart"></ion-icon>
@@ -46,5 +49,19 @@
         </ion-label>
       </ion-item>
     </ion-list>
+  </ion-item>
+
+  <ion-item>
+    <p>If you are not interested in previews, you can also disable all not implemented feautres:</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon slot="start" name="construct"></ion-icon>
+    <ion-label>Disable not implemented</ion-label>
+    <ion-checkbox
+      slot="end"
+      (ionChange)="disableNotImplemented()"
+    >
+    </ion-checkbox>
   </ion-item>
 </ion-content>

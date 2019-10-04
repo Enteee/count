@@ -12,10 +12,10 @@ export class AppStateService {
     private appStateRepositoryService: AppStateRepositoryService,
   ) { }
 
-  set disableNotImplemented(value: boolean) {
+  async disableNotImplemented() {
     let appState = this.appStateRepositoryService.state;
-    appState.disableNotImplemented = value;
-    this.appStateRepositoryService.save(appState);
+    appState.disableNotImplemented = true;
+    await this.appStateRepositoryService.save(appState);
   }
 
 }
