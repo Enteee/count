@@ -34,14 +34,14 @@ export class CountersPage implements OnInit {
     this.counterService.delete(counter);
   }
 
-  public addCountEvent(counter: Counter, count: number) {
-    counter.count += count;
+  public addCountEvent(counter: Counter, delta: number) {
+    counter.count += delta;
 
     this.counterService.save(counter);
     this.countEventService.save(
       new CountEvent(
         counter.id,
-        count
+        delta
       )
     );
   }
