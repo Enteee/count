@@ -7,6 +7,9 @@ import { NavController } from '@ionic/angular';
 import { Counter } from '../model/counter';
 import { CounterService } from '../model/counter.service';
 
+import { CountEvent } from '../model/count-event';
+import { CountEventService } from '../model/count-event.service';
+
 @Component({
   selector: 'app-counter-settings',
   templateUrl: './counter-settings.page.html',
@@ -21,6 +24,7 @@ export class CounterSettingsPage implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private counterService: CounterService,
+    private countEventService: CountEventService,
     private navController: NavController
   ) {}
 
@@ -106,6 +110,7 @@ export class CounterSettingsPage implements OnInit {
   async submit() {
     this.counterSettingsForm.value.minusCount = -this.counterSettingsForm.value.minusCount;
     this.counterSettingsForm.value.negativeWrapAround = -this.counterSettingsForm.value.negativeWrapAround;
+
     await this.counterService.save(
       Object.assign(
         this.counter,
@@ -121,10 +126,18 @@ export class CounterSettingsPage implements OnInit {
 
   async reset() {
     this.counter.count = 0;
-    // TODO: Should we add an instance here as well?
-    await this.counterService.save(
-      this.counter
-    );
+    await Promise.all([
+      this.counterService.save(
+        this.counter
+      ),
+      this.countEventService.save(
+        new CountEvent(
+          this.counter.id,
+          0,
+          'reset'
+        )
+      ),
+    ]);
     this.navController.pop();
   }
 
