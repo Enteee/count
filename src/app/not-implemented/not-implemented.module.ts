@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
@@ -30,6 +30,13 @@ import { NotImplementedDirective } from './not-implemented.directive';
   providers: [
     InAppBrowser,
   ]
-
 })
-export class NotImplementedModule {}
+export class NotImplementedModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: NotImplementedModule,
+      providers: [
+      ]
+    }
+  }
+}

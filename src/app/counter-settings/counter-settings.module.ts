@@ -22,7 +22,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    NotImplementedModule
+    NotImplementedModule,
   ],
   declarations: [CounterSettingsPage]
 })

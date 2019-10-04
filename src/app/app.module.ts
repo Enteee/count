@@ -24,7 +24,7 @@ import { NotImplementedModule } from './not-implemented/not-implemented.module';
     IonicStorageModule.forRoot(),
     AppRoutingModule,
     ModelModule.forRoot(),
-    NotImplementedModule,
+    NotImplementedModule.forRoot(),
   ],
   providers: [
     StatusBar,
