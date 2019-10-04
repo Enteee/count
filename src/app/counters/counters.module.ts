@@ -8,12 +8,15 @@ import { CountersPage } from './counters.page';
 
 import { NotImplementedModule } from '../not-implemented/not-implemented.module';
 
+import { ComponentsModule } from '../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     NotImplementedModule,
+    ComponentsModule,
     RouterModule.forChild([
       {
         path: '',

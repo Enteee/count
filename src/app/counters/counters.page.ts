@@ -3,9 +3,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Counter } from '../model/counter';
 import { CounterService } from '../model/counter.service';
 
-import { CountEvent } from '../model/count-event';
-import { CountEventService } from '../model/count-event.service';
-
 @Component({
   selector: 'app-counters',
   templateUrl: 'counters.page.html',
@@ -16,8 +13,10 @@ export class CountersPage implements OnInit {
 
   constructor(
     private counterService: CounterService,
-    private countEventService: CountEventService
   ) {
+  }
+
+  ngOnInit() {
   }
 
   get counters() {
@@ -30,26 +29,4 @@ export class CountersPage implements OnInit {
     );
   }
 
-  public deleteCounter(counter: Counter) {
-    this.counterService.delete(counter);
-  }
-
-  public addCountEvent(counter: Counter, delta: number) {
-    counter.count += delta;
-
-    this.counterService.save(counter);
-    this.countEventService.save(
-      new CountEvent(
-        counter.id,
-        delta
-      )
-    );
-  }
-
-  ngOnInit() {
-  }
-  // add back when alpha.4 is out
-  // navigate(item) {
-  //   this.router.navigate(['/counters', JSON.stringify(item)]);
-  // }
 }
