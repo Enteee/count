@@ -57,4 +57,22 @@ export class CounterService {
       )
     );
   }
+
+  async reset(
+    counter: Counter,
+  ) {
+    counter.count = 0;
+    await Promise.all([
+      this.counterRepositoryService.save(
+        counter
+      ),
+      this.countEventRepositoryService.save(
+        new CountEvent(
+          counter.id,
+          0,
+          'reset'
+        )
+      ),
+    ]);
+  }
 }

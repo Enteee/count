@@ -7,8 +7,9 @@ import { NavController } from '@ionic/angular';
 import { Counter } from '../model/counter';
 import { CounterRepositoryService } from '../model/counter-repository.service';
 
-import { CountEvent } from '../model/count-event';
-import { CountEventRepositoryService } from '../model/count-event-repository.service';
+import { CounterService } from '../services/counter.service';
+
+type ClampFunction = 'max' | 'min';
 
 @Component({
   selector: 'app-counter-settings',
@@ -23,7 +24,7 @@ export class CounterSettingsPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private counterRepositoryService: CounterRepositoryService,
-    private countEventRepositoryService: CountEventRepositoryService,
+    private counterService: CounterService,
     private navController: NavController
   ) {}
 
@@ -124,36 +125,19 @@ export class CounterSettingsPage implements OnInit {
   }
 
   async reset() {
-    this.counter.count = 0;
-    await Promise.all([
-      this.counterRepositoryService.save(
-        this.counter
-      ),
-      this.countEventRepositoryService.save(
-        new CountEvent(
-          this.counter.id,
-          0,
-          'reset'
-        )
-      ),
-    ]);
+    await this.counterService.reset(this.counter);
     this.navController.pop();
   }
 
-  clampMin(formControlName: string, min: number = 0) {
+  clamp(
+    formControlName: string,
+    clampValue: number = 0,
+    clampFunction = ('max' as ClampFunction),
+  ) {
     const value = this.counterSettingsForm.get(formControlName).value;
     if (value) {
       this.counterSettingsForm.patchValue({
-        [formControlName]: Math.min(min, value)
-      });
-    }
-  }
-
-  clampMax(formControlName: string, max: number = 0) {
-    const value = this.counterSettingsForm.get(formControlName).value;
-    if (value) {
-      this.counterSettingsForm.patchValue({
-        [formControlName]: Math.max(max, value)
+        [formControlName]: Math[clampFunction](clampValue, value)
       });
     }
   }
