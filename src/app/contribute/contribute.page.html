@@ -15,32 +15,99 @@
 
 <ion-content>
   <ion-list>
+
     <ion-item>
       <p>
-        We are tracking issues on Github. If you have an account on Github, you can
-        report any issues there.
-      </p>
-    </ion-item>
-    <ion-button slot="end" size="large" expand="full" (click)="openNewIssue()">
-      <ion-icon name="logo-github"></ion-icon>
-      New Issue
-    </ion-button>
-    <ion-item>
-      <p>
-      In case you don't have an account on Github, you can also get in touch via email.
-      </p>
-    </ion-item>
-    <ion-button slot="end" size="large" expand="full" (click)="openNewIssueViaMail()">
-      <ion-icon name="mail"></ion-icon>
-      Send email
-    </ion-button>
-    <ion-item>
-      <p>
+        We are tracking bugs <ion-icon name="bug"></ion-icon> and features
+        <ion-icon name="construct"></ion-icon> on Github <ion-icon name="logo-github"></ion-icon>.
+        In case you don't have an account on there, you can also get in touch via email <ion-icon name="mail"></ion-icon>.
+        <br><br>
         Thank you for you making this open source app a little bit better.
         <ion-icon name="heart"></ion-icon>
         <ion-icon name="heart"></ion-icon>
         <ion-icon name="heart"></ion-icon>
       </p>
     </ion-item>
+
+
+    <ion-item>
+
+      <ion-label position="stacked">
+        <ion-icon name="bug"></ion-icon>
+        Bug
+      </ion-label>
+
+      <ion-grid>
+        <ion-row>
+
+          <ion-col>
+            <ion-button size="large" expand="full" (click)="openNewGithub('bug')">
+              <ion-icon name="logo-github"></ion-icon>
+            </ion-button>
+          </ion-col>
+
+          <ion-col>
+            <ion-button size="large" expand="full" (click)="openNewMail('bug')">
+              <ion-icon name="mail"></ion-icon>
+            </ion-button>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label position="stacked">
+        <ion-icon name="construct"></ion-icon>
+        Feature
+      </ion-label>
+
+      <ion-grid>
+        <ion-row>
+
+          <ion-col>
+            <ion-button size="large" expand="full" (click)="openNewGithub('feature')">
+              <ion-icon name="logo-github"></ion-icon>
+            </ion-button>
+          </ion-col>
+
+          <ion-col>
+            <ion-button size="large" expand="full" (click)="openNewMail('feature')">
+              <ion-icon name="mail"></ion-icon>
+            </ion-button>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label position="stacked">
+        <ion-icon name="cash"></ion-icon>
+        Donation
+      </ion-label>
+
+      <ion-grid>
+        <ion-row>
+
+          <ion-col>
+            <ion-button
+              size="large"
+              expand="full"
+              (click)="openDonate()"
+            >
+              <ion-icon name="card"></ion-icon>
+            </ion-button>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+    </ion-item>
+
   </ion-list>
 </ion-content>
