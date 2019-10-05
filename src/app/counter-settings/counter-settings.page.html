@@ -1,12 +1,21 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-back-button icon="close"></ion-back-button>
     </ion-buttons>
     <ion-title>
       <ion-icon name="build"></ion-icon>
       {{counter.title}}
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button
+        color="success"
+        [disabled]="!counterSettingsForm.valid"
+        (click)="submit()"
+      >
+        Save
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -96,32 +105,6 @@
       </ion-list>
 
       <ion-grid>
-        <ion-row>
-
-          <ion-col>
-            <ion-button
-              expand="full"
-              color="danger"
-              (click)="discard()"
-            >
-              <ion-icon name="backspace"></ion-icon>
-              Discard
-            </ion-button>
-          </ion-col>
-
-          <ion-col>
-            <ion-button
-              expand="full"
-              color="success"
-              type="submit"
-              [disabled]="!counterSettingsForm.valid"
-            >
-              <ion-icon name="save"></ion-icon>
-              Save
-            </ion-button>
-          </ion-col>
-
-        </ion-row>
 
         <ion-row>
           <ion-col>
