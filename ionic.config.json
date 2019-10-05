@@ -1,0 +1,8 @@
+{
+  "name": "count",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "1c4c563f"
+}

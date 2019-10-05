@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon name="infinite"></ion-icon>
+      Counters
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngFor="let counter of counters">
+      <app-plus-minus-counter [counter]="counter"></app-plus-minus-counter>
+    </div>
+  </ion-list>
+  <ion-button size="large" expand="full" (click)="addCounter()">
+    <ion-icon name="add"></ion-icon>
+  </ion-button>
+</ion-content>
