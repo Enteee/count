@@ -21,26 +21,13 @@ export class ModelRepositoryService<M extends Model> implements Resolve<M> {
   private models: Record<string, M> = {};
   private MCtor: new (...args: any[]) => M;
 
-  constructor(private storage: Storage) {
-  }
+  constructor(private storage: Storage) {}
 
   public async init(MCtor: new (...args: any[]) => M) {
     // Because Typescript does not have type information available,
     // at runtime we have to pass in here the constructor of M (MCtor).
     this.MCtor = MCtor;
-
-    await this.storage.forEach(
-      (v: object, k: string) => {
-        // only load instance of this class
-        if (k.startsWith(this.MCtor.name)) {
-          const model = Deserialize(
-            v,
-            this.MCtor
-          ) as M;
-          this.models[model.id] = model;
-        }
-      }
-    );
+    await this.loadAll();
   }
 
   get all(): Array<M> {
@@ -62,6 +49,35 @@ export class ModelRepositoryService<M extends Model> implements Resolve<M> {
     delete this.models[m.id];
   }
 
+  public async deleteAll() {
+    let modelsToDelete: Array<M> = [];
+
+    await this.storage.forEach(
+      (v: object, k: string) => {
+        // only delete instance of this class
+        if (k.startsWith(this.MCtor.name)) {
+          modelsToDelete.push(
+            Deserialize(
+              v,
+              this.MCtor
+            ) as M
+          );
+        }
+      }
+    );
+
+    await Promise.all(
+      modelsToDelete.map(
+        async (model) => {
+          delete this.models[model.id];
+          await this.storage.remove(
+            this.MCtor.name + model.id,
+          );
+        }
+      )
+    );
+  }
+
   public getById(id: string): M {
     return this.models[id];
   }
@@ -69,6 +85,21 @@ export class ModelRepositoryService<M extends Model> implements Resolve<M> {
   public resolve(route: ActivatedRouteSnapshot) {
     return this.getById(
       route.paramMap.get('id')
+    );
+  }
+
+  private async loadAll() {
+    await this.storage.forEach(
+      (v: object, k: string) => {
+        // only load instance of this class
+        if (k.startsWith(this.MCtor.name)) {
+          const model = Deserialize(
+            v,
+            this.MCtor
+          ) as M;
+          this.models[model.id] = model;
+        }
+      }
     );
   }
 

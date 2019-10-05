@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot } from '@angular/router';
 
 import { ModelRepositoryService } from './model-repository.service';
 import { AppState } from './app-state';
@@ -9,21 +8,25 @@ import { AppState } from './app-state';
 })
 export class AppStateRepositoryService extends ModelRepositoryService<AppState> {
 
-  /**
-   * Get the app state, or create one if it does not exist
-   */
-  get state(): AppState {
-    let state = this.all[0];
-    if (!state) {
-      state = new AppState();
-      this.save(state);
-    }
-    return state;
+  public async init(MCtor: new (...args: any[]) => AppState) {
+    await super.init(MCtor);
+
+    // no matter how many app states were saved, only keep one.
+    await this.save(
+      this.all[0] || new AppState()
+    );
   }
 
-  public resolve(route: ActivatedRouteSnapshot) {
-    // always return the same app state
+  public async save(m: AppState) {
+    await this.deleteAll(); // app state is unique, delete all others before saving
+    super.save(m);
+  }
+
+  get state(): AppState {
+    return this.all[0];
+  }
+
+  public resolve() {
     return this.state;
   }
-
 }

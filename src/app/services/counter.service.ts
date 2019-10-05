@@ -49,13 +49,15 @@ export class CounterService {
       counter.count = counter.count % counter.negativeWrapAround;
     }
 
-    this.counterRepositoryService.save(counter);
-    this.countEventRepositoryService.save(
-      new CountEvent(
-        counter.id,
-        delta
+    await Promise.all([
+      this.counterRepositoryService.save(counter),
+      this.countEventRepositoryService.save(
+        new CountEvent(
+          counter.id,
+          delta
+        )
       )
-    );
+    ]);
   }
 
   async reset(
