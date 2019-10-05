@@ -50,7 +50,7 @@ export class ModelRepositoryService<M extends Model> implements Resolve<M> {
   }
 
   public async deleteAll() {
-    let modelsToDelete: Array<M> = [];
+    const modelsToDelete: Array<M> = [];
 
     await this.storage.forEach(
       (v: object, k: string) => {
