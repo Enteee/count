@@ -18,7 +18,7 @@ export class ContributePage {
 
   static readonly EMAIL_PREFIX = 'count-';
   static readonly EMAIL_DOMAIN = 'duckpond.ch';
-  static readonly EMAIL_BODY_TEMPLATES = '/assets/email-templates/';
+  static readonly EMAIL_BODY_TEMPLATES = '/assets';
 
   static readonly TEMPLATE_BUG = 'bug_report.md';
   static readonly TEMPLATE_FEATURE = 'feature_request.md';
