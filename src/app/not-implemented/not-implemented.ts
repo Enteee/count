@@ -1,7 +1,7 @@
 import { Input, OnInit, Renderer2, ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
-import { AppStateRepositoryService } from '../model/app-state-repository.service';
+import { AppStateRepositoryService } from '../models/app-state-repository.service';
 
 import { NotImplementedModalPage } from './not-implemented-modal.page';
 

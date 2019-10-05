@@ -4,8 +4,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { NavController } from '@ionic/angular';
 
-import { Counter } from '../model/counter';
-import { CounterRepositoryService } from '../model/counter-repository.service';
+import { Counter } from '../models/counter';
+import { CounterRepositoryService } from '../models/counter-repository.service';
 
 import { CounterService } from '../services/counter.service';
 

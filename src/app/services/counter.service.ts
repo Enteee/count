@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { Counter } from '../model/counter';
-import { CounterRepositoryService } from '../model/counter-repository.service';
+import { Counter } from '../models/counter';
+import { CounterRepositoryService } from '../models/counter-repository.service';
 
-import { CountEvent } from '../model/count-event';
-import { CountEventRepositoryService } from '../model/count-event-repository.service';
+import { CountEvent } from '../models/count-event';
+import { CountEventRepositoryService } from '../models/count-event-repository.service';
 
 @Injectable({
   providedIn: 'root'

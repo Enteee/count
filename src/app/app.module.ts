@@ -10,7 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { ModelModule } from './model/model.module';
+import { ModelModule } from './models/model.module';
 import { ServicesModule } from './services/services.module';
 import { NotImplementedModule } from './not-implemented/not-implemented.module';
 

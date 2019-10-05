@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { AppState } from '../model/app-state';
-import { AppStateRepositoryService } from '../model/app-state-repository.service';
+import { AppState } from '../models/app-state';
+import { AppStateRepositoryService } from '../models/app-state-repository.service';
 
 @Component({
   selector: 'app-settings',

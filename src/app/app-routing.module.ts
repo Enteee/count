@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { AppStateRepositoryService } from './model/app-state-repository.service';
-import { CounterRepositoryService } from './model/counter-repository.service';
+import { AppStateRepositoryService } from './models/app-state-repository.service';
+import { CounterRepositoryService } from './models/counter-repository.service';
 
 const routes: Routes = [
   {

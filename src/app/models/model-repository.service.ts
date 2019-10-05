@@ -10,7 +10,7 @@ import { Model } from './model';
  * A generic ModelRepositoryService which stores models in a Ionic Storage.
  *
  * Ionic Storage is just a simple key/value storage, which means this will store
- * all the model information at the same place. This is obviously not ideal.
+ * all the models information at the same place. This is obviously not ideal.
  * On the upside Ionic Storage is highly portable and should work on all devices
  * as well as in a web browser without cordova support.
  *

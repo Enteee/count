@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Counter } from '../../model/counter';
+import { Counter } from '../../models/counter';
 import { CounterService } from '../../services/counter.service';
 
 @Component({

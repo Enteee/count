@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { Counter } from '../model/counter';
-import { CounterRepositoryService } from '../model/counter-repository.service';
+import { Counter } from '../models/counter';
+import { CounterRepositoryService } from '../models/counter-repository.service';
 
 @Component({
   selector: 'app-counters',
