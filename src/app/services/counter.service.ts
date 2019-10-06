@@ -77,4 +77,15 @@ export class CounterService {
       ),
     ]);
   }
+
+  async setLocked(
+    counter: Counter,
+    setLocked: boolean,
+  ) {
+    counter.locked = setLocked;
+    await this.counterRepositoryService.save(
+      counter
+    );
+  }
+
 }
