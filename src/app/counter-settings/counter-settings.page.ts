@@ -129,7 +129,7 @@ export class CounterSettingsPage implements OnInit {
     this.navController.pop();
   }
 
-  async setLocked(locked:boolean) {
+  async setLocked(locked: boolean) {
     await this.counterService.setLocked(
       this.counter,
       !this.counter.locked
