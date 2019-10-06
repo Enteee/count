@@ -1,4 +1,4 @@
-import { Input, OnInit, Renderer2, ElementRef } from '@angular/core';
+import { Input, OnInit, DoCheck, Renderer2, ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 import { AppState } from '../models/app-state';
@@ -6,7 +6,7 @@ import { AppStateRepositoryService } from '../models/app-state-repository.servic
 
 import { NotImplementedModalPage } from './not-implemented-modal.page';
 
-export class NotImplemented  implements OnInit {
+export class NotImplemented  implements OnInit, DoCheck {
 
   @Input() issueId: number;
   @Input() description: string;
@@ -33,7 +33,7 @@ export class NotImplemented  implements OnInit {
       this.elementRef.nativeElement,
       this.on,
       e => {
-        if(!this.appState.disableNotImplemented){
+        if (!this.appState.disableNotImplemented) {
           this.presentModal();
         }
       }
@@ -41,7 +41,7 @@ export class NotImplemented  implements OnInit {
   }
 
   ngDoCheck(): void {
-    if(!this.alwaysDisplay) {
+    if (!this.alwaysDisplay) {
 
       this.elementRef.nativeElement.style.display = (this.appState.disableNotImplemented) ? 'none' : this.styleDisplay;
     }
