@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -12,8 +12,8 @@ import { AppStateRepositoryService } from '../models/app-state-repository.servic
 })
 export class SettingsPage implements OnInit {
 
-  appState: AppState;
-  settingsForm: FormGroup;
+  private appState: AppState;
+  private settingsForm: FormGroup;
 
   constructor(
     private route: ActivatedRoute,

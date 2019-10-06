@@ -3,7 +3,7 @@
     <name>Count</name>
     <description>Count all the things!</description>
     <author email="count@duckpond.ch" href="https://duckpond.ch">Ente</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://localhost:8101" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -100,4 +100,5 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <allow-navigation href="http://localhost:8100" sessionid="5ec4a179" />
+    <allow-navigation href="http://localhost:8101" sessionid="1e2d21c2" />
 </widget>
