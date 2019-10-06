@@ -12,8 +12,8 @@ import { AppStateRepositoryService } from '../models/app-state-repository.servic
 })
 export class SettingsPage implements OnInit {
 
-  private appState: AppState;
-  private settingsForm: FormGroup;
+  appState: AppState;
+  settingsForm: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
