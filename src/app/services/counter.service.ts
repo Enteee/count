@@ -16,6 +16,16 @@ export class CounterService {
     private countEventRepositoryService: CountEventRepositoryService,
   ) {}
 
+  get all(): Array<Counter> {
+    return this.counterRepositoryService.allSortBySortOrder;
+  }
+
+  async addCounter() {
+    let newCounter = new Counter();
+    newCounter.sortOrder = this.counterRepositoryService.all.length + 1;
+    await this.counterRepositoryService.save(newCounter);
+  }
+
   async delete(counter: Counter) {
     // first delete the counter: this is so that the ui element disappers
     // quicker which should be create better user experience.
@@ -76,5 +86,25 @@ export class CounterService {
         )
       ),
     ]);
+  }
+
+  async reorder(
+    from: number,
+    to:number,
+  ) {
+    let counters = this.counterRepositoryService.allSortBySortOrder
+    // move element in array
+    counters.splice(to, 0,
+      counters.splice(from, 1)[0]
+    );
+    // save in new order
+    await Promise.all(
+      counters.map(
+        async (counter, i) => {
+          counter.sortOrder = i;
+          await this.counterRepositoryService.save(counter);
+        }
+      )
+    )
   }
 }

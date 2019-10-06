@@ -7,14 +7,21 @@
       <ion-icon name="infinite"></ion-icon>
       Counters
     </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="toggleReorder()">Reorder</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <div *ngFor="let counter of counters">
-      <app-plus-minus-counter [counter]="counter"></app-plus-minus-counter>
-    </div>
+    <ion-reorder-group
+      (ionItemReorder)="reorder($event)"
+    >
+      <div *ngFor="let counter of counters">
+        <app-plus-minus-counter [counter]="counter"></app-plus-minus-counter>
+      </div>
+    </ion-reorder-group>
   </ion-list>
   <ion-button size="large" expand="full" (click)="addCounter()">
     <ion-icon name="add"></ion-icon>
