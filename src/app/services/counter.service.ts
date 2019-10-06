@@ -21,7 +21,7 @@ export class CounterService {
   }
 
   async addCounter() {
-    let newCounter = new Counter();
+    const newCounter = new Counter();
     newCounter.sortOrder = this.counterRepositoryService.all.length + 1;
     await this.counterRepositoryService.save(newCounter);
   }
@@ -90,9 +90,9 @@ export class CounterService {
 
   async reorder(
     from: number,
-    to:number,
+    to: number,
   ) {
-    let counters = this.counterRepositoryService.allSortBySortOrder
+    const counters = this.counterRepositoryService.allSortBySortOrder;
     // move element in array
     counters.splice(to, 0,
       counters.splice(from, 1)[0]
@@ -105,6 +105,6 @@ export class CounterService {
           await this.counterRepositoryService.save(counter);
         }
       )
-    )
+    );
   }
 }
