@@ -16,7 +16,7 @@ export function initializeModelServices(
   countEventService: CountEventRepositoryService
 ) {
   return async () => {
-    Promise.all([
+    await Promise.all([
       appStateRepositoryService.init(AppState),
       counterRepositoryService.init(Counter),
       countEventService.init(CountEvent),
