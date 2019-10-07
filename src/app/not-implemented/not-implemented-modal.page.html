@@ -22,13 +22,14 @@
   </ion-item>
 
   <ion-item *ngIf="issueId">
-    <ion-label position="stacked">
-      Support <ion-icon name="heart"></ion-icon>
-    </ion-label>
+
     <ion-list>
-      <ion-item>
-        <p>You can help it grow by ... </p>
-      </ion-item>
+
+      <ion-label position="stacked">
+        Support <ion-icon name="heart"></ion-icon>
+      </ion-label>
+
+      <p>You can help it grow by ... </p>
 
       <ion-item (click)="openIssueOnGithub()" button>
         <ion-icon slot="start" name="logo-github">
@@ -52,7 +53,10 @@
   </ion-item>
 
   <ion-item>
-    <p>If you are not interested in previews, you can also disable all not implemented feautres:</p>
+    <p>
+      If you are not interested in previews, you can also disable
+      all not implemented feautres:
+    </p>
   </ion-item>
 
   <ion-item>
