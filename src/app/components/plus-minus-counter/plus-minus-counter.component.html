@@ -5,11 +5,12 @@
       <ion-button
         size="large"
         color="danger"
+        [disabled]="counter.locked"
         (click)="countMinus()"
       >
       <div [ngSwitch]="counter.minusCount">
         <div *ngSwitchCase="-1">
-          <ion-icon name="add"></ion-icon>
+          <ion-icon name="remove"></ion-icon>
         </div>
 
         <div *ngSwitchDefault>
@@ -29,6 +30,7 @@
       <ion-button
         size="large"
         color="success"
+        [disabled]="counter.locked"
         (click)="countPlus()"
       >
       <div [ngSwitch]="counter.plusCount">
