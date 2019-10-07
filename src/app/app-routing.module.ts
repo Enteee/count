@@ -15,6 +15,13 @@ const routes: Routes = [
     loadChildren: './counters/counters.module#CountersPageModule'
   },
   {
+    path: 'counter-analytics/:id',
+    resolve: {
+      counter: CounterRepositoryService,
+    },
+    loadChildren: './counter-analytics/counter-analytics.module#CounterAnalyticsPageModule'
+  },
+  {
     path: 'counter-settings/:id',
     resolve: {
       counter: CounterRepositoryService,
