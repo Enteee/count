@@ -21,7 +21,7 @@ export class CountersPage implements OnInit {
   }
 
   get counters() {
-    return this.counterService.all;
+    return this.counterService.allSortBySortOrder;
   }
 
   async addCounter() {

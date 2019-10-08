@@ -16,7 +16,7 @@ export class CounterService {
     private countEventRepositoryService: CountEventRepositoryService,
   ) {}
 
-  get all(): Array<Counter> {
+  get allSortBySortOrder(): Array<Counter> {
     return this.counterRepositoryService.allSortBySortOrder;
   }
 
