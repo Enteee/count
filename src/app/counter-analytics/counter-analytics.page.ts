@@ -10,7 +10,7 @@ import 'anychart';
 })
 export class CounterAnalyticsPage implements OnInit, AfterViewInit {
 
-  chart: anychart.charts.Cartesian;
+  chart: anychart.charts.Cartesian = anychart.column();
 
   @ViewChild('chartContainer', {static: true}) container: ElementRef;
 
@@ -20,18 +20,20 @@ export class CounterAnalyticsPage implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
+    const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const counter = this.route.snapshot.data.counter;
-    const data = this.counterAnalytics.getDayOfWeekHistogramData(counter);
 
-    this.chart = anychart.bar([
-      ['Sunday', data[0]],
-      ['Monday', data[1]],
-      ['Tuesday', data[2]],
-      ['Wednesday', data[3]],
-      ['Thursday', data[4]],
-      ['Friday', data[5]],
-      ['Saturday', data[6]],
-    ]);
+    const positiveData = this.counterAnalytics.getDayOfWeekHistogramData(counter, 'positive');
+    const positiveSeries = this.chart.column(positiveData.map((value, index) => [weekDays[index], value]));
+    positiveSeries.name('Plus Count');
+    positiveSeries.stroke('green');
+    positiveSeries.fill('green');
+
+    const negativeData = this.counterAnalytics.getDayOfWeekHistogramData(counter, 'negative');
+    const negativeSeries = this.chart.column(negativeData.map((value, index) => [weekDays[index], -value]));
+    negativeSeries.name('Minus Count');
+    negativeSeries.stroke('red');
+    negativeSeries.fill('red');
   }
 
   ngAfterViewInit() {

@@ -11,13 +11,15 @@ export class CounterAnalyticsService {
     private countEventRepository: CountEventRepositoryService,
   ) {}
 
-  getDayOfWeekHistogramData(counter: Counter): Array<number> {
+  getDayOfWeekHistogramData(counter: Counter, eventType: 'positive'|'negative'|'combined'): Array<number> {
     const countEvents = this.countEventRepository.getByCounter(counter);
     const data = [ 0, 0, 0, 0, 0, 0, 0 ];
 
     for (const countEvent of countEvents) {
       const weekDay = countEvent.timestamp.getDay();
-      data[weekDay] += 1;
+      if (eventType === 'positive' && countEvent.delta < 0) continue;
+      if (eventType === 'negative' && countEvent.delta > 0) continue;
+      data[weekDay] += countEvent.delta;
     }
 
     return data;
