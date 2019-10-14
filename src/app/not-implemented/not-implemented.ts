@@ -1,41 +1,53 @@
-import { Input, OnInit, Renderer2, ElementRef } from '@angular/core';
+import { Input, OnInit, DoCheck, Renderer2, ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
+import { AppState } from '../models/app-state';
 import { AppStateRepositoryService } from '../models/app-state-repository.service';
 
 import { NotImplementedModalPage } from './not-implemented-modal.page';
 
-export class NotImplemented  implements OnInit {
+export class NotImplemented  implements OnInit, DoCheck {
 
   @Input() issueId: number;
   @Input() description: string;
   @Input() on = 'click';
+  @Input() alwaysDisplay = false;
 
-  modal: HTMLIonModalElement;
+
+  private modal: HTMLIonModalElement;
+  private appState: AppState;
+  private styleDisplay: string;
 
   constructor(
     private renderer: Renderer2,
     private elementRef: ElementRef,
     private modalController: ModalController,
     private appStateRepositoryService: AppStateRepositoryService,
-  ) { }
+  ) {
+    this.styleDisplay = this.elementRef.nativeElement.style.display;
+    this.appState = this.appStateRepositoryService.state;
+  }
 
   ngOnInit() {
-    if (this.appStateRepositoryService.state.disableNotImplemented) {
-      this.elementRef.nativeElement.style.display = 'none';
-      return;
-    }
-
     this.renderer.listen(
       this.elementRef.nativeElement,
       this.on,
       e => {
-        this.presentModal();
+        if (!this.appState.disableNotImplemented) {
+          this.presentModal();
+        }
       }
     );
   }
 
-  async presentModal() {
+  ngDoCheck(): void {
+    if (!this.alwaysDisplay) {
+
+      this.elementRef.nativeElement.style.display = (this.appState.disableNotImplemented) ? 'none' : this.styleDisplay;
+    }
+  }
+
+  private async presentModal() {
     this.modal = await this.modalController.create({
       component: NotImplementedModalPage,
       componentProps: {
@@ -43,7 +55,7 @@ export class NotImplemented  implements OnInit {
         description: this.description,
       }
     });
-    return await this.modal.present();
-  }
 
+    await this.modal.present();
+  }
 }

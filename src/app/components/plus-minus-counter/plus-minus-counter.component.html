@@ -5,11 +5,12 @@
       <ion-button
         size="large"
         color="danger"
+        [disabled]="counter.locked"
         (click)="countMinus()"
       >
       <div [ngSwitch]="counter.minusCount">
         <div *ngSwitchCase="-1">
-          <ion-icon name="add"></ion-icon>
+          <ion-icon name="remove"></ion-icon>
         </div>
 
         <div *ngSwitchDefault>
@@ -29,6 +30,7 @@
       <ion-button
         size="large"
         color="success"
+        [disabled]="counter.locked"
         (click)="countPlus()"
       >
       <div [ngSwitch]="counter.plusCount">
@@ -44,11 +46,13 @@
       </ion-button>
     </ng-template>
 
+    <ion-reorder slot="end"></ion-reorder>
+
   </ion-item>
 
   <ion-item-options
     side="end"
-    appNotImplemented description="Edit count events" issueId="8" on="ionSwipe"
+    appNotImplemented description="Edit count events" issueId="8" on="ionSwipe" alwaysDisplay="true"
   >
     <ion-item-option color="danger">
       <ion-icon
@@ -80,5 +84,4 @@
     </ion-item-option>
 
   </ion-item-options>
-
 </ion-item-sliding>
