@@ -5,10 +5,10 @@ import 'anychart';
 
 @Component({
   selector: 'app-counter-analytics',
-  templateUrl: './counter-analytics.page.html',
-  styleUrls: ['./counter-analytics.page.scss'],
+  templateUrl: './day-of-week-histogram.page.component.html',
+  styleUrls: ['./day-of-week-histogram.page.component.scss'],
 })
-export class CounterAnalyticsPage implements OnInit, AfterViewInit {
+export class DayOfWeekHistogramPage implements OnInit, AfterViewInit {
 
   chart: anychart.charts.Cartesian = anychart.column();
 

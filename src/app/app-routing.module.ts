@@ -15,11 +15,11 @@ const routes: Routes = [
     loadChildren: './counters/counters.module#CountersPageModule'
   },
   {
-    path: 'counter-analytics/:id',
+    path: 'day-of-week-histogram/:id',
     resolve: {
       counter: CounterRepositoryService,
     },
-    loadChildren: './counter-analytics/counter-analytics.module#CounterAnalyticsPageModule'
+    loadChildren: './day-of-week-histogram/day-of-week-histogram.module#DayOfWeekHistogramPageModule'
   },
   {
     path: 'counter-settings/:id',
