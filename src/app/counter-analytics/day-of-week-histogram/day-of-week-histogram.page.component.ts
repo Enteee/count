@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CounterAnalyticsService } from '../services/counter-analytics.service';
+import { CounterAnalyticsService } from '../../services/counter-analytics.service';
 import 'anychart';
-import { Counter } from '../models/counter';
+import { Counter } from '../../models/counter';
 
 @Component({
   selector: 'app-counter-analytics',

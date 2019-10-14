@@ -22,11 +22,11 @@ const routes: Routes = [
     loadChildren: './counter-analytics/counter-analytics.module#CounterAnalyticsPageModule'
   },
   {
-    path: 'day-of-week-histogram/:id',
+    path: 'counter-analytics/:id/day-of-week-histogram',
     resolve: {
       counter: CounterRepositoryService,
     },
-    loadChildren: './day-of-week-histogram/day-of-week-histogram.module#DayOfWeekHistogramPageModule'
+    loadChildren: './counter-analytics/day-of-week-histogram/day-of-week-histogram.module#DayOfWeekHistogramPageModule'
   },
   {
     path: 'counter-settings/:id',
@@ -45,9 +45,7 @@ const routes: Routes = [
     resolve: {
       appState: AppStateRepositoryService,
     },
-  },
-  { path: 'counter-analytics', loadChildren: './counter-analytics/counter-analytics.module#CounterAnalyticsPageModule' }
-
+  }
 ];
 
 @NgModule({
