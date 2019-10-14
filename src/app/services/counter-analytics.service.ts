@@ -16,10 +16,14 @@ export class CounterAnalyticsService {
     const data = [ 0, 0, 0, 0, 0, 0, 0 ];
 
     for (const countEvent of countEvents) {
-      const weekDay = countEvent.timestamp.getDay();
-      if (eventType === 'positive' && countEvent.delta < 0) continue;
-      if (eventType === 'negative' && countEvent.delta > 0) continue;
-      data[weekDay] += countEvent.delta;
+      if (eventType === 'positive' && countEvent.delta < 0) {
+        continue;
+      }
+      if (eventType === 'negative' && countEvent.delta > 0) {
+        continue;
+      }
+      const dayOfWeek = countEvent.timestamp.getDay();
+      data[dayOfWeek] += countEvent.delta;
     }
 
     return data;
