@@ -15,6 +15,13 @@ const routes: Routes = [
     loadChildren: './counters/counters.module#CountersPageModule'
   },
   {
+    path: 'counter-analytics/:id',
+    resolve: {
+      counter: CounterRepositoryService,
+    },
+    loadChildren: './counter-analytics/counter-analytics.module#CounterAnalyticsPageModule'
+  },
+  {
     path: 'day-of-week-histogram/:id',
     resolve: {
       counter: CounterRepositoryService,
@@ -38,7 +45,9 @@ const routes: Routes = [
     resolve: {
       appState: AppStateRepositoryService,
     },
-  }
+  },
+  { path: 'counter-analytics', loadChildren: './counter-analytics/counter-analytics.module#CounterAnalyticsPageModule' }
+
 ];
 
 @NgModule({

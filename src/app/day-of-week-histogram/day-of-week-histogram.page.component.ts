@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { ActivatedRoute } from '@angular/router';
 import { CounterAnalyticsService } from '../services/counter-analytics.service';
 import 'anychart';
+import { Counter } from '../models/counter';
 
 @Component({
   selector: 'app-counter-analytics',
@@ -10,6 +11,7 @@ import 'anychart';
 })
 export class DayOfWeekHistogramPage implements OnInit, AfterViewInit {
 
+  counter: Counter;
   chart: anychart.charts.Cartesian = anychart.column();
 
   @ViewChild('chartContainer', {static: true}) container: ElementRef;
@@ -21,15 +23,15 @@ export class DayOfWeekHistogramPage implements OnInit, AfterViewInit {
 
   ngOnInit() {
     const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const counter = this.route.snapshot.data.counter;
+    this.counter = this.route.snapshot.data.counter;
 
-    const positiveData = this.counterAnalytics.getDayOfWeekHistogramData(counter, 'positive');
+    const positiveData = this.counterAnalytics.getDayOfWeekHistogramData(this.counter, 'positive');
     const positiveSeries = this.chart.column(positiveData.map((value, index) => [weekDays[index], value]));
     positiveSeries.name('Plus Count');
     positiveSeries.stroke('green');
     positiveSeries.fill('green');
 
-    const negativeData = this.counterAnalytics.getDayOfWeekHistogramData(counter, 'negative');
+    const negativeData = this.counterAnalytics.getDayOfWeekHistogramData(this.counter, 'negative');
     const negativeSeries = this.chart.column(negativeData.map((value, index) => [weekDays[index], -value]));
     negativeSeries.name('Minus Count');
     negativeSeries.stroke('red');
