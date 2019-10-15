@@ -8,10 +8,10 @@ import { CounterService } from './counter.service';
 
 describe('CounterService', () => {
   let counterRepositoryService: CounterRepositoryService;
-  let saveOncounterRepositoryService;
+  let counterRepositoryServiceSaveSpy;
 
   let countEventRepositoryService: CountEventRepositoryService;
-  let saveOnCountEventRepositoryService;
+  let countEventRepositoryServiceSaveSpy;
 
   let service: CounterService;
 
@@ -19,7 +19,7 @@ describe('CounterService', () => {
     counterRepositoryService = new CounterRepositoryService(
       {} as any
     );
-    saveOncounterRepositoryService = spyOn(
+    counterRepositoryServiceSaveSpy = spyOn(
       counterRepositoryService,
       'save'
     );
@@ -27,7 +27,7 @@ describe('CounterService', () => {
     countEventRepositoryService = new CountEventRepositoryService(
       {} as any
     );
-    saveOnCountEventRepositoryService = spyOn(
+    countEventRepositoryServiceSaveSpy = spyOn(
       countEventRepositoryService,
       'save'
     );
@@ -54,7 +54,7 @@ describe('CounterService', () => {
     expect(counterRepositoryService.save).toHaveBeenCalledWith(counter);
 
     expect(countEventRepositoryService.save).toHaveBeenCalledTimes(1);
-    let countEvent = saveOnCountEventRepositoryService.calls.argsFor(0)[0];
+    let countEvent = countEventRepositoryServiceSaveSpy.calls.argsFor(0)[0];
     expect(countEvent.type).toEqual('change');
     expect(countEvent.counterId).toEqual(counter.id);
     expect(countEvent.delta).toEqual(delta);
@@ -112,7 +112,7 @@ describe('CounterService', () => {
     expect(counterRepositoryService.save).toHaveBeenCalledWith(counter);
 
     expect(countEventRepositoryService.save).toHaveBeenCalledTimes(1);
-    let countEvent = saveOnCountEventRepositoryService.calls.argsFor(0)[0];
+    let countEvent = countEventRepositoryServiceSaveSpy.calls.argsFor(0)[0];
     expect(countEvent.type).toEqual('reset');
     expect(countEvent.counterId).toEqual(counter.id);
     expect(countEvent.delta).toEqual(0);
