@@ -1,12 +1,15 @@
-import { TestBed } from '@angular/core/testing';
-
 import { CountEventRepositoryService } from './count-event-repository.service';
 
 describe('CountEventRepositoryService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let repositoryService: CountEventRepositoryService;
+
+  beforeEach(() => {
+    repositoryService = new CountEventRepositoryService(
+      {} as any
+    );
+  });
 
   it('should be created', () => {
-    const service: CountEventRepositoryService = TestBed.get(CountEventRepositoryService);
-    expect(service).toBeTruthy();
+    expect(repositoryService).toBeTruthy();
   });
 });
