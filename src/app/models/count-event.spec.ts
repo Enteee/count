@@ -1,5 +1,6 @@
-import { CountEvent } from './count-event';
 import { Serialize, Deserialize } from 'cerialize';
+
+import { CountEvent } from './count-event';
 
 const UUID = '89714bab-ccbc-45a5-afb2-91d1e7c809ff';
 
@@ -13,7 +14,7 @@ fdescribe('CountEvent', () => {
     );
   });
 
-  it('should create a count-event', () => {
+  it('should create an instance', () => {
     expect(instance).toBeTruthy();
   });
 
