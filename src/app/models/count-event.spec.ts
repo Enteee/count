@@ -4,7 +4,7 @@ import { CountEvent } from './count-event';
 
 const UUID = '89714bab-ccbc-45a5-afb2-91d1e7c809ff';
 
-fdescribe('CountEvent', () => {
+describe('CountEvent', () => {
   let instance: CountEvent;
 
   beforeEach(() => {
