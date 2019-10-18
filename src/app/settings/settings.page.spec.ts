@@ -22,7 +22,7 @@ describe('SettingsPage', () => {
     route = {
       snapshot: {
         data: {
-          appState: appState,
+          appState,
         }
       }
     } as any;

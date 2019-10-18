@@ -60,12 +60,12 @@ describe('CountersPage', () => {
   it('should provide a list of counters', () => {
     countersPage = fixture.nativeElement;
 
-    let countersFixture = [
+    const countersFixture = [
       new Counter(),
       new Counter(),
       new Counter(),
       new Counter(),
-    ]
+    ];
 
     spyOnProperty(
       counterRepositoryService,

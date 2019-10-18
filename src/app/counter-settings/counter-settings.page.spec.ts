@@ -27,7 +27,7 @@ describe('CounterSettingsPage', () => {
     activatedRoute = {
       snapshot: {
         data: {
-          counter: counter,
+          counter,
         },
       },
     } as any;

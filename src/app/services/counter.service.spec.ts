@@ -43,8 +43,8 @@ describe('CounterService', () => {
   });
 
   it('should count', async () => {
-    let counter = new Counter();
-    let delta = 1;
+    const counter = new Counter();
+    const delta = 1;
 
     await service.count(counter, delta);
 
@@ -54,15 +54,15 @@ describe('CounterService', () => {
     expect(counterRepositoryService.save).toHaveBeenCalledWith(counter);
 
     expect(countEventRepositoryService.save).toHaveBeenCalledTimes(1);
-    let countEvent = countEventRepositoryServiceSaveSpy.calls.argsFor(0)[0];
+    const countEvent = countEventRepositoryServiceSaveSpy.calls.argsFor(0)[0];
     expect(countEvent.type).toEqual('change');
     expect(countEvent.counterId).toEqual(counter.id);
     expect(countEvent.delta).toEqual(delta);
   });
 
   it('should do positive wrap around', async () => {
-    let counter = new Counter();
-    let delta = 1;
+    const counter = new Counter();
+    const delta = 1;
 
     counter.count = 10;
     counter.positiveWrapAroundActive = true;
@@ -74,8 +74,8 @@ describe('CounterService', () => {
   });
 
   it('should do negative wrap around', async () => {
-    let counter = new Counter();
-    let delta = -1;
+    const counter = new Counter();
+    const delta = -1;
 
     counter.count = -10;
     counter.negativeWrapAroundActive = true;
@@ -87,8 +87,8 @@ describe('CounterService', () => {
   });
 
   it('should do negative wrap around', async () => {
-    let counter = new Counter();
-    let delta = -1;
+    const counter = new Counter();
+    const delta = -1;
 
     counter.count = -10;
     counter.negativeWrapAroundActive = true;
@@ -100,7 +100,7 @@ describe('CounterService', () => {
   });
 
   it('should reset', async () => {
-    let counter = new Counter();
+    const counter = new Counter();
 
     counter.count = 10;
 
@@ -112,7 +112,7 @@ describe('CounterService', () => {
     expect(counterRepositoryService.save).toHaveBeenCalledWith(counter);
 
     expect(countEventRepositoryService.save).toHaveBeenCalledTimes(1);
-    let countEvent = countEventRepositoryServiceSaveSpy.calls.argsFor(0)[0];
+    const countEvent = countEventRepositoryServiceSaveSpy.calls.argsFor(0)[0];
     expect(countEvent.type).toEqual('reset');
     expect(countEvent.counterId).toEqual(counter.id);
     expect(countEvent.delta).toEqual(0);

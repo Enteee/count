@@ -13,7 +13,7 @@ export class CountEvent extends Model {
   @autoserialize public type: CountEventType;
   @autoserializeAs(Date) public timestamp: Date = new Date();
   // TODO: Store geolocation
-  //@autoserializeAs(Geolocation) public location: Geolocation = new Geolocation();
+  // @autoserializeAs(Geolocation) public location: Geolocation = new Geolocation();
 
   constructor(
     counterId: string,

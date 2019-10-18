@@ -20,6 +20,6 @@ describe('CountEvent', () => {
 
   it('should be equal after serialization', () => {
     const serializedInstance = Deserialize(Serialize(instance), CountEvent);
-    expect(serializedInstance).toEqual(instance)
+    expect(serializedInstance).toEqual(instance);
   });
 });

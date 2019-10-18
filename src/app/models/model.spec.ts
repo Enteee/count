@@ -15,7 +15,7 @@ describe('Model', () => {
 
   it('should be equal after serialization', () => {
     const serializedInstance = Deserialize(Serialize(instance), Model);
-    expect(serializedInstance).toEqual(instance)
+    expect(serializedInstance).toEqual(instance);
   });
 
 });

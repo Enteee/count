@@ -20,7 +20,7 @@ describe('AppStateService', () => {
   });
 
   it('can disable not implemented', () => {
-    let appState = {
+    const appState = {
       disableNotImplemented: false
     };
 

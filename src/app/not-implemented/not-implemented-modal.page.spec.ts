@@ -10,23 +10,23 @@ import { NotImplementedModalPage } from './not-implemented-modal.page';
 describe('NotImplementedModalPage', () => {
   let component: NotImplementedModalPage;
   let fixture: ComponentFixture<NotImplementedModalPage>;
-  let modalContraoller: ModalController;
+  let modalController: ModalController;
   let inAppBrowser: InAppBrowser;
   let appStateService: AppStateService;
 
   beforeEach(async(() => {
 
-    let modalContraoller = {} as any;
+    modalController = {} as any;
 
-    let inAppBrowser = {} as any;
+    inAppBrowser = {} as any;
 
-    let appStateService = {} as any;
+    appStateService = {} as any;
 
     TestBed.configureTestingModule({
       declarations: [ NotImplementedModalPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        {provide: ModalController, useValue: modalContraoller},
+        {provide: ModalController, useValue: modalController},
         {provide: InAppBrowser, useValue: inAppBrowser},
         {provide: AppStateService, useValue: appStateService},
       ],

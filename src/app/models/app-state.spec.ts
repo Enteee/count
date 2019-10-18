@@ -16,6 +16,6 @@ describe('AppState', () => {
 
   it('should be equal after serialization', () => {
     const serializedInstance = Deserialize(Serialize(instance), AppState);
-    expect(serializedInstance).toEqual(instance)
+    expect(serializedInstance).toEqual(instance);
   });
 });

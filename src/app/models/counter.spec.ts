@@ -15,7 +15,7 @@ describe('Counter', () => {
 
   it('should be equal after serialization', () => {
     const serializedInstance = Deserialize(Serialize(instance), Counter);
-    expect(serializedInstance).toEqual(instance)
+    expect(serializedInstance).toEqual(instance);
   });
 
 });
