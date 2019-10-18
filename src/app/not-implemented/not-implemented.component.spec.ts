@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Input, OnInit, Renderer2, ElementRef } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Renderer2, ElementRef } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ModalController } from '@ionic/angular';
 

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { Counter } from '../models/counter';
-import { CounterRepositoryService } from '../models/counter-repository.service';
+import { CounterService } from '../services/counter.service';
 
 import { ComponentsModule } from '../components/components.module';
 
@@ -12,11 +12,12 @@ describe('CountersPage', () => {
   let component: CountersPage;
   let fixture: ComponentFixture<CountersPage>;
   let countersPage: HTMLElement;
-  let counterRepositoryService: CounterRepositoryService;
+  let counterService: CounterService;
 
   beforeEach(async(() => {
 
-    counterRepositoryService = new CounterRepositoryService(
+    counterService = new CounterService(
+      {} as any,
       {} as any
     );
 
@@ -29,7 +30,7 @@ describe('CountersPage', () => {
         ComponentsModule
       ],
       providers: [
-        {provide: CounterRepositoryService, useValue: counterRepositoryService },
+        {provide: CounterService, useValue: counterService },
       ]
     }).compileComponents();
 
@@ -49,12 +50,12 @@ describe('CountersPage', () => {
     countersPage = fixture.nativeElement;
 
     spyOn(
-      counterRepositoryService,
-      'save'
+      counterService,
+      'addCounter'
     );
 
     component.addCounter();
-    expect(counterRepositoryService.save).toHaveBeenCalledTimes(1);
+    expect(counterService.addCounter).toHaveBeenCalledTimes(1);
   });
 
   it('should provide a list of counters', () => {
@@ -67,13 +68,14 @@ describe('CountersPage', () => {
       new Counter(),
     ];
 
-    spyOnProperty(
-      counterRepositoryService,
-      'all',
+    const allSortBySortOrderSpy = spyOnProperty(
+      counterService,
+      'allSortBySortOrder',
       'get'
     ).and.returnValue(countersFixture);
 
     expect(component.counters).toEqual(countersFixture);
+    expect(allSortBySortOrderSpy).toHaveBeenCalledTimes(1);
   });
 
 });
