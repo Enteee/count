@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonReorderGroup } from '@ionic/angular';
 
 import { Counter } from '../models/counter';
-import { CounterRepositoryService } from '../models/counter-repository.service';
+import { CounterService } from '../services/counter.service';
 
 @Component({
   selector: 'app-counters',
@@ -9,24 +10,34 @@ import { CounterRepositoryService } from '../models/counter-repository.service';
   styleUrls: ['counters.page.scss']
 })
 export class CountersPage implements OnInit {
-  private selectedItem: any;
+
+  @ViewChild(IonReorderGroup, {static: false}) reorderGroup: IonReorderGroup;
 
   constructor(
-    private counterRepositoryService: CounterRepositoryService,
-  ) {
-  }
+    private counterService: CounterService,
+  ) { }
 
   ngOnInit() {
   }
 
   get counters() {
-    return this.counterRepositoryService.all;
+    return this.counterService.allSortBySortOrder;
   }
 
-  public addCounter() {
-    this.counterRepositoryService.save(
-      new Counter()
+  async addCounter() {
+    await this.counterService.addCounter();
+  }
+
+  toggleReorder() {
+    this.reorderGroup.disabled = !this.reorderGroup.disabled;
+  }
+
+  async reorder(ev: any) {
+    await this.counterService.reorder(
+      ev.detail.from,
+      ev.detail.to
     );
+    ev.detail.complete();
   }
 
 }

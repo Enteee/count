@@ -12,4 +12,6 @@ export class Counter extends Model {
   @autoserialize public positiveWrapAroundActive = false;
   @autoserialize public negativeWrapAround = 0;
   @autoserialize public negativeWrapAroundActive = false;
+  @autoserialize public locked = false;
+  @autoserialize public sortOrder = 0;
 }

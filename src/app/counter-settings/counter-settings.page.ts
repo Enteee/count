@@ -129,6 +129,14 @@ export class CounterSettingsPage implements OnInit {
     this.navController.pop();
   }
 
+  async setLocked(locked: boolean) {
+    await this.counterService.setLocked(
+      this.counter,
+      !this.counter.locked
+    );
+    this.navController.pop();
+  }
+
   clamp(
     formControlName: string,
     clampValue: number = 0,

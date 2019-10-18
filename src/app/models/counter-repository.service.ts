@@ -10,4 +10,10 @@ import { CountEventRepositoryService } from './count-event-repository.service';
   providedIn: 'root'
 })
 export class CounterRepositoryService extends ModelRepositoryService<Counter> {
+
+  get allSortBySortOrder(): Array<Counter> {
+    return this.all.sort(
+      (c1, c2) => c1.sortOrder - c2.sortOrder
+    );
+  }
 }
