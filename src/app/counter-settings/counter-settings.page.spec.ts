@@ -12,7 +12,7 @@ import { CounterService } from '../services/counter.service';
 
 import { CounterSettingsPage } from './counter-settings.page';
 
-fdescribe('CounterSettingsPage', () => {
+describe('CounterSettingsPage', () => {
   let component: CounterSettingsPage;
   let fixture: ComponentFixture<CounterSettingsPage>;
 
