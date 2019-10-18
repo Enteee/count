@@ -8,7 +8,7 @@ import { AppStateRepositoryService } from '../models/app-state-repository.servic
 import { NotImplemented } from './not-implemented';
 
 describe('NotImplemented', () => {
-  let instance: NotImplemented
+  let instance: NotImplemented;
 
   let renderer: Renderer2;
   let elementRef: ElementRef;
