@@ -29,6 +29,10 @@ jobs:
       run: npm run build --if-present
     - name: npm test
       run: npm run test-headless
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.github_token }}
     - name: Use JDK ${{ matrix.java-version }}
       uses: actions/setup-java@v1
       with:
