@@ -27,7 +27,8 @@ export class AppComponent {
     },
     {
       title: 'Help',
-      icon: 'help',
+      icon: 'help-circle-outline',
+      url: '/help',
     },
     {
       title: 'Settings',
