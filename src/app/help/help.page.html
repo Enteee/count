@@ -33,11 +33,6 @@
       </ion-badge>
     </ion-item>
 
-    <ion-item>
-      <ion-label>Method</ion-label>
-      <ion-badge slot="end"> {{ (deployConfiguration | async)?.updateMethod }} </ion-badge>
-    </ion-item>
-
     <ion-item *ngIf="(deployConfiguration | async)?.updateMethod !== 'none'">
       <ion-label>Channel</ion-label>
       <ion-badge slot="end"> {{ (deployConfiguration | async)?.channel }} </ion-badge>
