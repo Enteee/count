@@ -3,7 +3,7 @@
     <name>Count</name>
     <description>Count all the things!</description>
     <author email="count@duckpond.ch" href="https://duckpond.ch">Ente</author>
-    <content original-src="index.html" src="http://localhost:8101" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -11,7 +11,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <preference name="DisableDeploy" value="true" />
+    <preference name="DisableDeploy" value="false" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
@@ -101,5 +101,4 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <allow-navigation href="http://localhost:8100" sessionid="5ec4a179" />
-    <allow-navigation href="http://localhost:8101" sessionid="9e0abe58" />
 </widget>

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { AppState } from '../models/app-state';
-import { AppStateRepositoryService } from '../models/app-state-repository.service';
+import { AppState, UpdateChannel } from '../models/app-state';
+import { AppStateService } from '../services/app-state.service';
 
 @Component({
   selector: 'app-settings',
@@ -12,17 +12,19 @@ import { AppStateRepositoryService } from '../models/app-state-repository.servic
 })
 export class SettingsPage implements OnInit {
 
-  appState: AppState;
   settingsForm: FormGroup;
+  appState: AppState;
+  deployConfiguration: Promise<object>
+
+  updateChannels = Object.keys(UpdateChannel);
 
   constructor(
     private route: ActivatedRoute,
-    private appStateRepositoryService: AppStateRepositoryService,
-  ) {
-  }
+    private appStateService: AppStateService,
+  ) { }
 
   ngOnInit() {
-    this.appState = this.route.snapshot.data.appState;
+    this.appState = this.route.snapshot.data.appState as AppState;
 
     this.settingsForm = new FormGroup({
       disableNotImplemented: new FormControl(
@@ -30,16 +32,24 @@ export class SettingsPage implements OnInit {
         [
         ]
       ),
+      updateChannel: new FormControl(
+        this.appState.updateChannel,
+        [
+        ]
+      ),
     });
   }
 
-  async submit() {
-    await this.appStateRepositoryService.save(
-      Object.assign(
-        this.appState,
-        this.settingsForm.value
-      )
-    );
+  async changeDisableNotImplemented(){
+    this.appStateService.setDisableNotImplemented(
+      this.settingsForm.value.disableNotImplemented
+    )
   }
 
+  async changeUpdateChannel() {
+    await this.appStateService.setUpdateChannel(
+      this.settingsForm.value.updateChannel
+    );
+    await this.appStateService.update('auto');
+  }
 }

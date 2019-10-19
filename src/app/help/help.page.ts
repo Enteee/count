@@ -12,7 +12,7 @@ export class HelpPage implements OnInit {
   static readonly GITHUB_URL = 'https://github.com';
   static readonly PROJECT_NAME = 'Enteee/count';
 
-  configuration: Promise<Object>;
+  deployConfiguration: Promise<object>;
 
   constructor(
     private deploy: Deploy,
@@ -20,7 +20,7 @@ export class HelpPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.configuration = this.deploy.getConfiguration();
+    this.deployConfiguration = this.deploy.getConfiguration();
   }
 
   openGithubHelp(){

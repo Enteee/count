@@ -16,7 +16,7 @@
     Open Online Help
   </ion-button>
 
-  <ion-list>
+  <ion-list *ngIf="!(deployConfiguration | async)?.disabled">
     <ion-list-header>
       <ion-label position="stacked">
         <ion-icon name="cloud-download"></ion-icon>
@@ -25,33 +25,22 @@
     </ion-list-header>
 
     <ion-item>
-      <ion-label>Disabled</ion-label>
-      <div *ngIf="!(configuration | async)?.disabled; else elseBlock">
-        <ion-badge color="success" slot="end"> {{ (configuration | async)?.disabled }} </ion-badge>
-      </div>
-      <ng-template #elseBlock>
-        <ion-badge color="danger" slot="end"> {{ (configuration | async)?.disabled }} </ion-badge>
-      </ng-template>
+      <ion-label>Version</ion-label>
+      <ion-badge slot="end">
+        {{ (deployConfiguration | async)?.binaryVersionName }}
+        -
+        {{ (deployConfiguration | async)?.currentBuildId }}
+      </ion-badge>
     </ion-item>
 
     <ion-item>
-      <ion-label>Binary Version</ion-label>
-      <ion-badge slot="end"> {{ (configuration | async)?.binaryVersionName }} </ion-badge>
+      <ion-label>Method</ion-label>
+      <ion-badge slot="end"> {{ (deployConfiguration | async)?.updateMethod }} </ion-badge>
     </ion-item>
 
-    <ion-item>
-      <ion-label>Current Build</ion-label>
-      <ion-badge slot="end"> {{ (configuration | async)?.currentBuildId }} </ion-badge>
-    </ion-item>
-
-    <ion-item>
+    <ion-item *ngIf="(deployConfiguration | async)?.updateMethod !== 'none'">
       <ion-label>Channel</ion-label>
-      <ion-badge slot="end"> {{ (configuration | async)?.channel }} </ion-badge>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Update Method</ion-label>
-      <ion-badge slot="end"> {{ (configuration | async)?.updateMethod }} </ion-badge>
+      <ion-badge slot="end"> {{ (deployConfiguration | async)?.channel }} </ion-badge>
     </ion-item>
 
   </ion-list>

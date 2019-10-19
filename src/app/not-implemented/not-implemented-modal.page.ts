@@ -44,7 +44,7 @@ export class NotImplementedModalPage {
   }
 
   public async disableNotImplemented() {
-    await this.appStateService.disableNotImplemented();
+    await this.appStateService.setDisableNotImplemented(true);
     this.modalController.dismiss();
   }
 }
