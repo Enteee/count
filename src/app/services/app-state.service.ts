@@ -35,7 +35,7 @@ export class AppStateService {
   async update(updateMethod: 'background' | 'auto' = 'background'){
     const appState = this.appStateRepositoryService.state;
 
-    this.setUpdateChannel(appState.updateChannel);
+    await this.setUpdateChannel(appState.updateChannel);
 
     // Don't update: If set to disabled update channel
     if(appState.updateChannel !== UpdateChannel.Disabled){
