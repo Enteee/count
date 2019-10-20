@@ -2,7 +2,7 @@ import { AppStateRepositoryService } from '../models/app-state-repository.servic
 
 import { Deploy } from 'cordova-plugin-ionic/dist/ngx';
 
-import { AppState, UpdateChannel } from '../models/app-state'
+import { AppState, UpdateChannel } from '../models/app-state';
 import { AppStateService } from './app-state.service';
 
 describe('AppStateService', () => {
@@ -38,7 +38,7 @@ describe('AppStateService', () => {
   });
 
   it('should disable not implemented', async () => {
-    appState.disableNotImplemented = false
+    appState.disableNotImplemented = false;
 
     spyOn(
       appStateRepositoryService,
@@ -61,7 +61,7 @@ describe('AppStateService', () => {
     spyOn(
       deploy,
       'configure'
-    )
+    );
 
     appState.updateChannel = UpdateChannel.Production;
 
@@ -89,7 +89,7 @@ describe('AppStateService', () => {
     spyOn(
       deploy,
       'configure'
-    )
+    );
 
     appState.updateChannel = UpdateChannel.Production;
 
@@ -117,11 +117,11 @@ describe('AppStateService', () => {
     spyOn(
       deploy,
       'configure'
-    )
+    );
     spyOn(
       deploy,
       'sync',
-    )
+    );
 
     appState.updateChannel = UpdateChannel.Master;
     await service.update('auto');

@@ -59,7 +59,7 @@ describe('SettingsPage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should change disable not implemented', async(()=>{
+  it('should change disable not implemented', async(() => {
     spyOn(
       appStateService,
       'setDisableNotImplemented'
@@ -76,7 +76,7 @@ describe('SettingsPage', () => {
     });
   }));
 
-  it('should change update channel and update', async(()=>{
+  it('should change update channel and update', async(() => {
     spyOn(
       appStateService,
       'setUpdateChannel'
