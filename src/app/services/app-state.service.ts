@@ -21,7 +21,7 @@ export class AppStateService {
     await this.appStateRepositoryService.save(appState);
   }
 
-  async setUpdateChannel(v: UpdateChannel){
+  async setUpdateChannel(v: UpdateChannel) {
     const appState = this.appStateRepositoryService.state;
     appState.updateChannel = v;
     await this.appStateRepositoryService.save(appState);
@@ -32,15 +32,15 @@ export class AppStateService {
     });
   }
 
-  async update(updateMethod: 'background' | 'auto' = 'background'){
+  async update(updateMethod: 'background' | 'auto' = 'background') {
     const appState = this.appStateRepositoryService.state;
 
     await this.setUpdateChannel(appState.updateChannel);
 
     // Don't update: If set to disabled update channel
-    if(appState.updateChannel !== UpdateChannel.Disabled){
+    if (appState.updateChannel !== UpdateChannel.Disabled) {
       await this.deploy.sync({
-        updateMethod: updateMethod
+        updateMethod
       });
     }
 

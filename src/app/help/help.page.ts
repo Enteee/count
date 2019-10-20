@@ -23,7 +23,7 @@ export class HelpPage implements OnInit {
     this.deployConfiguration = this.deploy.getConfiguration();
   }
 
-  openGithubHelp(){
+  openGithubHelp() {
     this.iab.create(
       `${HelpPage.GITHUB_URL}/${HelpPage.PROJECT_NAME}/wiki`
     );

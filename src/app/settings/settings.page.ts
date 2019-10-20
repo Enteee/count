@@ -14,7 +14,7 @@ export class SettingsPage implements OnInit {
 
   settingsForm: FormGroup;
   appState: AppState;
-  deployConfiguration: Promise<object>
+  deployConfiguration: Promise<object>;
 
   updateChannels = Object.keys(UpdateChannel);
 
@@ -40,10 +40,10 @@ export class SettingsPage implements OnInit {
     });
   }
 
-  async changeDisableNotImplemented(){
+  async changeDisableNotImplemented() {
     this.appStateService.setDisableNotImplemented(
       this.settingsForm.value.disableNotImplemented
-    )
+    );
   }
 
   async changeUpdateChannel() {
