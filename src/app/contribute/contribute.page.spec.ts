@@ -1,17 +1,32 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { HttpClient } from '@angular/common/http';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 import { ContributePage } from './contribute.page';
 
-/*
 describe('ContributePage', () => {
   let component: ContributePage;
   let fixture: ComponentFixture<ContributePage>;
+  let httpClient: HttpClient;
+  let iab: InAppBrowser;
+  let emailComposer: EmailComposer;
 
   beforeEach(async(() => {
+    httpClient = {} as HttpClient;
+    iab = {} as InAppBrowser;
+    emailComposer = {} as EmailComposer;
+
     TestBed.configureTestingModule({
       declarations: [ ContributePage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [
+        { provide: HttpClient, useValue: httpClient },
+        { provide: EmailComposer, useValue: emailComposer },
+        { provide: InAppBrowser, useValue: iab },
+      ]
     })
     .compileComponents();
   }));
@@ -26,4 +41,3 @@ describe('ContributePage', () => {
     expect(component).toBeTruthy();
   });
 });
-*/
