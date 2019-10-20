@@ -1,4 +1,4 @@
-import { inheritSerialization, autoserialize } from 'cerialize';
+import { inheritSerialization, autoserialize, autoserializeAs } from 'cerialize';
 
 import { Model } from './model';
 
@@ -11,13 +11,14 @@ export class CountEvent extends Model {
   @autoserialize public counterId: string;
   @autoserialize public delta: number;
   @autoserialize public type: CountEventType;
-  @autoserialize public timestamp: Date = new Date();
-  @autoserialize public location: Geolocation = new Geolocation();
+  @autoserializeAs(Date) public timestamp: Date = new Date();
+  // TODO: Store geolocation
+  // @autoserializeAs(Geolocation) public location: Geolocation = new Geolocation();
 
   constructor(
     counterId: string,
     delta: number,
-    type = 'change' as CountEventType
+    type = 'change' as CountEventType,
   ) {
     super();
     this.counterId = counterId;

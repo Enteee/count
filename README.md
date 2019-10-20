@@ -1,4 +1,4 @@
-# count
+# count [![Coverage Status](https://coveralls.io/repos/github/Enteee/count/badge.svg?branch=master)](https://coveralls.io/github/Enteee/count?branch=master)
 Count all the things!
 
 ## Start

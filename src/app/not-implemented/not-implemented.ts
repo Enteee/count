@@ -41,6 +41,7 @@ export class NotImplemented  implements OnInit, DoCheck {
   }
 
   ngDoCheck(): void {
+    // Hide this element if the user has chosen to hide not implemented features
     if (!this.alwaysDisplay) {
 
       this.elementRef.nativeElement.style.display = (this.appState.disableNotImplemented) ? 'none' : this.styleDisplay;

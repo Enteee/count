@@ -1,12 +1,15 @@
-import { TestBed } from '@angular/core/testing';
-
 import { AppStateRepositoryService } from './app-state-repository.service';
 
 describe('AppStateRepositoryService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let repositoryService: AppStateRepositoryService;
+
+  beforeEach(() => {
+    repositoryService = new AppStateRepositoryService(
+      {} as any
+    );
+  });
 
   it('should be created', () => {
-    const service: AppStateRepositoryService = TestBed.get(AppStateRepositoryService);
-    expect(service).toBeTruthy();
+    expect(repositoryService).toBeTruthy();
   });
 });
