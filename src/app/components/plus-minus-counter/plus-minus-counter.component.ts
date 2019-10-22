@@ -23,7 +23,6 @@ export class PlusMinusCounterComponent implements OnInit {
   }
 
   async countPlus() {
-    console.log('plus', this.counter);
     await this.counterService.count(
       this.counter,
       this.counter.plusCount,
