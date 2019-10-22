@@ -86,13 +86,13 @@ describe('CountersPage', () => {
       'reorder',
     );
 
-    let ev = {
+    const ev = {
       detail: {
         from: 10,
         to: 1,
         complete: () => {},
       }
-    }
+    };
     spyOn(
       ev.detail,
       'complete',
