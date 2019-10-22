@@ -16,7 +16,7 @@ describe('PlusMinusCounterComponent', () => {
     counterService = new CounterService(
       {} as any,
       {} as any
-    )
+    );
 
     TestBed.configureTestingModule({
       declarations: [ PlusMinusCounterComponent ],
@@ -50,7 +50,7 @@ describe('PlusMinusCounterComponent', () => {
     spyOn(
       counterService,
       'count'
-    )
+    );
 
     component.countPlus();
 
@@ -70,7 +70,7 @@ describe('PlusMinusCounterComponent', () => {
     spyOn(
       counterService,
       'count'
-    )
+    );
 
     component.countMinus();
 
