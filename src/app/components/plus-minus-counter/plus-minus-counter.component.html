@@ -54,12 +54,11 @@
     side="end"
     appNotImplemented description="Edit count events" issueId="8" on="ionSwipe" alwaysDisplay="true"
   >
-    <ion-item-option color="danger">
-      <ion-icon
-        slot="icon-only"
-        name="trash"
-        (click)="deleteCounter()"
-      ></ion-icon>
+    <ion-item-option
+      color="danger"
+      (click)="deleteCounter()"
+    >
+      <ion-icon slot="icon-only" name="trash"></ion-icon>
     </ion-item-option>
 
     <ion-item-option
