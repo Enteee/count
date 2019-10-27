@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CounterAnalyticsService } from '../../services/counter-analytics.service';
 import 'anychart';
 import { Counter } from '../../models/counter';
+import { AnalyticsPageInfo } from '../analytics-page-info';
 
 @Component({
   selector: 'app-counter-analytics',
@@ -20,6 +21,15 @@ export class DayOfWeekHistogramPage implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private counterAnalytics: CounterAnalyticsService
   ) {}
+
+  static getPageInfo(): AnalyticsPageInfo {
+    return {
+      title: 'Day Of Week Histogram',
+      description: 'Shows count events grouped by the the day of week.',
+      icon: 'calendar',
+      link: 'day-of-week-histogram',
+    };
+  }
 
   ngOnInit() {
     const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

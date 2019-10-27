@@ -13,13 +13,14 @@
 <ion-content>
 
   <ion-list>
-    <ion-item [routerLink]="['/counter-analytics', counter.id, 'day-of-week-histogram']">
+    <ion-item *ngFor="let pageInfo of analyticsPageInfos"
+              [routerLink]="['/counter-analytics', counter.id, pageInfo.link]">
       <ion-avatar slot="start">
-        <ion-icon name="calendar" size="large"></ion-icon>
+        <ion-icon name="{{pageInfo.icon}}" size="large"></ion-icon>
       </ion-avatar>
       <ion-label>
-        <h2>Day Of Week Histogram</h2>
-        <p>Shows count events grouped by the the day of week.</p>
+        <h2>{{pageInfo.title}}</h2>
+        <p>{{pageInfo.description}}</p>
       </ion-label>
     </ion-item>
   </ion-list>
