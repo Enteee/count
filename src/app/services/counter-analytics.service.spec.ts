@@ -1,12 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 
 import { CounterAnalyticsService } from './counter-analytics.service';
+import { CountEventRepositoryService } from '../models/count-event-repository.service';
 
 describe('CounterAnalyticsService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let countEventRepositoryService: CountEventRepositoryService;
+  let service: CounterAnalyticsService;
+
+  beforeEach(() => {
+    countEventRepositoryService = new CountEventRepositoryService(
+      {} as any
+    );
+
+    service = new CounterAnalyticsService(countEventRepositoryService);
+  });
 
   it('should be created', () => {
-    const service: CounterAnalyticsService = TestBed.get(CounterAnalyticsService);
     expect(service).toBeTruthy();
   });
 });
