@@ -1,12 +1,16 @@
-import { TestBed } from '@angular/core/testing';
-
+import { Model } from './model';
 import { ModelRepositoryService } from './model-repository.service';
 
 describe('ModelRepositoryService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let repositoryService: ModelRepositoryService<Model>;
+
+  beforeEach(() => {
+    repositoryService = new ModelRepositoryService<Model>(
+      {} as any
+    );
+  });
 
   it('should be created', () => {
-    const service: ModelRepositoryService = TestBed.get(ModelRepositoryService);
-    expect(service).toBeTruthy();
+    expect(repositoryService).toBeTruthy();
   });
 });

@@ -17,10 +17,6 @@ export class AppComponent {
       url: '/counters'
     },
     {
-      title: 'Fuel: 1231',
-      icon: 'cash'
-    },
-    {
       title: 'Contribute',
       icon: 'heart',
       url: '/contribute',

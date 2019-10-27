@@ -17,22 +17,35 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+
     - name: npm install
       run: npm install
+
     - name: npm lint
       run: npm run lint
+
     - name: npm build
       run: npm run build --if-present
+
     - name: npm test
-      run: #npm test
+      run: npm run test-headless
+
+    - name: Coveralls Parallel
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.github_token }}
+        parallel: true
+
     - name: Use JDK ${{ matrix.java-version }}
       uses: actions/setup-java@v1
       with:
         java-version: ${{ matrix.java-version }}
+
     - name: ionic cordova build
       run: |
         npm install -g --no-save \
@@ -43,8 +56,15 @@ jobs:
         ionic cordova build android ${{ matrix.build-args }}
       env:
         CI: true
-    - uses: actions/upload-artifact@master
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@master
       with:
         name: "count"
         path: platforms/android/app/build/outputs
 
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.github_token }}
+        parallel-finished: true

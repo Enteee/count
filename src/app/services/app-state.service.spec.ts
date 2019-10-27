@@ -1,12 +1,44 @@
-import { TestBed } from '@angular/core/testing';
+import { AppStateRepositoryService } from '../models/app-state-repository.service';
 
 import { AppStateService } from './app-state.service';
 
 describe('AppStateService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let appStateRepositoryService: AppStateRepositoryService;
+  let service: AppStateService;
+
+  beforeEach(() => {
+    appStateRepositoryService = new AppStateRepositoryService(
+      {} as any
+    );
+    service = new AppStateService(
+      appStateRepositoryService
+    );
+  });
 
   it('should be created', () => {
-    const service: AppStateService = TestBed.get(AppStateService);
     expect(service).toBeTruthy();
+  });
+
+  it('can disable not implemented', () => {
+    const appState = {
+      disableNotImplemented: false
+    };
+
+    spyOnProperty(
+      appStateRepositoryService,
+      'state'
+    ).and.returnValue(appState);
+
+    spyOn(
+      appStateRepositoryService,
+      'save'
+    );
+
+    service.disableNotImplemented();
+
+    expect(appState.disableNotImplemented).toEqual(true);
+
+    expect(appStateRepositoryService.save).toHaveBeenCalledTimes(1);
+    expect(appStateRepositoryService.save).toHaveBeenCalledWith(appState);
   });
 });
