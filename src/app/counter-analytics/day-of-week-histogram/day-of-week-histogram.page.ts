@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CounterAnalyticsService } from '../../services/counter-analytics.service';
+import { CounterAnalyticsService, DayOfWeek } from '../../services/counter-analytics.service';
 import 'anychart';
 import { Counter } from '../../models/counter';
 import { AnalyticsPage } from '../analytics-page-info';
@@ -29,17 +29,25 @@ export class DayOfWeekHistogramPage implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
-    const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     this.counter = this.route.snapshot.data.counter;
+    const dayOfWeekHistogramData = this.counterAnalytics.getDayOfWeekHistogramData(this.counter);
 
-    const positiveData = this.counterAnalytics.getDayOfWeekHistogramData(this.counter, 'positive');
-    const positiveSeries = this.chart.column(positiveData.map((value, index) => [weekDays[index], value]));
+    const positiveData = this.getDayOfWeekOrder().map((dayOfWeek) => [
+      this.translateDayOfWeek(dayOfWeek),
+      dayOfWeekHistogramData[dayOfWeek].positive
+    ]);
+
+    const positiveSeries = this.chart.column(positiveData);
     positiveSeries.name('Plus Count');
     positiveSeries.stroke('green');
     positiveSeries.fill('green');
 
-    const negativeData = this.counterAnalytics.getDayOfWeekHistogramData(this.counter, 'negative');
-    const negativeSeries = this.chart.column(negativeData.map((value, index) => [weekDays[index], -value]));
+    const negativeData = this.getDayOfWeekOrder().map((dayOfWeek) => [
+      this.translateDayOfWeek(dayOfWeek),
+      dayOfWeekHistogramData[dayOfWeek].negative
+    ]);
+
+    const negativeSeries = this.chart.column(negativeData);
     negativeSeries.name('Minus Count');
     negativeSeries.stroke('red');
     negativeSeries.fill('red');
@@ -48,6 +56,32 @@ export class DayOfWeekHistogramPage implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.chart.container(this.container.nativeElement);
     this.chart.draw();
+  }
+
+  translateDayOfWeek(dayOfWeek: DayOfWeek): string {
+    // TODO: Delegate to i18n framework
+    switch (dayOfWeek) {
+      case 'monday': return 'Monday';
+      case 'tuesday': return 'Tuesday';
+      case 'wednesday': return 'Wednesday';
+      case 'thursday': return 'Thursday';
+      case 'friday': return 'Friday';
+      case 'saturday': return 'Saturday';
+      case 'sunday': return 'Sunday';
+    }
+  }
+
+  getDayOfWeekOrder(): DayOfWeek[] {
+    // TODO: Delegate to i18n framework
+    return [
+      'monday',
+      'tuesday',
+      'wednesday',
+      'thursday',
+      'friday',
+      'saturday',
+      'sunday'
+    ];
   }
 
 }
