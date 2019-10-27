@@ -13,9 +13,13 @@
 <ion-content>
 
   <ion-list>
-    <ion-item>
-      <ion-label [routerLink]="['/counter-analytics', counter.id, 'day-of-week-histogram']">
-        Day Of Week Histogram
+    <ion-item [routerLink]="['/counter-analytics', counter.id, 'day-of-week-histogram']">
+      <ion-avatar slot="start">
+        <ion-icon name="calendar" size="large"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h2>Day Of Week Histogram</h2>
+        <p>Shows count events grouped by the the day of week.</p>
       </ion-label>
     </ion-item>
   </ion-list>
