@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DayOfWeekHistogramPage } from './day-of-week-histogram.page.component';
+import { DayOfWeekHistogramPage } from './day-of-week-histogram.page';
 
 const routes: Routes = [
   {

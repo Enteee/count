@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DayOfWeekHistogramPage } from './day-of-week-histogram.page.component';
+import { DayOfWeekHistogramPage } from './day-of-week-histogram.page';
 
 describe('DayOfWeekHistogramPage', () => {
   let component: DayOfWeekHistogramPage;

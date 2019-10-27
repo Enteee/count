@@ -13,8 +13,8 @@ import { AnalyticsPage } from '../analytics-page-info';
 })
 @Component({
   selector: 'app-counter-analytics',
-  templateUrl: './day-of-week-histogram.page.component.html',
-  styleUrls: ['./day-of-week-histogram.page.component.scss'],
+  templateUrl: './day-of-week-histogram.page.html',
+  styleUrls: ['./day-of-week-histogram.page.scss'],
 })
 export class DayOfWeekHistogramPage implements OnInit, AfterViewInit {
 
