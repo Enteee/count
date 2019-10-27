@@ -51,6 +51,10 @@ export class DayOfWeekHistogramPage implements OnInit, AfterViewInit {
     negativeSeries.name('Minus Count');
     negativeSeries.stroke('red');
     negativeSeries.fill('red');
+
+    this.chart.legend().enabled(true);
+    this.chart.xAxis().labels().rotation(45);
+    this.chart.yScale().ticks().allowFractional(false);
   }
 
   ngAfterViewInit() {
