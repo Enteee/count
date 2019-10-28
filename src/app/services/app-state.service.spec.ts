@@ -1,13 +1,16 @@
 import { Deploy } from 'cordova-plugin-ionic/dist/ngx';
 
 import { AppState, UpdateChannel } from '../models/app-state';
-import { AppStateService } from './app-state.service';
+import { PositionService } from './position.service';
 import { AppStateRepositoryService } from '../models/app-state-repository.service';
+
+import { AppStateService } from './app-state.service';
 
 describe('AppStateService', () => {
   let appState: AppState;
   let appStateRepositoryService: AppStateRepositoryService;
   let appStateRepositoryServiceStateSpy;
+  let positionService: PositionService;
   let deploy: Deploy;
   let service: AppStateService;
 
@@ -22,6 +25,8 @@ describe('AppStateService', () => {
       'state'
     ).and.returnValue(appState);
 
+    positionService = {} as any;
+
     deploy = {
       configure: () => {},
       sync: () => {},
@@ -29,6 +34,7 @@ describe('AppStateService', () => {
 
     service = new AppStateService(
       appStateRepositoryService,
+      positionService,
       deploy,
     );
   });

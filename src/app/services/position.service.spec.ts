@@ -1,14 +1,14 @@
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 import { AppState } from '../models/app-state';
-import { AppStateService } from './app-state.service';
+import { AppStateRepositoryService } from '../models/app-state-repository.service';
 
 import { PositionService } from './position.service';
 
 describe('PositionService', () => {
 
   let appState: AppState;
-  let appStateService: AppStateService;
+  let appStateRepositoryService: AppStateRepositoryService;
 
   let geolocation: Geolocation;
 
@@ -17,13 +17,12 @@ describe('PositionService', () => {
   beforeEach(() => {
     appState = new AppState();
 
-    appStateService = new AppStateService(
-      {} as any,
+    appStateRepositoryService = new AppStateRepositoryService(
       {} as any,
     );
     spyOnProperty(
-      appStateService,
-      'appState'
+      appStateRepositoryService,
+      'state',
     ).and.returnValue(appState);
 
     geolocation = {
@@ -31,7 +30,7 @@ describe('PositionService', () => {
     } as any;
 
     service = new PositionService(
-      appStateService,
+      appStateRepositoryService,
       geolocation,
     );
 
@@ -41,8 +40,10 @@ describe('PositionService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('can get position', async () => {
+  it('can get position if app state allows', async () => {
     const position = {} as any;
+
+    appState.recordPosition = true;
 
     const geolocationGetCurrentPositionSpy = spyOn(
       geolocation,
@@ -54,5 +55,22 @@ describe('PositionService', () => {
     const position1 = await service.getPosition();
     expect(position1).toEqual(position);
     expect(geolocationGetCurrentPositionSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('can not get position if app denies', async () => {
+    const position = {} as any;
+
+    appState.recordPosition = false;
+
+    const geolocationGetCurrentPositionSpy = spyOn(
+      geolocation,
+      'getCurrentPosition'
+    ).and.returnValue(
+      Promise.resolve(position)
+    );
+
+    const position1 = await service.getPosition();
+    expect(position1).toEqual(null);
+    expect(geolocationGetCurrentPositionSpy).toHaveBeenCalledTimes(0);
   });
 });

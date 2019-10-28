@@ -67,7 +67,6 @@ export class CounterService {
     }
 
     const position = await this.positionService.getPosition();
-    console.log(position);
 
     await Promise.all([
       this.counterRepositoryService.save(counter),

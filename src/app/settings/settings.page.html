@@ -54,17 +54,18 @@
         </ion-item>
       </app-not-implemented>
 
-      <app-not-implemented
-        description="Toggle record location"
-        issueId="1"
-      >
-        <ion-item>
-          <ion-icon slot="start" name="pin"></ion-icon>
-          <ion-label>Record location</ion-label>
-          <ion-checkbox slot="end">
-          </ion-checkbox>
-        </ion-item>
-      </app-not-implemented>
+      <ion-item>
+        <ion-icon slot="start" name="pin"></ion-icon>
+        <ion-label>Record position</ion-label>
+        <ion-checkbox
+          required
+          slot="end"
+          formControlName="recordPosition"
+          [checked]="appState.recordPosition"
+          (ionChange)="changeRecordPosition()"
+        >
+        </ion-checkbox>
+      </ion-item>
 
       <app-not-implemented
         description="Enable Advertisements / Disable Fuel"

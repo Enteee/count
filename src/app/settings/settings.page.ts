@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -21,12 +22,18 @@ export class SettingsPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private appStateService: AppStateService,
+    private alertController: AlertController,
   ) { }
 
   ngOnInit() {
     this.appState = this.route.snapshot.data.appState as AppState;
 
     this.settingsForm = new FormGroup({
+      recordPosition: new FormControl(
+        this.appState.recordPosition,
+        [
+        ]
+      ),
       disableNotImplemented: new FormControl(
         this.appState.disableNotImplemented,
         [
@@ -38,6 +45,21 @@ export class SettingsPage implements OnInit {
         ]
       ),
     });
+  }
+
+  async changeRecordPosition() {
+    try{
+      await this.appStateService.setRecordPosition(
+        this.settingsForm.value.recordPosition
+      );
+    } catch (e) {
+      const alert = await this.alertController.create({
+        header: 'Failed to enable position recording',
+        message: e.message,
+        buttons: ['OK']
+      });
+      await alert.present();
+    }
   }
 
   async changeDisableNotImplemented() {

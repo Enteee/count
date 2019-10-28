@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Deploy } from 'cordova-plugin-ionic/dist/ngx';
 
+import { PositionService } from './position.service';
 
 import { UpdateChannel } from '../models/app-state';
 import { AppStateRepositoryService } from '../models/app-state-repository.service';
@@ -12,11 +13,26 @@ export class AppStateService {
 
   constructor(
     private appStateRepositoryService: AppStateRepositoryService,
+    private positionService: PositionService,
     private deploy: Deploy,
   ) { }
 
   get appState() {
     return this.appStateRepositoryService.state;
+  }
+
+  async setRecordPosition(v: boolean) {
+    const appState = this.appStateRepositoryService.state;
+    appState.recordPosition = v;
+    // get position once in order to trigger user notification:
+    try {
+      await this.positionService.getPosition();
+    } catch (e) {
+      appState.recordPosition = false;
+      await this.appStateRepositoryService.save(appState);
+      return Promise.reject(e);
+    }
+    await this.appStateRepositoryService.save(appState);
   }
 
   async setDisableNotImplemented(v: boolean) {

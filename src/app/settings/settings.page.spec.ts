@@ -30,6 +30,7 @@ describe('SettingsPage', () => {
     appStateService = new AppStateService(
       {} as any,
       {} as any,
+      {} as any,
     );
 
     TestBed.configureTestingModule({
