@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
 import { Counter } from '../models/counter';
 import { CounterRepositoryService } from '../models/counter-repository.service';
 
-import { CountEvent } from '../models/count-event';
+import { CountEvent, CountEventType } from '../models/count-event';
 import { CountEventRepositoryService } from '../models/count-event-repository.service';
+
+import { Position } from '../models/count-event';
+import { PositionService } from './position.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +19,7 @@ export class CounterService {
   constructor(
     private counterRepositoryService: CounterRepositoryService,
     private countEventRepositoryService: CountEventRepositoryService,
+    private positionService: PositionService,
   ) {}
 
   get allSortBySortOrder(): Array<Counter> {
@@ -52,6 +58,7 @@ export class CounterService {
     ) {
       counter.count = counter.count % counter.positiveWrapAround;
     }
+
     if (
       counter.negativeWrapAroundActive
       && counter.count < counter.negativeWrapAround
@@ -59,12 +66,16 @@ export class CounterService {
       counter.count = counter.count % counter.negativeWrapAround;
     }
 
+    let position = await this.positionService.getPosition();
+    console.log(position);
+
     await Promise.all([
       this.counterRepositoryService.save(counter),
       this.countEventRepositoryService.save(
         new CountEvent(
           counter.id,
-          delta
+          delta,
+          position,
         )
       )
     ]);
@@ -82,7 +93,8 @@ export class CounterService {
         new CountEvent(
           counter.id,
           0,
-          'reset'
+          {} as any,
+          CountEventType.Reset,
         )
       ),
     ]);

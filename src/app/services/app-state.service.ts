@@ -12,6 +12,10 @@ export class AppStateService {
     private appStateRepositoryService: AppStateRepositoryService,
   ) { }
 
+  get appState() {
+    return this.appStateRepositoryService.state;
+  }
+
   async disableNotImplemented() {
     const appState = this.appStateRepositoryService.state;
     appState.disableNotImplemented = true;

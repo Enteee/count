@@ -1,3 +1,4 @@
+import { AppState } from '../models/app-state';
 import { AppStateRepositoryService } from '../models/app-state-repository.service';
 
 import { AppStateService } from './app-state.service';
@@ -19,10 +20,21 @@ describe('AppStateService', () => {
     expect(service).toBeTruthy();
   });
 
+  it('can get appState', () => {
+    const appState = new AppState()
+
+    let appStateRepositoryServiceStateSpy = spyOnProperty(
+      appStateRepositoryService,
+      'state',
+    ).and.returnValue(appState);
+
+    expect(service.appState).toEqual(appState);
+    expect(appStateRepositoryServiceStateSpy).toHaveBeenCalledTimes(1);
+  });
+
   it('can disable not implemented', () => {
-    const appState = {
-      disableNotImplemented: false
-    };
+    const appState = new AppState()
+    appState.disableNotImplemented = false;
 
     spyOnProperty(
       appStateRepositoryService,

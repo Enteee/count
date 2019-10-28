@@ -4,6 +4,8 @@ import { CounterRepositoryService } from '../models/counter-repository.service';
 import { CountEvent } from '../models/count-event';
 import { CountEventRepositoryService } from '../models/count-event-repository.service';
 
+import { PositionService } from './position.service';
+
 import { CounterService } from './counter.service';
 
 describe('CounterService', () => {
@@ -12,6 +14,8 @@ describe('CounterService', () => {
 
   let countEventRepositoryService: CountEventRepositoryService;
   let countEventRepositoryServiceSaveSpy;
+
+  let positionService: PositionService;
 
   let service: CounterService;
 
@@ -32,9 +36,15 @@ describe('CounterService', () => {
       'save'
     );
 
+    positionService = new PositionService(
+      {} as any,
+      {} as any,
+    );
+
     service = new CounterService(
       counterRepositoryService,
       countEventRepositoryService,
+      positionService,
     );
   });
 

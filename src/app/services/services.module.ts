@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @NgModule({
   declarations: [],
@@ -14,6 +14,7 @@ export class ServicesModule {
     return {
       ngModule: ServicesModule,
       providers: [
+        Geolocation,
       ]
     };
   }
