@@ -48,7 +48,7 @@ export class SettingsPage implements OnInit {
   }
 
   async changeRecordPosition() {
-    try{
+    try {
       await this.appStateService.setRecordPosition(
         this.settingsForm.value.recordPosition
       );
