@@ -31,7 +31,7 @@ describe('CountersPage', () => {
         ComponentsModule
       ],
       providers: [
-        {provide: CounterService, useValue: counterService },
+        { provide: CounterService, useValue: counterService },
       ]
     }).compileComponents();
 

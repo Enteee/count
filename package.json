@@ -1,8 +1,8 @@
 {
   "name": "count",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Enteee",
+  "homepage": "https://duckpond.ch/category/count",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -35,6 +35,7 @@
     "cordova-plugin-email-composer": "^0.9.2",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-inappbrowser": "^3.1.0",
+    "cordova-plugin-ionic": "^5.4.5",
     "cordova-sqlite-storage": "^3.3.0",
     "core-js": "^2.5.4",
     "emulate": "1.0.2",
@@ -91,7 +92,9 @@
       "cordova-plugin-geolocation": {},
       "cordova-sqlite-storage": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-email-composer": {},
+      "cordova-plugin-email-composer": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
       "cordova-plugin-ionic": {
         "APP_ID": "1c4c563f",
         "CHANNEL_NAME": "Production",

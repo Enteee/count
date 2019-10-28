@@ -31,6 +31,10 @@ const routes: Routes = [
     resolve: {
       appState: AppStateRepositoryService,
     },
+  },
+  {
+    path: 'help',
+    loadChildren: './help/help.module#HelpPageModule'
   }
 ];
 

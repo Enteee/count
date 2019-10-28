@@ -1,11 +1,11 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormControlName } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
-import { AppState } from '../models/app-state';
-import { AppStateRepositoryService } from '../models/app-state-repository.service';
+import { AppState, UpdateChannel } from '../models/app-state';
+import { AppStateService } from '../services/app-state.service';
 
 import { SettingsPage } from './settings.page';
 
@@ -14,7 +14,7 @@ describe('SettingsPage', () => {
   let fixture: ComponentFixture<SettingsPage>;
   let route: ActivatedRoute;
   let appState: AppState;
-  let appStateRepositoryService: AppStateRepositoryService;
+  let appStateService: AppStateService;
 
   beforeEach(async(() => {
 
@@ -27,8 +27,9 @@ describe('SettingsPage', () => {
       }
     } as any;
 
-    appStateRepositoryService = new AppStateRepositoryService(
-      {} as any
+    appStateService = new AppStateService(
+      {} as any,
+      {} as any,
     );
 
     TestBed.configureTestingModule({
@@ -42,7 +43,7 @@ describe('SettingsPage', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         {provide: ActivatedRoute, useValue: route },
-        {provide: AppStateRepositoryService, useValue: appStateRepositoryService },
+        {provide: AppStateService, useValue: appStateService },
       ]
     })
     .compileComponents();
@@ -57,4 +58,49 @@ describe('SettingsPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should change disable not implemented', async(() => {
+    spyOn(
+      appStateService,
+      'setDisableNotImplemented'
+    );
+
+    component.settingsForm.patchValue({
+      disableNotImplemented: true,
+    });
+    component.changeDisableNotImplemented();
+
+    fixture.whenStable().then(() => {
+      expect(appStateService.setDisableNotImplemented).toHaveBeenCalledTimes(1);
+      expect(appStateService.setDisableNotImplemented).toHaveBeenCalledWith(true);
+    });
+  }));
+
+  it('should change update channel and update', async(() => {
+    spyOn(
+      appStateService,
+      'setUpdateChannel'
+    );
+    spyOn(
+      appStateService,
+      'update'
+    );
+
+    component.settingsForm.patchValue({
+      updateChannel: UpdateChannel.Master
+    });
+    component.changeUpdateChannel();
+
+    fixture.whenStable().then(() => {
+      expect(appStateService.setUpdateChannel).toHaveBeenCalledTimes(1);
+      expect(appStateService.setUpdateChannel).toHaveBeenCalledWith(
+        UpdateChannel.Master
+      );
+
+      expect(appStateService.update).toHaveBeenCalledTimes(1);
+      expect(appStateService.update).toHaveBeenCalledWith(
+        'auto'
+      );
+    });
+  }));
 });

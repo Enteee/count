@@ -19,6 +19,7 @@ describe('PositionService', () => {
 
     appStateService = new AppStateService(
       {} as any,
+      {} as any,
     );
     spyOnProperty(
       appStateService,
