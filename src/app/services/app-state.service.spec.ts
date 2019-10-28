@@ -21,9 +21,9 @@ describe('AppStateService', () => {
   });
 
   it('can get appState', () => {
-    const appState = new AppState()
+    const appState = new AppState();
 
-    let appStateRepositoryServiceStateSpy = spyOnProperty(
+    const appStateRepositoryServiceStateSpy = spyOnProperty(
       appStateRepositoryService,
       'state',
     ).and.returnValue(appState);
@@ -33,7 +33,7 @@ describe('AppStateService', () => {
   });
 
   it('can disable not implemented', () => {
-    const appState = new AppState()
+    const appState = new AppState();
     appState.disableNotImplemented = false;
 
     spyOnProperty(

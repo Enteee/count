@@ -66,7 +66,7 @@ export class CounterService {
       counter.count = counter.count % counter.negativeWrapAround;
     }
 
-    let position = await this.positionService.getPosition();
+    const position = await this.positionService.getPosition();
     console.log(position);
 
     await Promise.all([
