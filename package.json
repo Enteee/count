@@ -29,6 +29,7 @@
     "@ionic-native/status-bar": "^5.15.1",
     "@ionic/angular": "^4.11.2",
     "@ionic/storage": "^2.2.0",
+    "anychart": "^8.7.0",
     "cerialize": "^0.1.18",
     "cordova-android": "^8.1.0",
     "cordova-browser": "^6.0.0",

@@ -70,7 +70,7 @@
 
     <ion-item-option
       color="success"
-      appNotImplemented description="Show basic analytics" issueId="6"
+      [routerLink]="['/counter-analytics', counter.id]"
     >
       <ion-icon slot="icon-only" name="analytics"></ion-icon>
     </ion-item-option>
