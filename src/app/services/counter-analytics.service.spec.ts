@@ -23,24 +23,24 @@ describe('CounterAnalyticsService', () => {
   });
 
   it('can get day of week histogram', () => {
-    let counter = new Counter();
-    let countEvents = [
+    const counter = new Counter();
+    const countEvents = [
       new CountEvent(counter.id, 1),
       new CountEvent(counter.id, 1),
       new CountEvent(counter.id, -3),
       new CountEvent(counter.id, 69),
     ];
-    countEvents[0].timestamp = new Date("Tue Oct 29 2019 19:41:25 GMT+0100 (CET)");
-    countEvents[1].timestamp = new Date("Tue Oct 29 2019 19:41:25 GMT+0100 (CET)");
-    countEvents[2].timestamp = new Date("Tue Oct 29 2019 19:41:25 GMT+0100 (CET)");
-    countEvents[3].timestamp = new Date("Fri Nov 1 2019 11:11:11 GMT+0100 (CET)");
+    countEvents[0].timestamp = new Date('Tue Oct 29 2019 19:41:25 GMT+0100 (CET)');
+    countEvents[1].timestamp = new Date('Tue Oct 29 2019 19:41:25 GMT+0100 (CET)');
+    countEvents[2].timestamp = new Date('Tue Oct 29 2019 19:41:25 GMT+0100 (CET)');
+    countEvents[3].timestamp = new Date('Fri Nov 1 2019 11:11:11 GMT+0100 (CET)');
 
-    let countEventRepositoryServiceGetByCounterSpy = spyOn(
+    const countEventRepositoryServiceGetByCounterSpy = spyOn(
       countEventRepositoryService,
       'getByCounter'
     ).and.returnValue(countEvents);
 
-    let result = service.getDayOfWeekHistogramData(counter);
+    const result = service.getDayOfWeekHistogramData(counter);
 
     expect(countEventRepositoryServiceGetByCounterSpy).toHaveBeenCalledTimes(1);
     expect(countEventRepositoryServiceGetByCounterSpy).toHaveBeenCalledWith(counter);
