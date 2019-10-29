@@ -3,7 +3,7 @@ import { CountEventRepositoryService } from '../models/count-event-repository.se
 import { Counter } from '../models/counter';
 
 export type DayOfWeek = 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday';
-const dayOfWeekMappingList: DayOfWeek[] = ['sunday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'monday'];
+const dayOfWeekMappingList: DayOfWeek[] = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
 export type DayOfWeekHistogramData = {
   [key in DayOfWeek]: {positive, negative: number}
