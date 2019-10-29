@@ -18,19 +18,19 @@ export class PlusMinusCounterComponent implements OnInit {
 
   ngOnInit() {}
 
-  deleteCounter() {
-    this.counterService.delete(this.counter);
+  async deleteCounter() {
+    await this.counterService.delete(this.counter);
   }
 
-  countPlus() {
-    this.counterService.count(
+  async countPlus() {
+    await this.counterService.count(
       this.counter,
       this.counter.plusCount,
     );
   }
 
-  countMinus() {
-    this.counterService.count(
+  async countMinus() {
+    await this.counterService.count(
       this.counter,
       this.counter.minusCount,
     );

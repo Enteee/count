@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back" defaultHref="/counter-analytics/{{ counter.id }}"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon name="analytics"></ion-icon>
+      {{ counter.title }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="chart-container" #chartContainer></div>
+</ion-content>
