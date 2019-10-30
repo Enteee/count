@@ -14,7 +14,7 @@ import { AppStateService } from './services/app-state.service';
 export class AppComponent {
   public appPages = [
     {
-      title: 'Counters',
+      title: 'Count',
       src: 'assets/icon.svg',
       url: '/counters'
     },
