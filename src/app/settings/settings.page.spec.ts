@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule, FormControlName } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, AlertController } from '@ionic/angular';
 
 import { AppState, UpdateChannel } from '../models/app-state';
 import { AppStateService } from '../services/app-state.service';
@@ -13,8 +13,12 @@ describe('SettingsPage', () => {
   let component: SettingsPage;
   let fixture: ComponentFixture<SettingsPage>;
   let route: ActivatedRoute;
+
   let appState: AppState;
   let appStateService: AppStateService;
+
+  let alertMock;
+  let alertController: AlertController;
 
   beforeEach(async(() => {
 
@@ -26,6 +30,22 @@ describe('SettingsPage', () => {
         }
       }
     } as any;
+
+    alertMock = {
+      present: () => {},
+    } as any;
+    spyOn(
+      alertMock,
+      'present',
+    );
+
+    alertController = {
+      create: () => {},
+    } as any;
+    spyOn(
+      alertController,
+      'create',
+    ).and.returnValue(alertMock);
 
     appStateService = new AppStateService(
       {} as any,
@@ -45,6 +65,7 @@ describe('SettingsPage', () => {
       providers: [
         {provide: ActivatedRoute, useValue: route },
         {provide: AppStateService, useValue: appStateService },
+        {provide: AlertController, useValue: alertController },
       ]
     })
     .compileComponents();
@@ -74,6 +95,43 @@ describe('SettingsPage', () => {
     fixture.whenStable().then(() => {
       expect(appStateService.setDisableNotImplemented).toHaveBeenCalledTimes(1);
       expect(appStateService.setDisableNotImplemented).toHaveBeenCalledWith(true);
+    });
+  }));
+
+  it('should change record position', async(() => {
+    spyOn(
+      appStateService,
+      'setRecordPosition'
+    );
+
+    component.settingsForm.patchValue({
+      recordPosition: true,
+    });
+    component.changeRecordPosition();
+
+    fixture.whenStable().then(() => {
+      expect(appStateService.setRecordPosition).toHaveBeenCalledTimes(1);
+      expect(appStateService.setRecordPosition).toHaveBeenCalledWith(true);
+    });
+  }));
+
+  it('should print alert when change record position fails', async(() => {
+    spyOn(
+      appStateService,
+      'setRecordPosition'
+    ).and.throwError('nope');
+
+    component.settingsForm.patchValue({
+      recordPosition: true,
+    });
+    component.changeRecordPosition();
+
+    fixture.whenStable().then(() => {
+      expect(appStateService.setRecordPosition).toHaveBeenCalledTimes(1);
+      expect(appStateService.setRecordPosition).toHaveBeenCalledWith(true);
+
+      expect(alertController.create).toHaveBeenCalledTimes(1);
+      expect(alertMock.present).toHaveBeenCalledTimes(1);
     });
   }));
 
