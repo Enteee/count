@@ -69,7 +69,7 @@ export class CounterService {
       counter.count = counter.count % counter.negativeWrapAround;
     }
 
-    let position = null
+    let position = null;
     try {
       position = await this.positionService.getPosition();
     } catch (e) {

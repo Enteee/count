@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Counter } from '../../models/counter';
 import { CounterService } from '../../services/counter.service';
-import { AppStateService } from '../../services/app-state.service'
+import { AppStateService } from '../../services/app-state.service';
 
 import { PlusMinusCounterComponent } from './plus-minus-counter.component';
 

@@ -140,7 +140,7 @@ describe('CounterService', () => {
 
     positionServiceGetPositionSpy.and.throwError('nope');
 
-    let appStateServiceSetRecordPositionSpy = spyOn(
+    const appStateServiceSetRecordPositionSpy = spyOn(
       appStateService,
       'setRecordPosition',
     );
