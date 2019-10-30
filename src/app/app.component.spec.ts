@@ -75,7 +75,7 @@ describe('AppComponent', () => {
     expect(menuItems.length).toEqual(4);
     expect(menuItems[0].getAttribute('ng-reflect-router-link')).toEqual('/counters');
     expect(menuItems[1].getAttribute('ng-reflect-router-link')).toEqual('/contribute');
-    // expect(menuItems[2].getAttribute('ng-reflect-router-link')).toEqual('/help');
+    expect(menuItems[2].getAttribute('ng-reflect-router-link')).toEqual('/help');
     expect(menuItems[3].getAttribute('ng-reflect-router-link')).toEqual('/settings');
   });
 
