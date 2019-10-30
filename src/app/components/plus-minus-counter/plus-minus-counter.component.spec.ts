@@ -15,7 +15,8 @@ describe('PlusMinusCounterComponent', () => {
 
     counterService = new CounterService(
       {} as any,
-      {} as any
+      {} as any,
+      {} as any,
     );
 
     TestBed.configureTestingModule({
