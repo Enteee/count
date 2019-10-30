@@ -12,8 +12,18 @@ OUT_SPLASH="resources/splash.png"
 
 (
   cd "${TOPLEVEL}"
-  convert -density 384 "${IN_ICON}" -define icon:auto-resize "${OUT_FAVICON}"
-  convert -density 250 "${IN_ICON}" "${OUT_ICON}"
+
+  convert \
+    -density 384 \
+    "${IN_ICON}" \
+    -define icon:auto-resize \
+    "${OUT_FAVICON}"
+
+  convert \
+    -density 250 \
+    -fill "#8c8c8cff" -opaque "#000000ff" \
+    "${IN_ICON}" "${OUT_ICON}"
+
   convert "${OUT_ICON}" -gravity center \
     -background white \
     -extent 2732x2732 \
