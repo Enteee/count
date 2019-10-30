@@ -134,6 +134,24 @@ describe('CounterService', () => {
     expect(counter.count).toEqual(-1);
   });
 
+  it('should set disable position recording on exception', async () => {
+    const counter = new Counter();
+    counter.count = 0;
+
+    positionServiceGetPositionSpy.and.throwError('nope');
+
+    let appStateServiceSetRecordPositionSpy = spyOn(
+      appStateService,
+      'setRecordPosition',
+    );
+
+    await service.count(counter, 1);
+
+    expect(appStateService.setRecordPosition).toHaveBeenCalledTimes(1);
+    expect(appStateService.setRecordPosition).toHaveBeenCalledWith(false);
+    expect(counter.count).toEqual(1);
+  });
+
   it('should reset', async () => {
     const counter = new Counter();
 

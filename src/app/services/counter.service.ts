@@ -69,7 +69,13 @@ export class CounterService {
       counter.count = counter.count % counter.negativeWrapAround;
     }
 
-    const position = await this.positionService.getPosition();
+    let position = null
+    try {
+      position = await this.positionService.getPosition();
+    } catch (e) {
+      // user does not allow posiiton recording or something unexpected happened
+      await this.appStateService.setRecordPosition(false);
+    }
 
     await Promise.all([
       this.counterRepositoryService.save(counter),
