@@ -54,17 +54,18 @@
         </ion-item>
       </app-not-implemented>
 
-      <app-not-implemented
-        description="Toggle record location"
-        issueId="1"
-      >
-        <ion-item>
-          <ion-icon slot="start" name="pin"></ion-icon>
-          <ion-label>Record location</ion-label>
-          <ion-checkbox slot="end">
-          </ion-checkbox>
-        </ion-item>
-      </app-not-implemented>
+      <ion-item>
+        <ion-icon slot="start" name="pin"></ion-icon>
+        <ion-label>Record position</ion-label>
+        <ion-checkbox
+          required
+          slot="end"
+          formControlName="recordPosition"
+          [checked]="appState.recordPosition"
+          (ionChange)="changeRecordPosition()"
+        >
+        </ion-checkbox>
+      </ion-item>
 
       <app-not-implemented
         description="Enable Advertisements / Disable Fuel"
@@ -83,14 +84,39 @@
       <ion-item>
         <ion-icon slot="start" name="construct"></ion-icon>
         <ion-label>Disable not implemented</ion-label>
+
+        <!--
+          Exception: we use [checked] here, because
+          the status of this checkbox might be changed by a
+          not-implemented modal, from a not-implemented control
+          on this page.
+        -->
         <ion-checkbox
           required
           slot="end"
           formControlName="disableNotImplemented"
           [checked]="appState.disableNotImplemented"
-          (ionChange)="submit()"
+          (ionChange)="changeDisableNotImplemented()"
         >
         </ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon slot="start" name="cloud-download"></ion-icon>
+        <ion-label>Update</ion-label>
+        <ion-select
+          formControlName="updateChannel"
+          slot="end"
+          placeholder="Select One"
+          (ionChange)="changeUpdateChannel()"
+        >
+          <ion-select-option
+            *ngFor="let updateChannel of updateChannels"
+            [value]="updateChannel"
+          >
+            {{updateChannel}}
+          </ion-select-option>
+        </ion-select>
       </ion-item>
 
       <app-not-implemented

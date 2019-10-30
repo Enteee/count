@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon name="help-circle-outline"></ion-icon>
+      Help
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list *ngIf="!(deployConfiguration | async)?.disabled">
+
+    <ion-button size="large" expand="full" (click)="openGithubHelp()">
+      Open Online Help
+    </ion-button>
+
+    <ion-item>
+      <ion-label>App Version</ion-label>
+      <ion-badge slot="end">
+        {{ (deployConfiguration | async)?.binaryVersionName }}
+        -
+        {{ (deployConfiguration | async)?.currentBuildId }}
+      </ion-badge>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

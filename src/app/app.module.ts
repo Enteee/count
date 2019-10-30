@@ -35,7 +35,7 @@ import { NotImplementedModule } from './not-implemented/not-implemented.module';
     {
       provide: RouteReuseStrategy,
       useClass: IonicRouteStrategy
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

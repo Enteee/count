@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, AlertController } from '@ionic/angular';
 
 import { NotImplementedModule } from '../not-implemented/not-implemented.module';
 
@@ -24,6 +24,11 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     NotImplementedModule,
   ],
-  declarations: [SettingsPage]
+  providers: [
+    AlertController,
+  ],
+  declarations: [
+    SettingsPage
+  ],
 })
 export class SettingsPageModule {}

@@ -38,7 +38,9 @@ describe('CounterSettingsPage', () => {
 
     counterService = new CounterService(
       counterRepositoryService,
-      {} as any
+      {} as any,
+      {} as any,
+      {} as any,
     );
 
     navControllerSpy = jasmine.createSpyObj(

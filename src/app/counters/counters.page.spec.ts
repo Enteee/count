@@ -18,7 +18,9 @@ describe('CountersPage', () => {
 
     counterService = new CounterService(
       {} as any,
-      {} as any
+      {} as any,
+      {} as any,
+      {} as any,
     );
 
     TestBed.configureTestingModule({
@@ -30,7 +32,7 @@ describe('CountersPage', () => {
         ComponentsModule
       ],
       providers: [
-        {provide: CounterService, useValue: counterService },
+        { provide: CounterService, useValue: counterService },
       ]
     }).compileComponents();
 

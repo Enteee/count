@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
+import { Deploy } from 'cordova-plugin-ionic/dist/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
-import { DayOfWeekHistogramPage } from './day-of-week-histogram.page';
+import { HelpPage } from './help.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: DayOfWeekHistogramPage
+    component: HelpPage
   }
 ];
 
@@ -21,6 +23,12 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [DayOfWeekHistogramPage]
+  declarations: [
+    HelpPage
+  ],
+  providers: [
+    Deploy,
+    InAppBrowser,
+  ]
 })
-export class DayOfWeekHistogramPageModule {}
+export class HelpPageModule {}

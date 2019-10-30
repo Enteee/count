@@ -3,6 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Counter } from '../../models/counter';
 import { CounterService } from '../../services/counter.service';
+import { AppStateService } from '../../services/app-state.service';
+
 import { PlusMinusCounterComponent } from './plus-minus-counter.component';
 
 describe('PlusMinusCounterComponent', () => {
@@ -10,19 +12,30 @@ describe('PlusMinusCounterComponent', () => {
   let fixture: ComponentFixture<PlusMinusCounterComponent>;
   let counter: Counter;
   let counterService: CounterService;
+  let appStateService: AppStateService;
 
   beforeEach(async(() => {
 
-    counterService = new CounterService(
+    appStateService = new AppStateService(
+      {} as any,
       {} as any,
       {} as any
     );
+
+    counterService = new CounterService(
+      {} as any,
+      {} as any,
+      {} as any,
+      appStateService,
+    );
+
 
     TestBed.configureTestingModule({
       declarations: [ PlusMinusCounterComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         { provide: CounterService, useValue: counterService },
+        { provide: AppStateService, useValue: appStateService },
       ]
     })
     .compileComponents();
