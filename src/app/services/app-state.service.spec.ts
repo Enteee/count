@@ -25,7 +25,10 @@ describe('AppStateService', () => {
       'state'
     ).and.returnValue(appState);
 
-    positionService = {} as any;
+    positionService = new PositionService(
+      {} as any,
+      {} as any,
+    );
 
     deploy = {
       configure: () => {},
@@ -152,5 +155,49 @@ describe('AppStateService', () => {
       updateMethod: 'auto',
     });
 
+  });
+
+  it('should disable record position', async () => {
+    spyOn(
+      positionService,
+      'getPosition',
+    );
+    spyOn(
+      appStateRepositoryService,
+      'save',
+    );
+
+    appState.recordPosition = true;
+
+    await service.setRecordPosition(false);
+
+    expect(positionService.getPosition).toHaveBeenCalledTimes(1);
+
+    expect(appStateRepositoryService.save).toHaveBeenCalledTimes(1);
+    expect(appStateRepositoryService.save).toHaveBeenCalledWith(appState);
+
+    expect(appState.recordPosition).toEqual(false);
+  });
+
+  it('should not enable record position on getPosition error', async () => {
+    spyOn(
+      positionService,
+      'getPosition',
+    ).and.throwError('nope');
+    spyOn(
+      appStateRepositoryService,
+      'save',
+    );
+
+    appState.recordPosition = false;
+
+    await expectAsync(service.setRecordPosition(true)).toBeRejectedWith(new Error('nope'));
+
+    expect(positionService.getPosition).toHaveBeenCalledTimes(1);
+
+    expect(appStateRepositoryService.save).toHaveBeenCalledTimes(1);
+    expect(appStateRepositoryService.save).toHaveBeenCalledWith(appState);
+
+    expect(appState.recordPosition).toEqual(false);
   });
 });
