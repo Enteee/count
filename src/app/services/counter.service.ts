@@ -11,6 +11,8 @@ import { CountEventRepositoryService } from '../models/count-event-repository.se
 import { Position } from '../models/count-event';
 import { PositionService } from './position.service';
 
+import { AppStateService } from './app-state.service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +22,7 @@ export class CounterService {
     private counterRepositoryService: CounterRepositoryService,
     private countEventRepositoryService: CountEventRepositoryService,
     private positionService: PositionService,
+    private appStateService: AppStateService,
   ) {}
 
   get allSortBySortOrder(): Array<Counter> {

@@ -20,6 +20,7 @@ describe('CountersPage', () => {
       {} as any,
       {} as any,
       {} as any,
+      {} as any,
     );
 
     TestBed.configureTestingModule({

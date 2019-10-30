@@ -4,6 +4,8 @@ import { CounterRepositoryService } from '../models/counter-repository.service';
 import { CountEvent, Position } from '../models/count-event';
 import { CountEventRepositoryService } from '../models/count-event-repository.service';
 import { PositionService } from './position.service';
+import { AppState } from '../models/app-state';
+import { AppStateService } from './app-state.service';
 
 import { CounterService } from './counter.service';
 
@@ -17,6 +19,9 @@ describe('CounterService', () => {
   let position: Position;
   let positionService: PositionService;
   let positionServiceGetPositionSpy;
+
+  let appState: AppState;
+  let appStateService: AppStateService;
 
   let service: CounterService;
 
@@ -49,10 +54,18 @@ describe('CounterService', () => {
       Promise.resolve(position)
     );
 
+    appState = new AppState();
+    appStateService = new AppStateService(
+      {} as any,
+      {} as any,
+      {} as any,
+    );
+
     service = new CounterService(
       counterRepositoryService,
       countEventRepositoryService,
       positionService,
+      appStateService,
     );
   });
 
