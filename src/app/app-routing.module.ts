@@ -15,6 +15,20 @@ const routes: Routes = [
     loadChildren: './counters/counters.module#CountersPageModule'
   },
   {
+    path: 'counter-analytics/:id',
+    resolve: {
+      counter: CounterRepositoryService,
+    },
+    loadChildren: './counter-analytics/counter-analytics.module#CounterAnalyticsPageModule'
+  },
+  {
+    path: 'counter-analytics/:id/day-of-week-histogram',
+    resolve: {
+      counter: CounterRepositoryService,
+    },
+    loadChildren: './counter-analytics/day-of-week-histogram/day-of-week-histogram.module#DayOfWeekHistogramPageModule'
+  },
+  {
     path: 'counter-settings/:id',
     resolve: {
       counter: CounterRepositoryService,

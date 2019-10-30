@@ -47,18 +47,6 @@ describe('CountersPage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should be able to add a new counter', () => {
-    countersPage = fixture.nativeElement;
-
-    spyOn(
-      counterService,
-      'addCounter'
-    );
-
-    component.addCounter();
-    expect(counterService.addCounter).toHaveBeenCalledTimes(1);
-  });
-
   it('should provide a list of counters', () => {
     countersPage = fixture.nativeElement;
 
@@ -78,5 +66,50 @@ describe('CountersPage', () => {
     expect(component.counters).toEqual(countersFixture);
     expect(allSortBySortOrderSpy).toHaveBeenCalledTimes(1);
   });
+
+  it('should be able to add a new counter', async(() => {
+    countersPage = fixture.nativeElement;
+
+    spyOn(
+      counterService,
+      'addCounter'
+    );
+
+    component.addCounter();
+    fixture.whenStable().then(() => {
+      expect(counterService.addCounter).toHaveBeenCalledTimes(1);
+    });
+  }));
+
+  it('can reorder', async(() => {
+    spyOn(
+      counterService,
+      'reorder',
+    );
+
+    const ev = {
+      detail: {
+        from: 10,
+        to: 1,
+        complete: () => {},
+      }
+    };
+    spyOn(
+      ev.detail,
+      'complete',
+    );
+
+    component.reorder(ev);
+
+    fixture.whenStable().then(() => {
+      expect(counterService.reorder).toHaveBeenCalledTimes(1);
+      expect(counterService.reorder).toHaveBeenCalledWith(
+        ev.detail.from,
+        ev.detail.to,
+      );
+
+      expect(ev.detail.complete).toHaveBeenCalledTimes(1);
+    });
+  }));
 
 });
