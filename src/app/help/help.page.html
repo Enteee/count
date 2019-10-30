@@ -12,12 +12,11 @@
 
 <ion-content>
 
+  <ion-button size="large" expand="full" (click)="openGithubHelp()">
+    Open Online Help
+  </ion-button>
+
   <ion-list *ngIf="!(deployConfiguration | async)?.disabled">
-
-    <ion-button size="large" expand="full" (click)="openGithubHelp()">
-      Open Online Help
-    </ion-button>
-
     <ion-item>
       <ion-label>App Version</ion-label>
       <ion-badge slot="end">
@@ -26,7 +25,6 @@
         {{ (deployConfiguration | async)?.currentBuildId }}
       </ion-badge>
     </ion-item>
-
   </ion-list>
 
 </ion-content>
