@@ -13,3 +13,9 @@ Start without cordova (some fearures won't work):
 ```
 $ ionic serve
 ```
+
+### Update icon
+
+```
+$ ./icon_update.sh
+```

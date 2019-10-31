@@ -1,13 +1,16 @@
-import { AppStateRepositoryService } from '../models/app-state-repository.service';
-
 import { Deploy } from 'cordova-plugin-ionic/dist/ngx';
 
 import { AppState, UpdateChannel } from '../models/app-state';
+import { PositionService } from './position.service';
+import { AppStateRepositoryService } from '../models/app-state-repository.service';
+
 import { AppStateService } from './app-state.service';
 
 describe('AppStateService', () => {
   let appState: AppState;
   let appStateRepositoryService: AppStateRepositoryService;
+  let appStateRepositoryServiceStateSpy;
+  let positionService: PositionService;
   let deploy: Deploy;
   let service: AppStateService;
 
@@ -17,10 +20,15 @@ describe('AppStateService', () => {
     appStateRepositoryService = new AppStateRepositoryService(
       {} as any
     );
-    spyOnProperty(
+    appStateRepositoryServiceStateSpy = spyOnProperty(
       appStateRepositoryService,
       'state'
     ).and.returnValue(appState);
+
+    positionService = new PositionService(
+      {} as any,
+      {} as any,
+    );
 
     deploy = {
       configure: () => {},
@@ -29,12 +37,18 @@ describe('AppStateService', () => {
 
     service = new AppStateService(
       appStateRepositoryService,
+      positionService,
       deploy,
     );
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('can get appState', () => {
+    expect(service.appState).toEqual(appState);
+    expect(appStateRepositoryServiceStateSpy).toHaveBeenCalledTimes(1);
   });
 
   it('should disable not implemented', async () => {
@@ -96,6 +110,7 @@ describe('AppStateService', () => {
     await service.setUpdateChannel(
       UpdateChannel.Disabled
     );
+
     expect(appState.updateChannel).toEqual(UpdateChannel.Disabled);
 
     expect(appStateRepositoryService.save).toHaveBeenCalledTimes(1);
@@ -140,6 +155,45 @@ describe('AppStateService', () => {
     expect(deploy.sync).toHaveBeenCalledWith({
       updateMethod: 'auto',
     });
+  });
 
+  it('should disable record position', async () => {
+    spyOn(
+      positionService,
+      'getPosition',
+    );
+    spyOn(
+      appStateRepositoryService,
+      'save',
+    );
+
+    appState.recordPosition = true;
+
+    await service.setRecordPosition(false);
+
+    expect(positionService.getPosition).toHaveBeenCalledTimes(1);
+
+    expect(appStateRepositoryService.save).toHaveBeenCalledTimes(1);
+    expect(appStateRepositoryService.save).toHaveBeenCalledWith(appState);
+
+    expect(appState.recordPosition).toEqual(false);
+  });
+
+  it('should not enable record position on getPosition error', async () => {
+    spyOn(
+      positionService,
+      'getPosition',
+    ).and.throwError('nope');
+    spyOn(
+      appStateRepositoryService,
+      'save',
+    );
+
+    appState.recordPosition = false;
+
+    await expectAsync(service.setRecordPosition(true)).toBeRejectedWith(new Error('nope'));
+
+    expect(positionService.getPosition).toHaveBeenCalledTimes(1);
+    expect(appState.recordPosition).toEqual(false);
   });
 });

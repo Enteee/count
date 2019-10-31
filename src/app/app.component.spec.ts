@@ -63,7 +63,7 @@ describe('AppComponent', () => {
     const app = fixture.nativeElement;
     const menuItems = app.querySelectorAll('ion-label');
     expect(menuItems.length).toEqual(4);
-    expect(menuItems[0].textContent).toContain('Counters');
+    expect(menuItems[0].textContent).toContain('Count');
     expect(menuItems[1].textContent).toContain('Contribute');
     expect(menuItems[2].textContent).toContain('Help');
     expect(menuItems[3].textContent).toContain('Settings');

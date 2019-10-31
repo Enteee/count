@@ -37,7 +37,6 @@
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-inappbrowser": "^3.1.0",
     "cordova-plugin-ionic": "^5.4.5",
-    "cordova-sqlite-storage": "^3.4.0",
     "core-js": "^2.6.10",
     "emulate": "1.0.2",
     "rxjs": "~6.5.1",

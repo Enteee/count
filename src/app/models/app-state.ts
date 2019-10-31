@@ -12,4 +12,5 @@ export enum UpdateChannel {
 export class AppState extends Model {
   @autoserialize disableNotImplemented = false;
   @autoserialize updateChannel = UpdateChannel.Production;
+  @autoserialize recordPosition = true;
 }
