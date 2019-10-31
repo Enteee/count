@@ -155,6 +155,7 @@ describe('AppStateService', () => {
     expect(deploy.sync).toHaveBeenCalledWith({
       updateMethod: 'auto',
     });
+
   });
 
   it('should disable record position', async () => {
@@ -194,6 +195,10 @@ describe('AppStateService', () => {
     await expectAsync(service.setRecordPosition(true)).toBeRejectedWith(new Error('nope'));
 
     expect(positionService.getPosition).toHaveBeenCalledTimes(1);
+
+    expect(appStateRepositoryService.save).toHaveBeenCalledTimes(1);
+    expect(appStateRepositoryService.save).toHaveBeenCalledWith(appState);
+
     expect(appState.recordPosition).toEqual(false);
   });
 });
