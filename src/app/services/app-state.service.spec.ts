@@ -110,6 +110,7 @@ describe('AppStateService', () => {
     await service.setUpdateChannel(
       UpdateChannel.Disabled
     );
+
     expect(appState.updateChannel).toEqual(UpdateChannel.Disabled);
 
     expect(appStateRepositoryService.save).toHaveBeenCalledTimes(1);
