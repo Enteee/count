@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
+import { ContributorInfo } from '../contributors';
+import { ContributorService } from '../services/contributor.service';
 
 type TemplateType = 'bug' | 'feature';
 
@@ -11,7 +14,7 @@ type TemplateType = 'bug' | 'feature';
   templateUrl: './contribute.page.html',
   styleUrls: ['./contribute.page.scss'],
 })
-export class ContributePage {
+export class ContributePage implements OnInit {
 
   static readonly GITHUB_URL = 'https://github.com';
   static readonly PROJECT_NAME = 'Enteee/count';
@@ -23,14 +26,17 @@ export class ContributePage {
   static readonly TEMPLATE_BUG = 'bug_report.md';
   static readonly TEMPLATE_FEATURE = 'feature_request.md';
 
-  static readonly LIBREPAY_URL = 'https://liberapay.com';
-  static readonly LIBREPAY_USER = 'Ente';
+  contributors: Array<ContributorInfo>;
 
   constructor(
     private httpClient: HttpClient,
     private iab: InAppBrowser,
     private emailComposer: EmailComposer,
-  ) {
+    private contributorService: ContributorService,
+  ) { }
+
+  ngOnInit() {
+    this.contributors = this.contributorService.getDonatable();
   }
 
   private getTemplateName(
@@ -65,7 +71,7 @@ export class ContributePage {
     };
   }
 
-  async openNewGithub(
+  openNewGithub(
     templateType: TemplateType
   ) {
     const templateName = this.getTemplateName(templateType);
@@ -82,10 +88,8 @@ export class ContributePage {
     );
   }
 
-  async openDonate() {
-    this.iab.create(
-      `${ContributePage.LIBREPAY_URL}/${ContributePage.LIBREPAY_USER}`
-    );
+  openBrowser(url: string) {
+    this.iab.create(url);
   }
 
 }

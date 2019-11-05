@@ -12,19 +12,57 @@
 
 <ion-content>
 
-  <ion-button size="large" expand="full" (click)="openGithubHelp()">
-    Open Online Help
-  </ion-button>
+  <ion-list>
 
-  <ion-list *ngIf="!(deployConfiguration | async)?.disabled">
+    <ion-list-header>
+      <ion-label>
+        <ion-icon name="help-circle-outline"></ion-icon>
+        Help
+      </ion-label>
+    </ion-list-header>
 
-    <ion-item>
-      <ion-label>App Version</ion-label>
+    <ion-button size="large" expand="full" (click)="openGithubHelp()">
+      Open Online Help
+    </ion-button>
+
+
+    <ion-list-header>
+      <ion-label>
+        <ion-icon name="information-circle-outline"></ion-icon>
+        About
+      </ion-label>
+    </ion-list-header>
+
+    <ion-item
+      *ngIf="!(deployConfiguration | async)?.disabled"
+    >
+      <ion-label>Version</ion-label>
       <ion-badge slot="end">
         {{ (deployConfiguration | async)?.binaryVersionName }}
         -
         {{ (deployConfiguration | async)?.currentBuildId }}
       </ion-badge>
+    </ion-item>
+
+    <ion-list-header>
+      <ion-label>
+        <ion-icon name="heart"></ion-icon>
+        Contributors
+      </ion-label>
+    </ion-list-header>
+
+    <ion-item
+      *ngFor="let contributor of contributors"
+      (click)="openBrowser(contributor.webUrl)"
+      button
+    >
+      <ion-avatar slot="start">
+        <img src="{{contributor.avatar}}">
+      </ion-avatar>
+      <ion-label position="fixed">
+        <h3>{{contributor.name}}</h3>
+        <p>{{contributor.description}}</p>
+      </ion-label>
     </ion-item>
 
   </ion-list>

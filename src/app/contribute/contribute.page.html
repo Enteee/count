@@ -18,24 +18,21 @@
 
     <ion-item>
       <p>
-        We are tracking bugs <ion-icon name="bug"></ion-icon> and features
-        <ion-icon name="construct"></ion-icon> on Github <ion-icon name="logo-github"></ion-icon>.
-        In case you don't have an account on there, you can also get in touch via email <ion-icon name="mail"></ion-icon>.
-        <br><br>
-        Thank you for making this open source app a little bit better.
+        Thank you for contributing to this open source app.
         <ion-icon name="heart"></ion-icon>
         <ion-icon name="heart"></ion-icon>
         <ion-icon name="heart"></ion-icon>
       </p>
     </ion-item>
 
+    <ion-list-header>
+      <ion-label>
+        <ion-icon name="bug"></ion-icon>
+        Report bug
+      </ion-label>
+    </ion-list-header>
 
     <ion-item>
-
-      <ion-label position="stacked">
-        <ion-icon name="bug"></ion-icon>
-        Bug
-      </ion-label>
 
       <ion-grid>
         <ion-row>
@@ -57,12 +54,14 @@
 
     </ion-item>
 
-    <ion-item>
-
-      <ion-label position="stacked">
+    <ion-list-header>
+      <ion-label>
         <ion-icon name="construct"></ion-icon>
-        Feature
+        Request feature
       </ion-label>
+    </ion-list-header>
+
+    <ion-item>
 
       <ion-grid>
         <ion-row>
@@ -84,29 +83,25 @@
 
     </ion-item>
 
-    <ion-item>
-
-      <ion-label position="stacked">
+    <ion-list-header>
+      <ion-label>
         <ion-icon name="cash"></ion-icon>
-        Donation
+        Make donation
       </ion-label>
+    </ion-list-header>
 
-      <ion-grid>
-        <ion-row>
-
-          <ion-col>
-            <ion-button
-              size="large"
-              expand="full"
-              (click)="openDonate()"
-            >
-              <ion-icon name="card"></ion-icon>
-            </ion-button>
-          </ion-col>
-
-        </ion-row>
-      </ion-grid>
-
+    <ion-item
+      *ngFor="let contributor of contributors"
+      (click)="openBrowser(contributor.donateUrl)"
+      button
+    >
+      <ion-avatar slot="start">
+        <img src="{{contributor.avatar}}">
+      </ion-avatar>
+      <ion-label position="fixed">
+        <h3>{{contributor.name}}</h3>
+        <p>{{contributor.description}}</p>
+      </ion-label>
     </ion-item>
 
   </ion-list>
