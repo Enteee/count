@@ -1,5 +1,3 @@
-import { TestBed } from '@angular/core/testing';
-
 import { Counter } from '../models/counter';
 import { CountEvent } from '../models/count-event';
 import { CountEventRepositoryService } from '../models/count-event-repository.service';
