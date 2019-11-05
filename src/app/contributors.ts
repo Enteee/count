@@ -14,4 +14,4 @@ export const contributors: ContributorInfo[] = [
     webUrl: 'https://duckpond.ch',
     donateUrl: 'https://github.com/sponsors/Enteee',
   },
-]
+];

@@ -25,7 +25,7 @@ describe('ContributorService', () => {
       );
     }
 
-    for (let c of service.all){
+    for (const c of service.all) {
       const exists = await imageExists(c.avatar);
       expect(exists).toBeTruthy();
     }
