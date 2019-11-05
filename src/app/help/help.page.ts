@@ -15,8 +15,8 @@ export class HelpPage implements OnInit {
   static readonly GITHUB_URL = 'https://github.com';
   static readonly PROJECT_NAME = 'Enteee/count';
 
-  private deployConfiguration: Promise<object>;
-  private contributors: Array<ContributorInfo>;
+  deployConfiguration: Promise<object>;
+  contributors: Array<ContributorInfo>;
 
   constructor(
     private deploy: Deploy,

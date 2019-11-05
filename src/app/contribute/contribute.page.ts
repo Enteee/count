@@ -26,7 +26,7 @@ export class ContributePage implements OnInit {
   static readonly TEMPLATE_BUG = 'bug_report.md';
   static readonly TEMPLATE_FEATURE = 'feature_request.md';
 
-  private contributors: Array<ContributorInfo>;
+  contributors: Array<ContributorInfo>;
 
   constructor(
     private httpClient: HttpClient,
