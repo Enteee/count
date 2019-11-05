@@ -26,7 +26,7 @@ export class ContributePage implements OnInit {
   static readonly TEMPLATE_BUG = 'bug_report.md';
   static readonly TEMPLATE_FEATURE = 'feature_request.md';
 
-  contributors: Array<ContributorInfo>;
+  private contributors: Array<ContributorInfo>;
 
   constructor(
     private httpClient: HttpClient,
@@ -71,7 +71,7 @@ export class ContributePage implements OnInit {
     };
   }
 
-  async openNewGithub(
+  openNewGithub(
     templateType: TemplateType
   ) {
     const templateName = this.getTemplateName(templateType);
@@ -88,7 +88,7 @@ export class ContributePage implements OnInit {
     );
   }
 
-  async openBrowser(url: string) {
+  openBrowser(url: string) {
     this.iab.create(url);
   }
 

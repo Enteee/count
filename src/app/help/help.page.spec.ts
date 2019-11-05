@@ -4,6 +4,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Deploy } from 'cordova-plugin-ionic/dist/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
+import { ContributorService } from '../services/contributor.service';
+
 import { HelpPage } from './help.page';
 
 describe('HelpPage', () => {
@@ -11,6 +13,7 @@ describe('HelpPage', () => {
   let fixture: ComponentFixture<HelpPage>;
   let deploy: Deploy;
   let iab: InAppBrowser;
+  let contributorService: ContributorService;
 
   beforeEach(async(() => {
 
@@ -22,7 +25,15 @@ describe('HelpPage', () => {
       'getConfiguration'
     );
 
-    iab = {} as InAppBrowser;
+    iab = {
+      create: () => {},
+    } as any;
+    spyOn(
+      iab,
+      'create'
+    );
+
+    contributorService = new ContributorService();
 
     TestBed.configureTestingModule({
       declarations: [ HelpPage ],
@@ -30,6 +41,7 @@ describe('HelpPage', () => {
       providers: [
         { provide: Deploy, useValue: deploy },
         { provide: InAppBrowser, useValue: iab },
+        { provide: ContributorService, useValue: contributorService },
       ]
     })
     .compileComponents();
@@ -43,5 +55,15 @@ describe('HelpPage', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('openBrowser opens default url', () => {
+
+    component.openBrowser();
+
+    expect(iab.create).toHaveBeenCalledTimes(1);
+    expect(iab.create).toHaveBeenCalledWith(
+      `${HelpPage.GITHUB_URL}/${HelpPage.PROJECT_NAME}/contributors`
+    );
   });
 });
