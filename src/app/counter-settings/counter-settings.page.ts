@@ -117,7 +117,7 @@ export class CounterSettingsPage implements OnInit {
     formControlName: string,
   ) {
     let value = this.counterSettingsForm.get(formControlName).value;
-    if(value === null){
+    if (value === null) {
       value = -1;
     }
     this.counterSettingsForm.patchValue({
