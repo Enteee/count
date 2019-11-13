@@ -34,10 +34,7 @@ export class CounterSettingsPage implements OnInit {
     // enable disable input boxed based on checkbox
     // TODO: this should become a component
     const positiveWrapAround = new FormControl(
-      {
-        value: this.counter.positiveWrapAround,
-        disabled: !this.counter.positiveWrapAroundActive,
-      },
+      this.counter.positiveWrapAround,
       [
         Validators.min(1)
       ]
@@ -47,21 +44,8 @@ export class CounterSettingsPage implements OnInit {
       [
       ]
     );
-    // enable disable input boxed based on checkbox
-    positiveWrapAroundActive.valueChanges.subscribe(
-      enabled => {
-        if (enabled) {
-          positiveWrapAround.enable();
-        } else {
-          positiveWrapAround.disable();
-        }
-      }
-    );
     const negativeWrapAround = new FormControl(
-      {
-        value: -this.counter.negativeWrapAround,
-        disabled: !this.counter.negativeWrapAroundActive,
-      },
+      -this.counter.negativeWrapAround,
       [
         Validators.min(1)
       ]
@@ -70,16 +54,6 @@ export class CounterSettingsPage implements OnInit {
       this.counter.negativeWrapAroundActive,
       [
       ]
-    );
-    // enable disable input boxed based on checkbox
-    negativeWrapAroundActive.valueChanges.subscribe(
-      enabled => {
-        if (enabled) {
-          negativeWrapAround.enable();
-        } else {
-          negativeWrapAround.disable();
-        }
-      }
     );
 
     this.counterSettingsForm = new FormGroup({
@@ -104,6 +78,12 @@ export class CounterSettingsPage implements OnInit {
       positiveWrapAroundActive,
       negativeWrapAround,
       negativeWrapAroundActive,
+      vibrate : new FormControl(
+        this.counter.vibrate,
+      ),
+      locked : new FormControl(
+        this.counter.locked,
+      ),
     });
   }
 
@@ -120,22 +100,31 @@ export class CounterSettingsPage implements OnInit {
     this.navController.pop();
   }
 
-  async discard() {
-    this.navController.pop();
-  }
-
   async reset() {
     await this.counterService.reset(this.counter);
     this.navController.pop();
   }
 
-  async setLocked(locked: boolean) {
-    await this.counterService.setLocked(
-      this.counter,
-      !this.counter.locked
-    );
-    this.navController.pop();
+  check(
+    formControlName: string,
+  ) {
+    this.counterSettingsForm.patchValue({
+      [formControlName]: true,
+    });
   }
+
+  increment(
+    formControlName: string,
+  ) {
+    let value = this.counterSettingsForm.get(formControlName).value;
+    if(value === null){
+      value = -1;
+    }
+    this.counterSettingsForm.patchValue({
+      [formControlName]: value + 1,
+    });
+  }
+
 
   clamp(
     formControlName: string,
@@ -143,7 +132,7 @@ export class CounterSettingsPage implements OnInit {
     clampFunction = ('max' as ClampFunction),
   ) {
     const value = this.counterSettingsForm.get(formControlName).value;
-    if (value) {
+    if (value !== null) {
       this.counterSettingsForm.patchValue({
         [formControlName]: Math[clampFunction](clampValue, value)
       });

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 import { Counter } from '../../models/counter';
 import { CounterService } from '../../services/counter.service';
@@ -10,10 +11,14 @@ import { CounterService } from '../../services/counter.service';
 })
 export class PlusMinusCounterComponent implements OnInit {
 
+  static readonly VIBRATION_PATTERN_PLUS = [30];
+  static readonly VIBRATION_PATTERN_MINUS = [30, 30, 30];
+
   @Input() counter: Counter;
 
   constructor(
     private counterService: CounterService,
+    private vibration: Vibration,
   ) {}
 
   ngOnInit() {}
@@ -23,6 +28,11 @@ export class PlusMinusCounterComponent implements OnInit {
   }
 
   async countPlus() {
+    if (this.counter.vibrate) {
+      this.vibration.vibrate(
+        PlusMinusCounterComponent.VIBRATION_PATTERN_PLUS
+      );
+    }
     await this.counterService.count(
       this.counter,
       this.counter.plusCount,
@@ -30,6 +40,11 @@ export class PlusMinusCounterComponent implements OnInit {
   }
 
   async countMinus() {
+    if (this.counter.vibrate) {
+      this.vibration.vibrate(
+        PlusMinusCounterComponent.VIBRATION_PATTERN_MINUS
+      );
+    }
     await this.counterService.count(
       this.counter,
       this.counter.minusCount,
