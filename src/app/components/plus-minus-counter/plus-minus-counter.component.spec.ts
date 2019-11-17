@@ -4,6 +4,8 @@ import { Vibration } from '@ionic-native/vibration/ngx';
 
 import { Counter } from '../../models/counter';
 import { CounterService } from '../../services/counter.service';
+
+import { AppState } from '../../models/app-state';
 import { AppStateService } from '../../services/app-state.service';
 
 import { PlusMinusCounterComponent } from './plus-minus-counter.component';
@@ -11,18 +13,27 @@ import { PlusMinusCounterComponent } from './plus-minus-counter.component';
 describe('PlusMinusCounterComponent', () => {
   let component: PlusMinusCounterComponent;
   let fixture: ComponentFixture<PlusMinusCounterComponent>;
+
   let counter: Counter;
   let counterService: CounterService;
+
+  let appState: AppState;
   let appStateService: AppStateService;
+
   let vibration: Vibration;
 
   beforeEach(async(() => {
 
+    appState = new AppState();
     appStateService = new AppStateService(
       {} as any,
       {} as any,
       {} as any
     );
+    spyOnProperty(
+      appStateService,
+      'appState',
+    ).and.returnValue(appState);
 
     counterService = new CounterService(
       {} as any,
@@ -100,6 +111,7 @@ describe('PlusMinusCounterComponent', () => {
   }));
 
   it('should vibrate on count', async(() => {
+    appState.vibrate = true;
     counter.vibrate = true;
     component.countPlus();
 
@@ -112,7 +124,18 @@ describe('PlusMinusCounterComponent', () => {
   }));
 
   it('should not vibrate on count if disabled', async(() => {
+    appState.vibrate = true;
     counter.vibrate = false;
+    component.countPlus();
+
+    fixture.whenStable().then(() => {
+      expect(vibration.vibrate).toHaveBeenCalledTimes(0);
+    });
+  }));
+
+  it('should not vibrate on count if vibrate is disabled in appstate', async(() => {
+    appState.vibrate = false;
+    counter.vibrate = true;
     component.countPlus();
 
     fixture.whenStable().then(() => {

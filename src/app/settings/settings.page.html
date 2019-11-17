@@ -55,6 +55,19 @@
       </app-not-implemented>
 
       <ion-item>
+        <ion-icon slot="start" name="pulse"></ion-icon>
+        <ion-label>Vibrate</ion-label>
+        <ion-checkbox
+          required
+          slot="end"
+          formControlName="vibrate"
+          [checked]="appState.vibrate"
+          (ionChange)="changeVibrate()"
+        >
+        </ion-checkbox>
+      </ion-item>
+
+      <ion-item>
         <ion-icon slot="start" name="pin"></ion-icon>
         <ion-label>Record position</ion-label>
         <ion-checkbox

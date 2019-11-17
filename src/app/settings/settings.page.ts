@@ -29,6 +29,11 @@ export class SettingsPage implements OnInit {
     this.appState = this.route.snapshot.data.appState as AppState;
 
     this.settingsForm = new FormGroup({
+      vibrate: new FormControl(
+        this.appState.vibrate,
+        [
+        ]
+      ),
       recordPosition: new FormControl(
         this.appState.recordPosition,
         [
@@ -45,6 +50,12 @@ export class SettingsPage implements OnInit {
         ]
       ),
     });
+  }
+
+  async changeVibrate() {
+    await this.appStateService.setVibrate(
+      this.settingsForm.value.vibrate
+    );
   }
 
   async changeRecordPosition() {

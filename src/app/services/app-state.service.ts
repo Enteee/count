@@ -21,6 +21,12 @@ export class AppStateService {
     return this.appStateRepositoryService.state;
   }
 
+  async setVibrate(v: boolean) {
+    const appState = this.appStateRepositoryService.state;
+    appState.vibrate = v;
+    await this.appStateRepositoryService.save(appState);
+  }
+
   async setRecordPosition(v: boolean) {
     const appState = this.appStateRepositoryService.state;
     appState.recordPosition = v;

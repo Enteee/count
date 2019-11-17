@@ -4,6 +4,9 @@ import { Vibration } from '@ionic-native/vibration/ngx';
 import { Counter } from '../../models/counter';
 import { CounterService } from '../../services/counter.service';
 
+import { AppState } from '../../models/app-state';
+import { AppStateService } from '../../services/app-state.service';
+
 @Component({
   selector: 'app-plus-minus-counter',
   templateUrl: './plus-minus-counter.component.html',
@@ -18,6 +21,7 @@ export class PlusMinusCounterComponent implements OnInit {
 
   constructor(
     private counterService: CounterService,
+    private appStateService: AppStateService,
     private vibration: Vibration,
   ) {}
 
@@ -28,7 +32,10 @@ export class PlusMinusCounterComponent implements OnInit {
   }
 
   async countPlus() {
-    if (this.counter.vibrate) {
+    if (
+      this.appStateService.appState.vibrate
+      && this.counter.vibrate
+    ) {
       this.vibration.vibrate(
         PlusMinusCounterComponent.VIBRATION_PATTERN_PLUS
       );
@@ -40,7 +47,10 @@ export class PlusMinusCounterComponent implements OnInit {
   }
 
   async countMinus() {
-    if (this.counter.vibrate) {
+    if (
+      this.appStateService.appState.vibrate
+      && this.counter.vibrate
+    ) {
       this.vibration.vibrate(
         PlusMinusCounterComponent.VIBRATION_PATTERN_MINUS
       );
