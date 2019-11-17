@@ -143,7 +143,10 @@
 
           </ion-item>
 
-          <ion-item>
+          <ion-item
+            [hidden]="!appState.vibrate"
+            class="vibrate-checkbox"
+          >
             <ion-icon slot="start" name="pulse"></ion-icon>
             <ion-label>Vibrate</ion-label>
             <ion-checkbox

@@ -6,8 +6,10 @@ import { NavController } from '@ionic/angular';
 
 import { Counter } from '../models/counter';
 import { CounterRepositoryService } from '../models/counter-repository.service';
-
 import { CounterService } from '../services/counter.service';
+
+import { AppState } from '../models/app-state';
+import { AppStateService } from '../services/app-state.service';
 
 type ClampFunction = 'max' | 'min';
 
@@ -19,17 +21,20 @@ type ClampFunction = 'max' | 'min';
 export class CounterSettingsPage implements OnInit {
 
   counter: Counter;
+  appState: AppState;
   counterSettingsForm: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
     private counterRepositoryService: CounterRepositoryService,
     private counterService: CounterService,
+    private appStateService: AppStateService,
     private navController: NavController
   ) {}
 
   ngOnInit() {
     this.counter = this.route.snapshot.data.counter;
+    this.appState = this.appStateService.appState;
 
     // enable disable input boxed based on checkbox
     // TODO: this should become a component
