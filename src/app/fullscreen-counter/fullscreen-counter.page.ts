@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 import { Counter } from '../models/counter';
 import { CounterService } from '../services/counter.service';
@@ -17,6 +18,8 @@ enum FullScreenCounterType {
 })
 export class FullscreenCounterPage implements OnInit {
 
+  static readonly CLOSE_DELAY = 700;
+
   type: FullScreenCounterType;
   counter: Counter;
   color: string;
@@ -24,7 +27,8 @@ export class FullscreenCounterPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private counterService: CounterService,
-    private navController: NavController
+    private navController: NavController,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -40,6 +44,12 @@ export class FullscreenCounterPage implements OnInit {
         this.color = "danger";
       break;
     }
+  }
+
+  async close() {
+    this.router.navigate([
+      '/counters'
+    ]);
   }
 
   async count() {

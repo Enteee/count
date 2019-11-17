@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Vibration } from '@ionic-native/vibration/ngx';
+import { Router } from '@angular/router';
 
 import { Counter } from '../../models/counter';
 import { CounterService } from '../../services/counter.service';
@@ -16,6 +17,7 @@ export class PlusMinusCounterComponent implements OnInit {
 
   static readonly VIBRATION_PATTERN_PLUS = [30];
   static readonly VIBRATION_PATTERN_MINUS = [30, 30, 30];
+  static readonly FULL_SCREEN_COUNTER_DELAY = 700;
 
   @Input() counter: Counter;
 
@@ -23,6 +25,7 @@ export class PlusMinusCounterComponent implements OnInit {
     private counterService: CounterService,
     private appStateService: AppStateService,
     private vibration: Vibration,
+    private router: Router,
   ) {}
 
   ngOnInit() {}
@@ -59,5 +62,15 @@ export class PlusMinusCounterComponent implements OnInit {
       this.counter,
       this.counter.minusCount,
     );
+  }
+
+  async openFullScreenCounter(
+    type:string,
+  ){
+    this.router.navigate([
+      '/fullscreen-counter',
+      type,
+      this.counter.id,
+    ]);
   }
 }

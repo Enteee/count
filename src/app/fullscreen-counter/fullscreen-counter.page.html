@@ -3,6 +3,10 @@
   class="full-screen"
   color="{{color}}"
   (click)="count()"
+
+  ion-long-press
+  [interval]="CLOSE_DELAY"
+  (longPressed)="close()"
 >
   <ion-label class="ion-text-center">
 

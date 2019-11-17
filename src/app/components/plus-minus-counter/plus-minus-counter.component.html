@@ -7,6 +7,10 @@
         color="danger"
         [disabled]="counter.locked"
         (click)="countMinus()"
+
+        ion-long-press
+        [interval]="FULL_SCREEN_COUNTER_DELAY"
+        (longPressed)="openFullScreenCounter('minus')"
       >
       <div [ngSwitch]="counter.minusCount">
         <div *ngSwitchCase="-1">
@@ -32,6 +36,10 @@
         color="success"
         [disabled]="counter.locked"
         (click)="countPlus()"
+
+        ion-long-press
+        [interval]="FULL_SCREEN_COUNTER_DELAY"
+        (longPressed)="openFullScreenCounter('plus')"
       >
       <div [ngSwitch]="counter.plusCount">
         <div *ngSwitchCase="1">

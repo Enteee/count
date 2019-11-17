@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { LongPressModule } from 'ionic-long-press';
 
 import { Vibration } from '@ionic-native/vibration/ngx';
 
@@ -14,6 +15,7 @@ import { PlusMinusCounterComponent } from './plus-minus-counter/plus-minus-count
     CommonModule,
     RouterModule,
     IonicModule,
+    LongPressModule,
     NotImplementedModule,
   ],
   declarations: [

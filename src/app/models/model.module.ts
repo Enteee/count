@@ -13,13 +13,13 @@ import { CountEvent } from './count-event';
 export function initializeModelServices(
   appStateRepositoryService: AppStateRepositoryService,
   counterRepositoryService: CounterRepositoryService,
-  countEventService: CountEventRepositoryService
+  countEventRepositoryService: CountEventRepositoryService
 ) {
   return async () => {
     await Promise.all([
       appStateRepositoryService.init(AppState),
       counterRepositoryService.init(Counter),
-      countEventService.init(CountEvent),
+      countEventRepositoryService.init(CountEvent),
     ]);
   };
 }
