@@ -47,8 +47,8 @@ export class PlusMinusCounterComponent implements OnInit {
   }
 
   async openFullScreenCounter(
-    type:FullScreenCounterType,
-  ){
+    type: FullScreenCounterType,
+  ) {
     this.router.navigate([
       '/fullscreen-counter',
       type,

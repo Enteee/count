@@ -6,8 +6,8 @@ import { Counter } from '../models/counter';
 import { CounterService } from '../services/counter.service';
 
 export enum FullScreenCounterType {
-  plus = "plus",
-  minus = "minus",
+  plus = 'plus',
+  minus = 'minus',
 }
 
 @Component({
@@ -34,13 +34,13 @@ export class FullscreenCounterPage implements OnInit {
       this.route.snapshot.paramMap.get('type')
     ];
     this.counter = this.route.snapshot.data.counter;
-    switch(this.type) {
+    switch (this.type) {
       case FullScreenCounterType.plus:
-        this.color = "success";
-      break;
+        this.color = 'success';
+        break;
       case FullScreenCounterType.minus:
-        this.color = "danger";
-      break;
+        this.color = 'danger';
+        break;
     }
   }
 

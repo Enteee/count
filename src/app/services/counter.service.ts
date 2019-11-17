@@ -66,7 +66,7 @@ export class CounterService {
     ) {
       this.vibration.vibrate(
         (delta > 0) ?
-          CounterService.VIBRATION_PATTERN_POSITIVE:
+          CounterService.VIBRATION_PATTERN_POSITIVE :
           CounterService.VIBRATION_PATTERN_NEGATIVE
       );
     }

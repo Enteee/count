@@ -193,7 +193,6 @@ describe('CounterService', () => {
   });
 
   it('should set disable position recording on exception', async () => {
-    const counter = new Counter();
     counter.count = 0;
 
     positionServiceGetPositionSpy.and.throwError('nope');

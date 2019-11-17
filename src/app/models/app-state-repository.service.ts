@@ -16,7 +16,7 @@ export class AppStateRepositoryService extends ModelRepositoryService<AppState> 
     // no matter how many app states were saved, only keep one.
     this.appState = this.all[0] || new AppState();
     await super.deleteAll();
-    await this.save(this.appState)
+    await this.save(this.appState);
   }
 
   public async save(m: AppState) {
