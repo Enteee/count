@@ -1,0 +1,30 @@
+<ion-content>
+<ion-button
+  class="full-screen"
+  color="{{color}}"
+  (click)="count()"
+>
+  <ion-label class="ion-text-center">
+
+    <div [ngSwitch]="type">
+      <h1
+        *ngIf="type == 'plus'"
+      >
+        +{{counter.plusCount}}
+      </h1>
+
+      <h1
+        *ngIf="type == 'minus'"
+      >
+        {{counter.minusCount}}
+      </h1>
+    </div>
+
+    <h1>{{counter.title}}</h1>
+    <h1>{{counter.count}}</h1>
+
+  </ion-label>
+
+</ion-button>
+
+</ion-content>

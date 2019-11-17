@@ -49,7 +49,14 @@ const routes: Routes = [
   {
     path: 'help',
     loadChildren: './help/help.module#HelpPageModule'
-  }
+  },
+  {
+    path: 'fullscreen-counter/:type/:id',
+    loadChildren: './fullscreen-counter/fullscreen-counter.module#FullscreenCounterPageModule',
+    resolve: {
+      counter: CounterRepositoryService,
+    },
+  },
 ];
 
 @NgModule({
