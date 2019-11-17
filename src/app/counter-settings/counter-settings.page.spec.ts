@@ -129,7 +129,7 @@ describe('CounterSettingsPage', () => {
     fixture.whenStable().then(() => {
       expect(component.counterSettingsForm.patchValue).toHaveBeenCalledTimes(1);
       expect(component.counterSettingsForm.patchValue).toHaveBeenCalledWith({
-        'testFormControl': true
+        testFormControl: true
       });
     });
   }));
@@ -156,7 +156,7 @@ describe('CounterSettingsPage', () => {
 
       expect(component.counterSettingsForm.patchValue).toHaveBeenCalledTimes(1);
       expect(component.counterSettingsForm.patchValue).toHaveBeenCalledWith({
-        'testFormControl': 1
+        testFormControl: 1
       });
     });
   }));
@@ -183,7 +183,7 @@ describe('CounterSettingsPage', () => {
 
       expect(component.counterSettingsForm.patchValue).toHaveBeenCalledTimes(1);
       expect(component.counterSettingsForm.patchValue).toHaveBeenCalledWith({
-        'testFormControl': 0
+        testFormControl: 0
       });
     });
   }));
@@ -215,7 +215,7 @@ describe('CounterSettingsPage', () => {
 
       expect(component.counterSettingsForm.patchValue).toHaveBeenCalledTimes(1);
       expect(component.counterSettingsForm.patchValue).toHaveBeenCalledWith({
-        'testFormControl': 10
+        testFormControl: 10
       });
     });
   }));
@@ -246,7 +246,7 @@ describe('CounterSettingsPage', () => {
 
       expect(component.counterSettingsForm.patchValue).toHaveBeenCalledTimes(1);
       expect(component.counterSettingsForm.patchValue).toHaveBeenCalledWith({
-        'testFormControl': 5
+        testFormControl: 5
       });
     });
   }));
