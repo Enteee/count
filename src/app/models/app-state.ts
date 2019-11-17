@@ -13,4 +13,5 @@ export class AppState extends Model {
   @autoserialize disableNotImplemented = false;
   @autoserialize updateChannel = UpdateChannel.Production;
   @autoserialize recordPosition = true;
+  @autoserialize vibrate = true;
 }

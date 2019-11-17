@@ -66,6 +66,21 @@ describe('AppStateService', () => {
     expect(appStateRepositoryService.save).toHaveBeenCalledWith(appState);
   });
 
+  it('should enable vibrate', async () => {
+    appState.vibrate = false;
+
+    spyOn(
+      appStateRepositoryService,
+      'save'
+    );
+
+    await service.setVibrate(true);
+    expect(appState.vibrate).toEqual(true);
+
+    expect(appStateRepositoryService.save).toHaveBeenCalledTimes(1);
+    expect(appStateRepositoryService.save).toHaveBeenCalledWith(appState);
+  });
+
   it('should set update channel', async () => {
     spyOn(
       appStateRepositoryService,

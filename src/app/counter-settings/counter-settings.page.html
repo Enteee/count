@@ -1,12 +1,19 @@
 <ion-header>
   <ion-toolbar>
+
     <ion-buttons slot="start">
-      <ion-back-button icon="close"></ion-back-button>
+      <ion-back-button
+        icon="close"
+        defaultHref="/counters"
+      >
+      </ion-back-button>
     </ion-buttons>
+
     <ion-title>
       <ion-icon name="build"></ion-icon>
       {{counter.title}}
     </ion-title>
+
     <ion-buttons slot="end">
       <ion-button
         color="success"
@@ -16,6 +23,7 @@
         Save
       </ion-button>
     </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
@@ -26,8 +34,8 @@
   >
       <ion-list>
 
+          <ion-list-header>Title</ion-list-header>
           <ion-item>
-            <ion-label position="stacked">Title</ion-label>
             <ion-input
               required
               formControlName="title"
@@ -36,10 +44,15 @@
             ></ion-input>
           </ion-item>
 
+          <ion-list-header>Plus Count</ion-list-header>
           <ion-item>
-            <ion-label position="stacked">
-              Plus Count
-            </ion-label>
+
+            <ion-icon
+              slot="start"
+              name="add"
+              (click)="increment('plusCount')"
+            ></ion-icon>
+
             <ion-input
               required
               formControlName="plusCount"
@@ -47,14 +60,19 @@
               placeholder="0"
               (ionChange)="clamp('plusCount')"
             >
-              <ion-icon slot="start" name="add"></ion-icon>
             </ion-input>
+
           </ion-item>
 
+          <ion-list-header>Minus Count</ion-list-header>
           <ion-item>
-            <ion-label position="stacked">
-              Minus Count
-            </ion-label>
+
+            <ion-icon
+              slot="start"
+              name="remove"
+              (click)="increment('minusCount')"
+            ></ion-icon>
+
             <ion-input
               required
               formControlName="minusCount"
@@ -62,76 +80,95 @@
               placeholder="0"
               (ionChange)="clamp('minusCount')"
             >
-              <ion-icon slot="start" name="remove"></ion-icon>
             </ion-input>
           </ion-item>
 
+          <ion-list-header>Positive Wraparound</ion-list-header>
           <ion-item>
-            <ion-label position="stacked">Positive wraparound</ion-label>
-            <ion-checkbox
+
+            <ion-icon
               slot="start"
-              formControlName="positiveWrapAroundActive"
+              name="add"
+              (click)="increment('positiveWrapAround')"
             >
-            </ion-checkbox>
+            </ion-icon>
+
             <ion-input
               required
               formControlName="positiveWrapAround"
               type="number"
               placeholder="0"
-              (ionChange)="clamp('positiveWrapAround', 1)"
+              (ionChange)="
+                clamp('positiveWrapAround', 1);
+                check('positiveWrapAroundActive');
+              "
             >
-              <ion-icon slot="start" name="add"></ion-icon>
             </ion-input>
-          </ion-item>
 
-          <ion-item>
-            <ion-label position="stacked">Negative wraparound</ion-label>
             <ion-checkbox
-              slot="start"
-              formControlName="negativeWrapAroundActive"
+              slot="end"
+              formControlName="positiveWrapAroundActive"
             >
             </ion-checkbox>
+
+          </ion-item>
+
+          <ion-list-header>Negative Wraparound</ion-list-header>
+          <ion-item>
+
+            <ion-icon
+              slot="start"
+              name="remove"
+              (click)="increment('negativeWrapAround')"
+            >
+            </ion-icon>
+
             <ion-input
               required
               formControlName="negativeWrapAround"
               type="number"
               placeholder="0"
-              (ionChange)="clamp('negativeWrapAround', 1)"
+              (ionChange)="
+                clamp('negativeWrapAround', 1);
+                check('negativeWrapAroundActive');
+              "
             >
-              <ion-icon slot="start" name="remove"></ion-icon>
             </ion-input>
+
+            <ion-checkbox
+              slot="end"
+              formControlName="negativeWrapAroundActive"
+            >
+            </ion-checkbox>
+
+          </ion-item>
+
+          <ion-item
+            [hidden]="!appState.vibrate"
+            class="vibrate-checkbox"
+          >
+            <ion-icon slot="start" name="pulse"></ion-icon>
+            <ion-label>Vibrate</ion-label>
+            <ion-checkbox
+              slot="end"
+              formControlName="vibrate"
+            >
+            </ion-checkbox>
+          </ion-item>
+
+          <ion-item>
+            <ion-icon slot="start" name="lock"></ion-icon>
+            <ion-label>Locked</ion-label>
+            <ion-checkbox
+              slot="end"
+              formControlName="locked"
+            >
+            </ion-checkbox>
           </ion-item>
 
       </ion-list>
 
       <ion-grid>
-
-        <ion-row>
-          <ion-col>
-            <div *ngIf="counter.locked; else elseBlock">
-              <ion-button
-                size="large"
-                color="success"
-                expand="full"
-                (click)="setLocked(false)"
-              >
-                <ion-icon name="unlock"></ion-icon>
-                Unlock
-              </ion-button>
-            </div>
-            <ng-template #elseBlock>
-              <ion-button
-                size="large"
-                color="medium"
-                expand="full"
-                (click)="setLocked(true)"
-              >
-                <ion-icon name="lock"></ion-icon>
-                Lock
-              </ion-button>
-            </ng-template>
-          </ion-col>
-        </ion-row>
 
         <ion-row>
           <ion-col>

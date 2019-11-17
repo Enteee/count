@@ -98,6 +98,23 @@ describe('SettingsPage', () => {
     });
   }));
 
+  it('should change vibrate', async(() => {
+    spyOn(
+      appStateService,
+      'setVibrate'
+    );
+
+    component.settingsForm.patchValue({
+      vibrate: true,
+    });
+    component.changeVibrate();
+
+    fixture.whenStable().then(() => {
+      expect(appStateService.setVibrate).toHaveBeenCalledTimes(1);
+      expect(appStateService.setVibrate).toHaveBeenCalledWith(true);
+    });
+  }));
+
   it('should change record position', async(() => {
     spyOn(
       appStateService,
