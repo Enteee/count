@@ -1,6 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Router } from '@angular/router';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Vibration } from '@ionic-native/vibration/ngx';
+
+import { RouterTestingModule } from "@angular/router/testing";
 
 import { Counter } from '../../models/counter';
 import { CounterService } from '../../services/counter.service';
@@ -8,19 +10,20 @@ import { CounterService } from '../../services/counter.service';
 import { AppState } from '../../models/app-state';
 import { AppStateService } from '../../services/app-state.service';
 
+import { FullScreenCounterType } from '../../fullscreen-counter/fullscreen-counter.page';
+
 import { PlusMinusCounterComponent } from './plus-minus-counter.component';
 
 describe('PlusMinusCounterComponent', () => {
   let component: PlusMinusCounterComponent;
   let fixture: ComponentFixture<PlusMinusCounterComponent>;
+  let router: Router;
 
   let counter: Counter;
   let counterService: CounterService;
 
   let appState: AppState;
   let appStateService: AppStateService;
-
-  let vibration: Vibration;
 
   beforeEach(async(() => {
 
@@ -40,27 +43,22 @@ describe('PlusMinusCounterComponent', () => {
       {} as any,
       {} as any,
       appStateService,
+      {} as any,
     );
     spyOn(
       counterService,
       'count'
     );
 
-    vibration = {
-      vibrate: () => {},
-    } as any;
-    spyOn(
-      vibration,
-      'vibrate',
-    );
-
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule.withRoutes([]),
+      ],
       declarations: [ PlusMinusCounterComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         { provide: CounterService, useValue: counterService },
         { provide: AppStateService, useValue: appStateService },
-        { provide: Vibration, useValue: vibration },
       ]
     })
     .compileComponents();
@@ -68,6 +66,13 @@ describe('PlusMinusCounterComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PlusMinusCounterComponent);
+
+    router = TestBed.get(Router);
+    spyOn(
+      router,
+      'navigate'
+    );
+
     component = fixture.componentInstance;
 
     counter = new Counter();
@@ -110,39 +115,6 @@ describe('PlusMinusCounterComponent', () => {
     });
   }));
 
-  it('should vibrate on count', async(() => {
-    appState.vibrate = true;
-    counter.vibrate = true;
-    component.countPlus();
-
-    fixture.whenStable().then(() => {
-      expect(vibration.vibrate).toHaveBeenCalledTimes(1);
-      expect(vibration.vibrate).toHaveBeenCalledWith(
-        PlusMinusCounterComponent.VIBRATION_PATTERN_PLUS
-      );
-    });
-  }));
-
-  it('should not vibrate on count if disabled', async(() => {
-    appState.vibrate = true;
-    counter.vibrate = false;
-    component.countPlus();
-
-    fixture.whenStable().then(() => {
-      expect(vibration.vibrate).toHaveBeenCalledTimes(0);
-    });
-  }));
-
-  it('should not vibrate on count if vibrate is disabled in appstate', async(() => {
-    appState.vibrate = false;
-    counter.vibrate = true;
-    component.countPlus();
-
-    fixture.whenStable().then(() => {
-      expect(vibration.vibrate).toHaveBeenCalledTimes(0);
-    });
-  }));
-
   it('button disapper when count is zero', async(() => {
     const root = fixture.nativeElement;
 
@@ -153,6 +125,38 @@ describe('PlusMinusCounterComponent', () => {
     fixture.whenStable().then(() => {
       const countButtons = root.querySelectorAll('ion-button');
       expect(countButtons.length).toEqual(0);
+    });
+  }));
+
+  it('should open plus fullscreen counter', async(() => {
+    component.openFullScreenCounter(
+      FullScreenCounterType.plus,
+    )
+
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(router.navigate).toHaveBeenCalledTimes(1);
+      expect(router.navigate).toHaveBeenCalledWith([
+        '/fullscreen-counter',
+        'plus',
+        counter.id
+      ]);
+    });
+  }));
+
+  it('should open minus fullscreen counter', async(() => {
+    component.openFullScreenCounter(
+      FullScreenCounterType.minus,
+    )
+
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(router.navigate).toHaveBeenCalledTimes(1);
+      expect(router.navigate).toHaveBeenCalledWith([
+        '/fullscreen-counter',
+        'minus',
+        counter.id
+      ]);
     });
   }));
 

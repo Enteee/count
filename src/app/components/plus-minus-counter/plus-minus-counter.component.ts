@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Vibration } from '@ionic-native/vibration/ngx';
 import { Router } from '@angular/router';
 
 import { Counter } from '../../models/counter';
@@ -8,6 +7,8 @@ import { CounterService } from '../../services/counter.service';
 import { AppState } from '../../models/app-state';
 import { AppStateService } from '../../services/app-state.service';
 
+import { FullScreenCounterType } from '../../fullscreen-counter/fullscreen-counter.page';
+
 @Component({
   selector: 'app-plus-minus-counter',
   templateUrl: './plus-minus-counter.component.html',
@@ -15,17 +16,14 @@ import { AppStateService } from '../../services/app-state.service';
 })
 export class PlusMinusCounterComponent implements OnInit {
 
-  static readonly VIBRATION_PATTERN_PLUS = [30];
-  static readonly VIBRATION_PATTERN_MINUS = [30, 30, 30];
   static readonly FULL_SCREEN_COUNTER_DELAY = 700;
 
   @Input() counter: Counter;
 
   constructor(
+    private router: Router,
     private counterService: CounterService,
     private appStateService: AppStateService,
-    private vibration: Vibration,
-    private router: Router,
   ) {}
 
   ngOnInit() {}
@@ -35,14 +33,6 @@ export class PlusMinusCounterComponent implements OnInit {
   }
 
   async countPlus() {
-    if (
-      this.appStateService.appState.vibrate
-      && this.counter.vibrate
-    ) {
-      this.vibration.vibrate(
-        PlusMinusCounterComponent.VIBRATION_PATTERN_PLUS
-      );
-    }
     await this.counterService.count(
       this.counter,
       this.counter.plusCount,
@@ -50,14 +40,6 @@ export class PlusMinusCounterComponent implements OnInit {
   }
 
   async countMinus() {
-    if (
-      this.appStateService.appState.vibrate
-      && this.counter.vibrate
-    ) {
-      this.vibration.vibrate(
-        PlusMinusCounterComponent.VIBRATION_PATTERN_MINUS
-      );
-    }
     await this.counterService.count(
       this.counter,
       this.counter.minusCount,
@@ -65,7 +47,7 @@ export class PlusMinusCounterComponent implements OnInit {
   }
 
   async openFullScreenCounter(
-    type:string,
+    type:FullScreenCounterType,
   ){
     this.router.navigate([
       '/fullscreen-counter',

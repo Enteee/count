@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Counter } from '../models/counter';
 import { CounterService } from '../services/counter.service';
 
-enum FullScreenCounterType {
+export enum FullScreenCounterType {
   plus = "plus",
   minus = "minus",
 }
@@ -24,9 +24,9 @@ export class FullscreenCounterPage implements OnInit {
   color: string;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private counterService: CounterService,
-    private router: Router,
   ) {}
 
   ngOnInit() {

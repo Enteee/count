@@ -23,11 +23,11 @@ export class CounterSettingsPage implements OnInit {
   counterSettingsForm: FormGroup;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private counterRepositoryService: CounterRepositoryService,
     private counterService: CounterService,
     private appStateService: AppStateService,
-    private router: Router,
   ) {}
 
   ngOnInit() {

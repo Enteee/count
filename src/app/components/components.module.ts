@@ -4,8 +4,6 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { LongPressModule } from 'ionic-long-press';
 
-import { Vibration } from '@ionic-native/vibration/ngx';
-
 import { NotImplementedModule } from '../not-implemented/not-implemented.module';
 
 import { PlusMinusCounterComponent } from './plus-minus-counter/plus-minus-counter.component';
@@ -25,7 +23,6 @@ import { PlusMinusCounterComponent } from './plus-minus-counter/plus-minus-count
     PlusMinusCounterComponent
   ],
   providers: [
-    Vibration
   ]
 })
 export class ComponentsModule { }

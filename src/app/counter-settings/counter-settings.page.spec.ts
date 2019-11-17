@@ -1,9 +1,11 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IonicModule, NavController } from '@ionic/angular';
+import { RouterTestingModule } from "@angular/router/testing";
+
+import { IonicModule } from '@ionic/angular';
 
 import { Counter } from '../models/counter';
 import { CounterRepositoryService } from '../models/counter-repository.service';
@@ -18,17 +20,18 @@ import { CounterSettingsPage } from './counter-settings.page';
 describe('CounterSettingsPage', () => {
   let component: CounterSettingsPage;
   let fixture: ComponentFixture<CounterSettingsPage>;
+  let router: Router;
 
   let counter: Counter;
   let activatedRoute: ActivatedRoute;
   let counterRepositoryService: CounterRepositoryService;
   let counterService: CounterService;
-  let navController: NavController;
   let appState: AppState;
   let appStateService: AppStateService;
 
   beforeEach(async(() => {
     counter = new Counter();
+
     activatedRoute = {
       snapshot: {
         data: {
@@ -46,6 +49,7 @@ describe('CounterSettingsPage', () => {
       {} as any,
       {} as any,
       {} as any,
+      {} as any,
     );
 
     appState = new AppState();
@@ -59,17 +63,11 @@ describe('CounterSettingsPage', () => {
       'appState',
     ).and.returnValue(appState);
 
-    navController = jasmine.createSpyObj(
-      'NavController',
-      {
-        pop: () => {},
-      }
-    );
-
     TestBed.configureTestingModule({
       imports: [
         IonicModule,
         ReactiveFormsModule,
+        RouterTestingModule.withRoutes([]),
       ],
       declarations: [ CounterSettingsPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -78,7 +76,6 @@ describe('CounterSettingsPage', () => {
         {provide: CounterRepositoryService, useValue: counterRepositoryService },
         {provide: CounterService, useValue: counterService },
         {provide: AppStateService, useValue: appStateService },
-        {provide: NavController, useValue: navController },
       ],
     })
     .compileComponents();
@@ -86,6 +83,13 @@ describe('CounterSettingsPage', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CounterSettingsPage);
+
+    router = TestBed.get(Router);
+    spyOn(
+      router,
+      'navigate'
+    );
+
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -103,7 +107,7 @@ describe('CounterSettingsPage', () => {
       expect(counterService.reset).toHaveBeenCalledTimes(1);
       expect(counterService.reset).toHaveBeenCalledWith(counter);
 
-      expect(navController.pop).toHaveBeenCalledTimes(1);
+      expect(router.navigate).toHaveBeenCalledWith(['/counters']);
     });
   }));
 
