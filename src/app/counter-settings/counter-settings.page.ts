@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
-import { NavController } from '@ionic/angular';
 
 import { Counter } from '../models/counter';
 import { CounterRepositoryService } from '../models/counter-repository.service';
@@ -29,7 +27,7 @@ export class CounterSettingsPage implements OnInit {
     private counterRepositoryService: CounterRepositoryService,
     private counterService: CounterService,
     private appStateService: AppStateService,
-    private navController: NavController
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -102,12 +100,16 @@ export class CounterSettingsPage implements OnInit {
         this.counterSettingsForm.value
       )
     );
-    this.navController.pop();
+    this.router.navigate([
+      '/counters',
+    ]);
   }
 
   async reset() {
     await this.counterService.reset(this.counter);
-    this.navController.pop();
+    this.router.navigate([
+      '/counters',
+    ]);
   }
 
   check(

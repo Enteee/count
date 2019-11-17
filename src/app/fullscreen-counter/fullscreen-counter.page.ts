@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 import { Counter } from '../models/counter';
@@ -27,7 +26,6 @@ export class FullscreenCounterPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private counterService: CounterService,
-    private navController: NavController,
     private router: Router,
   ) {}
 
