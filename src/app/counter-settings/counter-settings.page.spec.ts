@@ -117,5 +117,162 @@ describe('CounterSettingsPage', () => {
     });
   }));
 
+  it('should check', async(() => {
+
+    spyOn(
+      component.counterSettingsForm,
+      'patchValue',
+    );
+
+    component.check('testFormControl');
+
+    fixture.whenStable().then(() => {
+      expect(component.counterSettingsForm.patchValue).toHaveBeenCalledTimes(1);
+      expect(component.counterSettingsForm.patchValue).toHaveBeenCalledWith({
+        'testFormControl': true
+      });
+    });
+  }));
+
+  it('should increment', async(() => {
+
+    spyOn(
+      component.counterSettingsForm,
+      'get',
+    ).and.returnValue({
+      value: 0,
+    } as any);
+
+    spyOn(
+      component.counterSettingsForm,
+      'patchValue',
+    );
+
+    component.increment('testFormControl');
+
+    fixture.whenStable().then(() => {
+      expect(component.counterSettingsForm.get).toHaveBeenCalledTimes(1);
+      expect(component.counterSettingsForm.get).toHaveBeenCalledWith('testFormControl');
+
+      expect(component.counterSettingsForm.patchValue).toHaveBeenCalledTimes(1);
+      expect(component.counterSettingsForm.patchValue).toHaveBeenCalledWith({
+        'testFormControl': 1
+      });
+    });
+  }));
+
+  it('should increment to zero on null', async(() => {
+
+    spyOn(
+      component.counterSettingsForm,
+      'get',
+    ).and.returnValue({
+      value: null,
+    } as any);
+
+    spyOn(
+      component.counterSettingsForm,
+      'patchValue',
+    );
+
+    component.increment('testFormControl');
+
+    fixture.whenStable().then(() => {
+      expect(component.counterSettingsForm.get).toHaveBeenCalledTimes(1);
+      expect(component.counterSettingsForm.get).toHaveBeenCalledWith('testFormControl');
+
+      expect(component.counterSettingsForm.patchValue).toHaveBeenCalledTimes(1);
+      expect(component.counterSettingsForm.patchValue).toHaveBeenCalledWith({
+        'testFormControl': 0
+      });
+    });
+  }));
+
+
+  it('should clamp using max', async(() => {
+
+    spyOn(
+      component.counterSettingsForm,
+      'get',
+    ).and.returnValue({
+      value: 5
+    } as any);
+
+    spyOn(
+      component.counterSettingsForm,
+      'patchValue',
+    );
+
+    component.clamp(
+      'testFormControl',
+      10,
+      'max',
+    );
+
+    fixture.whenStable().then(() => {
+      expect(component.counterSettingsForm.get).toHaveBeenCalledTimes(1);
+      expect(component.counterSettingsForm.get).toHaveBeenCalledWith('testFormControl');
+
+      expect(component.counterSettingsForm.patchValue).toHaveBeenCalledTimes(1);
+      expect(component.counterSettingsForm.patchValue).toHaveBeenCalledWith({
+        'testFormControl': 10
+      });
+    });
+  }));
+
+  it('should clamp using min', async(() => {
+
+    spyOn(
+      component.counterSettingsForm,
+      'get',
+    ).and.returnValue({
+      value: 5
+    } as any);
+
+    spyOn(
+      component.counterSettingsForm,
+      'patchValue',
+    );
+
+    component.clamp(
+      'testFormControl',
+      10,
+      'min',
+    );
+
+    fixture.whenStable().then(() => {
+      expect(component.counterSettingsForm.get).toHaveBeenCalledTimes(1);
+      expect(component.counterSettingsForm.get).toHaveBeenCalledWith('testFormControl');
+
+      expect(component.counterSettingsForm.patchValue).toHaveBeenCalledTimes(1);
+      expect(component.counterSettingsForm.patchValue).toHaveBeenCalledWith({
+        'testFormControl': 5
+      });
+    });
+  }));
+
+  it('should not clamp on null', async(() => {
+
+    spyOn(
+      component.counterSettingsForm,
+      'get',
+    ).and.returnValue({
+      value: null,
+    } as any);
+
+    spyOn(
+      component.counterSettingsForm,
+      'patchValue',
+    );
+
+    component.clamp('testFormControl');
+
+    fixture.whenStable().then(() => {
+      expect(component.counterSettingsForm.get).toHaveBeenCalledTimes(1);
+      expect(component.counterSettingsForm.get).toHaveBeenCalledWith('testFormControl');
+
+      expect(component.counterSettingsForm.patchValue).toHaveBeenCalledTimes(0);
+    });
+  }));
 
 });
