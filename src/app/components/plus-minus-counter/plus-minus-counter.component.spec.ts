@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 import { Counter } from '../../models/counter';
 import { CounterService } from '../../services/counter.service';
@@ -13,6 +14,7 @@ describe('PlusMinusCounterComponent', () => {
   let counter: Counter;
   let counterService: CounterService;
   let appStateService: AppStateService;
+  let vibration: Vibration;
 
   beforeEach(async(() => {
 
@@ -28,7 +30,18 @@ describe('PlusMinusCounterComponent', () => {
       {} as any,
       appStateService,
     );
+    spyOn(
+      counterService,
+      'count'
+    );
 
+    vibration = {
+      vibrate: () => {},
+    } as any;
+    spyOn(
+      vibration,
+      'vibrate',
+    );
 
     TestBed.configureTestingModule({
       declarations: [ PlusMinusCounterComponent ],
@@ -36,6 +49,7 @@ describe('PlusMinusCounterComponent', () => {
       providers: [
         { provide: CounterService, useValue: counterService },
         { provide: AppStateService, useValue: appStateService },
+        { provide: Vibration, useValue: vibration },
       ]
     })
     .compileComponents();
@@ -60,11 +74,6 @@ describe('PlusMinusCounterComponent', () => {
 
     counter.plusCount = COUNT_AMOUNT;
 
-    spyOn(
-      counterService,
-      'count'
-    );
-
     component.countPlus();
 
     fixture.whenStable().then(() => {
@@ -80,11 +89,6 @@ describe('PlusMinusCounterComponent', () => {
 
     counter.minusCount = COUNT_AMOUNT;
 
-    spyOn(
-      counterService,
-      'count'
-    );
-
     component.countMinus();
 
     fixture.whenStable().then(() => {
@@ -92,6 +96,27 @@ describe('PlusMinusCounterComponent', () => {
       expect(counterService.count).toHaveBeenCalledWith(
         counter, COUNT_AMOUNT
       );
+    });
+  }));
+
+  it('should vibrate on count', async(() => {
+    counter.vibrate = true;
+    component.countPlus();
+
+    fixture.whenStable().then(() => {
+      expect(vibration.vibrate).toHaveBeenCalledTimes(1);
+      expect(vibration.vibrate).toHaveBeenCalledWith(
+        PlusMinusCounterComponent.VIBRATION_PATTERN_PLUS
+      );
+    });
+  }));
+
+  it('should not vibrate on count if disabled', async(() => {
+    counter.vibrate = false;
+    component.countPlus();
+
+    fixture.whenStable().then(() => {
+      expect(vibration.vibrate).toHaveBeenCalledTimes(0);
     });
   }));
 

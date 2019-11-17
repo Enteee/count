@@ -20,7 +20,7 @@ describe('CounterSettingsPage', () => {
   let activatedRoute: ActivatedRoute;
   let counterRepositoryService: CounterRepositoryService;
   let counterService: CounterService;
-  let navControllerSpy: NavController;
+  let navController: NavController;
 
   beforeEach(async(() => {
     counter = new Counter();
@@ -43,7 +43,7 @@ describe('CounterSettingsPage', () => {
       {} as any,
     );
 
-    navControllerSpy = jasmine.createSpyObj(
+    navController = jasmine.createSpyObj(
       'NavController',
       {
         pop: () => {},
@@ -61,7 +61,7 @@ describe('CounterSettingsPage', () => {
         {provide: ActivatedRoute, useValue: activatedRoute },
         {provide: CounterRepositoryService, useValue: counterRepositoryService },
         {provide: CounterService, useValue: counterService },
-        {provide: NavController, useValue: navControllerSpy },
+        {provide: NavController, useValue: navController },
       ],
     })
     .compileComponents();
@@ -77,14 +77,17 @@ describe('CounterSettingsPage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should reset', async () => {
+  it('should reset', async(() => {
     spyOn(counterService, 'reset');
 
-    await component.reset();
+    component.reset();
 
-    expect(counterService.reset).toHaveBeenCalledTimes(1);
-    expect(counterService.reset).toHaveBeenCalledWith(counter);
+    fixture.whenStable().then(() => {
+      expect(counterService.reset).toHaveBeenCalledTimes(1);
+      expect(counterService.reset).toHaveBeenCalledWith(counter);
 
-    expect(navControllerSpy.pop).toHaveBeenCalledTimes(1);
-  });
+      expect(navController.pop).toHaveBeenCalledTimes(1);
+    });
+  }));
+
 });

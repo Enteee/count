@@ -50,10 +50,7 @@
             <ion-icon
               slot="start"
               name="add"
-              (click)="
-                increment('plusCount');
-                clamp('plusCount');
-              "
+              (click)="increment('plusCount')"
             ></ion-icon>
 
             <ion-input
@@ -73,10 +70,7 @@
             <ion-icon
               slot="start"
               name="remove"
-              (click)="
-                increment('minusCount');
-                clamp('minusCount');
-              "
+              (click)="increment('minusCount')"
             ></ion-icon>
 
             <ion-input
@@ -95,10 +89,7 @@
             <ion-icon
               slot="start"
               name="add"
-              (click)="
-                increment('positiveWrapAround');
-                clamp('positiveWrapAround', 1);
-              "
+              (click)="increment('positiveWrapAround')"
             >
             </ion-icon>
 
@@ -128,10 +119,7 @@
             <ion-icon
               slot="start"
               name="remove"
-              (click)="
-                increment('negativeWrapAround');
-                clamp('negativeWrapAround', 1);
-              "
+              (click)="increment('negativeWrapAround')"
             >
             </ion-icon>
 
