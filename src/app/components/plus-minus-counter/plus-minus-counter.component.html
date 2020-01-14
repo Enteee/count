@@ -21,7 +21,12 @@
       </ion-button>
     </ng-template>
 
-    <ion-label class="ion-text-center">
+    <ion-label
+      class="ion-text-center"
+
+      clickable
+      [routerLink]="['/counter-settings', counter.id]"
+    >
       <h1>{{counter.title}}</h1>
       <h1>{{counter.count}}</h1>
     </ion-label>
