@@ -9,7 +9,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { IonicGestureConfig } from './ionic-gesture-config';
 
 import { ModelModule } from './models/model.module';
 import { ServicesModule } from './services/services.module';
@@ -36,10 +35,6 @@ import { NotImplementedModule } from './not-implemented/not-implemented.module';
     {
       provide: RouteReuseStrategy,
       useClass: IonicRouteStrategy
-    },
-    {
-      provide: HAMMER_GESTURE_CONFIG,
-      useClass: IonicGestureConfig
     },
   ],
   bootstrap: [AppComponent]
