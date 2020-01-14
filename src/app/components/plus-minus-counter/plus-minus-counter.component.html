@@ -10,7 +10,7 @@
 
         ion-long-press
         [interval]="FULL_SCREEN_COUNTER_DELAY"
-        (longPressed)="openFullScreenCounter('minus')"
+        (longPressed)="openFullScreenCounter(FullScreenCounterType.minus)"
       >
       <div [ngSwitch]="counter.minusCount">
         <div *ngSwitchCase="-1">
@@ -39,7 +39,7 @@
 
         ion-long-press
         [interval]="FULL_SCREEN_COUNTER_DELAY"
-        (longPressed)="openFullScreenCounter('plus')"
+        (longPressed)="openFullScreenCounter(FullScreenCounterType.plus)"
       >
       <div [ngSwitch]="counter.plusCount">
         <div *ngSwitchCase="1">

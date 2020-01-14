@@ -16,7 +16,8 @@ import { FullScreenCounterType } from '../../fullscreen-counter/fullscreen-count
 })
 export class PlusMinusCounterComponent implements OnInit {
 
-  static readonly FULL_SCREEN_COUNTER_DELAY = 700;
+  readonly FULL_SCREEN_COUNTER_DELAY = 700;
+  readonly FullScreenCounterType = FullScreenCounterType;
 
   @Input() counter: Counter;
 

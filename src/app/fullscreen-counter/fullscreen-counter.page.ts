@@ -17,7 +17,7 @@ export enum FullScreenCounterType {
 })
 export class FullscreenCounterPage implements OnInit {
 
-  static readonly CLOSE_DELAY = 700;
+  readonly CLOSE_DELAY = 700;
 
   type: FullScreenCounterType;
   counter: Counter;
