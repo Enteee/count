@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { NotImplementedModule } from '../not-implemented/not-implemented.module';
+import { NotImplementedModule } from '../../not-implemented/not-implemented.module';
 
 import { CounterSettingsPage } from './counter-settings.page';
 

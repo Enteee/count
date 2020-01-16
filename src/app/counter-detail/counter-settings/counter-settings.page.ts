@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { Counter } from '../models/counter';
-import { CounterRepositoryService } from '../models/counter-repository.service';
-import { CounterService } from '../services/counter.service';
+import { Counter } from '../../models/counter';
+import { CounterRepositoryService } from '../../models/counter-repository.service';
+import { CounterService } from '../../services/counter.service';
 
-import { AppState } from '../models/app-state';
-import { AppStateService } from '../services/app-state.service';
+import { AppState } from '../../models/app-state';
+import { AppStateService } from '../../services/app-state.service';
 
 type ClampFunction = 'max' | 'min';
 

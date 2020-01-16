@@ -5,12 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DayOfWeekHistogramPage } from './day-of-week-histogram.page';
+import { CounterRepositoryService } from '../../models/counter-repository.service';
+
+import { CounterAnalyticsSelectionPage } from './counter-analytics-selection.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: DayOfWeekHistogramPage
+    component: CounterAnalyticsSelectionPage,
   }
 ];
 
@@ -21,6 +23,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [DayOfWeekHistogramPage]
+  declarations: [CounterAnalyticsSelectionPage]
 })
-export class DayOfWeekHistogramPageModule {}
+export class CounterAnalyticsSelectionPageModule {}

@@ -1,32 +1,3 @@
-<ion-header>
-  <ion-toolbar>
-
-    <ion-buttons slot="start">
-      <ion-back-button
-        icon="close"
-        defaultHref="/counters"
-      >
-      </ion-back-button>
-    </ion-buttons>
-
-    <ion-title>
-      <ion-icon name="build"></ion-icon>
-      {{counter.title}}
-    </ion-title>
-
-    <ion-buttons slot="end">
-      <ion-button
-        color="success"
-        [disabled]="!counterSettingsForm.valid"
-        (click)="submit()"
-      >
-        Save
-      </ion-button>
-    </ion-buttons>
-
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
   <form
     [formGroup]="counterSettingsForm"

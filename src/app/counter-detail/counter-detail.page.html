@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button
+        icon="close"
+        defaultHref="/counters"
+      >
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      {{counter.title}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+
+      <ion-tab-button tab="count">
+        <ion-icon name="infinite"></ion-icon>
+        <ion-label>Count</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="settings">
+        <ion-icon name="build"></ion-icon>
+        <ion-label>Settings</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="analytics">
+        <ion-icon name="analytics"></ion-icon>
+        <ion-label>Analytics</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="edit"
+        appNotImplemented description="Edit count events" issueId="8" on="ionSwipe" alwaysDisplay="true"
+      >
+        <ion-icon name="create"></ion-icon>
+        <ion-label>Edit</ion-label>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

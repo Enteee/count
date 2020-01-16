@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { NotImplementedModule } from '../not-implemented/not-implemented.module';
 
 import { PlusMinusCounterComponent } from './plus-minus-counter/plus-minus-counter.component';
+import { DayOfWeekHistogramComponent } from './day-of-week-histogram/day-of-week-histogram.component';
 
 @NgModule({
   imports: [
@@ -16,9 +17,14 @@ import { PlusMinusCounterComponent } from './plus-minus-counter/plus-minus-count
   ],
   declarations: [
     PlusMinusCounterComponent,
+    DayOfWeekHistogramComponent,
   ],
   exports: [
-    PlusMinusCounterComponent
+    PlusMinusCounterComponent,
+    DayOfWeekHistogramComponent,
+  ],
+  entryComponents: [
+    DayOfWeekHistogramComponent,
   ],
   providers: [
   ]
