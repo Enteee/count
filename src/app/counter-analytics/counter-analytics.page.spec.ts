@@ -11,8 +11,8 @@ import { CounterAnalyticsDirective } from './counter-analytics.directive';
 import { CounterAnalyticsPage } from './counter-analytics.page';
 
 @Component({
-  selector: "test",
-  template: "template",
+  selector: 'test',
+  template: 'template',
 })
 class MockTestComponent {
   @Input() counter: Counter;
