@@ -22,9 +22,6 @@ describe('UnsavedChangesGuard', () => {
   let fixture: ComponentFixture<HasUnsavedChangesMockComponent>;
   let guard: UnsavedChangesGuard;
 
-  let alertController: AlertController;
-  let alertItemSpy;
-
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [],
