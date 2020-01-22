@@ -14,10 +14,10 @@ export class UnsavedChangesGuard implements CanDeactivate<HasUnsavedChanges> {
   constructor(public alertController: AlertController) {}
 
   async canDeactivate(component: HasUnsavedChanges,
-           route: ActivatedRouteSnapshot,
-           state: RouterStateSnapshot) {
+                      route: ActivatedRouteSnapshot,
+                      state: RouterStateSnapshot) {
 
-    if(!component.hasUnsavedChanges()){
+    if (!component.hasUnsavedChanges()) {
       return true;
     }
 
