@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { AppStateRepositoryService } from './models/app-state-repository.service';
 import { CounterRepositoryService } from './models/counter-repository.service';
+import { AnalyticsItemRepositoryService } from './models/analytics-item-repository.service';
 
 const routes: Routes = [
   {
@@ -15,25 +16,19 @@ const routes: Routes = [
     loadChildren: './counters/counters.module#CountersPageModule'
   },
   {
-    path: 'counter-analytics/:id',
+    path: 'counter-detail/:counter-id',
     resolve: {
+      counter: CounterRepositoryService,
+    },
+    loadChildren: './counter-detail/counter-detail.module#CounterDetailPageModule'
+  },
+  {
+    path: 'counter-analytics/:analyticsitem-id/:counter-id',
+    resolve: {
+      analyticsItem: AnalyticsItemRepositoryService,
       counter: CounterRepositoryService,
     },
     loadChildren: './counter-analytics/counter-analytics.module#CounterAnalyticsPageModule'
-  },
-  {
-    path: 'counter-analytics/:id/day-of-week-histogram',
-    resolve: {
-      counter: CounterRepositoryService,
-    },
-    loadChildren: './counter-analytics/day-of-week-histogram/day-of-week-histogram.module#DayOfWeekHistogramPageModule'
-  },
-  {
-    path: 'counter-settings/:id',
-    resolve: {
-      counter: CounterRepositoryService,
-    },
-    loadChildren: './counter-settings/counter-settings.module#CounterSettingsPageModule'
   },
   {
     path: 'contribute',
@@ -49,7 +44,14 @@ const routes: Routes = [
   {
     path: 'help',
     loadChildren: './help/help.module#HelpPageModule'
-  }
+  },
+  {
+    path: 'fullscreen-counter/:type/:counter-id',
+    loadChildren: './fullscreen-counter/fullscreen-counter.module#FullscreenCounterPageModule',
+    resolve: {
+      counter: CounterRepositoryService,
+    },
+  },
 ];
 
 @NgModule({

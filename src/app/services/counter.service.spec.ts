@@ -1,3 +1,5 @@
+import { Vibration } from '@ionic-native/vibration/ngx';
+
 import { Counter } from '../models/counter';
 import { CounterRepositoryService } from '../models/counter-repository.service';
 
@@ -23,6 +25,9 @@ describe('CounterService', () => {
   let appState: AppState;
   let appStateService: AppStateService;
 
+  let vibration: Vibration;
+
+  let counter: Counter;
   let service: CounterService;
 
   beforeEach(() => {
@@ -60,12 +65,27 @@ describe('CounterService', () => {
       {} as any,
       {} as any,
     );
+    spyOnProperty(
+      appStateService,
+      'appState',
+    ).and.returnValue(appState);
+
+    vibration = {
+      vibrate: () => {},
+    } as any;
+    spyOn(
+      vibration,
+      'vibrate',
+    );
+
+    counter = new Counter();
 
     service = new CounterService(
       counterRepositoryService,
       countEventRepositoryService,
       positionService,
       appStateService,
+      vibration,
     );
   });
 
@@ -74,7 +94,6 @@ describe('CounterService', () => {
   });
 
   it('should count', async () => {
-    const counter = new Counter();
     const delta = 1;
 
     await service.count(counter, delta);
@@ -96,7 +115,6 @@ describe('CounterService', () => {
   });
 
   it('should do positive wrap around', async () => {
-    const counter = new Counter();
     const delta = 1;
 
     counter.count = 10;
@@ -109,7 +127,6 @@ describe('CounterService', () => {
   });
 
   it('should do negative wrap around', async () => {
-    const counter = new Counter();
     const delta = -1;
 
     counter.count = -10;
@@ -122,7 +139,6 @@ describe('CounterService', () => {
   });
 
   it('should do negative wrap around', async () => {
-    const counter = new Counter();
     const delta = -1;
 
     counter.count = -10;
@@ -134,8 +150,49 @@ describe('CounterService', () => {
     expect(counter.count).toEqual(-1);
   });
 
+  it('should vibrate on positive count', async () => {
+    appState.vibrate = true;
+    counter.vibrate = true;
+
+    await service.count(counter, 1);
+
+    expect(vibration.vibrate).toHaveBeenCalledTimes(1);
+    expect(vibration.vibrate).toHaveBeenCalledWith(
+      CounterService.VIBRATION_PATTERN_POSITIVE
+    );
+  });
+
+  it('should vibrate on negative count', async () => {
+    appState.vibrate = true;
+    counter.vibrate = true;
+
+    await service.count(counter, -1);
+
+    expect(vibration.vibrate).toHaveBeenCalledTimes(1);
+    expect(vibration.vibrate).toHaveBeenCalledWith(
+      CounterService.VIBRATION_PATTERN_NEGATIVE
+    );
+  });
+
+  it('should not vibrate if counter disabled vibration', async () => {
+    appState.vibrate = true;
+    counter.vibrate = false;
+
+    await service.count(counter, 1);
+
+    expect(vibration.vibrate).toHaveBeenCalledTimes(0);
+  });
+
+  it('should not vibrate if appState disabled vibration', async () => {
+    appState.vibrate = false;
+    counter.vibrate = true;
+
+    await service.count(counter, 1);
+
+    expect(vibration.vibrate).toHaveBeenCalledTimes(0);
+  });
+
   it('should set disable position recording on exception', async () => {
-    const counter = new Counter();
     counter.count = 0;
 
     positionServiceGetPositionSpy.and.throwError('nope');
@@ -153,8 +210,6 @@ describe('CounterService', () => {
   });
 
   it('should reset', async () => {
-    const counter = new Counter();
-
     counter.count = 10;
 
     await service.reset(counter);

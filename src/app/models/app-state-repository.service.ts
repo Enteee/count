@@ -8,22 +8,24 @@ import { AppState } from './app-state';
 })
 export class AppStateRepositoryService extends ModelRepositoryService<AppState> {
 
+  private appState: AppState;
+
   public async init(MCtor: new (...args: any[]) => AppState) {
     await super.init(MCtor);
 
     // no matter how many app states were saved, only keep one.
-    await this.save(
-      this.all[0] || new AppState()
-    );
+    this.appState = this.all[0] || new AppState();
+    await super.deleteAll();
+    await this.save(this.appState);
   }
 
   public async save(m: AppState) {
-    await this.deleteAll(); // app state is unique, delete all others before saving
-    super.save(m);
+    this.appState = m;
+    await super.save(m);
   }
 
   get state(): AppState {
-    return this.all[0];
+    return this.appState;
   }
 
   public resolve() {

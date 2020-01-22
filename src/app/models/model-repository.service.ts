@@ -18,8 +18,8 @@ import { Model } from './model';
  */
 export class ModelRepositoryService<M extends Model> implements Resolve<M> {
 
-  private models: Record<string, M> = {};
   private MCtor: new (...args: any[]) => M;
+  protected models: Record<string, M> = {};
 
   constructor(private storage: Storage) {}
 
@@ -84,11 +84,13 @@ export class ModelRepositoryService<M extends Model> implements Resolve<M> {
 
   public resolve(route: ActivatedRouteSnapshot) {
     return this.getById(
-      route.paramMap.get('id')
+      route.paramMap.get(
+        this.MCtor.name.toLowerCase() + '-id'
+      )
     );
   }
 
-  private async loadAll() {
+  public async loadAll() {
     await this.storage.forEach(
       (v: object, k: string) => {
         // only load instance of this class
@@ -103,4 +105,27 @@ export class ModelRepositoryService<M extends Model> implements Resolve<M> {
     );
   }
 
+}
+
+/**
+ * An implementation of the ModelRepositoryService which does not persist
+ * any data.
+ */
+export class VolatileModelRepositoryService<M extends Model> extends ModelRepositoryService<M> {
+
+  public async save(m: M) {
+    this.models[m.id] = m;
+  }
+
+  public async delete(m: M) {
+    delete this.models[m.id];
+  }
+
+  public async deleteAll() {
+    this.models = {};
+  }
+
+  public async loadAll() {
+    // noop: implement if you want to initialize this with data
+  }
 }

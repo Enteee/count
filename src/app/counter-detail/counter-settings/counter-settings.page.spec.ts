@@ -1,34 +1,37 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IonicModule, NavController } from '@ionic/angular';
+import { RouterTestingModule } from '@angular/router/testing';
 
-import { Counter } from '../models/counter';
-import { CounterRepositoryService } from '../models/counter-repository.service';
+import { IonicModule } from '@ionic/angular';
 
-import { CounterService } from '../services/counter.service';
+import { Counter } from '../../models/counter';
+import { CounterRepositoryService } from '../../models/counter-repository.service';
 
-import { AppState } from '../models/app-state';
-import { AppStateService } from '../services/app-state.service';
+import { CounterService } from '../../services/counter.service';
+
+import { AppState } from '../../models/app-state';
+import { AppStateService } from '../../services/app-state.service';
 
 import { CounterSettingsPage } from './counter-settings.page';
 
 describe('CounterSettingsPage', () => {
   let component: CounterSettingsPage;
   let fixture: ComponentFixture<CounterSettingsPage>;
+  let router: Router;
 
   let counter: Counter;
   let activatedRoute: ActivatedRoute;
   let counterRepositoryService: CounterRepositoryService;
   let counterService: CounterService;
-  let navController: NavController;
   let appState: AppState;
   let appStateService: AppStateService;
 
   beforeEach(async(() => {
     counter = new Counter();
+
     activatedRoute = {
       snapshot: {
         data: {
@@ -46,6 +49,7 @@ describe('CounterSettingsPage', () => {
       {} as any,
       {} as any,
       {} as any,
+      {} as any,
     );
 
     appState = new AppState();
@@ -59,17 +63,11 @@ describe('CounterSettingsPage', () => {
       'appState',
     ).and.returnValue(appState);
 
-    navController = jasmine.createSpyObj(
-      'NavController',
-      {
-        pop: () => {},
-      }
-    );
-
     TestBed.configureTestingModule({
       imports: [
         IonicModule,
         ReactiveFormsModule,
+        RouterTestingModule.withRoutes([]),
       ],
       declarations: [ CounterSettingsPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -78,7 +76,6 @@ describe('CounterSettingsPage', () => {
         {provide: CounterRepositoryService, useValue: counterRepositoryService },
         {provide: CounterService, useValue: counterService },
         {provide: AppStateService, useValue: appStateService },
-        {provide: NavController, useValue: navController },
       ],
     })
     .compileComponents();
@@ -86,6 +83,13 @@ describe('CounterSettingsPage', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CounterSettingsPage);
+
+    router = TestBed.get(Router);
+    spyOn(
+      router,
+      'navigate'
+    );
+
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -93,6 +97,30 @@ describe('CounterSettingsPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should submit', async(() => {
+    spyOn(counterRepositoryService, 'save');
+
+    component.submit();
+
+    fixture.whenStable().then(() => {
+      expect(counterRepositoryService.save).toHaveBeenCalledTimes(1);
+      expect(counterRepositoryService.save).toHaveBeenCalledWith(counter);
+    });
+  }));
+
+  it('should not submit if invalid', async(() => {
+    spyOn(counterRepositoryService, 'save');
+
+    const title = component.counterSettingsForm.controls.title;
+    title.setValue('');
+
+    component.submit();
+
+    fixture.whenStable().then(() => {
+      expect(counterRepositoryService.save).toHaveBeenCalledTimes(0);
+    });
+  }));
 
   it('should reset', async(() => {
     spyOn(counterService, 'reset');
@@ -103,7 +131,7 @@ describe('CounterSettingsPage', () => {
       expect(counterService.reset).toHaveBeenCalledTimes(1);
       expect(counterService.reset).toHaveBeenCalledWith(counter);
 
-      expect(navController.pop).toHaveBeenCalledTimes(1);
+      expect(router.navigate).toHaveBeenCalledWith(['/counters']);
     });
   }));
 
@@ -272,6 +300,23 @@ describe('CounterSettingsPage', () => {
       expect(component.counterSettingsForm.get).toHaveBeenCalledWith('testFormControl');
 
       expect(component.counterSettingsForm.patchValue).toHaveBeenCalledTimes(0);
+    });
+  }));
+
+  it('can delete', async(() => {
+
+    spyOn(
+      counterService,
+      'delete',
+    );
+
+    component.deleteCounter();
+
+    fixture.whenStable().then(() => {
+      expect(counterService.delete).toHaveBeenCalledTimes(1);
+      expect(counterService.delete).toHaveBeenCalledWith(counter);
+
+      expect(router.navigate).toHaveBeenCalledWith(['/counters']);
     });
   }));
 

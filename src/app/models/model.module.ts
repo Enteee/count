@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { AppStateRepositoryService } from './app-state-repository.service';
 import { AppState } from './app-state';
 
+import { AnalyticsItemRepositoryService } from './analytics-item-repository.service';
+import { AnalyticsItem } from './analytics-item';
+
 import { CounterRepositoryService } from './counter-repository.service';
 import { Counter } from './counter';
 
@@ -12,14 +15,16 @@ import { CountEvent } from './count-event';
 
 export function initializeModelServices(
   appStateRepositoryService: AppStateRepositoryService,
+  analyticsItemRepositoryService: AnalyticsItemRepositoryService,
   counterRepositoryService: CounterRepositoryService,
-  countEventService: CountEventRepositoryService
+  countEventRepositoryService: CountEventRepositoryService
 ) {
   return async () => {
     await Promise.all([
       appStateRepositoryService.init(AppState),
+      analyticsItemRepositoryService.init(AnalyticsItem),
       counterRepositoryService.init(Counter),
-      countEventService.init(CountEvent),
+      countEventRepositoryService.init(CountEvent),
     ]);
   };
 }
@@ -40,6 +45,7 @@ export class ModelModule {
       ngModule: ModelModule,
       providers: [
         AppStateRepositoryService,
+        AnalyticsItemRepositoryService,
         CounterRepositoryService,
         CountEventRepositoryService,
         {
@@ -47,6 +53,7 @@ export class ModelModule {
           useFactory: initializeModelServices,
           deps: [
             AppStateRepositoryService,
+            AnalyticsItemRepositoryService,
             CounterRepositoryService,
             CountEventRepositoryService,
           ],

@@ -1,32 +1,28 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { CounterAnalyticsService, DayOfWeek } from '../../services/counter-analytics.service';
-import 'anychart';
 import { Counter } from '../../models/counter';
-import { AnalyticsPage } from '../analytics-page-info';
 
-@AnalyticsPage({
-  title: 'Day Of Week Histogram',
-  description: 'Shows count events grouped by the the day of week.',
-  icon: 'calendar',
-  link: 'day-of-week-histogram',
-})
+import 'anychart';
+
+
 @Component({
-  selector: 'app-counter-analytics',
-  templateUrl: './day-of-week-histogram.page.html',
-  styleUrls: ['./day-of-week-histogram.page.scss'],
+  selector: 'app-day-of-week-histogram',
+  templateUrl: './day-of-week-histogram.component.html',
+  styleUrls: ['./day-of-week-histogram.component.scss'],
 })
-export class DayOfWeekHistogramPage implements OnInit, AfterViewInit {
+export class DayOfWeekHistogramComponent implements OnInit, AfterViewInit {
 
-  counter: Counter;
-  chart: anychart.charts.Cartesian = anychart.column();
-
+  @Input() counter: Counter;
   @ViewChild('chartContainer', {static: true}) container: ElementRef;
+
+  chart: anychart.charts.Cartesian = anychart.column();
 
   constructor(
     private route: ActivatedRoute,
     private counterAnalytics: CounterAnalyticsService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.counter = this.route.snapshot.data.counter;

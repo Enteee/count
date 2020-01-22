@@ -1,0 +1,15 @@
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let analyticsItem of analyticsItems"
+              [routerLink]="['/counter-analytics', analyticsItem.info.url, counter.id]">
+      <ion-avatar slot="start">
+        <ion-icon name="{{analyticsItem.info.icon}}" size="large"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{analyticsItem.info.name}}</h2>
+        <p>{{analyticsItem.info.description}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

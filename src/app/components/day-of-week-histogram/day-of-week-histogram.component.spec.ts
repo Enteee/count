@@ -1,15 +1,15 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DayOfWeekHistogramPage } from './day-of-week-histogram.page';
+import { DayOfWeekHistogramComponent } from './day-of-week-histogram.component';
 import { Counter } from '../../models/counter';
 import { ActivatedRoute } from '@angular/router';
 import { CounterAnalyticsService } from '../../services/counter-analytics.service';
 import { CountEventRepositoryService } from '../../models/count-event-repository.service';
 
-describe('DayOfWeekHistogramPage', () => {
-  let component: DayOfWeekHistogramPage;
-  let fixture: ComponentFixture<DayOfWeekHistogramPage>;
+describe('DayOfWeekHistogramComponent', () => {
+  let component: DayOfWeekHistogramComponent;
+  let fixture: ComponentFixture<DayOfWeekHistogramComponent>;
 
   let counter: Counter;
   let activatedRoute: ActivatedRoute;
@@ -35,7 +35,7 @@ describe('DayOfWeekHistogramPage', () => {
     );
 
     TestBed.configureTestingModule({
-      declarations: [ DayOfWeekHistogramPage ],
+      declarations: [ DayOfWeekHistogramComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         {provide: ActivatedRoute, useValue: activatedRoute},
@@ -46,7 +46,7 @@ describe('DayOfWeekHistogramPage', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DayOfWeekHistogramPage);
+    fixture = TestBed.createComponent(DayOfWeekHistogramComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

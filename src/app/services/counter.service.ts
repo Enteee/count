@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 import { Counter } from '../models/counter';
 import { CounterRepositoryService } from '../models/counter-repository.service';
@@ -18,11 +19,15 @@ import { AppStateService } from './app-state.service';
 })
 export class CounterService {
 
+  static readonly VIBRATION_PATTERN_POSITIVE = [30];
+  static readonly VIBRATION_PATTERN_NEGATIVE = [30, 30, 30];
+
   constructor(
     private counterRepositoryService: CounterRepositoryService,
     private countEventRepositoryService: CountEventRepositoryService,
     private positionService: PositionService,
     private appStateService: AppStateService,
+    private vibration: Vibration,
   ) {}
 
   get allSortBySortOrder(): Array<Counter> {
@@ -53,6 +58,18 @@ export class CounterService {
     delta: number,
   ) {
     counter.count += delta;
+
+    // vibrate
+    if (
+      this.appStateService.appState.vibrate
+      && counter.vibrate
+    ) {
+      this.vibration.vibrate(
+        (delta > 0) ?
+          CounterService.VIBRATION_PATTERN_POSITIVE :
+          CounterService.VIBRATION_PATTERN_NEGATIVE
+      );
+    }
 
     // apply positive and negative wraparounds
     if (

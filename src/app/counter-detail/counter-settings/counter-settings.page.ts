@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { NavController } from '@ionic/angular';
+import { HasUnsavedChanges } from '../../guards/unsaved-changes/unsaved-changes.guard';
 
-import { Counter } from '../models/counter';
-import { CounterRepositoryService } from '../models/counter-repository.service';
-import { CounterService } from '../services/counter.service';
+import { Counter } from '../../models/counter';
+import { CounterRepositoryService } from '../../models/counter-repository.service';
+import { CounterService } from '../../services/counter.service';
 
-import { AppState } from '../models/app-state';
-import { AppStateService } from '../services/app-state.service';
+import { AppState } from '../../models/app-state';
+import { AppStateService } from '../../services/app-state.service';
 
 type ClampFunction = 'max' | 'min';
 
@@ -18,18 +18,18 @@ type ClampFunction = 'max' | 'min';
   templateUrl: './counter-settings.page.html',
   styleUrls: ['./counter-settings.page.scss'],
 })
-export class CounterSettingsPage implements OnInit {
+export class CounterSettingsPage implements OnInit, HasUnsavedChanges {
 
   counter: Counter;
   appState: AppState;
   counterSettingsForm: FormGroup;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private counterRepositoryService: CounterRepositoryService,
     private counterService: CounterService,
     private appStateService: AppStateService,
-    private navController: NavController
   ) {}
 
   ngOnInit() {
@@ -93,6 +93,12 @@ export class CounterSettingsPage implements OnInit {
   }
 
   async submit() {
+
+    // only submit if valid
+    if (!this.counterSettingsForm.valid) {
+      return;
+    }
+
     this.counterSettingsForm.value.minusCount = -this.counterSettingsForm.value.minusCount;
     this.counterSettingsForm.value.negativeWrapAround = -this.counterSettingsForm.value.negativeWrapAround;
 
@@ -102,12 +108,17 @@ export class CounterSettingsPage implements OnInit {
         this.counterSettingsForm.value
       )
     );
-    this.navController.pop();
+  }
+
+  hasUnsavedChanges(): boolean {
+    return !this.counterSettingsForm.valid;
   }
 
   async reset() {
     await this.counterService.reset(this.counter);
-    this.navController.pop();
+    this.router.navigate([
+      '/counters',
+    ]);
   }
 
   check(
@@ -143,5 +154,15 @@ export class CounterSettingsPage implements OnInit {
       });
     }
   }
+
+  async deleteCounter() {
+    // We want to make give the user the impression that this
+    // operation is very quick, so we first navigate away.
+    this.router.navigate([
+      '/counters',
+    ]);
+    await this.counterService.delete(this.counter);
+  }
+
 }
 

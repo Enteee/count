@@ -13,7 +13,6 @@ export class NotImplemented  implements OnInit, DoCheck {
   @Input() on = 'click';
   @Input() alwaysDisplay = false;
 
-
   private modal: HTMLIonModalElement;
   private appState: AppState;
   private styleDisplay: string;
