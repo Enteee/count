@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { HasUnsavedChanges } from '../../guards/unsaved-changes/unsaved-changes.guard';
+
 import { Counter } from '../../models/counter';
 import { CounterRepositoryService } from '../../models/counter-repository.service';
 import { CounterService } from '../../services/counter.service';
@@ -16,7 +18,7 @@ type ClampFunction = 'max' | 'min';
   templateUrl: './counter-settings.page.html',
   styleUrls: ['./counter-settings.page.scss'],
 })
-export class CounterSettingsPage implements OnInit {
+export class CounterSettingsPage implements OnInit, HasUnsavedChanges {
 
   counter: Counter;
   appState: AppState;
@@ -106,6 +108,10 @@ export class CounterSettingsPage implements OnInit {
         this.counterSettingsForm.value
       )
     );
+  }
+
+  hasUnsavedChanges(): boolean {
+    return !this.counterSettingsForm.valid;
   }
 
   async reset() {

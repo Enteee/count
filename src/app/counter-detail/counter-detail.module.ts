@@ -8,7 +8,6 @@ import { IonicModule } from '@ionic/angular';
 import { NotImplementedModule } from '../not-implemented/not-implemented.module';
 
 import { CounterRepositoryService } from '../models/counter-repository.service';
-
 import { CounterDetailPage } from './counter-detail.page';
 
 const routes: Routes = [
@@ -22,7 +21,7 @@ const routes: Routes = [
           { path: '', redirectTo: 'settings', pathMatch: 'full', },
           {
             path: 'settings',
-            loadChildren: './counter-settings/counter-settings.module#CounterSettingsPageModule'
+            loadChildren: './counter-settings/counter-settings.module#CounterSettingsPageModule',
           },
           {
             path: 'analytics',

@@ -7,12 +7,19 @@ import { IonicModule } from '@ionic/angular';
 
 import { NotImplementedModule } from '../../not-implemented/not-implemented.module';
 
+import { UnsavedChangesGuard } from '../../guards/unsaved-changes/unsaved-changes.guard';
+
+
 import { CounterSettingsPage } from './counter-settings.page';
+
 
 const routes: Routes = [
   {
     path: '',
-    component: CounterSettingsPage
+    component: CounterSettingsPage,
+    canDeactivate: [
+      UnsavedChangesGuard,
+    ],
   }
 ];
 
