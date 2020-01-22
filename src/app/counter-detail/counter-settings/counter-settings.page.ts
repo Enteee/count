@@ -91,6 +91,12 @@ export class CounterSettingsPage implements OnInit {
   }
 
   async submit() {
+
+    // only submit if valid
+    if(!this.counterSettingsForm.valid) {
+      return
+    }
+
     this.counterSettingsForm.value.minusCount = -this.counterSettingsForm.value.minusCount;
     this.counterSettingsForm.value.negativeWrapAround = -this.counterSettingsForm.value.negativeWrapAround;
 
@@ -100,9 +106,6 @@ export class CounterSettingsPage implements OnInit {
         this.counterSettingsForm.value
       )
     );
-    this.router.navigate([
-      '/counters',
-    ]);
   }
 
   async reset() {
@@ -145,5 +148,15 @@ export class CounterSettingsPage implements OnInit {
       });
     }
   }
+
+  async deleteCounter() {
+    // We want to make give the user the impression that this
+    // operation is very quick, so we first navigate away.
+    this.router.navigate([
+      '/counters',
+    ]);
+    await this.counterService.delete(this.counter);
+  }
+
 }
 

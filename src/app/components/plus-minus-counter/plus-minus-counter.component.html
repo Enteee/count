@@ -56,36 +56,26 @@
   </ion-item>
 
   <ion-item-options
-    side="end"
-    appNotImplemented description="Edit count events" issueId="8" on="ionSwipe" alwaysDisplay="true"
+    side="start"
+    *ngIf="counter.minusCount < 0"
   >
     <ion-item-option
       color="danger"
-      (click)="deleteCounter()"
+      [routerLink]="['/fullscreen-counter', 'minus', counter.id]"
     >
-      <ion-icon slot="icon-only" name="trash"></ion-icon>
+      <ion-icon slot="icon-only" name="expand"></ion-icon>
     </ion-item-option>
+  </ion-item-options>
 
-    <ion-item-option
-      color="warning"
-      [routerLink]="['/counter-settings', counter.id]"
-    >
-      <ion-icon slot="icon-only" name="build"></ion-icon>
-    </ion-item-option>
-
+  <ion-item-options
+    side="end"
+    *ngIf="counter.plusCount > 0"
+  >
     <ion-item-option
       color="success"
-      [routerLink]="['/counter-analytics', counter.id]"
+      [routerLink]="['/fullscreen-counter', 'plus', counter.id]"
     >
-      <ion-icon slot="icon-only" name="analytics"></ion-icon>
+      <ion-icon slot="icon-only" name="expand"></ion-icon>
     </ion-item-option>
-
-    <ion-item-option
-      expandable
-      appNotImplemented description="Edit count events" issueId="8"
-    >
-      <ion-icon slot="icon-only" name="create" expandable></ion-icon>
-    </ion-item-option>
-
   </ion-item-options>
 </ion-item-sliding>

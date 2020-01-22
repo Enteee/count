@@ -98,6 +98,30 @@ describe('CounterSettingsPage', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should submit', async(() => {
+    spyOn(counterRepositoryService, 'save');
+
+    component.submit();
+
+    fixture.whenStable().then(() => {
+      expect(counterRepositoryService.save).toHaveBeenCalledTimes(1);
+      expect(counterRepositoryService.save).toHaveBeenCalledWith(counter);
+    });
+  }));
+
+  it('should not submit if invalid', async(() => {
+    spyOn(counterRepositoryService, 'save');
+
+    const title = component.counterSettingsForm.controls['title'];
+    title.setValue('');
+
+    component.submit();
+
+    fixture.whenStable().then(() => {
+      expect(counterRepositoryService.save).toHaveBeenCalledTimes(0);
+    });
+  }));
+
   it('should reset', async(() => {
     spyOn(counterService, 'reset');
 
@@ -276,6 +300,23 @@ describe('CounterSettingsPage', () => {
       expect(component.counterSettingsForm.get).toHaveBeenCalledWith('testFormControl');
 
       expect(component.counterSettingsForm.patchValue).toHaveBeenCalledTimes(0);
+    });
+  }));
+
+  it('can delete', async(() => {
+
+    spyOn(
+      counterService,
+      'delete',
+    );
+
+    component.deleteCounter();
+
+    fixture.whenStable().then(() => {
+      expect(counterService.delete).toHaveBeenCalledTimes(1);
+      expect(counterService.delete).toHaveBeenCalledWith(counter);
+
+      expect(router.navigate).toHaveBeenCalledWith(['/counters']);
     });
   }));
 

@@ -29,10 +29,6 @@ export class PlusMinusCounterComponent implements OnInit {
 
   ngOnInit() {}
 
-  async deleteCounter() {
-    await this.counterService.delete(this.counter);
-  }
-
   async countPlus() {
     await this.counterService.count(
       this.counter,
