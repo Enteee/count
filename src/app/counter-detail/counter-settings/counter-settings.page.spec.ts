@@ -112,7 +112,7 @@ describe('CounterSettingsPage', () => {
   it('should not submit if invalid', async(() => {
     spyOn(counterRepositoryService, 'save');
 
-    const title = component.counterSettingsForm.controls['title'];
+    const title = component.counterSettingsForm.controls.title;
     title.setValue('');
 
     component.submit();

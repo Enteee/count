@@ -93,8 +93,8 @@ export class CounterSettingsPage implements OnInit {
   async submit() {
 
     // only submit if valid
-    if(!this.counterSettingsForm.valid) {
-      return
+    if (!this.counterSettingsForm.valid) {
+      return;
     }
 
     this.counterSettingsForm.value.minusCount = -this.counterSettingsForm.value.minusCount;
