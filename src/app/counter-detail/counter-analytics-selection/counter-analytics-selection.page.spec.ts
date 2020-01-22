@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CounterAnalyticsSelectionPage } from './counter-analytics-selection.page';
-import { Counter } from '../models/counter';
+import { Counter } from '../../models/counter';
 import { ActivatedRoute } from '@angular/router';
 
 describe('CounterAnalyticsSelectionPage', () => {

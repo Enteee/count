@@ -7,13 +7,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { IonicModule } from '@ionic/angular';
 
-import { Counter } from '../models/counter';
-import { CounterRepositoryService } from '../models/counter-repository.service';
+import { Counter } from '../../models/counter';
+import { CounterRepositoryService } from '../../models/counter-repository.service';
 
-import { CounterService } from '../services/counter.service';
+import { CounterService } from '../../services/counter.service';
 
-import { AppState } from '../models/app-state';
-import { AppStateService } from '../services/app-state.service';
+import { AppState } from '../../models/app-state';
+import { AppStateService } from '../../services/app-state.service';
 
 import { CounterSettingsPage } from './counter-settings.page';
 
