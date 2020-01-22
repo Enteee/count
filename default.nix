@@ -73,7 +73,8 @@ in
         ionic \
         native-run \
         cordova \
-        cordova-res
+        cordova-res \
+        @angular/cli
 
       export ANDROID_SDK_ROOT="$PWD/.android-sdk"
       export ANDROID_HOME="$ANDROID_SDK_ROOT"
