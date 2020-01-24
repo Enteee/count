@@ -1,4 +1,4 @@
-# count [![Coverage Status](https://coveralls.io/repos/github/Enteee/count/badge.svg?branch=master)](https://coveralls.io/github/Enteee/count?branch=master)
+# count [![GitHub deployments](https://img.shields.io/github/deployments/Enteee/count/github-pages?label=live-preview)][GithubPages] [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/enteee/count/Count CI)][Build] [![Coverage Status](https://coveralls.io/repos/github/Enteee/count/badge.svg?branch=master)](https://coveralls.io/github/Enteee/count?branch=master) ![GitHub language count](https://img.shields.io/github/languages/count/Enteee/count) ![GitHub top language](https://img.shields.io/github/languages/top/Enteee/count) ![GitHub contributors](https://img.shields.io/github/contributors/Enteee/count)
 _Count, Visualize, Understand_
 
 An open source tally counter app with advanced analytics. This app 
@@ -41,4 +41,6 @@ $ ./icon_update.sh
 
 [GitHub]:https://github.com/
 [GitHubPages]:https://enteee.github.io/count
+[Coverage]:https://coveralls.io/github/Enteee/count?branch=master
+[Build]:https://github.com/Enteee/count/actions
 [IssueHunt]:https://issuehunt.io/
