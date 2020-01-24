@@ -1,15 +1,18 @@
-# count [![GitHub deployments](https://img.shields.io/github/deployments/Enteee/count/github-pages?label=live-preview)][GithubPages] [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/enteee/count/Count%20CI)][Build] [![Coverage Status](https://coveralls.io/repos/github/Enteee/count/badge.svg?branch=master)](https://coveralls.io/github/Enteee/count?branch=master) [![GitHub language count](https://img.shields.io/github/languages/count/Enteee/count)][count] [![GitHub top language](https://img.shields.io/github/languages/top/Enteee/count)][count] [![GitHub contributors](https://img.shields.io/github/contributors/Enteee/count)][count]
+# count [![GitHub deployments](https://img.shields.io/github/deployments/Enteee/count/github-pages?label=live-preview)][GitHubPages] [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/enteee/count/Count%20CI)][Build] [![Coverage Status](https://coveralls.io/repos/github/Enteee/count/badge.svg?branch=master)](https://coveralls.io/github/Enteee/count?branch=master) [![GitHub language count](https://img.shields.io/github/languages/count/Enteee/count)][count] [![GitHub top language](https://img.shields.io/github/languages/top/Enteee/count)][count] [![GitHub contributors](https://img.shields.io/github/contributors/Enteee/count)][count]
 _Count, Visualize, Understand_
 
-An open source tally counter app with advanced analytics. This app 
+An open source community driven tally counter app with support for advanced analytics.
+This app was created using [Ionic Framework][Ionic] and runs on Android, iOS and in [the browser][GitHubPages].
+
+![Preview](doc/preview.gif)
 
 **Features**
 
+* [Preview on GitHub Pages][GitHubPages]
 * Visualizations:
   * Day of the week histogram
 * Full screen counting
 * Count on multiple counters in parallel
-* [Preview on GitHub Pages][GitHubPages]
 * Lock a counter
 * Vibrate on count
 * Automatic reset to 0 on configurable limit (wraparound)
@@ -20,6 +23,7 @@ An open source tally counter app with advanced analytics. This app
 * Contributors overview
 * Online help
 
+
 ## Running the App
 
 ```
@@ -28,7 +32,7 @@ $ ionic cordova run browser -l
 
 ## Developing the App
 
-Start without cordova (some fearures won't work):
+Start without cordova (some features won't work):
 ```
 $ ionic serve
 ```
@@ -39,6 +43,7 @@ $ ionic serve
 $ ./icon_update.sh
 ```
 
+[Ionic]:https://ionicframework.com/
 [count]:https://github.com/Enteee/count
 [GitHub]:https://github.com/
 [GitHubPages]:https://enteee.github.io/count
