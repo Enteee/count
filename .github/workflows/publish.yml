@@ -11,10 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
     - uses: actions/checkout@v1
 
@@ -45,7 +41,6 @@ jobs:
           npx \
             angular-cli-ghpages \
             --dir=www
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
       env:
         CI: true
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
