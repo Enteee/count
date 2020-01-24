@@ -1,4 +1,4 @@
-# count [![GitHub deployments](https://img.shields.io/github/deployments/Enteee/count/github-pages?label=live-preview)][GithubPages] [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/enteee/count/Count%20CI)][Build] [![Coverage Status](https://coveralls.io/repos/github/Enteee/count/badge.svg?branch=master)](https://coveralls.io/github/Enteee/count?branch=master) ![GitHub language count](https://img.shields.io/github/languages/count/Enteee/count) ![GitHub top language](https://img.shields.io/github/languages/top/Enteee/count) ![GitHub contributors](https://img.shields.io/github/contributors/Enteee/count)
+# count [![GitHub deployments](https://img.shields.io/github/deployments/Enteee/count/github-pages?label=live-preview)][GithubPages] [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/enteee/count/Count%20CI)][Build] [![Coverage Status](https://coveralls.io/repos/github/Enteee/count/badge.svg?branch=master)](https://coveralls.io/github/Enteee/count?branch=master) [![GitHub language count](https://img.shields.io/github/languages/count/Enteee/count)][count] [![GitHub top language](https://img.shields.io/github/languages/top/Enteee/count)][count] [![GitHub contributors](https://img.shields.io/github/contributors/Enteee/count)][count]
 _Count, Visualize, Understand_
 
 An open source tally counter app with advanced analytics. This app 
@@ -39,6 +39,7 @@ $ ionic serve
 $ ./icon_update.sh
 ```
 
+[count]:https://github.com/Enteee/count
 [GitHub]:https://github.com/
 [GitHubPages]:https://enteee.github.io/count
 [Coverage]:https://coveralls.io/github/Enteee/count?branch=master
