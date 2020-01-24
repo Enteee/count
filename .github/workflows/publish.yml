@@ -45,5 +45,7 @@ jobs:
           npx \
             angular-cli-ghpages \
             --dir=www
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
       env:
         CI: true
