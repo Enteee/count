@@ -16,7 +16,7 @@ jobs:
         build-args: [ "" , "--prod --release" ]
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -25,6 +25,14 @@ jobs:
 
     - name: npm install
       run: npm install
+
+    - name: install cli tools
+      run: |
+        npm install -g --no-save \
+          ionic@5.4.15 \
+          native-run@0.3.0 \
+          cordova@9.0.0 \
+          cordova-res@0.8.1
 
     - name: npm lint
       run: npm run lint
@@ -48,17 +56,15 @@ jobs:
 
     - name: ionic cordova build
       run: |
-        npm install -g --no-save \
-          ionic \
-          native-run \
-          cordova \
-          cordova-res
-        ionic cordova build android ${{ matrix.build-args }}
+        ionic \
+          cordova build \
+            android ${{ matrix.build-args }}
       env:
         CI: true
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@master
+      if: github.ref == 'master'
       with:
         name: "count"
         path: platforms/android/app/build/outputs
