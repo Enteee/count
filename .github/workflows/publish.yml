@@ -12,7 +12,9 @@ jobs:
     timeout-minutes: 30
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Use Node.js 12.x
       uses: actions/setup-node@v1
@@ -40,7 +42,7 @@ jobs:
       run: |
           npx \
             angular-cli-ghpages \
+            --no-silent \
             --dir=www
       env:
         CI: true
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
