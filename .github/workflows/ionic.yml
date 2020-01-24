@@ -64,6 +64,7 @@ jobs:
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@master
+      if: github.ref == 'master'
       with:
         name: "count"
         path: platforms/android/app/build/outputs
