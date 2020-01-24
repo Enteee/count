@@ -12,9 +12,9 @@ This app was created using [Ionic Framework][Ionic] and runs on Android, iOS and
 
 **Features**
 
-* [Preview on GitHub Pages][GitHubPages]
 * Visualizations:
   * Day of the week histogram
+* [Preview on GitHub Pages][GitHubPages]
 * Full screen counting
 * Count on multiple counters in parallel
 * Lock a counter
