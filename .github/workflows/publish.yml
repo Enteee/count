@@ -1,0 +1,49 @@
+name: Publish Github Pages
+
+on:
+  push:
+      branches:
+        - readme++
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+
+    - name: install cli tools
+      run: |
+        npm install -g --no-save \
+          ionic \
+          angular-cli-ghpages
+
+    - name: npm install
+      run: npm install
+
+    - name: build
+      run: |
+        ionic build \
+          -- \
+          --base-href https://enteee.github.io/count/
+      env:
+        CI: true
+
+    - name: publish
+      run: |
+          npx \
+            angular-cli-ghpages \
+            --dir=www",
+      env:
+        CI: true
