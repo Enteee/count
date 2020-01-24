@@ -1,10 +1,12 @@
 # count [![GitHub deployments](https://img.shields.io/github/deployments/Enteee/count/github-pages?label=live-preview)][GitHubPages] [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/enteee/count/Count%20CI)][Build] [![Coverage Status](https://coveralls.io/repos/github/Enteee/count/badge.svg?branch=master)](https://coveralls.io/github/Enteee/count?branch=master) [![GitHub language count](https://img.shields.io/github/languages/count/Enteee/count)][count] [![GitHub top language](https://img.shields.io/github/languages/top/Enteee/count)][count] [![GitHub contributors](https://img.shields.io/github/contributors/Enteee/count)][count]
 _Count, Visualize, Understand_
 
+
+<img align="right" src="doc/preview.gif">
+
 An open source community driven tally counter app with support for advanced analytics.
 This app was created using [Ionic Framework][Ionic] and runs on Android, iOS and in [the browser][GitHubPages].
 
-![Preview](doc/preview.gif)
 
 **Features**
 
@@ -22,7 +24,6 @@ This app was created using [Ionic Framework][Ionic] and runs on Android, iOS and
 * [GitHub] and [IssueHunt] integration
 * Contributors overview
 * Online help
-
 
 ## Running the App
 
