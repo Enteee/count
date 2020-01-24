@@ -3,7 +3,7 @@ name: Publish Github Pages
 on:
   push:
       branches:
-        - 'readme++'
+        - 'feature/readme'
 
 jobs:
   build:
