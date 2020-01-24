@@ -23,7 +23,7 @@ jobs:
       run: |
         npm install -g --no-save \
           ionic@5.4.15 \
-          ngular-cli-ghpages@0.6.2
+          angular-cli-ghpages@0.6.2
 
     - name: npm install
       run: npm install
