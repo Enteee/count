@@ -8,6 +8,7 @@ _Count, Visualize, Understand_
 An open source community driven tally counter app with support for advanced analytics.
 This app was created using [Ionic Framework][Ionic] and runs on Android, iOS and in [the browser][GitHubPages].
 
+[![Try it now](https://img.shields.io/badge/Try%20it-NOW!-brightgreen)](https://enteee.github.io/count)
 
 **Features**
 
