@@ -26,6 +26,14 @@ jobs:
     - name: npm install
       run: npm install
 
+    - name: install cli tools
+      run: |
+        npm install -g --no-save \
+          ionic@5.4.15 \
+          native-run@0.3.0 \
+          cordova@9.0.0 \
+          cordova-res@0.8.1
+
     - name: npm lint
       run: npm run lint
 
@@ -48,12 +56,9 @@ jobs:
 
     - name: ionic cordova build
       run: |
-        npm install -g --no-save \
-          ionic \
-          native-run \
-          cordova \
-          cordova-res
-        ionic cordova build android ${{ matrix.build-args }}
+        ionic \
+          cordova build \
+            android ${{ matrix.build-args }}
       env:
         CI: true
 
