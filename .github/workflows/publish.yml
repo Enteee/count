@@ -36,14 +36,9 @@ jobs:
       env:
         CI: true
 
-    - name: publish
-      run: |
-          npx \
-            angular-cli-ghpages \
-            --name="Count-Bot" \
-            --email="count@duckpond.ch" \
-            --no-silent \
-            --dir=www
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2
       env:
-        CI: true
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./www
