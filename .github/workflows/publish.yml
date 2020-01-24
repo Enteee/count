@@ -44,6 +44,6 @@ jobs:
       run: |
           npx \
             angular-cli-ghpages \
-            --dir=www",
+            --dir=www
       env:
         CI: true
