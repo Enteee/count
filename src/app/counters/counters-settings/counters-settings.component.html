@@ -1,0 +1,28 @@
+<ion-list>
+
+  <ion-item
+    button
+    (click)="toggleReorder()"
+  >
+    <ion-icon
+      slot="start"
+      name="swap"
+      class="rotate-90"
+    ></ion-icon>
+
+    <ng-template
+      *ngIf="this.reorderGroup.disabled; then thenBlock else elseBlock"
+    ></ng-template>
+    <ng-template #thenBlock>Reorder Counters </ng-template>
+    <ng-template #elseBlock>Stop Reorder Counters</ng-template>
+
+  </ion-item>
+
+  <ion-item
+    button
+    (click)="addCounter()"
+  >
+    <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+    Add New Counter
+  </ion-item>
+</ion-list>

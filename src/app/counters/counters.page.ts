@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonReorderGroup } from '@ionic/angular';
+import { IonReorderGroup, PopoverController } from '@ionic/angular';
 
 import { Counter } from '../models/counter';
 import { CounterService } from '../services/counter.service';
+import { CountersSettingsComponent } from './counters-settings/counters-settings.component';
 
 @Component({
   selector: 'app-counters',
@@ -15,6 +16,7 @@ export class CountersPage implements OnInit {
 
   constructor(
     private counterService: CounterService,
+    private popoverController: PopoverController,
   ) { }
 
   ngOnInit() {
@@ -24,12 +26,17 @@ export class CountersPage implements OnInit {
     return this.counterService.allSortBySortOrder;
   }
 
-  async addCounter() {
-    await this.counterService.addCounter();
-  }
-
-  toggleReorder() {
-    this.reorderGroup.disabled = !this.reorderGroup.disabled;
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: CountersSettingsComponent,
+      event: ev,
+      translucent: true,
+      componentProps: {
+        popoverController: this.popoverController,
+        reorderGroup: this.reorderGroup,
+      }
+    });
+    return await popover.present();
   }
 
   async reorder(ev: any) {

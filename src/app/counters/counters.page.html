@@ -8,7 +8,9 @@
       Count
     </ion-title>
     <ion-buttons slot="primary">
-      <ion-button (click)="toggleReorder()">Reorder</ion-button>
+      <ion-button (click)="presentPopover($event)">
+        <ion-icon name="options"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -23,7 +25,4 @@
       </div>
     </ion-reorder-group>
   </ion-list>
-  <ion-button size="large" expand="full" (click)="addCounter()">
-    new counter
-  </ion-button>
 </ion-content>
