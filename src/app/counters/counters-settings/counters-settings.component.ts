@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonReorderGroup, PopoverController } from '@ionic/angular';
 
 import { CounterService } from '../../services/counter.service';
@@ -15,13 +16,24 @@ export class CountersSettingsComponent implements OnInit {
 
   constructor(
     private counterService: CounterService,
+    private router: Router,
   ) { }
 
   ngOnInit() {}
 
   async addCounter() {
-    await this.counterService.addCounter();
-    await this.popoverController.dismiss();
+    let newCounter = await this.counterService.addCounter();
+    await Promise.all([
+      this.router.navigate([
+        '/counter-detail',
+        newCounter.id,
+        'settings',
+        {
+          focusTitle: true,
+        },
+      ]),
+      this.popoverController.dismiss()
+    ]);
   }
 
   async toggleReorder() {

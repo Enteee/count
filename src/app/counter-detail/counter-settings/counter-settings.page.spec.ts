@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, convertToParamMap } from '@angular/router';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RouterTestingModule } from '@angular/router/testing';
@@ -37,6 +37,9 @@ describe('CounterSettingsPage', () => {
         data: {
           counter,
         },
+        paramMap: convertToParamMap({
+          focusTitle: false,
+        }),
       },
     } as any;
 

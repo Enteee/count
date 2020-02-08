@@ -1,7 +1,10 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonReorderGroup, PopoverController } from '@ionic/angular';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
+import { Counter } from '../../models/counter';
 import { CounterService } from '../../services/counter.service';
 
 import { CountersSettingsComponent } from './counters-settings.component';
@@ -9,6 +12,8 @@ import { CountersSettingsComponent } from './counters-settings.component';
 describe('CountersSettingsComponent', () => {
   let component: CountersSettingsComponent;
   let fixture: ComponentFixture<CountersSettingsComponent>;
+  let router: Router;
+
   let counterService: CounterService;
   let popoverControllerSpy: PopoverController;
   let reorderGroupSpy: IonReorderGroup;
@@ -24,6 +29,9 @@ describe('CountersSettingsComponent', () => {
     );
 
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule.withRoutes([]),
+      ],
       declarations: [ CountersSettingsComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
@@ -36,6 +44,12 @@ describe('CountersSettingsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CountersSettingsComponent);
     component = fixture.componentInstance;
+
+    router = TestBed.get(Router);
+    spyOn(
+      router,
+      'navigate'
+    );
 
     popoverControllerSpy = jasmine.createSpyObj('popoverController', [
       'dismiss'
@@ -55,14 +69,27 @@ describe('CountersSettingsComponent', () => {
   });
 
   it('can add a new counter', async(() => {
+    const newCounter = new Counter();
     spyOn(
       counterService,
       'addCounter'
-    );
+    ).and.returnValue(Promise.resolve(newCounter));
 
     component.addCounter();
+
     fixture.whenStable().then(() => {
       expect(counterService.addCounter).toHaveBeenCalledTimes(1);
+
+      expect(router.navigate).toHaveBeenCalledTimes(1);
+      expect(router.navigate).toHaveBeenCalledWith([
+        '/counter-detail',
+        newCounter.id,
+        'settings',
+        {
+          focusTitle:true
+        }
+      ]);
+
       expect(popoverControllerSpy.dismiss).toHaveBeenCalledTimes(1);
     });
   }));
