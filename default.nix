@@ -70,7 +70,7 @@ in
 
       ${nodejs}/bin/npm install
       ${nodejs}/bin/npm install -g --no-save \
-        ionic \
+        @ionic/cli \
         native-run \
         cordova \
         cordova-res \

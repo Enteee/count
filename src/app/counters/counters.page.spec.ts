@@ -49,7 +49,7 @@ describe('CountersPage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should provide a list of counters', () => {
+  it('should list counters', () => {
     countersPage = fixture.nativeElement;
 
     const countersFixture = [
@@ -68,20 +68,6 @@ describe('CountersPage', () => {
     expect(component.counters).toEqual(countersFixture);
     expect(allSortBySortOrderSpy).toHaveBeenCalledTimes(1);
   });
-
-  it('should be able to add a new counter', async(() => {
-    countersPage = fixture.nativeElement;
-
-    spyOn(
-      counterService,
-      'addCounter'
-    );
-
-    component.addCounter();
-    fixture.whenStable().then(() => {
-      expect(counterService.addCounter).toHaveBeenCalledTimes(1);
-    });
-  }));
 
   it('can reorder', async(() => {
     spyOn(

@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { CountersPage } from './counters.page';
+import { CountersSettingsComponent } from './counters-settings/counters-settings.component';
 
 import { NotImplementedModule } from '../not-implemented/not-implemented.module';
 
@@ -25,8 +26,12 @@ import { ComponentsModule } from '../components/components.module';
     ])
   ],
   declarations: [
-    CountersPage
+    CountersPage,
+    CountersSettingsComponent,
   ],
-  providers: []
+  providers: [],
+  entryComponents: [
+    CountersSettingsComponent
+  ]
 })
 export class CountersPageModule {}

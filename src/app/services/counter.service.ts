@@ -36,8 +36,10 @@ export class CounterService {
 
   async addCounter() {
     const newCounter = new Counter();
+    // add counter to bottom
     newCounter.sortOrder = this.counterRepositoryService.all.length + 1;
     await this.counterRepositoryService.save(newCounter);
+    return newCounter;
   }
 
   async delete(counter: Counter) {

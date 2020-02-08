@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -18,11 +18,12 @@ type ClampFunction = 'max' | 'min';
   templateUrl: './counter-settings.page.html',
   styleUrls: ['./counter-settings.page.scss'],
 })
-export class CounterSettingsPage implements OnInit, HasUnsavedChanges {
+export class CounterSettingsPage implements OnInit, AfterViewInit, HasUnsavedChanges {
 
   counter: Counter;
   appState: AppState;
   counterSettingsForm: FormGroup;
+  @ViewChild('titleInput', {static: true}) titleElement;
 
   constructor(
     private router: Router,
@@ -90,6 +91,28 @@ export class CounterSettingsPage implements OnInit, HasUnsavedChanges {
         this.counter.locked,
       ),
     });
+
+  }
+
+  async ngAfterViewInit() {
+    const focusTitle = this.route.snapshot.paramMap.get('focusTitle');
+    if (focusTitle) {
+      /*
+       * TODO: Wohaaa this is ugly, but seems to be the only working solution..
+       * cmon angular, implement this focus on element ref thing already!
+       *
+       * Discussion on ionic discourse:
+       * https://forum.ionicframework.com/t/setting-focus-to-an-input-in-ionic/62789/56
+       * Angular pull request:
+       * https://github.com/angular/angular/issues/31133
+       */
+      setTimeout(async () => {
+        await this.titleElement.setFocus();
+        this.counterSettingsForm.patchValue({
+          title: '',
+        });
+      }, 200);
+    }
   }
 
   async submit() {

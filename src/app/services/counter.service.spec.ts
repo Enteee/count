@@ -93,6 +93,13 @@ describe('CounterService', () => {
     expect(service).toBeTruthy();
   });
 
+  it('can add counter', async () => {
+    const newCounter = await service.addCounter();
+
+    expect(counterRepositoryService.save).toHaveBeenCalledTimes(1);
+    expect(counterRepositoryService.save).toHaveBeenCalledWith(newCounter);
+  });
+
   it('should count', async () => {
     const delta = 1;
 
