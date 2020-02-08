@@ -298,8 +298,10 @@ let CounterService = CounterService_1 = class CounterService {
     addCounter() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             const newCounter = new _models_counter__WEBPACK_IMPORTED_MODULE_3__["Counter"]();
+            // add counter to bottom
             newCounter.sortOrder = this.counterRepositoryService.all.length + 1;
             yield this.counterRepositoryService.save(newCounter);
+            return newCounter;
         });
     }
     delete(counter) {

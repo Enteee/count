@@ -163,11 +163,12 @@ var CounterService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         newCounter = new _models_counter__WEBPACK_IMPORTED_MODULE_3__["Counter"]();
+                        // add counter to bottom
                         newCounter.sortOrder = this.counterRepositoryService.all.length + 1;
                         return [4 /*yield*/, this.counterRepositoryService.save(newCounter)];
                     case 1:
                         _a.sent();
-                        return [2 /*return*/];
+                        return [2 /*return*/, newCounter];
                 }
             });
         });
