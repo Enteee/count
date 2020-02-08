@@ -96,7 +96,7 @@ export class CounterSettingsPage implements OnInit, AfterViewInit, HasUnsavedCha
 
   async ngAfterViewInit() {
     const focusTitle = this.route.snapshot.paramMap.get('focusTitle');
-    if(focusTitle){
+    if (focusTitle) {
       /*
        * TODO: Wohaaa this is ugly, but seems to be the only working solution..
        * cmon angular, implement this focus on element ref thing already!
@@ -109,9 +109,9 @@ export class CounterSettingsPage implements OnInit, AfterViewInit, HasUnsavedCha
       setTimeout(async () => {
         await this.titleElement.setFocus();
         this.counterSettingsForm.patchValue({
-          title: "",
+          title: '',
         });
-      },200);
+      }, 200);
     }
   }
 

@@ -94,10 +94,10 @@ describe('CounterService', () => {
   });
 
   it('can add counter', async () => {
-    let counter = await service.addCounter();
+    const newCounter = await service.addCounter();
 
     expect(counterRepositoryService.save).toHaveBeenCalledTimes(1);
-    expect(counterRepositoryService.save).toHaveBeenCalledWith(counter);
+    expect(counterRepositoryService.save).toHaveBeenCalledWith(newCounter);
   });
 
   it('should count', async () => {

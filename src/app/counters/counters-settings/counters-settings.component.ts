@@ -22,7 +22,7 @@ export class CountersSettingsComponent implements OnInit {
   ngOnInit() {}
 
   async addCounter() {
-    let newCounter = await this.counterService.addCounter();
+    const newCounter = await this.counterService.addCounter();
     await Promise.all([
       this.router.navigate([
         '/counter-detail',

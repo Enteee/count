@@ -86,7 +86,7 @@ describe('CountersSettingsComponent', () => {
         newCounter.id,
         'settings',
         {
-          focusTitle:true
+          focusTitle: true
         }
       ]);
 
