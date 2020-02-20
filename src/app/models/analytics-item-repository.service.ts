@@ -4,6 +4,7 @@ import { VolatileModelRepositoryService } from './model-repository.service';
 import { AnalyticsItem } from './analytics-item';
 
 import { DayOfWeekHistogramComponent } from '../components/day-of-week-histogram/day-of-week-histogram.component';
+import { DayOfWeekHistogramApexComponent } from '../components/day-of-week-histogram-apex/day-of-week-histogram-apex.component';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,21 @@ export class AnalyticsItemRepositoryService extends VolatileModelRepositoryServi
         DayOfWeekHistogramComponent,
         {
           name: 'Day Of Week Histogram',
-          description: 'Shows count events grouped by the the day of week.',
+          description: 'Anychart Demo',
           icon: 'calendar',
           url: 'day-of-week-histogram',
+        }
+      )
+    );
+
+    this.save(
+      new AnalyticsItem(
+        DayOfWeekHistogramApexComponent,
+        {
+          name: 'Day Of Week Histogram',
+          description: 'Apex Demo',
+          icon: 'calendar',
+          url: 'day-of-week-histogram-apex',
         }
       )
     );

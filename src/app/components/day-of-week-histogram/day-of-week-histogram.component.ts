@@ -25,7 +25,6 @@ export class DayOfWeekHistogramComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit() {
-    this.counter = this.route.snapshot.data.counter;
     const dayOfWeekHistogramData = this.counterAnalytics.getDayOfWeekHistogramData(this.counter);
 
     const positiveData = this.getDayOfWeekOrder().map((dayOfWeek) => [
