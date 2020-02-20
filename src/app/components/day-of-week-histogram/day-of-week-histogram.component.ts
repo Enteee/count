@@ -33,7 +33,7 @@ export class DayOfWeekHistogramComponent implements OnInit, AfterViewInit {
     ]);
 
     const positiveSeries = this.chart.column(positiveData);
-    positiveSeries.name('Plus Count');
+    positiveSeries.name('Plus');
     positiveSeries.stroke('green');
     positiveSeries.fill('green');
 
@@ -43,7 +43,7 @@ export class DayOfWeekHistogramComponent implements OnInit, AfterViewInit {
     ]);
 
     const negativeSeries = this.chart.column(negativeData);
-    negativeSeries.name('Minus Count');
+    negativeSeries.name('Minus');
     negativeSeries.stroke('red');
     negativeSeries.fill('red');
 

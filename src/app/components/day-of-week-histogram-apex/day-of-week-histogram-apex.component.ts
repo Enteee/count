@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ApexChart, ApexAxisChartSeries, ApexNonAxisChartSeries, ApexTitleSubtitle, ApexPlotOptions, ApexXAxis } from 'ng-apexcharts';
+import { ApexChart, ApexAxisChartSeries, ApexPlotOptions, ApexXAxis, ApexTheme } from 'ng-apexcharts';
 
+import { CounterAnalyticsService } from '../../services/counter-analytics.service';
 import { Counter } from '../../models/counter';
 
 @Component({
@@ -12,40 +13,61 @@ export class DayOfWeekHistogramApexComponent implements OnInit {
 
   @Input() counter: Counter;
 
-  @Input() chart: ApexChart = {
-      type: "bar",
-      height: 500,
-      toolbar: {
-        show: false,
-      },
+  chart: ApexChart = {
+    type: "bar",
+    height: 500,
+    toolbar: {
+      show: false,
+    },
   };
-  @Input() series: ApexAxisChartSeries | ApexNonAxisChartSeries = [
-    {
-      name: "Net Profit",
-      data: [44, 55, 57, 56, 61, 58, 63]
-    },
-    {
-      name: "Revenue",
-      data: [76, 85, 101, 98, 87, 105, 91]
-    },
-    {
-      name: "Free Cash Flow",
-      data: [35, 41, 36, 26, 45, 48, 52]
-    }
-  ];
-  @Input() plotOptions: ApexPlotOptions = {
+
+  series: ApexAxisChartSeries = []
+
+  plotOptions: ApexPlotOptions = {
     bar: {
       horizontal: true,
       columnWidth: "80%",
-      endingShape: "rounded",
     }
   }
-  @Input() xaxis: ApexXAxis = {
+
+  xaxis: ApexXAxis = {
     categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  };
+
+  colors: string[] = ['#10dc60', '#f04141', '#ffce00'];
+
+  constructor(
+    private counterAnalyticsService: CounterAnalyticsService,
+  ) {}
+
+  ngOnInit() {
+    let data = this.counterAnalyticsService.getDayOfWeekHistogramData(this.counter);
+    this.series = [
+      {
+        name: "Plus",
+        data: [
+          data.monday.positive,
+          data.tuesday.positive,
+          data.wednesday.positive,
+          data.thursday.positive,
+          data.friday.positive,
+          data.saturday.positive,
+          data.sunday.positive,
+        ]
+      },
+      {
+        name: "Minus",
+        data: [
+          data.monday.negative,
+          data.tuesday.negative,
+          data.wednesday.negative,
+          data.thursday.negative,
+          data.friday.negative,
+          data.saturday.negative,
+          data.sunday.negative,
+        ]
+      },
+    ];
   }
-
-  constructor() {}
-
-  ngOnInit() {}
 
 }

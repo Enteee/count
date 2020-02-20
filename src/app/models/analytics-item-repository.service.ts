@@ -5,6 +5,7 @@ import { AnalyticsItem } from './analytics-item';
 
 import { DayOfWeekHistogramComponent } from '../components/day-of-week-histogram/day-of-week-histogram.component';
 import { DayOfWeekHistogramApexComponent } from '../components/day-of-week-histogram-apex/day-of-week-histogram-apex.component';
+import { HourOfDayRadarComponent } from '../components/hour-of-day-radar/hour-of-day-radar.component';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AnalyticsItemRepositoryService extends VolatileModelRepositoryServi
       new AnalyticsItem(
         DayOfWeekHistogramComponent,
         {
-          name: 'Day Of Week Histogram',
+          name: 'Day of Week Histogram',
           description: 'Anychart Demo',
           icon: 'calendar',
           url: 'day-of-week-histogram',
@@ -28,10 +29,22 @@ export class AnalyticsItemRepositoryService extends VolatileModelRepositoryServi
       new AnalyticsItem(
         DayOfWeekHistogramApexComponent,
         {
-          name: 'Day Of Week Histogram',
+          name: 'Day of Week Histogram',
           description: 'Apex Demo',
           icon: 'calendar',
           url: 'day-of-week-histogram-apex',
+        }
+      )
+    );
+
+    this.save(
+      new AnalyticsItem(
+        HourOfDayRadarComponent,
+        {
+          name: 'Hour of Day Radar',
+          description: 'Apex Demo',
+          icon: 'calendar',
+          url: 'hour-of-day-radar',
         }
       )
     );
