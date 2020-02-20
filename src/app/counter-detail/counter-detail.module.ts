@@ -20,6 +20,10 @@ const routes: Routes = [
         children: [
           { path: '', redirectTo: 'settings', pathMatch: 'full', },
           {
+            path: 'count',
+            loadChildren: './counter-count/counter-count.module#CounterCountPageModule',
+          },
+          {
             path: 'settings',
             loadChildren: './counter-settings/counter-settings.module#CounterSettingsPageModule',
           },

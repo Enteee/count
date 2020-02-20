@@ -63,18 +63,20 @@ export class CountEvent extends Model {
   @autoserialize public delta: number;
   @autoserialize public position: Position;
   @autoserialize public type: CountEventType;
-  @autoserializeAs(Date) public timestamp: Date = new Date();
+  @autoserializeAs(Date) public timestamp: Date;
 
   constructor(
     counterId: string,
     delta: number,
     position: Position = null,
     type = CountEventType.Change,
+    timestamp: Date = new Date(),
   ) {
     super();
     this.counterId = counterId;
     this.delta = delta;
     this.position = position;
     this.type = type;
+    this.timestamp = timestamp;
   }
 }
