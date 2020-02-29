@@ -9,7 +9,6 @@ import { NotImplementedModule } from '../not-implemented/not-implemented.module'
 import { PlusMinusCounterComponent } from './plus-minus-counter/plus-minus-counter.component';
 
 import { DayOfWeekHistogramComponent } from './day-of-week-histogram/day-of-week-histogram.component';
-import { DayOfWeekHistogramApexComponent } from './day-of-week-histogram-apex/day-of-week-histogram-apex.component';
 import { HourOfDayRadarComponent } from './hour-of-day-radar/hour-of-day-radar.component';
 
 @NgModule({
@@ -23,7 +22,7 @@ import { HourOfDayRadarComponent } from './hour-of-day-radar/hour-of-day-radar.c
   declarations: [
     PlusMinusCounterComponent,
     DayOfWeekHistogramComponent,
-    DayOfWeekHistogramApexComponent,
+    DayOfWeekHistogramComponent,
     HourOfDayRadarComponent,
   ],
   exports: [
@@ -31,7 +30,7 @@ import { HourOfDayRadarComponent } from './hour-of-day-radar/hour-of-day-radar.c
   ],
   entryComponents: [
     DayOfWeekHistogramComponent,
-    DayOfWeekHistogramApexComponent,
+    DayOfWeekHistogramComponent,
     HourOfDayRadarComponent,
   ],
   providers: [

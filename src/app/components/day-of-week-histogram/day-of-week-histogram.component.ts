@@ -1,85 +1,72 @@
-import { AfterViewInit, Component, Input, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { ApexChart, ApexAxisChartSeries, ApexPlotOptions, ApexXAxis, ApexTheme } from 'ng-apexcharts';
 
-import { CounterAnalyticsService, DayOfWeek } from '../../services/counter-analytics.service';
+import { CounterAnalyticsService } from '../../services/counter-analytics.service';
 import { Counter } from '../../models/counter';
-
-import 'anychart';
-
 
 @Component({
   selector: 'app-day-of-week-histogram',
   templateUrl: './day-of-week-histogram.component.html',
   styleUrls: ['./day-of-week-histogram.component.scss'],
 })
-export class DayOfWeekHistogramComponent implements OnInit, AfterViewInit {
+export class DayOfWeekHistogramComponent implements OnInit {
 
   @Input() counter: Counter;
-  @ViewChild('chartContainer', {static: true}) container: ElementRef;
 
-  chart: anychart.charts.Cartesian = anychart.column();
+  chart: ApexChart = {
+    type: "bar",
+    height: 500,
+    toolbar: {
+      show: false,
+    },
+  };
 
-  constructor(
-    private route: ActivatedRoute,
-    private counterAnalytics: CounterAnalyticsService
-  ) { }
+  series: ApexAxisChartSeries = []
 
-  ngOnInit() {
-    const dayOfWeekHistogramData = this.counterAnalytics.getDayOfWeekHistogramData(this.counter);
-
-    const positiveData = this.getDayOfWeekOrder().map((dayOfWeek) => [
-      this.translateDayOfWeek(dayOfWeek),
-      dayOfWeekHistogramData[dayOfWeek].positive
-    ]);
-
-    const positiveSeries = this.chart.column(positiveData);
-    positiveSeries.name('Plus');
-    positiveSeries.stroke('green');
-    positiveSeries.fill('green');
-
-    const negativeData = this.getDayOfWeekOrder().map((dayOfWeek) => [
-      this.translateDayOfWeek(dayOfWeek),
-      dayOfWeekHistogramData[dayOfWeek].negative
-    ]);
-
-    const negativeSeries = this.chart.column(negativeData);
-    negativeSeries.name('Minus');
-    negativeSeries.stroke('red');
-    negativeSeries.fill('red');
-
-    this.chart.legend().enabled(true);
-    this.chart.xAxis().labels().rotation(45);
-    this.chart.yScale().ticks().allowFractional(false);
-  }
-
-  ngAfterViewInit() {
-    this.chart.container(this.container.nativeElement);
-    this.chart.draw();
-  }
-
-  translateDayOfWeek(dayOfWeek: DayOfWeek): string {
-    // TODO: Delegate to i18n framework
-    switch (dayOfWeek) {
-      case 'monday': return 'Monday';
-      case 'tuesday': return 'Tuesday';
-      case 'wednesday': return 'Wednesday';
-      case 'thursday': return 'Thursday';
-      case 'friday': return 'Friday';
-      case 'saturday': return 'Saturday';
-      case 'sunday': return 'Sunday';
+  plotOptions: ApexPlotOptions = {
+    bar: {
+      horizontal: true,
+      columnWidth: "80%",
     }
   }
 
-  getDayOfWeekOrder(): DayOfWeek[] {
-    // TODO: Delegate to i18n framework
-    return [
-      'monday',
-      'tuesday',
-      'wednesday',
-      'thursday',
-      'friday',
-      'saturday',
-      'sunday'
+  xaxis: ApexXAxis = {
+    categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  };
+
+  colors: string[] = ['#10dc60', '#f04141', '#ffce00'];
+
+  constructor(
+    private counterAnalyticsService: CounterAnalyticsService,
+  ) {}
+
+  ngOnInit() {
+    let data = this.counterAnalyticsService.getDayOfWeekHistogramData(this.counter);
+    this.series = [
+      {
+        name: "Plus",
+        data: [
+          data.monday.positive,
+          data.tuesday.positive,
+          data.wednesday.positive,
+          data.thursday.positive,
+          data.friday.positive,
+          data.saturday.positive,
+          data.sunday.positive,
+        ]
+      },
+      {
+        name: "Minus",
+        data: [
+          data.monday.negative,
+          data.tuesday.negative,
+          data.wednesday.negative,
+          data.thursday.negative,
+          data.friday.negative,
+          data.saturday.negative,
+          data.sunday.negative,
+        ]
+      },
     ];
   }
 

@@ -30,7 +30,6 @@
     "@ionic-native/vibration": "^5.21.0",
     "@ionic/angular": "^4.11.10",
     "@ionic/storage": "^2.2.0",
-    "anychart": "^8.7.1",
     "apexcharts": "^3.15.6",
     "cerialize": "^0.1.18",
     "cordova-android": "^8.1.0",
