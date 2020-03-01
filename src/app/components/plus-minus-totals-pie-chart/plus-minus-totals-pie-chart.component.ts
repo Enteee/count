@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ApexChart, ApexNonAxisChartSeries, ApexPlotOptions, ApexXAxis, ApexTheme, ApexDataLabels } from 'ng-apexcharts';
+import { ApexChart, ApexNonAxisChartSeries, ApexPlotOptions, ApexXAxis, ApexTheme, ApexDataLabels, ApexLegend } from 'ng-apexcharts';
 
 import { CounterAnalyticsService } from '../../services/counter-analytics.service';
 import { Counter } from '../../models/counter';
@@ -23,13 +23,15 @@ export class PlusMinusTotalsPieChartComponent implements OnInit {
 
   series: ApexNonAxisChartSeries = [];
 
-  plotOptions: ApexPlotOptions = {};
-
   labels: string[] = ['Plus', 'Minus'];
 
   colors: string[] = ['#10dc60', '#f04141', '#ffce00'];
 
   dataLabels: ApexDataLabels = {};
+
+  legend: ApexLegend = {
+    position: 'bottom',
+  };
 
   constructor(
     private counterAnalyticsService: CounterAnalyticsService,
