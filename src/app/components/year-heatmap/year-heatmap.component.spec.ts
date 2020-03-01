@@ -1,12 +1,12 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DayOfWeekHistogramComponent } from './day-of-week-histogram.component';
+import { YearHeatmapComponent } from './year-heatmap.component';
 import { CounterAnalyticsService } from '../../services/counter-analytics.service';
 
-describe('DayOfWeekHistogramComponent', () => {
-  let component: DayOfWeekHistogramComponent;
-  let fixture: ComponentFixture<DayOfWeekHistogramComponent>;
+describe('YearHeatmapComponent', () => {
+  let component: YearHeatmapComponent;
+  let fixture: ComponentFixture<YearHeatmapComponent>;
   let counterAnalyticsService: CounterAnalyticsService;
 
   beforeEach(async(() => {
@@ -20,7 +20,7 @@ describe('DayOfWeekHistogramComponent', () => {
     ).and.returnValue([]);
 
     TestBed.configureTestingModule({
-      declarations: [ DayOfWeekHistogramComponent ],
+      declarations: [ YearHeatmapComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         { provide: CounterAnalyticsService, useValue: counterAnalyticsService },
@@ -30,13 +30,13 @@ describe('DayOfWeekHistogramComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DayOfWeekHistogramComponent);
+    fixture = TestBed.createComponent(YearHeatmapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-    expect(counterAnalyticsService.extractHistogramData).toHaveBeenCalledTimes(2);
+    expect(counterAnalyticsService.extractHistogramData).toHaveBeenCalledTimes(12);
   });
 });

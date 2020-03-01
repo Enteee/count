@@ -1,12 +1,12 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DayOfWeekHistogramComponent } from './day-of-week-histogram.component';
+import { HourOfDayRadarComponent } from './hour-of-day-radar.component';
 import { CounterAnalyticsService } from '../../services/counter-analytics.service';
 
-describe('DayOfWeekHistogramComponent', () => {
-  let component: DayOfWeekHistogramComponent;
-  let fixture: ComponentFixture<DayOfWeekHistogramComponent>;
+describe('HourOfDayRadarComponent', () => {
+  let component: HourOfDayRadarComponent;
+  let fixture: ComponentFixture<HourOfDayRadarComponent>;
   let counterAnalyticsService: CounterAnalyticsService;
 
   beforeEach(async(() => {
@@ -20,7 +20,7 @@ describe('DayOfWeekHistogramComponent', () => {
     ).and.returnValue([]);
 
     TestBed.configureTestingModule({
-      declarations: [ DayOfWeekHistogramComponent ],
+      declarations: [ HourOfDayRadarComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         { provide: CounterAnalyticsService, useValue: counterAnalyticsService },
@@ -30,7 +30,7 @@ describe('DayOfWeekHistogramComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DayOfWeekHistogramComponent);
+    fixture = TestBed.createComponent(HourOfDayRadarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

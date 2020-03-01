@@ -157,4 +157,32 @@ export class CounterService {
     );
   }
 
+  /**
+   * For development purposes only
+   */
+  async addRandomCountEvent(
+    counter: Counter,
+  ) {
+    const delta = Math.round(Math.random() * 10 % 10 - 5);
+    counter.count += delta;
+
+    function randomDate(start, end) {
+      return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+    }
+
+
+    await Promise.all([
+      this.counterRepositoryService.save(counter),
+      this.countEventRepositoryService.save(
+        new CountEvent(
+          counter.id,
+          delta,
+          null,
+          CountEventType.Change,
+          randomDate(new Date(2012, 0, 1), new Date()),
+        )
+      )
+    ]);
+  }
+
 }

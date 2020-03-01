@@ -1,12 +1,12 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DayOfWeekHistogramComponent } from './day-of-week-histogram.component';
+import { DayOfMonthHistogramComponent } from './day-of-month-histogram.component';
 import { CounterAnalyticsService } from '../../services/counter-analytics.service';
 
-describe('DayOfWeekHistogramComponent', () => {
-  let component: DayOfWeekHistogramComponent;
-  let fixture: ComponentFixture<DayOfWeekHistogramComponent>;
+describe('DayOfMonthHistogramComponent', () => {
+  let component: DayOfMonthHistogramComponent;
+  let fixture: ComponentFixture<DayOfMonthHistogramComponent>;
   let counterAnalyticsService: CounterAnalyticsService;
 
   beforeEach(async(() => {
@@ -20,7 +20,7 @@ describe('DayOfWeekHistogramComponent', () => {
     ).and.returnValue([]);
 
     TestBed.configureTestingModule({
-      declarations: [ DayOfWeekHistogramComponent ],
+      declarations: [ DayOfMonthHistogramComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         { provide: CounterAnalyticsService, useValue: counterAnalyticsService },
@@ -30,7 +30,7 @@ describe('DayOfWeekHistogramComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DayOfWeekHistogramComponent);
+    fixture = TestBed.createComponent(DayOfMonthHistogramComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
