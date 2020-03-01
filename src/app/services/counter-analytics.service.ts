@@ -26,19 +26,19 @@ export type DateAggregationFunctions = (
   | 'getUTCSeconds'
 );
 
-export type TotalData = {
+export interface TotalData {
   totals: {
     positive: number;
     negative: number;
     neutral: number;
-  },
+  };
   events: {
     change: number;
     reset: number;
     positive: number;
     negative: number;
     neutral: number;
-  }
+  };
 }
 
 
@@ -87,7 +87,7 @@ export class CounterAnalyticsService {
 
     return data;
   }
-  
+
   public extractTotalData(
     counter: Counter,
     countEventFilterCallback: CountEventFilterCallback = () => true,
@@ -106,7 +106,7 @@ export class CounterAnalyticsService {
         negative: 0,
         neutral: 0,
       }
-    }
+    };
 
     for (const countEvent of countEvents) {
 
@@ -118,7 +118,7 @@ export class CounterAnalyticsService {
       if (countEvent.delta > 0) {
         data.events.positive += 1;
         data.totals.positive += countEvent.delta;
-      } else if(countEvent.delta < 0) {
+      } else if (countEvent.delta < 0) {
         data.events.negative += 1;
         data.totals.negative -= countEvent.delta;
       } else {
@@ -127,13 +127,13 @@ export class CounterAnalyticsService {
       }
 
       // aggregate types
-      switch(countEvent.type){
-        case "change":
+      switch (countEvent.type) {
+        case 'change':
           data.events.change += 1;
-        break;
-        case "reset":
+          break;
+        case 'reset':
           data.events.reset += 1;
-        break;
+          break;
       }
 
     }
