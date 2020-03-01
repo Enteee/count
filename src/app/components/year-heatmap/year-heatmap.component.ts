@@ -14,14 +14,14 @@ export class YearHeatmapComponent implements OnInit {
   @Input() counter: Counter;
 
   chart: ApexChart = {
-    type: "heatmap",
+    type: 'heatmap',
     height: 500,
     toolbar: {
       show: false,
     },
   };
 
-  series: ApexAxisChartSeries = []
+  series: ApexAxisChartSeries = [];
 
   xaxis: ApexXAxis = {
     type: 'numeric',
@@ -32,7 +32,7 @@ export class YearHeatmapComponent implements OnInit {
       30, 31
     ],
     labels: {
-      formatter: (value, raw) => 'Day '+ value,
+      formatter: (value, raw) => 'Day ' + value,
     },
     tooltip: {
       enabled: false,
@@ -44,7 +44,7 @@ export class YearHeatmapComponent implements OnInit {
 
   dataLabels: ApexDataLabels = {
     enabled: false
-  }
+  };
 
   constructor(
     private counterAnalyticsService: CounterAnalyticsService,
@@ -52,8 +52,8 @@ export class YearHeatmapComponent implements OnInit {
 
   ngOnInit() {
     this.series = [
-      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-      "Jul", "Aug", "Sep", "Oct", "Nov", "Dez"
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dez'
     ].map(
       (v, i) => (
         {
@@ -61,7 +61,7 @@ export class YearHeatmapComponent implements OnInit {
           data: this.counterAnalyticsService.extractHistogramData(
             this.counter,
             'getDate',
-            (e) => e.delta > 0 && e.timestamp.getMonth() == i,
+            (e) => e.delta > 0 && e.timestamp.getMonth() === i,
             31,
           )
         }

@@ -25,7 +25,7 @@ export class CounterCountPage implements OnInit {
     this.counter = this.route.snapshot.data.counter;
   }
 
-  addRandomCountEvent(){
+  addRandomCountEvent() {
     this.counterService.addRandomCountEvent(this.counter);
   }
 }

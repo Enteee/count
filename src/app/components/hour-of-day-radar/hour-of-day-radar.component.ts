@@ -14,14 +14,14 @@ export class HourOfDayRadarComponent implements OnInit {
   @Input() counter: Counter;
 
   chart: ApexChart = {
-    type: "radar",
+    type: 'radar',
     height: 500,
     toolbar: {
       show: false,
     },
   };
 
-  series: ApexAxisChartSeries = []
+  series: ApexAxisChartSeries = [];
 
   xaxis: ApexXAxis = {
     categories: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
@@ -31,7 +31,7 @@ export class HourOfDayRadarComponent implements OnInit {
 
   markers: ApexMarkers = {
     size: 0
-  }
+  };
 
   constructor(
     private counterAnalyticsService: CounterAnalyticsService,
@@ -40,7 +40,7 @@ export class HourOfDayRadarComponent implements OnInit {
   ngOnInit() {
     this.series = [
       {
-        name: "Plus",
+        name: 'Plus',
         data: this.counterAnalyticsService.extractHistogramData(
           this.counter,
           'getHours',
@@ -48,7 +48,7 @@ export class HourOfDayRadarComponent implements OnInit {
           24,
         )
       }, {
-        name: "Minus",
+        name: 'Minus',
         data: this.counterAnalyticsService.extractHistogramData(
           this.counter,
           'getHours',

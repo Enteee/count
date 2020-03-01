@@ -14,24 +14,24 @@ export class DayOfWeekHistogramComponent implements OnInit {
   @Input() counter: Counter;
 
   chart: ApexChart = {
-    type: "bar",
+    type: 'bar',
     height: 500,
     toolbar: {
       show: false,
     },
   };
 
-  series: ApexAxisChartSeries = []
+  series: ApexAxisChartSeries = [];
 
   plotOptions: ApexPlotOptions = {
     bar: {
       horizontal: true,
-      columnWidth: "80%",
+      columnWidth: '80%',
     }
-  }
+  };
 
   xaxis: ApexXAxis = {
-    categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
   };
 
   colors: string[] = ['#10dc60', '#f04141', '#ffce00'];
@@ -41,16 +41,16 @@ export class DayOfWeekHistogramComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    let plusData = this.counterAnalyticsService.extractHistogramData(
+    const plusData = this.counterAnalyticsService.extractHistogramData(
       this.counter,
       'getDay',
       (e) => e.delta > 0,
       7,
     );
     // make sunday last day
-    plusData.push(plusData.shift())
+    plusData.push(plusData.shift());
 
-    let minusData = this.counterAnalyticsService.extractHistogramData(
+    const minusData = this.counterAnalyticsService.extractHistogramData(
       this.counter,
       'getDay',
       (e) => e.delta < 0,
@@ -61,11 +61,11 @@ export class DayOfWeekHistogramComponent implements OnInit {
 
     this.series = [
       {
-        name: "Plus",
+        name: 'Plus',
         data: plusData,
       },
       {
-        name: "Minus",
+        name: 'Minus',
         data: minusData,
       },
     ];

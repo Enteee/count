@@ -163,7 +163,7 @@ export class CounterService {
   async addRandomCountEvent(
     counter: Counter,
   ) {
-    let delta = Math.round(Math.random() * 10 % 10 - 5);
+    const delta = Math.round(Math.random() * 10 % 10 - 5);
     counter.count += delta;
 
     function randomDate(start, end) {

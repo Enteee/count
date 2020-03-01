@@ -14,21 +14,21 @@ export class DayOfMonthHistogramComponent implements OnInit {
   @Input() counter: Counter;
 
   chart: ApexChart = {
-    type: "bar",
+    type: 'bar',
     height: 500,
     toolbar: {
       show: false,
     },
   };
 
-  series: ApexAxisChartSeries = []
+  series: ApexAxisChartSeries = [];
 
   plotOptions: ApexPlotOptions = {
     bar: {
       horizontal: false,
-      columnWidth: "95%",
+      columnWidth: '95%',
     }
-  }
+  };
 
   xaxis: ApexXAxis = {
     type: 'numeric',
@@ -39,7 +39,7 @@ export class DayOfMonthHistogramComponent implements OnInit {
       30, 31
     ],
     labels: {
-      formatter: (value, raw) => 'Day '+ value,
+      formatter: (value, raw) => 'Day ' + value,
     },
     tooltip: {
       enabled: false,
@@ -51,7 +51,7 @@ export class DayOfMonthHistogramComponent implements OnInit {
 
   dataLabels: ApexDataLabels = {
     enabled: false,
-  }
+  };
 
   constructor(
     private counterAnalyticsService: CounterAnalyticsService,
@@ -60,7 +60,7 @@ export class DayOfMonthHistogramComponent implements OnInit {
   ngOnInit() {
     this.series = [
       {
-        name: "Plus",
+        name: 'Plus',
         data: this.counterAnalyticsService.extractHistogramData(
           this.counter,
           'getDate',
@@ -69,7 +69,7 @@ export class DayOfMonthHistogramComponent implements OnInit {
         )
       },
       {
-        name: "Minus",
+        name: 'Minus',
         data: this.counterAnalyticsService.extractHistogramData(
           this.counter,
           'getDate',

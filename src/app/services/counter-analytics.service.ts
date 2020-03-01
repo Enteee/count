@@ -24,7 +24,7 @@ export type DateAggregationFunctions = (
   | 'getUTCMinutes'
   | 'getUTCMonth'
   | 'getUTCSeconds'
-)
+);
 
 
 @Injectable({
@@ -37,16 +37,16 @@ export class CounterAnalyticsService {
   ) {}
 
   public extractHistogramData(
-    counter:Counter,
+    counter: Counter,
     dateAggregationFunction: DateAggregationFunctions,
     countEventFilterCallback: CountEventFilterCallback = () => true,
     minBuckets: number = 0,
     undefinedValue: any = 0,
   ): HistogramData {
     const countEvents = this.countEventRepository.getByCounter(counter);
-    let data = [];
+    const data = [];
 
-    for (let i = 0; i < minBuckets; ++i){
+    for (let i = 0; i < minBuckets; ++i) {
       data.push(undefined);
     }
 
@@ -57,15 +57,15 @@ export class CounterAnalyticsService {
       }
 
       const aggregationBucketIndex = countEvent.timestamp[dateAggregationFunction]();
-      if ( data[aggregationBucketIndex] == undefined ){
+      if ( data[aggregationBucketIndex] === undefined ) {
         data[aggregationBucketIndex] = 0;
       }
       data[aggregationBucketIndex] += Math.abs(countEvent.delta);
     }
 
     // replace all undefined values
-    for (let i = 0; i < data.length; ++i){
-      if (data[i] == undefined) {
+    for (let i = 0; i < data.length; ++i) {
+      if (data[i] === undefined) {
         data[i] = undefinedValue;
       }
     }
