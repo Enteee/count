@@ -25,7 +25,7 @@ export class PlusMinusTotalsPieChartComponent implements OnInit {
 
   plotOptions: ApexPlotOptions = {};
 
-  labels: string[] = ["Plus", "Minus"];
+  labels: string[] = ['Plus', 'Minus'];
 
   colors: string[] = ['#10dc60', '#f04141', '#ffce00'];
 
