@@ -20,7 +20,7 @@ export class AnalyticsItemRepositoryService extends VolatileModelRepositoryServi
         DayOfWeekHistogramComponent,
         {
           name: 'Day of Week Histogram',
-          description: '',
+          description: 'Total grouped by day of the week as a bar chart',
           icon: 'calendar',
           url: 'day-of-week-histogram',
         }
@@ -32,7 +32,7 @@ export class AnalyticsItemRepositoryService extends VolatileModelRepositoryServi
         DayOfMonthHistogramComponent,
         {
           name: 'Day of Month Histogram',
-          description: '',
+          description: 'Total grouped by day of the month as a bar chart',
           icon: 'calendar',
           url: 'day-of-month-histogram',
         }
@@ -44,7 +44,7 @@ export class AnalyticsItemRepositoryService extends VolatileModelRepositoryServi
         HourOfDayRadarComponent,
         {
           name: 'Hour of Day Radar',
-          description: '',
+          description: 'Total grouped by hour of the day as radar chart',
           icon: 'calendar',
           url: 'hour-of-day-radar',
         }
@@ -56,7 +56,7 @@ export class AnalyticsItemRepositoryService extends VolatileModelRepositoryServi
         YearHeatmapComponent,
         {
           name: 'Year Heatmap',
-          description: '',
+          description: 'Total for each day of the year on a two dimensional heatmap',
           icon: 'calendar',
           url: 'year-heatmap',
         }
