@@ -74,7 +74,8 @@ in
         native-run \
         cordova \
         cordova-res \
-        @angular/cli
+        @angular/cli \
+        npm-check-updates
 
       export ANDROID_SDK_ROOT="$PWD/.android-sdk"
       export ANDROID_HOME="$ANDROID_SDK_ROOT"

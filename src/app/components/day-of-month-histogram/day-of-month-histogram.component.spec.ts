@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DayOfWeekHistogramComponent } from './day-of-week-histogram.component';
+import { DayOfMonthHistogramComponent } from './day-of-month-histogram.component';
 
-describe('DayOfWeekHistogramComponent', () => {
-  let component: DayOfWeekHistogramComponent;
-  let fixture: ComponentFixture<DayOfWeekHistogramComponent>;
+describe('DayOfMonthHistogramComponent', () => {
+  let component: DayOfMonthHistogramComponent;
+  let fixture: ComponentFixture<DayOfMonthHistogramComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DayOfWeekHistogramComponent ],
+      declarations: [ DayOfMonthHistogramComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DayOfWeekHistogramComponent);
+    fixture = TestBed.createComponent(DayOfMonthHistogramComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

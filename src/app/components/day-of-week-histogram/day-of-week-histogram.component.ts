@@ -41,31 +41,32 @@ export class DayOfWeekHistogramComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    let data = this.counterAnalyticsService.getDayOfWeekHistogramData(this.counter);
+    let plusData = this.counterAnalyticsService.extractHistogramData(
+      this.counter,
+      'getDay',
+      (e) => e.delta > 0,
+      7,
+    );
+    // make sunday last day
+    plusData.push(plusData.shift())
+
+    let minusData = this.counterAnalyticsService.extractHistogramData(
+      this.counter,
+      'getDay',
+      (e) => e.delta < 0,
+      7,
+    );
+    // make sunday last day
+    minusData.push(minusData.shift());
+
     this.series = [
       {
         name: "Plus",
-        data: [
-          data.monday.positive,
-          data.tuesday.positive,
-          data.wednesday.positive,
-          data.thursday.positive,
-          data.friday.positive,
-          data.saturday.positive,
-          data.sunday.positive,
-        ]
+        data: plusData,
       },
       {
         name: "Minus",
-        data: [
-          data.monday.negative,
-          data.tuesday.negative,
-          data.wednesday.negative,
-          data.thursday.negative,
-          data.friday.negative,
-          data.saturday.negative,
-          data.sunday.negative,
-        ]
+        data: minusData,
       },
     ];
   }

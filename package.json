@@ -38,6 +38,7 @@
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-inappbrowser": "^3.2.0",
     "cordova-plugin-vibration": "^3.1.1",
+    "cordova-sqlite-storage": "^3.4.1",
     "core-js": "^2.6.11",
     "emulate": "1.0.2",
     "ng-apexcharts": "^1.2.1",

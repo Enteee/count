@@ -9,7 +9,10 @@ import { NotImplementedModule } from '../not-implemented/not-implemented.module'
 import { PlusMinusCounterComponent } from './plus-minus-counter/plus-minus-counter.component';
 
 import { DayOfWeekHistogramComponent } from './day-of-week-histogram/day-of-week-histogram.component';
+import { DayOfMonthHistogramComponent } from './day-of-month-histogram/day-of-month-histogram.component';
 import { HourOfDayRadarComponent } from './hour-of-day-radar/hour-of-day-radar.component';
+
+import { YearHeatmapComponent } from './year-heatmap/year-heatmap.component';
 
 @NgModule({
   imports: [
@@ -22,16 +25,18 @@ import { HourOfDayRadarComponent } from './hour-of-day-radar/hour-of-day-radar.c
   declarations: [
     PlusMinusCounterComponent,
     DayOfWeekHistogramComponent,
-    DayOfWeekHistogramComponent,
+    DayOfMonthHistogramComponent,
     HourOfDayRadarComponent,
+    YearHeatmapComponent,
   ],
   exports: [
     PlusMinusCounterComponent,
   ],
   entryComponents: [
     DayOfWeekHistogramComponent,
-    DayOfWeekHistogramComponent,
+    DayOfMonthHistogramComponent,
     HourOfDayRadarComponent,
+    YearHeatmapComponent,
   ],
   providers: [
   ]
