@@ -14,12 +14,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_nav_pop", function() { return NavPop; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_nav_push", function() { return NavPush; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_nav_set_root", function() { return NavSetRoot; });
-/* harmony import */ var _core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-feeeff0d.js */ "./node_modules/@ionic/core/dist/esm/core-feeeff0d.js");
+/* harmony import */ var _core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-ca0488fc.js */ "./node_modules/@ionic/core/dist/esm/core-ca0488fc.js");
 /* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
 /* harmony import */ var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-46f4a262.js */ "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
 /* harmony import */ var _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./constants-3c3e1099.js */ "./node_modules/@ionic/core/dist/esm/constants-3c3e1099.js");
 /* harmony import */ var _framework_delegate_c2e2e1f4_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./framework-delegate-c2e2e1f4.js */ "./node_modules/@ionic/core/dist/esm/framework-delegate-c2e2e1f4.js");
-/* harmony import */ var _index_4d91f03a_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-4d91f03a.js */ "./node_modules/@ionic/core/dist/esm/index-4d91f03a.js");
+/* harmony import */ var _index_6826f2f6_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-6826f2f6.js */ "./node_modules/@ionic/core/dist/esm/index-6826f2f6.js");
 /* harmony import */ var _cubic_bezier_2812fda3_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./cubic-bezier-2812fda3.js */ "./node_modules/@ionic/core/dist/esm/cubic-bezier-2812fda3.js");
 
 
@@ -116,7 +116,7 @@ const convertToViews = (pages) => {
 
 const Nav = class {
     constructor(hostRef) {
-        Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         this.transInstr = [];
         this.animationEnabled = true;
         this.useRouter = false;
@@ -127,9 +127,9 @@ const Nav = class {
          * If `true`, the nav should animate the transition of components.
          */
         this.animated = true;
-        this.ionNavWillLoad = Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionNavWillLoad", 7);
-        this.ionNavWillChange = Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionNavWillChange", 3);
-        this.ionNavDidChange = Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionNavDidChange", 3);
+        this.ionNavWillLoad = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionNavWillLoad", 7);
+        this.ionNavWillChange = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionNavWillChange", 3);
+        this.ionNavDidChange = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionNavDidChange", 3);
     }
     swipeGestureChanged() {
         if (this.gesture) {
@@ -148,7 +148,7 @@ const Nav = class {
             !!document.querySelector('ion-router') &&
                 !this.el.closest('[no-router]');
         if (this.swipeGesture === undefined) {
-            const mode = Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+            const mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this);
             this.swipeGesture = _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].getBoolean('swipeBackEnabled', mode === 'ios');
         }
         this.ionNavWillLoad.emit();
@@ -160,7 +160,7 @@ const Nav = class {
     }
     componentDidUnload() {
         for (const view of this.views) {
-            Object(_index_4d91f03a_js__WEBPACK_IMPORTED_MODULE_5__["l"])(view.element, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_3__["d"]);
+            Object(_index_6826f2f6_js__WEBPACK_IMPORTED_MODULE_5__["l"])(view.element, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_3__["d"]);
             view._destroy();
         }
         if (this.gesture) {
@@ -671,9 +671,9 @@ const Nav = class {
         // let's make sure, callbacks are zoned
         if (destroyQueue && destroyQueue.length > 0) {
             for (const view of destroyQueue) {
-                Object(_index_4d91f03a_js__WEBPACK_IMPORTED_MODULE_5__["l"])(view.element, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_3__["b"]);
-                Object(_index_4d91f03a_js__WEBPACK_IMPORTED_MODULE_5__["l"])(view.element, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_3__["c"]);
-                Object(_index_4d91f03a_js__WEBPACK_IMPORTED_MODULE_5__["l"])(view.element, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_3__["d"]);
+                Object(_index_6826f2f6_js__WEBPACK_IMPORTED_MODULE_5__["l"])(view.element, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_3__["b"]);
+                Object(_index_6826f2f6_js__WEBPACK_IMPORTED_MODULE_5__["l"])(view.element, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_3__["c"]);
+                Object(_index_6826f2f6_js__WEBPACK_IMPORTED_MODULE_5__["l"])(view.element, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_3__["d"]);
             }
             // once all lifecycle events has been delivered, we can safely detroy the views
             for (const view of destroyQueue) {
@@ -688,12 +688,12 @@ const Nav = class {
         const progressCallback = opts.progressAnimation
             ? (ani) => this.sbAni = ani
             : undefined;
-        const mode = Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+        const mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this);
         const enteringEl = enteringView.element;
         const leavingEl = leavingView && leavingView.element;
         const animationOpts = Object.assign({ mode, showGoBack: this.canGoBackSync(enteringView), baseEl: this.el, animationBuilder: this.animation || opts.animationBuilder || _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].get('navAnimation'), progressCallback, animated: this.animated && _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].getBoolean('animated', true), enteringEl,
             leavingEl }, opts);
-        const { hasCompleted } = await Object(_index_4d91f03a_js__WEBPACK_IMPORTED_MODULE_5__["t"])(animationOpts);
+        const { hasCompleted } = await Object(_index_6826f2f6_js__WEBPACK_IMPORTED_MODULE_5__["t"])(animationOpts);
         return this.transitionFinish(hasCompleted, enteringView, leavingView, opts);
     }
     transitionFinish(hasCompleted, enteringView, leavingView, opts) {
@@ -758,13 +758,13 @@ const Nav = class {
             if (i > activeViewIndex) {
                 // this view comes after the active view
                 // let's unload it
-                Object(_index_4d91f03a_js__WEBPACK_IMPORTED_MODULE_5__["l"])(element, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_3__["d"]);
+                Object(_index_6826f2f6_js__WEBPACK_IMPORTED_MODULE_5__["l"])(element, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_3__["d"]);
                 this.destroyView(view);
             }
             else if (i < activeViewIndex) {
                 // this view comes before the active view
                 // and it is not a portal then ensure it is hidden
-                Object(_index_4d91f03a_js__WEBPACK_IMPORTED_MODULE_5__["s"])(element, true);
+                Object(_index_6826f2f6_js__WEBPACK_IMPORTED_MODULE_5__["s"])(element, true);
             }
         }
     }
@@ -817,9 +817,9 @@ const Nav = class {
         }
     }
     render() {
-        return (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null));
+        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null));
     }
-    get el() { return Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
+    get el() { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
     static get watchers() { return {
         "swipeGesture": ["swipeGestureChanged"],
         "root": ["rootChanged"]
@@ -849,7 +849,7 @@ const navLink = (el, routerDirection, component, componentProps) => {
 
 const NavLink = class {
     constructor(hostRef) {
-        Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         /**
          * The transition direction when navigating to another page.
          */
@@ -859,14 +859,14 @@ const NavLink = class {
         };
     }
     render() {
-        return (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.onClick }));
+        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.onClick }));
     }
-    get el() { return Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
+    get el() { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
 };
 
 const NavPop = class {
     constructor(hostRef) {
-        Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         this.pop = () => {
             return navLink(this.el, 'back');
         };
@@ -875,14 +875,14 @@ const NavPop = class {
         console.warn('[DEPRECATED][ion-nav-pop] <ion-nav-pop> is deprecated. Use `<ion-nav-link routerDirection="back">` instead.');
     }
     render() {
-        return (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.pop }));
+        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.pop }));
     }
-    get el() { return Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
+    get el() { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
 };
 
 const NavPush = class {
     constructor(hostRef) {
-        Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         this.push = () => {
             return navLink(this.el, 'forward', this.component, this.componentProps);
         };
@@ -891,14 +891,14 @@ const NavPush = class {
         console.warn('[DEPRECATED][ion-nav-push] `<ion-nav-push component="MyComponent">` is deprecated. Use `<ion-nav-link component="MyComponent">` instead.');
     }
     render() {
-        return (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.push }));
+        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.push }));
     }
-    get el() { return Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
+    get el() { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
 };
 
 const NavSetRoot = class {
     constructor(hostRef) {
-        Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         this.setRoot = () => {
             return navLink(this.el, 'root', this.component, this.componentProps);
         };
@@ -907,9 +907,9 @@ const NavSetRoot = class {
         console.warn('[DEPRECATED][ion-nav-set-root] `<ion-nav-set-root component="MyComponent">` is deprecated. Use `<ion-nav-link component="MyComponent" routerDirection="root">` instead.');
     }
     render() {
-        return (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.setRoot }));
+        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.setRoot }));
     }
-    get el() { return Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
+    get el() { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
 };
 
 

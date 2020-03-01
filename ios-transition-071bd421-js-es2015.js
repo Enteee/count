@@ -1,8 +1,8 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ios-transition-504cdd09-js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ios-transition-071bd421-js"],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/ios.transition-504cdd09.js":
+/***/ "./node_modules/@ionic/core/dist/esm/ios.transition-071bd421.js":
 /*!**********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/ios.transition-504cdd09.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/ios.transition-071bd421.js ***!
   \**********************************************************************/
 /*! exports provided: iosTransitionAnimation, shadow */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -11,12 +11,12 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "iosTransitionAnimation", function() { return iosTransitionAnimation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shadow", function() { return shadow; });
-/* harmony import */ var _core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-feeeff0d.js */ "./node_modules/@ionic/core/dist/esm/core-feeeff0d.js");
+/* harmony import */ var _core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-ca0488fc.js */ "./node_modules/@ionic/core/dist/esm/core-ca0488fc.js");
 /* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
 /* harmony import */ var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-46f4a262.js */ "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
 /* harmony import */ var _animation_af478fe9_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./animation-af478fe9.js */ "./node_modules/@ionic/core/dist/esm/animation-af478fe9.js");
 /* harmony import */ var _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./constants-3c3e1099.js */ "./node_modules/@ionic/core/dist/esm/constants-3c3e1099.js");
-/* harmony import */ var _index_4d91f03a_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-4d91f03a.js */ "./node_modules/@ionic/core/dist/esm/index-4d91f03a.js");
+/* harmony import */ var _index_6826f2f6_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-6826f2f6.js */ "./node_modules/@ionic/core/dist/esm/index-6826f2f6.js");
 
 
 
@@ -327,7 +327,7 @@ const iosTransitionAnimation = (navEl, opts) => {
                 leavingContent
                     .beforeClearStyles([OPACITY])
                     .fromTo('transform', `translateX(${CENTER})`, (isRTL ? 'translateX(-100%)' : 'translateX(100%)'));
-                const leavingPage = Object(_index_4d91f03a_js__WEBPACK_IMPORTED_MODULE_5__["g"])(leavingEl);
+                const leavingPage = Object(_index_6826f2f6_js__WEBPACK_IMPORTED_MODULE_5__["g"])(leavingEl);
                 rootAnimation.afterAddWrite(() => {
                     if (rootAnimation.getDirection() === 'normal') {
                         leavingPage.style.setProperty('display', 'none');
@@ -448,4 +448,4 @@ const iosTransitionAnimation = (navEl, opts) => {
 /***/ })
 
 }]);
-//# sourceMappingURL=ios-transition-504cdd09-js-es2015.js.map
+//# sourceMappingURL=ios-transition-071bd421-js-es2015.js.map

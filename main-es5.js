@@ -19,9 +19,14 @@ var map = {
 	],
 	"./counter-analytics/counter-analytics.module": [
 		"./src/app/counter-analytics/counter-analytics.module.ts",
-		"default~counter-analytics-counter-analytics-module~counters-counters-module~fullscreen-counter-fulls~0502c3a9",
-		"common",
+		"default~counter-analytics-counter-analytics-module~counter-count-counter-count-module~counter-settin~1b177bc7",
+		"default~counter-analytics-counter-analytics-module~counters-counters-module",
 		"counter-analytics-counter-analytics-module"
+	],
+	"./counter-count/counter-count.module": [
+		"./src/app/counter-detail/counter-count/counter-count.module.ts",
+		"default~counter-analytics-counter-analytics-module~counter-count-counter-count-module~counter-settin~1b177bc7",
+		"counter-count-counter-count-module"
 	],
 	"./counter-detail/counter-detail.module": [
 		"./src/app/counter-detail/counter-detail.module.ts",
@@ -29,17 +34,18 @@ var map = {
 	],
 	"./counter-settings/counter-settings.module": [
 		"./src/app/counter-detail/counter-settings/counter-settings.module.ts",
+		"default~counter-analytics-counter-analytics-module~counter-count-counter-count-module~counter-settin~1b177bc7",
 		"counter-settings-counter-settings-module"
 	],
 	"./counters/counters.module": [
 		"./src/app/counters/counters.module.ts",
-		"default~counter-analytics-counter-analytics-module~counters-counters-module~fullscreen-counter-fulls~0502c3a9",
-		"common",
+		"default~counter-analytics-counter-analytics-module~counter-count-counter-count-module~counter-settin~1b177bc7",
+		"default~counter-analytics-counter-analytics-module~counters-counters-module",
 		"counters-counters-module"
 	],
 	"./fullscreen-counter/fullscreen-counter.module": [
 		"./src/app/fullscreen-counter/fullscreen-counter.module.ts",
-		"default~counter-analytics-counter-analytics-module~counters-counters-module~fullscreen-counter-fulls~0502c3a9",
+		"default~counter-analytics-counter-analytics-module~counter-count-counter-count-module~counter-settin~1b177bc7",
 		"fullscreen-counter-fullscreen-counter-module"
 	],
 	"./help/help.module": [
@@ -502,6 +508,17 @@ module.exports = "<ion-app>\n  <ion-split-pane>\n    <ion-menu type=\"overlay\">
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/components/day-of-month-histogram/day-of-month-histogram.component.html":
+/*!*******************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/components/day-of-month-histogram/day-of-month-histogram.component.html ***!
+  \*******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<apx-chart\n  [series]=\"series\"\n  [chart]=\"chart\"\n  [plotOptions]=\"plotOptions\"\n  [xaxis]=\"xaxis\"\n  [colors]=\"colors\"\n  [dataLabels]=\"dataLabels\"\n></apx-chart>\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/components/day-of-week-histogram/day-of-week-histogram.component.html":
 /*!*****************************************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/components/day-of-week-histogram/day-of-week-histogram.component.html ***!
@@ -509,7 +526,40 @@ module.exports = "<ion-app>\n  <ion-split-pane>\n    <ion-menu type=\"overlay\">
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"chart-container\" #chartContainer></div>\n"
+module.exports = "<apx-chart\n  [series]=\"series\"\n  [chart]=\"chart\"\n  [plotOptions]=\"plotOptions\"\n  [xaxis]=\"xaxis\"\n  [colors]=\"colors\"\n></apx-chart>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/components/hour-of-day-radar/hour-of-day-radar.component.html":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/components/hour-of-day-radar/hour-of-day-radar.component.html ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<apx-chart\n  [series]=\"series\"\n  [chart]=\"chart\"\n  [xaxis]=\"xaxis\"\n  [colors]=\"colors\"\n  [markers]=\"markers\"\n></apx-chart>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/components/plus-minus-totals-pie-chart/plus-minus-totals-pie-chart.component.html":
+/*!*****************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/components/plus-minus-totals-pie-chart/plus-minus-totals-pie-chart.component.html ***!
+  \*****************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<apx-chart\n  [chart]=\"chart\"\n  [series]=\"series\"\n  [labels]=\"labels\"\n  [colors]=\"colors\"\n  [legend]=\"legend\"\n></apx-chart>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/components/year-heatmap/year-heatmap.component.html":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/components/year-heatmap/year-heatmap.component.html ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<apx-chart\n  [series]=\"series\"\n  [chart]=\"chart\"\n  [colors]=\"colors\"\n  [dataLabels]=\"dataLabels\"\n  [xaxis]=\"xaxis\"\n></apx-chart>\n"
 
 /***/ }),
 
@@ -792,6 +842,107 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/day-of-month-histogram/day-of-month-histogram.component.scss":
+/*!*****************************************************************************************!*\
+  !*** ./src/app/components/day-of-month-histogram/day-of-month-histogram.component.scss ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZGF5LW9mLW1vbnRoLWhpc3RvZ3JhbS9kYXktb2YtbW9udGgtaGlzdG9ncmFtLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/components/day-of-month-histogram/day-of-month-histogram.component.ts":
+/*!***************************************************************************************!*\
+  !*** ./src/app/components/day-of-month-histogram/day-of-month-histogram.component.ts ***!
+  \***************************************************************************************/
+/*! exports provided: DayOfMonthHistogramComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DayOfMonthHistogramComponent", function() { return DayOfMonthHistogramComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/counter-analytics.service */ "./src/app/services/counter-analytics.service.ts");
+/* harmony import */ var _models_counter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../models/counter */ "./src/app/models/counter.ts");
+
+
+
+
+var DayOfMonthHistogramComponent = /** @class */ (function () {
+    function DayOfMonthHistogramComponent(counterAnalyticsService) {
+        this.counterAnalyticsService = counterAnalyticsService;
+        this.chart = {
+            type: 'bar',
+            height: 500,
+            toolbar: {
+                show: false,
+            },
+        };
+        this.series = [];
+        this.plotOptions = {
+            bar: {
+                horizontal: false,
+                columnWidth: '95%',
+            }
+        };
+        this.xaxis = {
+            type: 'numeric',
+            categories: [
+                1, 2, 3, 4, 5, 6, 7, 8, 9,
+                10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+                20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+                30, 31
+            ],
+            labels: {
+                formatter: function (value, raw) { return 'Day ' + value; },
+            },
+            tooltip: {
+                enabled: false,
+            },
+            tickPlacement: 'on',
+        };
+        this.colors = ['#10dc60', '#f04141', '#ffce00'];
+        this.dataLabels = {
+            enabled: false,
+        };
+    }
+    DayOfMonthHistogramComponent.prototype.ngOnInit = function () {
+        this.series = [
+            {
+                name: 'Plus',
+                data: this.counterAnalyticsService.extractHistogramData(this.counter, 'getDate', function (e) { return e.delta > 0; }, 31)
+            },
+            {
+                name: 'Minus',
+                data: this.counterAnalyticsService.extractHistogramData(this.counter, 'getDate', function (e) { return e.delta < 0; }, 31)
+            },
+        ];
+    };
+    DayOfMonthHistogramComponent.ctorParameters = function () { return [
+        { type: _services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_2__["CounterAnalyticsService"] }
+    ]; };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _models_counter__WEBPACK_IMPORTED_MODULE_3__["Counter"])
+    ], DayOfMonthHistogramComponent.prototype, "counter", void 0);
+    DayOfMonthHistogramComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-day-of-month-histogram',
+            template: __webpack_require__(/*! raw-loader!./day-of-month-histogram.component.html */ "./node_modules/raw-loader/index.js!./src/app/components/day-of-month-histogram/day-of-month-histogram.component.html"),
+            styles: [__webpack_require__(/*! ./day-of-month-histogram.component.scss */ "./src/app/components/day-of-month-histogram/day-of-month-histogram.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_2__["CounterAnalyticsService"]])
+    ], DayOfMonthHistogramComponent);
+    return DayOfMonthHistogramComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/day-of-week-histogram/day-of-week-histogram.component.scss":
 /*!***************************************************************************************!*\
   !*** ./src/app/components/day-of-week-histogram/day-of-week-histogram.component.scss ***!
@@ -799,7 +950,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#chart-container {\n  margin-top: 1.5em;\n  margin-left: auto;\n  margin-right: auto;\n  width: 95%;\n  height: 85%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL2NvdW50L2NvdW50L3NyYy9hcHAvY29tcG9uZW50cy9kYXktb2Ytd2Vlay1oaXN0b2dyYW0vZGF5LW9mLXdlZWstaGlzdG9ncmFtLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRzL2RheS1vZi13ZWVrLWhpc3RvZ3JhbS9kYXktb2Ytd2Vlay1oaXN0b2dyYW0uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFFRSxpQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxVQUFBO0VBQ0EsV0FBQTtBQ0FGIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9kYXktb2Ytd2Vlay1oaXN0b2dyYW0vZGF5LW9mLXdlZWstaGlzdG9ncmFtLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI2NoYXJ0LWNvbnRhaW5lclxue1xuICBtYXJnaW4tdG9wOiAxLjVlbTtcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XG4gIG1hcmdpbi1yaWdodDogYXV0bztcbiAgd2lkdGg6IDk1JTtcbiAgaGVpZ2h0OiA4NSU7XG59XG4iLCIjY2hhcnQtY29udGFpbmVyIHtcbiAgbWFyZ2luLXRvcDogMS41ZW07XG4gIG1hcmdpbi1sZWZ0OiBhdXRvO1xuICBtYXJnaW4tcmlnaHQ6IGF1dG87XG4gIHdpZHRoOiA5NSU7XG4gIGhlaWdodDogODUlO1xufSJdfQ== */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZGF5LW9mLXdlZWstaGlzdG9ncmFtL2RheS1vZi13ZWVrLWhpc3RvZ3JhbS5jb21wb25lbnQuc2NzcyJ9 */"
 
 /***/ }),
 
@@ -815,97 +966,315 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DayOfWeekHistogramComponent", function() { return DayOfWeekHistogramComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/counter-analytics.service */ "./src/app/services/counter-analytics.service.ts");
-/* harmony import */ var _models_counter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../models/counter */ "./src/app/models/counter.ts");
-/* harmony import */ var anychart__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! anychart */ "./node_modules/anychart/index.js");
-/* harmony import */ var anychart__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(anychart__WEBPACK_IMPORTED_MODULE_5__);
-
-
+/* harmony import */ var _services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/counter-analytics.service */ "./src/app/services/counter-analytics.service.ts");
+/* harmony import */ var _models_counter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../models/counter */ "./src/app/models/counter.ts");
 
 
 
 
 var DayOfWeekHistogramComponent = /** @class */ (function () {
-    function DayOfWeekHistogramComponent(route, counterAnalytics) {
-        this.route = route;
-        this.counterAnalytics = counterAnalytics;
-        this.chart = anychart.column();
+    function DayOfWeekHistogramComponent(counterAnalyticsService) {
+        this.counterAnalyticsService = counterAnalyticsService;
+        this.chart = {
+            type: 'bar',
+            height: 500,
+            toolbar: {
+                show: false,
+            },
+        };
+        this.series = [];
+        this.plotOptions = {
+            bar: {
+                horizontal: true,
+                columnWidth: '80%',
+            }
+        };
+        this.xaxis = {
+            categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        };
+        this.colors = ['#10dc60', '#f04141', '#ffce00'];
     }
     DayOfWeekHistogramComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.counter = this.route.snapshot.data.counter;
-        var dayOfWeekHistogramData = this.counterAnalytics.getDayOfWeekHistogramData(this.counter);
-        var positiveData = this.getDayOfWeekOrder().map(function (dayOfWeek) { return [
-            _this.translateDayOfWeek(dayOfWeek),
-            dayOfWeekHistogramData[dayOfWeek].positive
-        ]; });
-        var positiveSeries = this.chart.column(positiveData);
-        positiveSeries.name('Plus Count');
-        positiveSeries.stroke('green');
-        positiveSeries.fill('green');
-        var negativeData = this.getDayOfWeekOrder().map(function (dayOfWeek) { return [
-            _this.translateDayOfWeek(dayOfWeek),
-            dayOfWeekHistogramData[dayOfWeek].negative
-        ]; });
-        var negativeSeries = this.chart.column(negativeData);
-        negativeSeries.name('Minus Count');
-        negativeSeries.stroke('red');
-        negativeSeries.fill('red');
-        this.chart.legend().enabled(true);
-        this.chart.xAxis().labels().rotation(45);
-        this.chart.yScale().ticks().allowFractional(false);
-    };
-    DayOfWeekHistogramComponent.prototype.ngAfterViewInit = function () {
-        this.chart.container(this.container.nativeElement);
-        this.chart.draw();
-    };
-    DayOfWeekHistogramComponent.prototype.translateDayOfWeek = function (dayOfWeek) {
-        // TODO: Delegate to i18n framework
-        switch (dayOfWeek) {
-            case 'monday': return 'Monday';
-            case 'tuesday': return 'Tuesday';
-            case 'wednesday': return 'Wednesday';
-            case 'thursday': return 'Thursday';
-            case 'friday': return 'Friday';
-            case 'saturday': return 'Saturday';
-            case 'sunday': return 'Sunday';
-        }
-    };
-    DayOfWeekHistogramComponent.prototype.getDayOfWeekOrder = function () {
-        // TODO: Delegate to i18n framework
-        return [
-            'monday',
-            'tuesday',
-            'wednesday',
-            'thursday',
-            'friday',
-            'saturday',
-            'sunday'
+        var plusData = this.counterAnalyticsService.extractHistogramData(this.counter, 'getDay', function (e) { return e.delta > 0; }, 7);
+        // make sunday last day
+        plusData.push(plusData.shift());
+        var minusData = this.counterAnalyticsService.extractHistogramData(this.counter, 'getDay', function (e) { return e.delta < 0; }, 7);
+        // make sunday last day
+        minusData.push(minusData.shift());
+        this.series = [
+            {
+                name: 'Plus',
+                data: plusData,
+            },
+            {
+                name: 'Minus',
+                data: minusData,
+            },
         ];
     };
     DayOfWeekHistogramComponent.ctorParameters = function () { return [
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-        { type: _services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_3__["CounterAnalyticsService"] }
+        { type: _services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_2__["CounterAnalyticsService"] }
     ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _models_counter__WEBPACK_IMPORTED_MODULE_4__["Counter"])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _models_counter__WEBPACK_IMPORTED_MODULE_3__["Counter"])
     ], DayOfWeekHistogramComponent.prototype, "counter", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('chartContainer', { static: true }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
-    ], DayOfWeekHistogramComponent.prototype, "container", void 0);
     DayOfWeekHistogramComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-day-of-week-histogram',
             template: __webpack_require__(/*! raw-loader!./day-of-week-histogram.component.html */ "./node_modules/raw-loader/index.js!./src/app/components/day-of-week-histogram/day-of-week-histogram.component.html"),
             styles: [__webpack_require__(/*! ./day-of-week-histogram.component.scss */ "./src/app/components/day-of-week-histogram/day-of-week-histogram.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-            _services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_3__["CounterAnalyticsService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_2__["CounterAnalyticsService"]])
     ], DayOfWeekHistogramComponent);
     return DayOfWeekHistogramComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/hour-of-day-radar/hour-of-day-radar.component.scss":
+/*!*******************************************************************************!*\
+  !*** ./src/app/components/hour-of-day-radar/hour-of-day-radar.component.scss ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvaG91ci1vZi1kYXktcmFkYXIvaG91ci1vZi1kYXktcmFkYXIuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/components/hour-of-day-radar/hour-of-day-radar.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/components/hour-of-day-radar/hour-of-day-radar.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: HourOfDayRadarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HourOfDayRadarComponent", function() { return HourOfDayRadarComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/counter-analytics.service */ "./src/app/services/counter-analytics.service.ts");
+/* harmony import */ var _models_counter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../models/counter */ "./src/app/models/counter.ts");
+
+
+
+
+var HourOfDayRadarComponent = /** @class */ (function () {
+    function HourOfDayRadarComponent(counterAnalyticsService) {
+        this.counterAnalyticsService = counterAnalyticsService;
+        this.chart = {
+            type: 'radar',
+            height: 500,
+            toolbar: {
+                show: false,
+            },
+        };
+        this.series = [];
+        this.xaxis = {
+            categories: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+        };
+        this.colors = ['#10dc60', '#f04141', '#ffce00'];
+        this.markers = {
+            size: 0
+        };
+    }
+    HourOfDayRadarComponent.prototype.ngOnInit = function () {
+        this.series = [
+            {
+                name: 'Plus',
+                data: this.counterAnalyticsService.extractHistogramData(this.counter, 'getHours', function (e) { return e.delta > 0; }, 24)
+            }, {
+                name: 'Minus',
+                data: this.counterAnalyticsService.extractHistogramData(this.counter, 'getHours', function (e) { return e.delta < 0; }, 24)
+            },
+        ];
+    };
+    HourOfDayRadarComponent.ctorParameters = function () { return [
+        { type: _services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_2__["CounterAnalyticsService"] }
+    ]; };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _models_counter__WEBPACK_IMPORTED_MODULE_3__["Counter"])
+    ], HourOfDayRadarComponent.prototype, "counter", void 0);
+    HourOfDayRadarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-hour-of-day-radar',
+            template: __webpack_require__(/*! raw-loader!./hour-of-day-radar.component.html */ "./node_modules/raw-loader/index.js!./src/app/components/hour-of-day-radar/hour-of-day-radar.component.html"),
+            styles: [__webpack_require__(/*! ./hour-of-day-radar.component.scss */ "./src/app/components/hour-of-day-radar/hour-of-day-radar.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_2__["CounterAnalyticsService"]])
+    ], HourOfDayRadarComponent);
+    return HourOfDayRadarComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/plus-minus-totals-pie-chart/plus-minus-totals-pie-chart.component.scss":
+/*!***************************************************************************************************!*\
+  !*** ./src/app/components/plus-minus-totals-pie-chart/plus-minus-totals-pie-chart.component.scss ***!
+  \***************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcGx1cy1taW51cy10b3RhbHMtcGllLWNoYXJ0L3BsdXMtbWludXMtdG90YWxzLXBpZS1jaGFydC5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/components/plus-minus-totals-pie-chart/plus-minus-totals-pie-chart.component.ts":
+/*!*************************************************************************************************!*\
+  !*** ./src/app/components/plus-minus-totals-pie-chart/plus-minus-totals-pie-chart.component.ts ***!
+  \*************************************************************************************************/
+/*! exports provided: PlusMinusTotalsPieChartComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlusMinusTotalsPieChartComponent", function() { return PlusMinusTotalsPieChartComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/counter-analytics.service */ "./src/app/services/counter-analytics.service.ts");
+/* harmony import */ var _models_counter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../models/counter */ "./src/app/models/counter.ts");
+
+
+
+
+var PlusMinusTotalsPieChartComponent = /** @class */ (function () {
+    function PlusMinusTotalsPieChartComponent(counterAnalyticsService) {
+        this.counterAnalyticsService = counterAnalyticsService;
+        this.chart = {
+            type: 'pie',
+            height: 500,
+            toolbar: {
+                show: false,
+            },
+        };
+        this.series = [];
+        this.labels = ['Plus', 'Minus'];
+        this.colors = ['#10dc60', '#f04141', '#ffce00'];
+        this.dataLabels = {};
+        this.legend = {
+            position: 'bottom',
+        };
+    }
+    PlusMinusTotalsPieChartComponent.prototype.ngOnInit = function () {
+        var data = this.counterAnalyticsService.extractTotalData(this.counter);
+        this.series = [data.totals.positive, data.totals.negative];
+    };
+    PlusMinusTotalsPieChartComponent.ctorParameters = function () { return [
+        { type: _services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_2__["CounterAnalyticsService"] }
+    ]; };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _models_counter__WEBPACK_IMPORTED_MODULE_3__["Counter"])
+    ], PlusMinusTotalsPieChartComponent.prototype, "counter", void 0);
+    PlusMinusTotalsPieChartComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-plus-minus-totals-pie-chart',
+            template: __webpack_require__(/*! raw-loader!./plus-minus-totals-pie-chart.component.html */ "./node_modules/raw-loader/index.js!./src/app/components/plus-minus-totals-pie-chart/plus-minus-totals-pie-chart.component.html"),
+            styles: [__webpack_require__(/*! ./plus-minus-totals-pie-chart.component.scss */ "./src/app/components/plus-minus-totals-pie-chart/plus-minus-totals-pie-chart.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_2__["CounterAnalyticsService"]])
+    ], PlusMinusTotalsPieChartComponent);
+    return PlusMinusTotalsPieChartComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/year-heatmap/year-heatmap.component.scss":
+/*!*********************************************************************!*\
+  !*** ./src/app/components/year-heatmap/year-heatmap.component.scss ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMveWVhci1oZWF0bWFwL3llYXItaGVhdG1hcC5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/components/year-heatmap/year-heatmap.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/components/year-heatmap/year-heatmap.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: YearHeatmapComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "YearHeatmapComponent", function() { return YearHeatmapComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/counter-analytics.service */ "./src/app/services/counter-analytics.service.ts");
+/* harmony import */ var _models_counter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../models/counter */ "./src/app/models/counter.ts");
+
+
+
+
+var YearHeatmapComponent = /** @class */ (function () {
+    function YearHeatmapComponent(counterAnalyticsService) {
+        this.counterAnalyticsService = counterAnalyticsService;
+        this.chart = {
+            type: 'heatmap',
+            height: 500,
+            toolbar: {
+                show: false,
+            },
+        };
+        this.series = [];
+        this.xaxis = {
+            type: 'numeric',
+            categories: [
+                1, 2, 3, 4, 5, 6, 7, 8, 9,
+                10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+                20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+                30, 31
+            ],
+            labels: {
+                formatter: function (value, raw) { return 'Day ' + value; },
+            },
+            tooltip: {
+                enabled: false,
+            },
+            tickPlacement: 'on',
+        };
+        this.colors = ['#10dc60'];
+        this.dataLabels = {
+            enabled: false
+        };
+    }
+    YearHeatmapComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.series = [
+            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dez'
+        ].map(function (v, i) { return ({
+            name: v,
+            data: _this.counterAnalyticsService.extractHistogramData(_this.counter, 'getDate', function (e) { return e.delta > 0 && e.timestamp.getMonth() === i; }, 31)
+        }); }).reverse();
+    };
+    YearHeatmapComponent.ctorParameters = function () { return [
+        { type: _services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_2__["CounterAnalyticsService"] }
+    ]; };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _models_counter__WEBPACK_IMPORTED_MODULE_3__["Counter"])
+    ], YearHeatmapComponent.prototype, "counter", void 0);
+    YearHeatmapComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-year-heatmap',
+            template: __webpack_require__(/*! raw-loader!./year-heatmap.component.html */ "./node_modules/raw-loader/index.js!./src/app/components/year-heatmap/year-heatmap.component.html"),
+            styles: [__webpack_require__(/*! ./year-heatmap.component.scss */ "./src/app/components/year-heatmap/year-heatmap.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_counter_analytics_service__WEBPACK_IMPORTED_MODULE_2__["CounterAnalyticsService"]])
+    ], YearHeatmapComponent);
+    return YearHeatmapComponent;
 }());
 
 
@@ -926,7 +1295,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _model_repository_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./model-repository.service */ "./src/app/models/model-repository.service.ts");
 /* harmony import */ var _analytics_item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./analytics-item */ "./src/app/models/analytics-item.ts");
-/* harmony import */ var _components_day_of_week_histogram_day_of_week_histogram_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/day-of-week-histogram/day-of-week-histogram.component */ "./src/app/components/day-of-week-histogram/day-of-week-histogram.component.ts");
+/* harmony import */ var _components_plus_minus_totals_pie_chart_plus_minus_totals_pie_chart_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/plus-minus-totals-pie-chart/plus-minus-totals-pie-chart.component */ "./src/app/components/plus-minus-totals-pie-chart/plus-minus-totals-pie-chart.component.ts");
+/* harmony import */ var _components_day_of_week_histogram_day_of_week_histogram_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/day-of-week-histogram/day-of-week-histogram.component */ "./src/app/components/day-of-week-histogram/day-of-week-histogram.component.ts");
+/* harmony import */ var _components_day_of_month_histogram_day_of_month_histogram_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/day-of-month-histogram/day-of-month-histogram.component */ "./src/app/components/day-of-month-histogram/day-of-month-histogram.component.ts");
+/* harmony import */ var _components_hour_of_day_radar_hour_of_day_radar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/hour-of-day-radar/hour-of-day-radar.component */ "./src/app/components/hour-of-day-radar/hour-of-day-radar.component.ts");
+/* harmony import */ var _components_year_heatmap_year_heatmap_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/year-heatmap/year-heatmap.component */ "./src/app/components/year-heatmap/year-heatmap.component.ts");
+
+
+
+
 
 
 
@@ -940,11 +1317,35 @@ var AnalyticsItemRepositoryService = /** @class */ (function (_super) {
     AnalyticsItemRepositoryService.prototype.loadAll = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                this.save(new _analytics_item__WEBPACK_IMPORTED_MODULE_3__["AnalyticsItem"](_components_day_of_week_histogram_day_of_week_histogram_component__WEBPACK_IMPORTED_MODULE_4__["DayOfWeekHistogramComponent"], {
-                    name: 'Day Of Week Histogram',
-                    description: 'Shows count events grouped by the the day of week.',
+                this.save(new _analytics_item__WEBPACK_IMPORTED_MODULE_3__["AnalyticsItem"](_components_plus_minus_totals_pie_chart_plus_minus_totals_pie_chart_component__WEBPACK_IMPORTED_MODULE_4__["PlusMinusTotalsPieChartComponent"], {
+                    name: 'Plus Minus Totals Pie Chart',
+                    description: 'Total plus and minus as a pie chart',
+                    icon: 'calendar',
+                    url: 'plus-minus-totals-pie-chart',
+                }));
+                this.save(new _analytics_item__WEBPACK_IMPORTED_MODULE_3__["AnalyticsItem"](_components_day_of_week_histogram_day_of_week_histogram_component__WEBPACK_IMPORTED_MODULE_5__["DayOfWeekHistogramComponent"], {
+                    name: 'Day of Week Histogram',
+                    description: 'Total grouped by day of the week as a bar chart',
                     icon: 'calendar',
                     url: 'day-of-week-histogram',
+                }));
+                this.save(new _analytics_item__WEBPACK_IMPORTED_MODULE_3__["AnalyticsItem"](_components_day_of_month_histogram_day_of_month_histogram_component__WEBPACK_IMPORTED_MODULE_6__["DayOfMonthHistogramComponent"], {
+                    name: 'Day of Month Histogram',
+                    description: 'Total grouped by day of the month as a bar chart',
+                    icon: 'calendar',
+                    url: 'day-of-month-histogram',
+                }));
+                this.save(new _analytics_item__WEBPACK_IMPORTED_MODULE_3__["AnalyticsItem"](_components_hour_of_day_radar_hour_of_day_radar_component__WEBPACK_IMPORTED_MODULE_7__["HourOfDayRadarComponent"], {
+                    name: 'Hour of Day Radar',
+                    description: 'Total grouped by hour of the day as radar chart',
+                    icon: 'calendar',
+                    url: 'hour-of-day-radar',
+                }));
+                this.save(new _analytics_item__WEBPACK_IMPORTED_MODULE_3__["AnalyticsItem"](_components_year_heatmap_year_heatmap_component__WEBPACK_IMPORTED_MODULE_8__["YearHeatmapComponent"], {
+                    name: 'Year Heatmap',
+                    description: 'Total for each day of the year on a two dimensional heatmap',
+                    icon: 'calendar',
+                    url: 'year-heatmap',
                 }));
                 return [2 /*return*/];
             });
@@ -1207,22 +1608,24 @@ var CountEventType;
 })(CountEventType || (CountEventType = {}));
 var CountEvent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](CountEvent, _super);
-    function CountEvent(counterId, delta, position, type) {
+    function CountEvent(counterId, delta, position, type, timestamp) {
         if (position === void 0) { position = null; }
         if (type === void 0) { type = CountEventType.Change; }
+        if (timestamp === void 0) { timestamp = new Date(); }
         var _this = _super.call(this) || this;
-        _this.timestamp = new Date();
         _this.counterId = counterId;
         _this.delta = delta;
         _this.position = position;
         _this.type = type;
+        _this.timestamp = timestamp;
         return _this;
     }
     CountEvent.ctorParameters = function () { return [
         { type: String },
         { type: Number },
         { type: Position },
-        null
+        null,
+        { type: Date }
     ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"],
@@ -1246,7 +1649,7 @@ var CountEvent = /** @class */ (function (_super) {
     ], CountEvent.prototype, "timestamp", void 0);
     CountEvent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(cerialize__WEBPACK_IMPORTED_MODULE_1__["inheritSerialization"])(_model__WEBPACK_IMPORTED_MODULE_2__["Model"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [String, Number, Position, Object])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [String, Number, Position, Object, Date])
     ], CountEvent);
     return CountEvent;
 }(_model__WEBPACK_IMPORTED_MODULE_2__["Model"]));
@@ -2231,30 +2634,81 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var dayOfWeekMappingList = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 var CounterAnalyticsService = /** @class */ (function () {
     function CounterAnalyticsService(countEventRepository) {
         this.countEventRepository = countEventRepository;
     }
-    CounterAnalyticsService.prototype.getDayOfWeekHistogramData = function (counter) {
+    CounterAnalyticsService.prototype.extractHistogramData = function (counter, dateAggregationFunction, countEventFilterCallback, minBuckets, undefinedValue) {
+        if (countEventFilterCallback === void 0) { countEventFilterCallback = function () { return true; }; }
+        if (minBuckets === void 0) { minBuckets = 0; }
+        if (undefinedValue === void 0) { undefinedValue = 0; }
         var countEvents = this.countEventRepository.getByCounter(counter);
-        var data = {
-            monday: { positive: 0, negative: 0 },
-            tuesday: { positive: 0, negative: 0 },
-            wednesday: { positive: 0, negative: 0 },
-            thursday: { positive: 0, negative: 0 },
-            friday: { positive: 0, negative: 0 },
-            saturday: { positive: 0, negative: 0 },
-            sunday: { positive: 0, negative: 0 },
-        };
+        var data = [];
+        for (var i = 0; i < minBuckets; ++i) {
+            data.push(undefined);
+        }
         for (var _i = 0, countEvents_1 = countEvents; _i < countEvents_1.length; _i++) {
             var countEvent = countEvents_1[_i];
-            var dayOfWeek = dayOfWeekMappingList[countEvent.timestamp.getDay()];
+            if (!countEventFilterCallback(countEvent)) {
+                continue;
+            }
+            var aggregationBucketIndex = countEvent.timestamp[dateAggregationFunction]();
+            if (data[aggregationBucketIndex] === undefined) {
+                data[aggregationBucketIndex] = 0;
+            }
+            data[aggregationBucketIndex] += Math.abs(countEvent.delta);
+        }
+        // replace all undefined values
+        for (var i = 0; i < data.length; ++i) {
+            if (data[i] === undefined) {
+                data[i] = undefinedValue;
+            }
+        }
+        return data;
+    };
+    CounterAnalyticsService.prototype.extractTotalData = function (counter, countEventFilterCallback) {
+        if (countEventFilterCallback === void 0) { countEventFilterCallback = function () { return true; }; }
+        var countEvents = this.countEventRepository.getByCounter(counter);
+        var data = {
+            totals: {
+                positive: 0,
+                negative: 0,
+                neutral: 0,
+            },
+            events: {
+                change: 0,
+                reset: 0,
+                positive: 0,
+                negative: 0,
+                neutral: 0,
+            }
+        };
+        for (var _i = 0, countEvents_2 = countEvents; _i < countEvents_2.length; _i++) {
+            var countEvent = countEvents_2[_i];
+            if (!countEventFilterCallback(countEvent)) {
+                continue;
+            }
+            // aggregate counts
             if (countEvent.delta > 0) {
-                data[dayOfWeek].positive += countEvent.delta;
+                data.events.positive += 1;
+                data.totals.positive += countEvent.delta;
+            }
+            else if (countEvent.delta < 0) {
+                data.events.negative += 1;
+                data.totals.negative -= countEvent.delta;
             }
             else {
-                data[dayOfWeek].negative -= countEvent.delta;
+                data.events.neutral += 1;
+                data.totals.neutral += countEvent.delta; // should always  be 0
+            }
+            // aggregate types
+            switch (countEvent.type) {
+                case 'change':
+                    data.events.change += 1;
+                    break;
+                case 'reset':
+                    data.events.reset += 1;
+                    break;
             }
         }
         return data;

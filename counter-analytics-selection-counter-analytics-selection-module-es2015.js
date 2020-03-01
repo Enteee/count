@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\n\n  <ion-list>\n    <ion-item *ngFor=\"let analyticsItem of analyticsItems\"\n              [routerLink]=\"['/counter-analytics', analyticsItem.info.url, counter.id]\">\n      <ion-avatar slot=\"start\">\n        <ion-icon name=\"{{analyticsItem.info.icon}}\" size=\"large\"></ion-icon>\n      </ion-avatar>\n      <ion-label>\n        <h2>{{analyticsItem.info.name}}</h2>\n        <p>{{analyticsItem.info.description}}</p>\n      </ion-label>\n    </ion-item>\n  </ion-list>\n</ion-content>\n"
+module.exports = "<ion-content>\n\n  <ion-list>\n    <ion-item *ngFor=\"let analyticsItem of analyticsItems\"\n              [routerLink]=\"['/counter-analytics', analyticsItem.info.url, counter.id]\">\n      <ion-avatar slot=\"start\">\n        <ion-icon name=\"{{analyticsItem.info.icon}}\" size=\"large\"></ion-icon>\n      </ion-avatar>\n      <ion-label>\n        <h2>{{analyticsItem.info.name}}</h2>\n        <p>{{analyticsItem.info.description}}</p>\n      </ion-label>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n"
 
 /***/ }),
 

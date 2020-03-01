@@ -267,6 +267,22 @@ let CounterService = CounterService_1 = class CounterService {
             })));
         });
     }
+    /**
+     * For development purposes only
+     */
+    addRandomCountEvent(counter) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const delta = Math.round(Math.random() * 10 % 10 - 5);
+            counter.count += delta;
+            function randomDate(start, end) {
+                return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+            }
+            yield Promise.all([
+                this.counterRepositoryService.save(counter),
+                this.countEventRepositoryService.save(new _models_count_event__WEBPACK_IMPORTED_MODULE_5__["CountEvent"](counter.id, delta, null, _models_count_event__WEBPACK_IMPORTED_MODULE_5__["CountEventType"].Change, randomDate(new Date(2012, 0, 1), new Date())))
+            ]);
+        });
+    }
 };
 CounterService.VIBRATION_PATTERN_POSITIVE = [30];
 CounterService.VIBRATION_PATTERN_NEGATIVE = [30, 30, 30];

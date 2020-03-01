@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n\n    <ion-buttons slot=\"start\">\n      <ion-back-button\n        icon=\"close\"\n        defaultHref=\"/counters\"\n      >\n      </ion-back-button>\n    </ion-buttons>\n\n    <ion-title>\n      {{counter.title}}\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-tabs>\n    <ion-tab-bar slot=\"bottom\">\n\n      <ion-tab-button tab=\"count\"\n        appNotImplemented description=\"Counting page\" issueId=\"40\"\n      >\n        <ion-icon name=\"infinite\"></ion-icon>\n        <ion-label>Count</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"settings\">\n        <ion-icon name=\"build\"></ion-icon>\n        <ion-label>Settings</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"analytics\">\n        <ion-icon name=\"analytics\"></ion-icon>\n        <ion-label>Analytics</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"edit\"\n        appNotImplemented description=\"Edit count events\" issueId=\"8\"\n      >\n        <ion-icon name=\"create\"></ion-icon>\n        <ion-label>Edit</ion-label>\n      </ion-tab-button>\n\n    </ion-tab-bar>\n  </ion-tabs>\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n\n    <ion-buttons slot=\"start\">\n      <ion-back-button\n        icon=\"close\"\n        defaultHref=\"/counters\"\n      >\n      </ion-back-button>\n    </ion-buttons>\n\n    <ion-title>\n      {{counter.title}}\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-tabs>\n    <ion-tab-bar slot=\"bottom\">\n\n      <ion-tab-button tab=\"count\">\n        <ion-icon name=\"infinite\"></ion-icon>\n        <ion-label>Count</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"settings\">\n        <ion-icon name=\"build\"></ion-icon>\n        <ion-label>Settings</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"analytics\">\n        <ion-icon name=\"analytics\"></ion-icon>\n        <ion-label>Analytics</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"edit\"\n        appNotImplemented description=\"Edit count events\" issueId=\"8\"\n      >\n        <ion-icon name=\"create\"></ion-icon>\n        <ion-label>Edit</ion-label>\n      </ion-tab-button>\n\n    </ion-tab-bar>\n  </ion-tabs>\n</ion-content>\n"
 
 /***/ }),
 
@@ -46,6 +46,10 @@ var routes = [
                 path: '',
                 children: [
                     { path: '', redirectTo: 'settings', pathMatch: 'full', },
+                    {
+                        path: 'count',
+                        loadChildren: './counter-count/counter-count.module#CounterCountPageModule',
+                    },
                     {
                         path: 'settings',
                         loadChildren: './counter-settings/counter-settings.module#CounterSettingsPageModule',

@@ -1,116 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~counter-analytics-counter-analytics-module~counters-counters-module~fullscreen-counter-fulls~0502c3a9"],{
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/fullscreen-counter/fullscreen-counter.page.html":
-/*!*******************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/fullscreen-counter/fullscreen-counter.page.html ***!
-  \*******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ion-content>\n<ion-button\n  class=\"full-screen\"\n  color=\"{{color}}\"\n  (click)=\"count()\"\n>\n  <ion-label class=\"ion-text-center\">\n\n    <div [ngSwitch]=\"type\">\n      <h1\n        *ngIf=\"type == 'plus'\"\n      >\n        +{{counter.plusCount}}\n      </h1>\n\n      <h1\n        *ngIf=\"type == 'minus'\"\n      >\n        {{counter.minusCount}}\n      </h1>\n    </div>\n\n    <h1>{{counter.title}}</h1>\n    <h1>{{counter.count}}</h1>\n\n  </ion-label>\n\n</ion-button>\n\n</ion-content>\n"
-
-/***/ }),
-
-/***/ "./src/app/fullscreen-counter/fullscreen-counter.page.scss":
-/*!*****************************************************************!*\
-  !*** ./src/app/fullscreen-counter/fullscreen-counter.page.scss ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ".full-screen {\n  height: 100%;\n  width: 100%;\n  margin: 0;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL2NvdW50L2NvdW50L3NyYy9hcHAvZnVsbHNjcmVlbi1jb3VudGVyL2Z1bGxzY3JlZW4tY291bnRlci5wYWdlLnNjc3MiLCJzcmMvYXBwL2Z1bGxzY3JlZW4tY291bnRlci9mdWxsc2NyZWVuLWNvdW50ZXIucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBQTtFQUNBLFdBQUE7RUFDQSxTQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC9mdWxsc2NyZWVuLWNvdW50ZXIvZnVsbHNjcmVlbi1jb3VudGVyLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mdWxsLXNjcmVlbiB7XG4gIGhlaWdodDogMTAwJTtcbiAgd2lkdGg6IDEwMCU7XG4gIG1hcmdpbjogMDtcbn1cbiIsIi5mdWxsLXNjcmVlbiB7XG4gIGhlaWdodDogMTAwJTtcbiAgd2lkdGg6IDEwMCU7XG4gIG1hcmdpbjogMDtcbn0iXX0= */"
-
-/***/ }),
-
-/***/ "./src/app/fullscreen-counter/fullscreen-counter.page.ts":
-/*!***************************************************************!*\
-  !*** ./src/app/fullscreen-counter/fullscreen-counter.page.ts ***!
-  \***************************************************************/
-/*! exports provided: FullScreenCounterType, FullscreenCounterPage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FullScreenCounterType", function() { return FullScreenCounterType; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FullscreenCounterPage", function() { return FullscreenCounterPage; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_counter_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/counter.service */ "./src/app/services/counter.service.ts");
-
-
-
-
-
-var FullScreenCounterType;
-(function (FullScreenCounterType) {
-    FullScreenCounterType["plus"] = "plus";
-    FullScreenCounterType["minus"] = "minus";
-})(FullScreenCounterType || (FullScreenCounterType = {}));
-var FullscreenCounterPage = /** @class */ (function () {
-    function FullscreenCounterPage(router, route, counterService) {
-        this.router = router;
-        this.route = route;
-        this.counterService = counterService;
-        this.CLOSE_DELAY = 700;
-    }
-    FullscreenCounterPage.prototype.ngOnInit = function () {
-        this.type = FullScreenCounterType[this.route.snapshot.paramMap.get('type')];
-        this.counter = this.route.snapshot.data.counter;
-        switch (this.type) {
-            case FullScreenCounterType.plus:
-                this.color = 'success';
-                break;
-            case FullScreenCounterType.minus:
-                this.color = 'danger';
-                break;
-        }
-    };
-    FullscreenCounterPage.prototype.close = function () {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                this.router.navigate([
-                    '/counters'
-                ]);
-                return [2 /*return*/];
-            });
-        });
-    };
-    FullscreenCounterPage.prototype.count = function () {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.counterService.count(this.counter, this.type === FullScreenCounterType.plus ?
-                            this.counter.plusCount
-                            : this.counter.minusCount)];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    FullscreenCounterPage.ctorParameters = function () { return [
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-        { type: _services_counter_service__WEBPACK_IMPORTED_MODULE_3__["CounterService"] }
-    ]; };
-    FullscreenCounterPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-fullscreen-counter',
-            template: __webpack_require__(/*! raw-loader!./fullscreen-counter.page.html */ "./node_modules/raw-loader/index.js!./src/app/fullscreen-counter/fullscreen-counter.page.html"),
-            styles: [__webpack_require__(/*! ./fullscreen-counter.page.scss */ "./src/app/fullscreen-counter/fullscreen-counter.page.scss")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-            _services_counter_service__WEBPACK_IMPORTED_MODULE_3__["CounterService"]])
-    ], FullscreenCounterPage);
-    return FullscreenCounterPage;
-}());
-
-
-
-/***/ }),
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~counter-analytics-counter-analytics-module~counter-count-counter-count-module~counter-settin~1b177bc7"],{
 
 /***/ "./src/app/services/counter.service.ts":
 /*!*********************************************!*\
@@ -308,6 +196,31 @@ var CounterService = /** @class */ (function () {
             });
         });
     };
+    /**
+     * For development purposes only
+     */
+    CounterService.prototype.addRandomCountEvent = function (counter) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            function randomDate(start, end) {
+                return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+            }
+            var delta;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        delta = Math.round(Math.random() * 10 % 10 - 5);
+                        counter.count += delta;
+                        return [4 /*yield*/, Promise.all([
+                                this.counterRepositoryService.save(counter),
+                                this.countEventRepositoryService.save(new _models_count_event__WEBPACK_IMPORTED_MODULE_5__["CountEvent"](counter.id, delta, null, _models_count_event__WEBPACK_IMPORTED_MODULE_5__["CountEventType"].Change, randomDate(new Date(2012, 0, 1), new Date())))
+                            ])];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     var CounterService_1;
     CounterService.VIBRATION_PATTERN_POSITIVE = [30];
     CounterService.VIBRATION_PATTERN_NEGATIVE = [30, 30, 30];
@@ -336,4 +249,4 @@ var CounterService = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=default~counter-analytics-counter-analytics-module~counters-counters-module~fullscreen-counter-fulls~0502c3a9-es5.js.map
+//# sourceMappingURL=default~counter-analytics-counter-analytics-module~counter-count-counter-count-module~counter-settin~1b177bc7-es5.js.map
