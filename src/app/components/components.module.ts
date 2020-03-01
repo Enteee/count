@@ -6,6 +6,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 
 import { NotImplementedModule } from '../not-implemented/not-implemented.module';
 
+import { PlusMinusTotalsPieChartComponent } from './plus-minus-totals-pie-chart/plus-minus-totals-pie-chart.component';
 import { PlusMinusCounterComponent } from './plus-minus-counter/plus-minus-counter.component';
 
 import { DayOfWeekHistogramComponent } from './day-of-week-histogram/day-of-week-histogram.component';
@@ -23,6 +24,7 @@ import { YearHeatmapComponent } from './year-heatmap/year-heatmap.component';
     NotImplementedModule,
   ],
   declarations: [
+    PlusMinusTotalsPieChartComponent,
     PlusMinusCounterComponent,
     DayOfWeekHistogramComponent,
     DayOfMonthHistogramComponent,
@@ -33,6 +35,7 @@ import { YearHeatmapComponent } from './year-heatmap/year-heatmap.component';
     PlusMinusCounterComponent,
   ],
   entryComponents: [
+    PlusMinusTotalsPieChartComponent,
     DayOfWeekHistogramComponent,
     DayOfMonthHistogramComponent,
     HourOfDayRadarComponent,

@@ -37,5 +37,6 @@ describe('HourOfDayRadarComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(counterAnalyticsService.extractHistogramData).toHaveBeenCalledTimes(2);
   });
 });

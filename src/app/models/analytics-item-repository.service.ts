@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { VolatileModelRepositoryService } from './model-repository.service';
 import { AnalyticsItem } from './analytics-item';
 
+import { PlusMinusTotalsPieChartComponent } from '../components/plus-minus-totals-pie-chart/plus-minus-totals-pie-chart.component';
 import { DayOfWeekHistogramComponent } from '../components/day-of-week-histogram/day-of-week-histogram.component';
 import { DayOfMonthHistogramComponent } from '../components/day-of-month-histogram/day-of-month-histogram.component';
 import { HourOfDayRadarComponent } from '../components/hour-of-day-radar/hour-of-day-radar.component';
@@ -14,6 +15,18 @@ import { YearHeatmapComponent } from '../components/year-heatmap/year-heatmap.co
 export class AnalyticsItemRepositoryService extends VolatileModelRepositoryService<AnalyticsItem> {
 
   public async loadAll() {
+
+    this.save(
+      new AnalyticsItem(
+        PlusMinusTotalsPieChartComponent,
+        {
+          name: 'Plus Minus Totals Pie Chart',
+          description: 'Total plus and minus as a pie chart',
+          icon: 'calendar',
+          url: 'plus-minus-totals-pie-chart',
+        }
+      )
+    );
 
     this.save(
       new AnalyticsItem(

@@ -1,12 +1,12 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DayOfMonthHistogramComponent } from './day-of-month-histogram.component';
+import { PlusMinusTotalsPieChartComponent } from './plus-minus-totals-pie-chart.component';
 import { CounterAnalyticsService } from '../../services/counter-analytics.service';
 
-describe('DayOfMonthHistogramComponent', () => {
-  let component: DayOfMonthHistogramComponent;
-  let fixture: ComponentFixture<DayOfMonthHistogramComponent>;
+describe('PlusMinusTotalsPieChartComponent', () => {
+  let component: PlusMinusTotalsPieChartComponent;
+  let fixture: ComponentFixture<PlusMinusTotalsPieChartComponent>;
   let counterAnalyticsService: CounterAnalyticsService;
 
   beforeEach(async(() => {
@@ -16,11 +16,24 @@ describe('DayOfMonthHistogramComponent', () => {
 
     spyOn(
       counterAnalyticsService,
-      'extractHistogramData',
-    ).and.returnValue([]);
+      'extractTotalData',
+    ).and.returnValue({
+      totals: {
+        positive: 0,
+        negative: 0,
+        neutral: 0,
+      },
+      events: {
+        change: 0,
+        reset: 0,
+        positive: 0,
+        negative: 0,
+        neutral: 0,
+      }
+    });
 
     TestBed.configureTestingModule({
-      declarations: [ DayOfMonthHistogramComponent ],
+      declarations: [ PlusMinusTotalsPieChartComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         { provide: CounterAnalyticsService, useValue: counterAnalyticsService },
@@ -30,13 +43,13 @@ describe('DayOfMonthHistogramComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DayOfMonthHistogramComponent);
+    fixture = TestBed.createComponent(PlusMinusTotalsPieChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-    expect(counterAnalyticsService.extractHistogramData).toHaveBeenCalledTimes(2);
+    expect(counterAnalyticsService.extractTotalData).toHaveBeenCalledTimes(1);
   });
 });
