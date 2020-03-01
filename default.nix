@@ -61,6 +61,8 @@ in
       androidComposition.androidsdk
       nodejs
       gradle
+
+      peek # screen recorder
     ];
 
     shellHook = ''

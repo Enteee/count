@@ -1,12 +1,21 @@
-import { TestBed } from '@angular/core/testing';
-
+import { AnalyticsItem } from './analytics-item';
 import { AnalyticsItemRepositoryService } from './analytics-item-repository.service';
 
 describe('AnalyticsItemRepositoryService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let repositoryService: AnalyticsItemRepositoryService;
+
+  beforeEach(() => {
+    repositoryService = new AnalyticsItemRepositoryService(
+      {} as any,
+    );
+  });
 
   it('should be created', () => {
-    const service: AnalyticsItemRepositoryService = TestBed.get(AnalyticsItemRepositoryService);
-    expect(service).toBeTruthy();
+    expect(repositoryService).toBeTruthy();
+  });
+
+  it('can init', async () => {
+    await repositoryService.init(AnalyticsItem);
+    expect(repositoryService.all.length).toBeGreaterThan(1);
   });
 });
