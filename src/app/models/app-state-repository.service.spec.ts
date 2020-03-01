@@ -1,5 +1,5 @@
 import { Storage } from '@ionic/storage';
-import { StorageMock } from './mocks/storage.mock';
+import { StorageMock } from './mocks/storage.mock.spec';
 
 import { AppState } from './app-state';
 
