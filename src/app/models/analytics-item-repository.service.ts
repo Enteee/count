@@ -22,7 +22,7 @@ export class AnalyticsItemRepositoryService extends VolatileModelRepositoryServi
         {
           name: 'Plus Minus Totals Pie Chart',
           description: 'Total plus and minus as a pie chart',
-          icon: 'calendar',
+          icon: 'pie-chart-outline',
           url: 'plus-minus-totals-pie-chart',
         }
       )
@@ -34,7 +34,7 @@ export class AnalyticsItemRepositoryService extends VolatileModelRepositoryServi
         {
           name: 'Day of Week Histogram',
           description: 'Total grouped by day of the week as a bar chart',
-          icon: 'calendar',
+          icon: 'bar-chart-outline',
           url: 'day-of-week-histogram',
         }
       )
@@ -46,7 +46,7 @@ export class AnalyticsItemRepositoryService extends VolatileModelRepositoryServi
         {
           name: 'Day of Month Histogram',
           description: 'Total grouped by day of the month as a bar chart',
-          icon: 'calendar',
+          icon: 'bar-chart-outline',
           url: 'day-of-month-histogram',
         }
       )
@@ -58,7 +58,7 @@ export class AnalyticsItemRepositoryService extends VolatileModelRepositoryServi
         {
           name: 'Hour of Day Radar',
           description: 'Total grouped by hour of the day as radar chart',
-          icon: 'calendar',
+          icon: 'time-outline',
           url: 'hour-of-day-radar',
         }
       )
@@ -70,7 +70,7 @@ export class AnalyticsItemRepositoryService extends VolatileModelRepositoryServi
         {
           name: 'Year Heatmap',
           description: 'Total for each day of the year on a two dimensional heatmap',
-          icon: 'calendar',
+          icon: 'calendar-outline',
           url: 'year-heatmap',
         }
       )
