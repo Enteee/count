@@ -10,6 +10,14 @@ import { NotImplemented } from './not-implemented';
   styleUrls: ['./not-implemented.component.scss'],
 })
 export class NotImplementedComponent extends NotImplemented {
+
+  /**
+    * This contructo is here because the base class (NotImplemented)
+    * does not have a @Directive / @Component annotation, which is required
+    * for dependency injection as of angular 9.
+    * For this reason we provide here our own dummy constructor which
+    * just calls super()
+    */
   constructor(
     renderer: Renderer2,
     elementRef: ElementRef,
