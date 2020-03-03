@@ -16,6 +16,7 @@ import { Model } from './model';
  *
  * ModelRepositoryService implements basic separation of models using constructor names.
  */
+@Injectable()
 export class ModelRepositoryService<M extends Model> implements Resolve<M> {
 
   private MCtor: new (...args: any[]) => M;
@@ -111,6 +112,7 @@ export class ModelRepositoryService<M extends Model> implements Resolve<M> {
  * An implementation of the ModelRepositoryService which does not persist
  * any data.
  */
+@Injectable()
 export class VolatileModelRepositoryService<M extends Model> extends ModelRepositoryService<M> {
 
   public async save(m: M) {

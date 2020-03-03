@@ -13,14 +13,14 @@ const routes: Routes = [
   },
   {
     path: 'counters',
-    loadChildren: './counters/counters.module#CountersPageModule'
+    loadChildren: () => import('./counters/counters.module').then(m => m.CountersPageModule)
   },
   {
     path: 'counter-detail/:counter-id',
     resolve: {
       counter: CounterRepositoryService,
     },
-    loadChildren: './counter-detail/counter-detail.module#CounterDetailPageModule'
+    loadChildren: () => import('./counter-detail/counter-detail.module').then(m => m.CounterDetailPageModule)
   },
   {
     path: 'counter-analytics/:analyticsitem-id/:counter-id',
@@ -28,26 +28,26 @@ const routes: Routes = [
       analyticsItem: AnalyticsItemRepositoryService,
       counter: CounterRepositoryService,
     },
-    loadChildren: './counter-analytics/counter-analytics.module#CounterAnalyticsPageModule'
+    loadChildren: () => import('./counter-analytics/counter-analytics.module').then(m => m.CounterAnalyticsPageModule)
   },
   {
     path: 'contribute',
-    loadChildren: './contribute/contribute.module#ContributePageModule'
+    loadChildren: () => import('./contribute/contribute.module').then(m => m.ContributePageModule)
   },
   {
     path: 'settings',
-    loadChildren: './settings/settings.module#SettingsPageModule',
+    loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule),
     resolve: {
       appState: AppStateRepositoryService,
     },
   },
   {
     path: 'help',
-    loadChildren: './help/help.module#HelpPageModule'
+    loadChildren: () => import('./help/help.module').then(m => m.HelpPageModule)
   },
   {
     path: 'fullscreen-counter/:type/:counter-id',
-    loadChildren: './fullscreen-counter/fullscreen-counter.module#FullscreenCounterPageModule',
+    loadChildren: () => import('./fullscreen-counter/fullscreen-counter.module').then(m => m.FullscreenCounterPageModule),
     resolve: {
       counter: CounterRepositoryService,
     },

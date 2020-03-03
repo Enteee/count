@@ -1,4 +1,4 @@
-import { Input, OnInit, DoCheck, Renderer2, ElementRef } from '@angular/core';
+import { Input, OnInit, DoCheck, Renderer2, ElementRef, Directive } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 import { AppState } from '../models/app-state';
@@ -6,6 +6,7 @@ import { AppStateRepositoryService } from '../models/app-state-repository.servic
 
 import { NotImplementedModalPage } from './not-implemented-modal.page';
 
+@Directive()
 export class NotImplemented  implements OnInit, DoCheck {
 
   @Input() issueId: number;
