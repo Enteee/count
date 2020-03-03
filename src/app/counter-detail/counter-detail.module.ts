@@ -21,15 +21,27 @@ const routes: Routes = [
           { path: '', redirectTo: 'settings', pathMatch: 'full', },
           {
             path: 'count',
-            loadChildren: () => import('./counter-count/counter-count.module').then(m => m.CounterCountPageModule),
+            loadChildren: () => import(
+              './counter-count/counter-count.module'
+            ).then(
+              m => m.CounterCountPageModule
+            ),
           },
           {
             path: 'settings',
-            loadChildren: () => import('./counter-settings/counter-settings.module').then(m => m.CounterSettingsPageModule),
+            loadChildren: () => import(
+              './counter-settings/counter-settings.module'
+            ).then(
+              m => m.CounterSettingsPageModule
+            ),
           },
           {
             path: 'analytics',
-            loadChildren: () => import('./counter-analytics-selection/counter-analytics-selection.module').then(m => m.CounterAnalyticsSelectionPageModule)
+            loadChildren: () => import(
+              './counter-analytics-selection/counter-analytics-selection.module'
+            ).then(
+              m => m.CounterAnalyticsSelectionPageModule
+            ),
           },
         ],
       }

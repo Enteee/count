@@ -31,7 +31,7 @@ describe('UnsavedChangesGuard', () => {
     })
     .compileComponents();
 
-    guard = TestBed.get(UnsavedChangesGuard);
+    guard = TestBed.inject(UnsavedChangesGuard);
   });
 
   beforeEach(() => {

@@ -67,7 +67,7 @@ describe('PlusMinusCounterComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PlusMinusCounterComponent);
 
-    router = TestBed.get(Router);
+    router = TestBed.inject(Router);
     spyOn(
       router,
       'navigate'

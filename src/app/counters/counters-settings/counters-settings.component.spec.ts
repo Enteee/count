@@ -45,7 +45,7 @@ describe('CountersSettingsComponent', () => {
     fixture = TestBed.createComponent(CountersSettingsComponent);
     component = fixture.componentInstance;
 
-    router = TestBed.get(Router);
+    router = TestBed.inject(Router);
     spyOn(
       router,
       'navigate'
