@@ -12,7 +12,7 @@ import { CountersSettingsComponent } from './counters-settings/counters-settings
 })
 export class CountersPage implements OnInit {
 
-  @ViewChild(IonReorderGroup, {static: false}) reorderGroup: IonReorderGroup;
+  @ViewChild(IonReorderGroup) reorderGroup: IonReorderGroup;
 
   constructor(
     private counterService: CounterService,

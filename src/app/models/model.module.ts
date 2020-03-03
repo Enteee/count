@@ -40,7 +40,7 @@ export function initializeModelServices(
   ],
 })
 export class ModelModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<ModelModule> {
     return {
       ngModule: ModelModule,
       providers: [

@@ -87,7 +87,7 @@ describe('CounterSettingsPage', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CounterSettingsPage);
 
-    router = TestBed.get(Router);
+    router = TestBed.inject(Router);
     spyOn(
       router,
       'navigate'

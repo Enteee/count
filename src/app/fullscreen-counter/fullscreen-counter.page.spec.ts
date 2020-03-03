@@ -61,7 +61,7 @@ describe('FullscreenCounterPage', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FullscreenCounterPage);
 
-    router = TestBed.get(Router);
+    router = TestBed.inject(Router);
     spyOn(
       router,
       'navigate'

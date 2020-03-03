@@ -32,7 +32,7 @@ import { NotImplementedDirective } from './not-implemented.directive';
   ]
 })
 export class NotImplementedModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<NotImplementedModule> {
     return {
       ngModule: NotImplementedModule,
       providers: [

@@ -29,7 +29,7 @@ jobs:
     - name: install cli tools
       run: |
         npm install -g --no-save \
-          ionic@5.4.15 \
+          @ionic/cli@6.1.0 \
           native-run@0.3.0 \
           cordova@9.0.0 \
           cordova-res@0.8.1

@@ -59,7 +59,7 @@ describe('CounterCountPage', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CounterCountPage);
 
-    router = TestBed.get(Router);
+    router = TestBed.inject(Router);
     spyOn(
       router,
       'navigate'
