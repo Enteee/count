@@ -1,464 +1,402 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[61],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/ion-select_3-md.entry.js":
+/***/ "./node_modules/@ionic/core/dist/esm/ion-slide_2-ios.entry.js":
 /*!********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/ion-select_3-md.entry.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/ion-slide_2-ios.entry.js ***!
   \********************************************************************/
-/*! exports provided: ion_select, ion_select_option, ion_select_popover */
+/*! exports provided: ion_slide, ion_slides */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_select", function() { return Select; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_select_option", function() { return SelectOption; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_select_popover", function() { return SelectPopover; });
-/* harmony import */ var _core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-ca0488fc.js */ "./node_modules/@ionic/core/dist/esm/core-ca0488fc.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_slide", function() { return Slide; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_slides", function() { return Slides; });
+/* harmony import */ var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-0a8d4d2e.js */ "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
 /* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
-/* harmony import */ var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-46f4a262.js */ "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
-/* harmony import */ var _overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./overlays-10640d86.js */ "./node_modules/@ionic/core/dist/esm/overlays-10640d86.js");
-/* harmony import */ var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./theme-18cbe2cc.js */ "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
-/* harmony import */ var _watch_options_2af96011_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./watch-options-2af96011.js */ "./node_modules/@ionic/core/dist/esm/watch-options-2af96011.js");
 
 
 
-
-
-
-
-const Select = class {
+const Slide = class {
     constructor(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.inputId = `ion-sel-${selectIds++}`;
-        this.didInit = false;
-        this.isExpanded = false;
-        /**
-         * If `true`, the user cannot interact with the select.
-         */
-        this.disabled = false;
-        /**
-         * The text to display on the cancel button.
-         */
-        this.cancelText = 'Cancel';
-        /**
-         * The text to display on the ok button.
-         */
-        this.okText = 'OK';
-        /**
-         * The name of the control, which is submitted with the form data.
-         */
-        this.name = this.inputId;
-        /**
-         * If `true`, the select can accept multiple values.
-         */
-        this.multiple = false;
-        /**
-         * The interface the select should use: `action-sheet`, `popover` or `alert`.
-         */
-        this.interface = 'alert';
-        /**
-         * Any additional options that the `alert`, `action-sheet` or `popover` interface
-         * can take. See the [AlertController API docs](../../alert/AlertController/#create), the
-         * [ActionSheetController API docs](../../action-sheet/ActionSheetController/#create) and the
-         * [PopoverController API docs](../../popover/PopoverController/#create) for the
-         * create options for each interface.
-         */
-        this.interfaceOptions = {};
-        this.onClick = (ev) => {
-            this.setFocus();
-            this.open(ev);
-        };
-        this.onFocus = () => {
-            this.ionFocus.emit();
-        };
-        this.onBlur = () => {
-            this.ionBlur.emit();
-        };
-        this.ionChange = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionChange", 7);
-        this.ionCancel = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionCancel", 7);
-        this.ionFocus = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionFocus", 7);
-        this.ionBlur = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionBlur", 7);
-        this.ionStyle = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionStyle", 7);
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
     }
-    disabledChanged() {
-        this.emitStyle();
+    render() {
+        const mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+        return (Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], { class: {
+                [mode]: true,
+                'swiper-slide': true,
+                'swiper-zoom-container': true
+            } }));
     }
-    valueChanged() {
-        this.updateOptions();
-        this.emitStyle();
-        if (this.didInit) {
-            this.ionChange.emit({
-                value: this.value,
-            });
+    static get style() { return "ion-slide{height:100%}.slide-zoom,ion-slide{display:block;width:100%}.slide-zoom,.swiper-slide{text-align:center}.swiper-slide{display:-ms-flexbox;display:flex;position:relative;-ms-flex-negative:0;flex-shrink:0;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;width:100%;height:100%;font-size:18px;-webkit-box-sizing:border-box;box-sizing:border-box}.swiper-slide img{width:auto;max-width:100%;height:auto;max-height:100%}"; }
+};
+
+const Slides = class {
+    constructor(hostRef) {
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.swiperReady = false;
+        this.swiper = new Promise(resolve => { this.readySwiper = resolve; });
+        /**
+         * Options to pass to the swiper instance.
+         * See http://idangero.us/swiper/api/ for valid options
+         */
+        this.options = {}; // SwiperOptions;  // TODO
+        /**
+         * If `true`, show the pagination.
+         */
+        this.pager = false;
+        /**
+         * If `true`, show the scrollbar.
+         */
+        this.scrollbar = false;
+        this.ionSlidesDidLoad = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlidesDidLoad", 7);
+        this.ionSlideTap = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlideTap", 7);
+        this.ionSlideDoubleTap = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlideDoubleTap", 7);
+        this.ionSlideWillChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlideWillChange", 7);
+        this.ionSlideDidChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlideDidChange", 7);
+        this.ionSlideNextStart = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlideNextStart", 7);
+        this.ionSlidePrevStart = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlidePrevStart", 7);
+        this.ionSlideNextEnd = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlideNextEnd", 7);
+        this.ionSlidePrevEnd = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlidePrevEnd", 7);
+        this.ionSlideTransitionStart = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlideTransitionStart", 7);
+        this.ionSlideTransitionEnd = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlideTransitionEnd", 7);
+        this.ionSlideDrag = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlideDrag", 7);
+        this.ionSlideReachStart = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlideReachStart", 7);
+        this.ionSlideReachEnd = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlideReachEnd", 7);
+        this.ionSlideTouchStart = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlideTouchStart", 7);
+        this.ionSlideTouchEnd = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSlideTouchEnd", 7);
+    }
+    async optionsChanged() {
+        if (this.swiperReady) {
+            const swiper = await this.getSwiper();
+            Object.assign(swiper.params, this.options);
+            await this.update();
         }
     }
-    async connectedCallback() {
-        if (this.value === undefined) {
-            if (this.multiple) {
-                // there are no values set at this point
-                // so check to see who should be selected
-                const checked = this.childOpts.filter(o => o.selected);
-                this.value = checked.map(o => getOptionValue(o));
+    connectedCallback() {
+        const mut = this.mutationO = new MutationObserver(() => {
+            if (this.swiperReady) {
+                this.update();
             }
-            else {
-                const checked = this.childOpts.find(o => o.selected);
-                if (checked) {
-                    this.value = getOptionValue(checked);
-                }
-            }
-        }
-        this.updateOptions();
-        this.updateOverlayOptions();
-        this.emitStyle();
-        this.mutationO = Object(_watch_options_2af96011_js__WEBPACK_IMPORTED_MODULE_5__["w"])(this.el, 'ion-select-option', async () => {
-            this.updateOptions();
-            this.updateOverlayOptions();
         });
+        mut.observe(this.el, {
+            childList: true,
+            subtree: true
+        });
+        this.el.componentOnReady().then(() => this.initSwiper());
     }
-    disconnectedCallback() {
+    async disconnectedCallback() {
         if (this.mutationO) {
             this.mutationO.disconnect();
             this.mutationO = undefined;
         }
-    }
-    componentDidLoad() {
-        this.didInit = true;
+        const swiper = await this.getSwiper();
+        swiper.destroy(true, true);
+        this.swiper = new Promise(resolve => { this.readySwiper = resolve; });
+        this.swiperReady = false;
     }
     /**
-     * Open the select overlay. The overlay is either an alert, action sheet, or popover,
-     * depending on the `interface` property on the `ion-select`.
+     * Update the underlying slider implementation. Call this if you've added or removed
+     * child slides.
+     */
+    async update() {
+        const [swiper] = await Promise.all([
+            this.getSwiper(),
+            waitForSlides(this.el)
+        ]);
+        swiper.update();
+    }
+    /**
+     * Force swiper to update its height (when autoHeight is enabled) for the duration
+     * equal to 'speed' parameter.
      *
-     * @param event The user interface event that called the open.
+     * @param speed The transition duration (in ms).
      */
-    async open(event) {
-        if (this.disabled || this.isExpanded) {
-            return undefined;
-        }
-        const overlay = this.overlay = await this.createOverlay(event);
-        this.isExpanded = true;
-        overlay.onDidDismiss().then(() => {
-            this.overlay = undefined;
-            this.isExpanded = false;
-            this.setFocus();
-        });
-        await overlay.present();
-        return overlay;
-    }
-    createOverlay(ev) {
-        let selectInterface = this.interface;
-        if ((selectInterface === 'action-sheet' || selectInterface === 'popover') && this.multiple) {
-            console.warn(`Select interface cannot be "${selectInterface}" with a multi-value select. Using the "alert" interface instead.`);
-            selectInterface = 'alert';
-        }
-        if (selectInterface === 'popover' && !ev) {
-            console.warn('Select interface cannot be a "popover" without passing an event. Using the "alert" interface instead.');
-            selectInterface = 'alert';
-        }
-        if (selectInterface === 'popover') {
-            return this.openPopover(ev);
-        }
-        if (selectInterface === 'action-sheet') {
-            return this.openActionSheet();
-        }
-        return this.openAlert();
-    }
-    updateOverlayOptions() {
-        const overlay = this.overlay;
-        if (!overlay) {
-            return;
-        }
-        const childOpts = this.childOpts;
-        switch (this.interface) {
-            case 'action-sheet':
-                overlay.buttons = this.createActionSheetButtons(childOpts);
-                break;
-            case 'popover':
-                const popover = overlay.querySelector('ion-select-popover');
-                if (popover) {
-                    popover.options = this.createPopoverOptions(childOpts);
-                }
-                break;
-            case 'alert':
-                const inputType = (this.multiple ? 'checkbox' : 'radio');
-                overlay.inputs = this.createAlertInputs(childOpts, inputType);
-                break;
-        }
-    }
-    createActionSheetButtons(data) {
-        const actionSheetButtons = data.map(option => {
-            return {
-                role: (option.selected ? 'selected' : ''),
-                text: option.textContent,
-                handler: () => {
-                    this.value = getOptionValue(option);
-                }
-            };
-        });
-        // Add "cancel" button
-        actionSheetButtons.push({
-            text: this.cancelText,
-            role: 'cancel',
-            handler: () => {
-                this.ionCancel.emit();
-            }
-        });
-        return actionSheetButtons;
-    }
-    createAlertInputs(data, inputType) {
-        return data.map(o => {
-            return {
-                type: inputType,
-                label: o.textContent,
-                value: getOptionValue(o),
-                checked: o.selected,
-                disabled: o.disabled
-            };
-        });
-    }
-    createPopoverOptions(data) {
-        return data.map(o => {
-            const value = getOptionValue(o);
-            return {
-                text: o.textContent,
-                value,
-                checked: o.selected,
-                disabled: o.disabled,
-                handler: () => {
-                    this.value = value;
-                    this.close();
-                }
-            };
-        });
-    }
-    async openPopover(ev) {
-        const interfaceOptions = this.interfaceOptions;
-        const mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this);
-        const popoverOpts = Object.assign(Object.assign({ mode }, interfaceOptions), { component: 'ion-select-popover', cssClass: ['select-popover', interfaceOptions.cssClass], event: ev, componentProps: {
-                header: interfaceOptions.header,
-                subHeader: interfaceOptions.subHeader,
-                message: interfaceOptions.message,
-                value: this.value,
-                options: this.createPopoverOptions(this.childOpts)
-            } });
-        return _overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_3__["c"].create(popoverOpts);
-    }
-    async openActionSheet() {
-        const mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this);
-        const interfaceOptions = this.interfaceOptions;
-        const actionSheetOpts = Object.assign(Object.assign({ mode }, interfaceOptions), { buttons: this.createActionSheetButtons(this.childOpts), cssClass: ['select-action-sheet', interfaceOptions.cssClass] });
-        return _overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_3__["b"].create(actionSheetOpts);
-    }
-    async openAlert() {
-        const label = this.getLabel();
-        const labelText = (label) ? label.textContent : null;
-        const interfaceOptions = this.interfaceOptions;
-        const inputType = (this.multiple ? 'checkbox' : 'radio');
-        const mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this);
-        const alertOpts = Object.assign(Object.assign({ mode }, interfaceOptions), { header: interfaceOptions.header ? interfaceOptions.header : labelText, inputs: this.createAlertInputs(this.childOpts, inputType), buttons: [
-                {
-                    text: this.cancelText,
-                    role: 'cancel',
-                    handler: () => {
-                        this.ionCancel.emit();
-                    }
-                },
-                {
-                    text: this.okText,
-                    handler: (selectedValues) => {
-                        this.value = selectedValues;
-                    }
-                }
-            ], cssClass: ['select-alert', interfaceOptions.cssClass,
-                (this.multiple ? 'multiple-select-alert' : 'single-select-alert')] });
-        return _overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_3__["a"].create(alertOpts);
+    async updateAutoHeight(speed) {
+        const swiper = await this.getSwiper();
+        swiper.updateAutoHeight(speed);
     }
     /**
-     * Close the select interface.
+     * Transition to the specified slide.
+     *
+     * @param index The index of the slide to transition to.
+     * @param speed The transition duration (in ms).
+     * @param runCallbacks If true, the transition will produce [Transition/SlideChange][Start/End] transition events.
      */
-    close() {
-        // TODO check !this.overlay || !this.isFocus()
-        if (!this.overlay) {
-            return Promise.resolve(false);
-        }
-        return this.overlay.dismiss();
+    async slideTo(index, speed, runCallbacks) {
+        const swiper = await this.getSwiper();
+        swiper.slideTo(index, speed, runCallbacks);
     }
-    updateOptions() {
-        // iterate all options, updating the selected prop
-        let canSelect = true;
-        const { value, childOpts, compareWith, multiple } = this;
-        for (const selectOption of childOpts) {
-            const optValue = getOptionValue(selectOption);
-            const selected = canSelect && isOptionSelected(value, optValue, compareWith);
-            selectOption.selected = selected;
-            // if current option is selected and select is single-option, we can't select
-            // any option more
-            if (selected && !multiple) {
-                canSelect = false;
+    /**
+     * Transition to the next slide.
+     *
+     * @param speed The transition duration (in ms).
+     * @param runCallbacks If true, the transition will produce [Transition/SlideChange][Start/End] transition events.
+     */
+    async slideNext(speed, runCallbacks) {
+        const swiper = await this.getSwiper();
+        swiper.slideNext(speed, runCallbacks);
+    }
+    /**
+     * Transition to the previous slide.
+     *
+     * @param speed The transition duration (in ms).
+     * @param runCallbacks If true, the transition will produce the [Transition/SlideChange][Start/End] transition events.
+     */
+    async slidePrev(speed, runCallbacks) {
+        const swiper = await this.getSwiper();
+        swiper.slidePrev(speed, runCallbacks);
+    }
+    /**
+     * Get the index of the active slide.
+     */
+    async getActiveIndex() {
+        const swiper = await this.getSwiper();
+        return swiper.activeIndex;
+    }
+    /**
+     * Get the index of the previous slide.
+     */
+    async getPreviousIndex() {
+        const swiper = await this.getSwiper();
+        return swiper.previousIndex;
+    }
+    /**
+     * Get the total number of slides.
+     */
+    async length() {
+        const swiper = await this.getSwiper();
+        return swiper.slides.length;
+    }
+    /**
+     * Get whether or not the current slide is the last slide.
+     */
+    async isEnd() {
+        const swiper = await this.getSwiper();
+        return swiper.isEnd;
+    }
+    /**
+     * Get whether or not the current slide is the first slide.
+     */
+    async isBeginning() {
+        const swiper = await this.getSwiper();
+        return swiper.isBeginning;
+    }
+    /**
+     * Start auto play.
+     */
+    async startAutoplay() {
+        const swiper = await this.getSwiper();
+        if (swiper.autoplay) {
+            swiper.autoplay.start();
+        }
+    }
+    /**
+     * Stop auto play.
+     */
+    async stopAutoplay() {
+        const swiper = await this.getSwiper();
+        if (swiper.autoplay) {
+            swiper.autoplay.stop();
+        }
+    }
+    /**
+     * Lock or unlock the ability to slide to the next slide.
+     *
+     * @param lock If `true`, disable swiping to the next slide.
+     */
+    async lockSwipeToNext(lock) {
+        const swiper = await this.getSwiper();
+        swiper.allowSlideNext = !lock;
+    }
+    /**
+     * Lock or unlock the ability to slide to the previous slide.
+     *
+     * @param lock If `true`, disable swiping to the previous slide.
+     */
+    async lockSwipeToPrev(lock) {
+        const swiper = await this.getSwiper();
+        swiper.allowSlidePrev = !lock;
+    }
+    /**
+     * Lock or unlock the ability to slide to the next or previous slide.
+     *
+     * @param lock If `true`, disable swiping to the next and previous slide.
+     */
+    async lockSwipes(lock) {
+        const swiper = await this.getSwiper();
+        swiper.allowSlideNext = !lock;
+        swiper.allowSlidePrev = !lock;
+        swiper.allowTouchMove = !lock;
+    }
+    /**
+     * Get the Swiper instance.
+     * Use this to access the full Swiper API.
+     * See https://idangero.us/swiper/api/ for all API options.
+     */
+    async getSwiper() {
+        return this.swiper;
+    }
+    async initSwiper() {
+        const finalOptions = this.normalizeOptions();
+        // init swiper core
+        // @ts-ignore
+        const { Swiper } = await __webpack_require__.e(/*! import() | swiper-bundle-ccdaac54-js */ "swiper-bundle-ccdaac54-js").then(__webpack_require__.bind(null, /*! ./swiper.bundle-ccdaac54.js */ "./node_modules/@ionic/core/dist/esm/swiper.bundle-ccdaac54.js"));
+        await waitForSlides(this.el);
+        const swiper = new Swiper(this.el, finalOptions);
+        this.swiperReady = true;
+        this.readySwiper(swiper);
+    }
+    normalizeOptions() {
+        // Base options, can be changed
+        // TODO Add interface SwiperOptions
+        const swiperOptions = {
+            effect: undefined,
+            direction: 'horizontal',
+            initialSlide: 0,
+            loop: false,
+            parallax: false,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            speed: 300,
+            slidesPerColumn: 1,
+            slidesPerColumnFill: 'column',
+            slidesPerGroup: 1,
+            centeredSlides: false,
+            slidesOffsetBefore: 0,
+            slidesOffsetAfter: 0,
+            touchEventsTarget: 'container',
+            autoplay: false,
+            freeMode: false,
+            freeModeMomentum: true,
+            freeModeMomentumRatio: 1,
+            freeModeMomentumBounce: true,
+            freeModeMomentumBounceRatio: 1,
+            freeModeMomentumVelocityRatio: 1,
+            freeModeSticky: false,
+            freeModeMinimumVelocity: 0.02,
+            autoHeight: false,
+            setWrapperSize: false,
+            zoom: {
+                maxRatio: 3,
+                minRatio: 1,
+                toggle: false,
+            },
+            touchRatio: 1,
+            touchAngle: 45,
+            simulateTouch: true,
+            touchStartPreventDefault: false,
+            shortSwipes: true,
+            longSwipes: true,
+            longSwipesRatio: 0.5,
+            longSwipesMs: 300,
+            followFinger: true,
+            threshold: 0,
+            touchMoveStopPropagation: true,
+            touchReleaseOnEdges: false,
+            iOSEdgeSwipeDetection: false,
+            iOSEdgeSwipeThreshold: 20,
+            resistance: true,
+            resistanceRatio: 0.85,
+            watchSlidesProgress: false,
+            watchSlidesVisibility: false,
+            preventClicks: true,
+            preventClicksPropagation: true,
+            slideToClickedSlide: false,
+            loopAdditionalSlides: 0,
+            noSwiping: true,
+            runCallbacksOnInit: true,
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true
+            },
+            flipEffect: {
+                slideShadows: true,
+                limitRotation: true
+            },
+            cubeEffect: {
+                slideShadows: true,
+                shadow: true,
+                shadowOffset: 20,
+                shadowScale: 0.94
+            },
+            fadeEffect: {
+                crossfade: false
+            },
+            a11y: {
+                prevSlideMessage: 'Previous slide',
+                nextSlideMessage: 'Next slide',
+                firstSlideMessage: 'This is the first slide',
+                lastSlideMessage: 'This is the last slide'
             }
-        }
-    }
-    getLabel() {
-        return Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["f"])(this.el);
-    }
-    hasValue() {
-        return this.getText() !== '';
-    }
-    get childOpts() {
-        return Array.from(this.el.querySelectorAll('ion-select-option'));
-    }
-    getText() {
-        const selectedText = this.selectedText;
-        if (selectedText != null && selectedText !== '') {
-            return selectedText;
-        }
-        return generateText(this.childOpts, this.value, this.compareWith);
-    }
-    setFocus() {
-        if (this.buttonEl) {
-            this.buttonEl.focus();
-        }
-    }
-    emitStyle() {
-        this.ionStyle.emit({
-            'interactive': true,
-            'select': true,
-            'has-placeholder': this.placeholder != null,
-            'has-value': this.hasValue(),
-            'interactive-disabled': this.disabled,
-            'select-disabled': this.disabled
-        });
-    }
-    render() {
-        const { placeholder, name, disabled, isExpanded, value, el } = this;
-        const mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this);
-        const labelId = this.inputId + '-lbl';
-        const label = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["f"])(el);
-        if (label) {
-            label.id = labelId;
-        }
-        let addPlaceholderClass = false;
-        let selectText = this.getText();
-        if (selectText === '' && placeholder != null) {
-            selectText = placeholder;
-            addPlaceholderClass = true;
-        }
-        Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["a"])(true, el, name, parseValue(value), disabled);
-        const selectTextClasses = {
-            'select-text': true,
-            'select-placeholder': addPlaceholderClass
         };
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.onClick, role: "combobox", "aria-haspopup": "dialog", "aria-disabled": disabled ? 'true' : null, "aria-expanded": `${isExpanded}`, "aria-labelledby": labelId, class: {
-                [mode]: true,
-                'in-item': Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_4__["h"])('ion-item', el),
-                'select-disabled': disabled,
-            } }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: selectTextClasses }, selectText), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "select-icon", role: "presentation" }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "select-icon-inner" })), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", { type: "button", onFocus: this.onFocus, onBlur: this.onBlur, disabled: disabled, ref: (btnEl => this.buttonEl = btnEl) })));
-    }
-    get el() { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
-    static get watchers() { return {
-        "disabled": ["disabledChanged"],
-        "placeholder": ["disabledChanged"],
-        "value": ["valueChanged"]
-    }; }
-    static get style() { return ":host{padding-left:var(--padding-start);padding-right:var(--padding-end);padding-top:var(--padding-top);padding-bottom:var(--padding-bottom);display:-ms-flexbox;display:flex;position:relative;font-family:var(--ion-font-family,inherit);overflow:hidden;z-index:2}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--padding-start);padding-inline-start:var(--padding-start);-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}:host(.in-item){position:static;max-width:45%}:host(.select-disabled){opacity:.4;pointer-events:none}:host(.ion-focused) button{border:2px solid #5e9ed6}.select-placeholder{color:currentColor;opacity:.33}button{left:0;top:0;margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;position:absolute;width:100%;height:100%;border:0;background:transparent;cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;outline:none}:host-context([dir=rtl]) button,[dir=rtl] button{left:unset;right:unset;right:0}button::-moz-focus-inner{border:0}.select-icon{position:relative}.select-text{-ms-flex:1;flex:1;min-width:16px;font-size:inherit;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.select-icon-inner{left:5px;top:50%;margin-top:-3px;position:absolute;width:0;height:0;border-top:5px solid;border-right:5px solid transparent;border-left:5px solid transparent;color:currentColor;opacity:.33;pointer-events:none}:host-context([dir=rtl]) .select-icon-inner,[dir=rtl] .select-icon-inner{left:unset;right:unset;right:5px}:host{--padding-top:10px;--padding-end:0;--padding-bottom:11px;--padding-start:16px}.select-icon{width:19px;height:19px}"; }
-};
-const getOptionValue = (el) => {
-    const value = el.value;
-    return (value === undefined)
-        ? el.textContent || ''
-        : value;
-};
-const parseValue = (value) => {
-    if (value == null) {
-        return undefined;
-    }
-    if (Array.isArray(value)) {
-        return value.join(',');
-    }
-    return value.toString();
-};
-const isOptionSelected = (currentValue, compareValue, compareWith) => {
-    if (currentValue === undefined) {
-        return false;
-    }
-    if (Array.isArray(currentValue)) {
-        return currentValue.some(val => compareOptions(val, compareValue, compareWith));
-    }
-    else {
-        return compareOptions(currentValue, compareValue, compareWith);
-    }
-};
-const compareOptions = (currentValue, compareValue, compareWith) => {
-    if (typeof compareWith === 'function') {
-        return compareWith(currentValue, compareValue);
-    }
-    else if (typeof compareWith === 'string') {
-        return currentValue[compareWith] === compareValue[compareWith];
-    }
-    else {
-        return currentValue === compareValue;
-    }
-};
-const generateText = (opts, value, compareWith) => {
-    if (value === undefined) {
-        return '';
-    }
-    if (Array.isArray(value)) {
-        return value
-            .map(v => textForValue(opts, v, compareWith))
-            .filter(opt => opt !== null)
-            .join(', ');
-    }
-    else {
-        return textForValue(opts, value, compareWith) || '';
-    }
-};
-const textForValue = (opts, value, compareWith) => {
-    const selectOpt = opts.find(opt => {
-        return compareOptions(getOptionValue(opt), value, compareWith);
-    });
-    return selectOpt
-        ? selectOpt.textContent
-        : null;
-};
-let selectIds = 0;
-
-const SelectOption = class {
-    constructor(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.inputId = `ion-selopt-${selectOptionIds++}`;
-        /**
-         * If `true`, the user cannot interact with the select option.
-         */
-        this.disabled = false;
-        /**
-         * If `true`, the element is selected.
-         */
-        this.selected = false;
-    }
-    render() {
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["H"], { role: "option", id: this.inputId, class: Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this) }));
-    }
-    get el() { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
-    static get style() { return ":host{display:none}"; }
-};
-let selectOptionIds = 0;
-
-const SelectPopover = class {
-    constructor(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        /** Array of options for the popover */
-        this.options = [];
-    }
-    onSelect(ev) {
-        const option = this.options.find(o => o.value === ev.target.value);
-        if (option) {
-            Object(_overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_3__["s"])(option.handler);
+        if (this.pager) {
+            swiperOptions.pagination = {
+                el: this.paginationEl,
+                type: 'bullets',
+                clickable: false,
+                hideOnClick: false,
+            };
         }
+        if (this.scrollbar) {
+            swiperOptions.scrollbar = {
+                el: this.scrollbarEl,
+                hide: true,
+            };
+        }
+        // Keep the event options separate, we dont want users
+        // overwriting these
+        const eventOptions = {
+            on: {
+                init: () => {
+                    setTimeout(() => {
+                        this.ionSlidesDidLoad.emit();
+                    }, 20);
+                },
+                slideChangeTransitionStart: this.ionSlideWillChange.emit,
+                slideChangeTransitionEnd: this.ionSlideDidChange.emit,
+                slideNextTransitionStart: this.ionSlideNextStart.emit,
+                slidePrevTransitionStart: this.ionSlidePrevStart.emit,
+                slideNextTransitionEnd: this.ionSlideNextEnd.emit,
+                slidePrevTransitionEnd: this.ionSlidePrevEnd.emit,
+                transitionStart: this.ionSlideTransitionStart.emit,
+                transitionEnd: this.ionSlideTransitionEnd.emit,
+                sliderMove: this.ionSlideDrag.emit,
+                reachBeginning: this.ionSlideReachStart.emit,
+                reachEnd: this.ionSlideReachEnd.emit,
+                touchStart: this.ionSlideTouchStart.emit,
+                touchEnd: this.ionSlideTouchEnd.emit,
+                tap: this.ionSlideTap.emit,
+                doubleTap: this.ionSlideDoubleTap.emit
+            }
+        };
+        const customEvents = (!!this.options && !!this.options.on) ? this.options.on : {};
+        // merge "on" event listeners, while giving our event listeners priority
+        const mergedEventOptions = { on: Object.assign(Object.assign({}, customEvents), eventOptions.on) };
+        // Merge the base, user options, and events together then pas to swiper
+        return Object.assign(Object.assign(Object.assign({}, swiperOptions), this.options), mergedEventOptions);
     }
     render() {
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["H"], { class: Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this) }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-list", null, this.header !== undefined && Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-list-header", null, this.header), (this.subHeader !== undefined || this.message !== undefined) &&
-            Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-item", null, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-label", { class: "ion-text-wrap" }, this.subHeader !== undefined && Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("h3", null, this.subHeader), this.message !== undefined && Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("p", null, this.message))), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-radio-group", null, this.options.map(option => Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-item", null, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-label", null, option.text), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-radio", { checked: option.checked, value: option.value, disabled: option.disabled })))))));
+        const mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+        return (Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], { class: {
+                [`${mode}`]: true,
+                // Used internally for styling
+                [`slides-${mode}`]: true,
+                'swiper-container': true
+            } }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "swiper-wrapper" }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null)), this.pager && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "swiper-pagination", ref: el => this.paginationEl = el }), this.scrollbar && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "swiper-scrollbar", ref: el => this.scrollbarEl = el })));
     }
-    static get style() { return ".sc-ion-select-popover-h ion-list.sc-ion-select-popover{margin-left:0;margin-right:0;margin-top:-1px;margin-bottom:-1px}.sc-ion-select-popover-h ion-label.sc-ion-select-popover, .sc-ion-select-popover-h ion-list-header.sc-ion-select-popover{margin-left:0;margin-right:0;margin-top:0;margin-bottom:0}"; }
+    static get assetsDirs() { return ["swiper"]; }
+    get el() { return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
+    static get watchers() { return {
+        "options": ["optionsChanged"]
+    }; }
+    static get style() { return ".swiper-container{margin:0 auto;position:relative;overflow:hidden;list-style:none;padding:0;z-index:1}.swiper-container-no-flexbox .swiper-slide{float:left}.swiper-container-vertical{height:100%}.swiper-container-vertical>.swiper-wrapper{-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}.swiper-wrapper{position:relative;width:100%;height:100%;z-index:1;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-transition-property:-webkit-transform;transition-property:-webkit-transform;-o-transition-property:transform;transition-property:transform;transition-property:transform,-webkit-transform;-webkit-box-sizing:content-box;box-sizing:content-box}.swiper-container-android .swiper-slide,.swiper-wrapper{-webkit-transform:translateZ(0);transform:translateZ(0)}.swiper-container-multirow>.swiper-wrapper{-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}.swiper-container-free-mode>.swiper-wrapper{-webkit-transition-timing-function:ease-out;-o-transition-timing-function:ease-out;transition-timing-function:ease-out;margin:0 auto}.swiper-slide{-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;width:100%;height:100%;position:relative;-webkit-transition-property:-webkit-transform;transition-property:-webkit-transform;-o-transition-property:transform;transition-property:transform;transition-property:transform,-webkit-transform}.swiper-invisible-blank-slide{visibility:hidden}.swiper-container-autoheight,.swiper-container-autoheight .swiper-slide{height:auto}.swiper-container-autoheight .swiper-wrapper{-webkit-box-align:start;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start;-webkit-transition-property:height,-webkit-transform;transition-property:height,-webkit-transform;-o-transition-property:transform,height;transition-property:transform,height;transition-property:transform,height,-webkit-transform}.swiper-container-3d{-webkit-perspective:1200px;perspective:1200px}.swiper-container-3d .swiper-cube-shadow,.swiper-container-3d .swiper-slide,.swiper-container-3d .swiper-slide-shadow-bottom,.swiper-container-3d .swiper-slide-shadow-left,.swiper-container-3d .swiper-slide-shadow-right,.swiper-container-3d .swiper-slide-shadow-top,.swiper-container-3d .swiper-wrapper{-webkit-transform-style:preserve-3d;transform-style:preserve-3d}.swiper-container-3d .swiper-slide-shadow-bottom,.swiper-container-3d .swiper-slide-shadow-left,.swiper-container-3d .swiper-slide-shadow-right,.swiper-container-3d .swiper-slide-shadow-top{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:10}.swiper-container-3d .swiper-slide-shadow-left{background-image:-webkit-gradient(linear,right top,left top,from(rgba(0,0,0,.5)),to(transparent));background-image:-webkit-linear-gradient(right,rgba(0,0,0,.5),transparent);background-image:-o-linear-gradient(right,rgba(0,0,0,.5),transparent);background-image:linear-gradient(270deg,rgba(0,0,0,.5),transparent)}.swiper-container-3d .swiper-slide-shadow-right{background-image:-webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(transparent));background-image:-webkit-linear-gradient(left,rgba(0,0,0,.5),transparent);background-image:-o-linear-gradient(left,rgba(0,0,0,.5),transparent);background-image:linear-gradient(90deg,rgba(0,0,0,.5),transparent)}.swiper-container-3d .swiper-slide-shadow-top{background-image:-webkit-gradient(linear,left bottom,left top,from(rgba(0,0,0,.5)),to(transparent));background-image:-webkit-linear-gradient(bottom,rgba(0,0,0,.5),transparent);background-image:-o-linear-gradient(bottom,rgba(0,0,0,.5),transparent);background-image:linear-gradient(0deg,rgba(0,0,0,.5),transparent)}.swiper-container-3d .swiper-slide-shadow-bottom{background-image:-webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(transparent));background-image:-webkit-linear-gradient(top,rgba(0,0,0,.5),transparent);background-image:-o-linear-gradient(top,rgba(0,0,0,.5),transparent);background-image:linear-gradient(180deg,rgba(0,0,0,.5),transparent)}.swiper-container-wp8-horizontal,.swiper-container-wp8-horizontal>.swiper-wrapper{-ms-touch-action:pan-y;touch-action:pan-y}.swiper-container-wp8-vertical,.swiper-container-wp8-vertical>.swiper-wrapper{-ms-touch-action:pan-x;touch-action:pan-x}.swiper-button-next,.swiper-button-prev{position:absolute;top:50%;width:27px;height:44px;margin-top:-22px;z-index:10;cursor:pointer;background-size:27px 44px;background-position:50%;background-repeat:no-repeat}.swiper-button-next.swiper-button-disabled,.swiper-button-prev.swiper-button-disabled{opacity:.35;cursor:auto;pointer-events:none}.swiper-button-prev,.swiper-container-rtl .swiper-button-next{background-image:url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D\'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg\'%20viewBox%3D\'0%200%2027%2044\'%3E%3Cpath%20d%3D\'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z\'%20fill%3D\'%23007aff\'%2F%3E%3C%2Fsvg%3E\");left:10px;right:auto}.swiper-button-next,.swiper-container-rtl .swiper-button-prev{background-image:url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D\'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg\'%20viewBox%3D\'0%200%2027%2044\'%3E%3Cpath%20d%3D\'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z\'%20fill%3D\'%23007aff\'%2F%3E%3C%2Fsvg%3E\");right:10px;left:auto}.swiper-button-prev.swiper-button-white,.swiper-container-rtl .swiper-button-next.swiper-button-white{background-image:url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D\'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg\'%20viewBox%3D\'0%200%2027%2044\'%3E%3Cpath%20d%3D\'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z\'%20fill%3D\'%23ffffff\'%2F%3E%3C%2Fsvg%3E\")}.swiper-button-next.swiper-button-white,.swiper-container-rtl .swiper-button-prev.swiper-button-white{background-image:url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D\'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg\'%20viewBox%3D\'0%200%2027%2044\'%3E%3Cpath%20d%3D\'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z\'%20fill%3D\'%23ffffff\'%2F%3E%3C%2Fsvg%3E\")}.swiper-button-prev.swiper-button-black,.swiper-container-rtl .swiper-button-next.swiper-button-black{background-image:url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D\'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg\'%20viewBox%3D\'0%200%2027%2044\'%3E%3Cpath%20d%3D\'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z\'%20fill%3D\'%23000000\'%2F%3E%3C%2Fsvg%3E\")}.swiper-button-next.swiper-button-black,.swiper-container-rtl .swiper-button-prev.swiper-button-black{background-image:url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D\'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg\'%20viewBox%3D\'0%200%2027%2044\'%3E%3Cpath%20d%3D\'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z\'%20fill%3D\'%23000000\'%2F%3E%3C%2Fsvg%3E\")}.swiper-button-lock{display:none}.swiper-pagination{position:absolute;text-align:center;-webkit-transition:opacity .3s;-o-transition:.3s opacity;transition:opacity .3s;-webkit-transform:translateZ(0);transform:translateZ(0);z-index:10}.swiper-pagination.swiper-pagination-hidden{opacity:0}.swiper-container-horizontal>.swiper-pagination-bullets,.swiper-pagination-custom,.swiper-pagination-fraction{bottom:10px;left:0;width:100%}.swiper-pagination-bullets-dynamic{overflow:hidden;font-size:0}.swiper-pagination-bullets-dynamic .swiper-pagination-bullet{-webkit-transform:scale(.33);-ms-transform:scale(.33);transform:scale(.33);position:relative}.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active,.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main{-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1)}.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev{-webkit-transform:scale(.66);-ms-transform:scale(.66);transform:scale(.66)}.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev{-webkit-transform:scale(.33);-ms-transform:scale(.33);transform:scale(.33)}.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next{-webkit-transform:scale(.66);-ms-transform:scale(.66);transform:scale(.66)}.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next{-webkit-transform:scale(.33);-ms-transform:scale(.33);transform:scale(.33)}.swiper-pagination-bullet{width:8px;height:8px;display:inline-block;border-radius:100%;background:#000;opacity:.2}button.swiper-pagination-bullet{border:none;margin:0;padding:0;-webkit-box-shadow:none;box-shadow:none;-webkit-appearance:none;-moz-appearance:none;appearance:none}.swiper-pagination-clickable .swiper-pagination-bullet{cursor:pointer}.swiper-pagination-bullet-active{opacity:1;background:#007aff}.swiper-container-vertical>.swiper-pagination-bullets{right:10px;top:50%;-webkit-transform:translate3d(0,-50%,0);transform:translate3d(0,-50%,0)}.swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet{margin:6px 0;display:block}.swiper-container-vertical>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic{top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);width:8px}.swiper-container-vertical>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet{display:inline-block;-webkit-transition:top .2s,-webkit-transform .2s;transition:top .2s,-webkit-transform .2s;-o-transition:.2s transform,.2s top;transition:transform .2s,top .2s;transition:transform .2s,top .2s,-webkit-transform .2s}.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{margin:0 4px}.swiper-container-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic{left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);white-space:nowrap}.swiper-container-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet{-webkit-transition:left .2s,-webkit-transform .2s;transition:left .2s,-webkit-transform .2s;-o-transition:.2s transform,.2s left;transition:transform .2s,left .2s;transition:transform .2s,left .2s,-webkit-transform .2s}.swiper-container-horizontal.swiper-container-rtl>.swiper-pagination-bullets-dynamic .swiper-pagination-bullet{-webkit-transition:right .2s,-webkit-transform .2s;transition:right .2s,-webkit-transform .2s;-o-transition:.2s transform,.2s right;transition:transform .2s,right .2s;transition:transform .2s,right .2s,-webkit-transform .2s}.swiper-pagination-progressbar{background:rgba(0,0,0,.25);position:absolute}.swiper-pagination-progressbar .swiper-pagination-progressbar-fill{background:#007aff;position:absolute;left:0;top:0;width:100%;height:100%;-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);-webkit-transform-origin:left top;-ms-transform-origin:left top;transform-origin:left top}.swiper-container-rtl .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{-webkit-transform-origin:right top;-ms-transform-origin:right top;transform-origin:right top}.swiper-container-horizontal>.swiper-pagination-progressbar,.swiper-container-vertical>.swiper-pagination-progressbar.swiper-pagination-progressbar-opposite{width:100%;height:4px;left:0;top:0}.swiper-container-horizontal>.swiper-pagination-progressbar.swiper-pagination-progressbar-opposite,.swiper-container-vertical>.swiper-pagination-progressbar{width:4px;height:100%;left:0;top:0}.swiper-pagination-white .swiper-pagination-bullet-active{background:#fff}.swiper-pagination-progressbar.swiper-pagination-white{background:hsla(0,0%,100%,.25)}.swiper-pagination-progressbar.swiper-pagination-white .swiper-pagination-progressbar-fill{background:#fff}.swiper-pagination-black .swiper-pagination-bullet-active{background:#000}.swiper-pagination-progressbar.swiper-pagination-black{background:rgba(0,0,0,.25)}.swiper-pagination-progressbar.swiper-pagination-black .swiper-pagination-progressbar-fill{background:#000}.swiper-pagination-lock{display:none}.swiper-scrollbar{border-radius:10px;position:relative;-ms-touch-action:none;background:rgba(0,0,0,.1)}.swiper-container-horizontal>.swiper-scrollbar{position:absolute;left:1%;bottom:3px;z-index:50;height:5px;width:98%}.swiper-container-vertical>.swiper-scrollbar{position:absolute;right:3px;top:1%;z-index:50;width:5px;height:98%}.swiper-scrollbar-drag{height:100%;width:100%;position:relative;background:rgba(0,0,0,.5);border-radius:10px;left:0;top:0}.swiper-scrollbar-cursor-drag{cursor:move}.swiper-scrollbar-lock{display:none}.swiper-zoom-container{width:100%;height:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;text-align:center}.swiper-zoom-container>canvas,.swiper-zoom-container>img,.swiper-zoom-container>svg{max-width:100%;max-height:100%;-o-object-fit:contain;object-fit:contain}.swiper-slide-zoomed{cursor:move}.swiper-lazy-preloader{width:42px;height:42px;position:absolute;left:50%;top:50%;margin-left:-21px;margin-top:-21px;z-index:10;-webkit-transform-origin:50%;-ms-transform-origin:50%;transform-origin:50%;-webkit-animation:swiper-preloader-spin 1s steps(12,end) infinite;animation:swiper-preloader-spin 1s steps(12,end) infinite}.swiper-lazy-preloader:after{display:block;content:\"\";width:100%;height:100%;background-image:url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D\'0%200%20120%20120\'%20xmlns%3D\'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg\'%20xmlns%3Axlink%3D\'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink\'%3E%3Cdefs%3E%3Cline%20id%3D\'l\'%20x1%3D\'60\'%20x2%3D\'60\'%20y1%3D\'7\'%20y2%3D\'27\'%20stroke%3D\'%236c6c6c\'%20stroke-width%3D\'11\'%20stroke-linecap%3D\'round\'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.27\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.27\'%20transform%3D\'rotate(30%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.27\'%20transform%3D\'rotate(60%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.27\'%20transform%3D\'rotate(90%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.27\'%20transform%3D\'rotate(120%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.27\'%20transform%3D\'rotate(150%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.37\'%20transform%3D\'rotate(180%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.46\'%20transform%3D\'rotate(210%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.56\'%20transform%3D\'rotate(240%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.66\'%20transform%3D\'rotate(270%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.75\'%20transform%3D\'rotate(300%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.85\'%20transform%3D\'rotate(330%2060%2C60)\'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E\");background-position:50%;background-size:100%;background-repeat:no-repeat}.swiper-lazy-preloader-white:after{background-image:url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D\'0%200%20120%20120\'%20xmlns%3D\'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg\'%20xmlns%3Axlink%3D\'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink\'%3E%3Cdefs%3E%3Cline%20id%3D\'l\'%20x1%3D\'60\'%20x2%3D\'60\'%20y1%3D\'7\'%20y2%3D\'27\'%20stroke%3D\'%23fff\'%20stroke-width%3D\'11\'%20stroke-linecap%3D\'round\'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.27\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.27\'%20transform%3D\'rotate(30%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.27\'%20transform%3D\'rotate(60%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.27\'%20transform%3D\'rotate(90%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.27\'%20transform%3D\'rotate(120%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.27\'%20transform%3D\'rotate(150%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.37\'%20transform%3D\'rotate(180%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.46\'%20transform%3D\'rotate(210%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.56\'%20transform%3D\'rotate(240%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.66\'%20transform%3D\'rotate(270%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.75\'%20transform%3D\'rotate(300%2060%2C60)\'%2F%3E%3Cuse%20xlink%3Ahref%3D\'%23l\'%20opacity%3D\'.85\'%20transform%3D\'rotate(330%2060%2C60)\'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E\")}\@-webkit-keyframes swiper-preloader-spin{to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}\@keyframes swiper-preloader-spin{to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}.swiper-container .swiper-notification{position:absolute;left:0;top:0;pointer-events:none;opacity:0;z-index:-1000}.swiper-container-fade.swiper-container-free-mode .swiper-slide{-webkit-transition-timing-function:ease-out;-o-transition-timing-function:ease-out;transition-timing-function:ease-out}.swiper-container-fade .swiper-slide{pointer-events:none;-webkit-transition-property:opacity;-o-transition-property:opacity;transition-property:opacity}.swiper-container-fade .swiper-slide .swiper-slide{pointer-events:none}.swiper-container-fade .swiper-slide-active,.swiper-container-fade .swiper-slide-active .swiper-slide-active{pointer-events:auto}.swiper-container-cube{overflow:visible}.swiper-container-cube .swiper-slide{pointer-events:none;-webkit-backface-visibility:hidden;backface-visibility:hidden;z-index:1;visibility:hidden;-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0;width:100%;height:100%}.swiper-container-cube .swiper-slide .swiper-slide{pointer-events:none}.swiper-container-cube.swiper-container-rtl .swiper-slide{-webkit-transform-origin:100% 0;-ms-transform-origin:100% 0;transform-origin:100% 0}.swiper-container-cube .swiper-slide-active,.swiper-container-cube .swiper-slide-active .swiper-slide-active{pointer-events:auto}.swiper-container-cube .swiper-slide-active,.swiper-container-cube .swiper-slide-next,.swiper-container-cube .swiper-slide-next+.swiper-slide,.swiper-container-cube .swiper-slide-prev{pointer-events:auto;visibility:visible}.swiper-container-cube .swiper-slide-shadow-bottom,.swiper-container-cube .swiper-slide-shadow-left,.swiper-container-cube .swiper-slide-shadow-right,.swiper-container-cube .swiper-slide-shadow-top{z-index:0;-webkit-backface-visibility:hidden;backface-visibility:hidden}.swiper-container-cube .swiper-cube-shadow{position:absolute;left:0;bottom:0;width:100%;height:100%;background:#000;opacity:.6;-webkit-filter:blur(50px);filter:blur(50px);z-index:0}.swiper-container-flip{overflow:visible}.swiper-container-flip .swiper-slide{pointer-events:none;-webkit-backface-visibility:hidden;backface-visibility:hidden;z-index:1}.swiper-container-flip .swiper-slide .swiper-slide{pointer-events:none}.swiper-container-flip .swiper-slide-active,.swiper-container-flip .swiper-slide-active .swiper-slide-active{pointer-events:auto}.swiper-container-flip .swiper-slide-shadow-bottom,.swiper-container-flip .swiper-slide-shadow-left,.swiper-container-flip .swiper-slide-shadow-right,.swiper-container-flip .swiper-slide-shadow-top{z-index:0;-webkit-backface-visibility:hidden;backface-visibility:hidden}.swiper-container-coverflow .swiper-wrapper{-ms-perspective:1200px}ion-slides{display:block;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swiper-pagination-bullet{background:var(--bullet-background)}.swiper-pagination-bullet-active{background:var(--bullet-background-active)}.swiper-pagination-progressbar{background:var(--progress-bar-background)}.swiper-pagination-progressbar .swiper-pagination-progressbar-fill{background:var(--progress-bar-background-active)}.swiper-scrollbar{background:var(--scroll-bar-background)}.swiper-scrollbar-drag{background:var(--scroll-bar-background-active)}.slides-ios{--bullet-background:var(--ion-color-step-200,#ccc);--bullet-background-active:var(--ion-color-primary,#3880ff);--progress-bar-background:rgba(var(--ion-text-color-rgb,0,0,0),0.25);--progress-bar-background-active:var(--ion-color-primary-shade,#3171e0);--scroll-bar-background:rgba(var(--ion-text-color-rgb,0,0,0),0.1);--scroll-bar-background-active:rgba(var(--ion-text-color-rgb,0,0,0),0.5)}"; }
+};
+const waitForSlides = (el) => {
+    return Promise.all(Array.from(el.querySelectorAll('ion-slide')).map(s => s.componentOnReady()));
 };
 
 

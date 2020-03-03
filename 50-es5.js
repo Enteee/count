@@ -1,455 +1,1478 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[50],{
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-/***/ "./node_modules/@ionic/core/dist/esm-es5/ion-range-ios.entry.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm-es5/ion-range-ios.entry.js ***!
-  \**********************************************************************/
-/*! exports provided: ion_range */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_range", function() { return Range; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./core-ca0488fc.js */ "./node_modules/@ionic/core/dist/esm-es5/core-ca0488fc.js");
-/* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm-es5/config-3c7f3790.js");
-/* harmony import */ var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers-46f4a262.js */ "./node_modules/@ionic/core/dist/esm-es5/helpers-46f4a262.js");
-/* harmony import */ var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./theme-18cbe2cc.js */ "./node_modules/@ionic/core/dist/esm-es5/theme-18cbe2cc.js");
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[50], {
+  /***/
+  "./node_modules/@ionic/core/dist/esm/ion-refresher_2-md.entry.js":
+  /*!***********************************************************************!*\
+    !*** ./node_modules/@ionic/core/dist/esm/ion-refresher_2-md.entry.js ***!
+    \***********************************************************************/
+
+  /*! exports provided: ion_refresher, ion_refresher_content */
+
+  /***/
+  function node_modulesIonicCoreDistEsmIonRefresher_2MdEntryJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
 
 
+    __webpack_require__.d(__webpack_exports__, "ion_refresher", function () {
+      return Refresher;
+    });
+    /* harmony export (binding) */
 
 
+    __webpack_require__.d(__webpack_exports__, "ion_refresher_content", function () {
+      return RefresherContent;
+    });
+    /* harmony import */
 
-var Range = /** @class */ (function () {
-    function class_1(hostRef) {
-        var _this = this;
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["r"])(this, hostRef);
-        this.noUpdate = false;
-        this.hasFocus = false;
-        this.ratioA = 0;
-        this.ratioB = 0;
+
+    var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./core-0a8d4d2e.js */
+    "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
+    /* harmony import */
+
+
+    var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./config-3c7f3790.js */
+    "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
+    /* harmony import */
+
+
+    var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./helpers-46f4a262.js */
+    "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
+    /* harmony import */
+
+
+    var _animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./animation-56279521.js */
+    "./node_modules/@ionic/core/dist/esm/animation-56279521.js");
+    /* harmony import */
+
+
+    var _cubic_bezier_1d592096_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./cubic-bezier-1d592096.js */
+    "./node_modules/@ionic/core/dist/esm/cubic-bezier-1d592096.js");
+    /* harmony import */
+
+
+    var _index_c38df685_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ./index-c38df685.js */
+    "./node_modules/@ionic/core/dist/esm/index-c38df685.js");
+    /* harmony import */
+
+
+    var _index_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./index.mjs */
+    "./node_modules/@ionic/core/dist/esm/index.mjs");
+    /* harmony import */
+
+
+    var _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ./constants-3c3e1099.js */
+    "./node_modules/@ionic/core/dist/esm/constants-3c3e1099.js");
+    /* harmony import */
+
+
+    var _hardware_back_button_1ed0083a_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ./hardware-back-button-1ed0083a.js */
+    "./node_modules/@ionic/core/dist/esm/hardware-back-button-1ed0083a.js");
+    /* harmony import */
+
+
+    var _index_c58c7441_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ./index-c58c7441.js */
+    "./node_modules/@ionic/core/dist/esm/index-c58c7441.js");
+    /* harmony import */
+
+
+    var _overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ./overlays-e336664a.js */
+    "./node_modules/@ionic/core/dist/esm/overlays-e336664a.js");
+    /* harmony import */
+
+
+    var _index_3476b023_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! ./index-3476b023.js */
+    "./node_modules/@ionic/core/dist/esm/index-3476b023.js");
+    /* harmony import */
+
+
+    var _spinner_configs_28520d80_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! ./spinner-configs-28520d80.js */
+    "./node_modules/@ionic/core/dist/esm/spinner-configs-28520d80.js");
+
+    var HapticEngine = {
+      getEngine: function getEngine() {
+        var win = window;
+        return win.TapticEngine || win.Capacitor && win.Capacitor.Plugins.Haptics;
+      },
+      available: function available() {
+        return !!this.getEngine();
+      },
+      isCordova: function isCordova() {
+        return !!window.TapticEngine;
+      },
+      isCapacitor: function isCapacitor() {
+        var win = window;
+        return !!win.Capacitor;
+      },
+      impact: function impact(options) {
+        var engine = this.getEngine();
+
+        if (!engine) {
+          return;
+        }
+
+        var style = this.isCapacitor() ? options.style.toUpperCase() : options.style;
+        engine.impact({
+          style: style
+        });
+      },
+      notification: function notification(options) {
+        var engine = this.getEngine();
+
+        if (!engine) {
+          return;
+        }
+
+        var style = this.isCapacitor() ? options.style.toUpperCase() : options.style;
+        engine.notification({
+          style: style
+        });
+      },
+      selection: function selection() {
+        this.impact({
+          style: 'light'
+        });
+      },
+      selectionStart: function selectionStart() {
+        var engine = this.getEngine();
+
+        if (!engine) {
+          return;
+        }
+
+        if (this.isCapacitor()) {
+          engine.selectionStart();
+        } else {
+          engine.gestureSelectionStart();
+        }
+      },
+      selectionChanged: function selectionChanged() {
+        var engine = this.getEngine();
+
+        if (!engine) {
+          return;
+        }
+
+        if (this.isCapacitor()) {
+          engine.selectionChanged();
+        } else {
+          engine.gestureSelectionChanged();
+        }
+      },
+      selectionEnd: function selectionEnd() {
+        var engine = this.getEngine();
+
+        if (!engine) {
+          return;
+        }
+
+        if (this.isCapacitor()) {
+          engine.selectionChanged();
+        } else {
+          engine.gestureSelectionChanged();
+        }
+      }
+    };
+    /**
+     * Use this to indicate success/failure/warning to the user.
+     * options should be of the type `{ style: 'light' }` (or `medium`/`heavy`)
+     */
+
+    var hapticImpact = function hapticImpact(options) {
+      HapticEngine.impact(options);
+    };
+
+    var getRefresherAnimationType = function getRefresherAnimationType(contentEl) {
+      var previousSibling = contentEl.previousElementSibling;
+      var hasHeader = previousSibling !== null && previousSibling.tagName === 'ION-HEADER';
+      return hasHeader ? 'translate' : 'scale';
+    };
+
+    var createPullingAnimation = function createPullingAnimation(type, pullingSpinner) {
+      return type === 'scale' ? createScaleAnimation(pullingSpinner) : createTranslateAnimation(pullingSpinner);
+    };
+
+    var createBaseAnimation = function createBaseAnimation(pullingRefresherIcon) {
+      var spinner = pullingRefresherIcon.querySelector('ion-spinner');
+      var circle = spinner.shadowRoot.querySelector('circle');
+      var spinnerArrowContainer = pullingRefresherIcon.querySelector('.spinner-arrow-container');
+      var arrowContainer = pullingRefresherIcon.querySelector('.arrow-container');
+      var arrow = arrowContainer ? arrowContainer.querySelector('ion-icon') : null;
+      var baseAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().duration(1000).easing('ease-out');
+      var spinnerArrowContainerAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(spinnerArrowContainer).keyframes([{
+        offset: 0,
+        opacity: '0.3'
+      }, {
+        offset: 0.45,
+        opacity: '0.3'
+      }, {
+        offset: 0.55,
+        opacity: '1'
+      }, {
+        offset: 1,
+        opacity: '1'
+      }]);
+      var circleInnerAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(circle).keyframes([{
+        offset: 0,
+        strokeDasharray: '1px, 200px'
+      }, {
+        offset: 0.20,
+        strokeDasharray: '1px, 200px'
+      }, {
+        offset: 0.55,
+        strokeDasharray: '100px, 200px'
+      }, {
+        offset: 1,
+        strokeDasharray: '100px, 200px'
+      }]);
+      var circleOuterAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(spinner).keyframes([{
+        offset: 0,
+        transform: 'rotate(-90deg)'
+      }, {
+        offset: 1,
+        transform: 'rotate(210deg)'
+      }]);
+      /**
+       * Only add arrow animation if present
+       * this allows users to customize the spinners
+       * without errors being thrown
+       */
+
+      if (arrowContainer && arrow) {
+        var arrowContainerAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(arrowContainer).keyframes([{
+          offset: 0,
+          transform: 'rotate(0deg)'
+        }, {
+          offset: 0.30,
+          transform: 'rotate(0deg)'
+        }, {
+          offset: 0.55,
+          transform: 'rotate(280deg)'
+        }, {
+          offset: 1,
+          transform: 'rotate(400deg)'
+        }]);
+        var arrowAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(arrow).keyframes([{
+          offset: 0,
+          transform: 'translateX(2px) scale(0)'
+        }, {
+          offset: 0.30,
+          transform: 'translateX(2px) scale(0)'
+        }, {
+          offset: 0.55,
+          transform: 'translateX(-1.5px) scale(1)'
+        }, {
+          offset: 1,
+          transform: 'translateX(-1.5px) scale(1)'
+        }]);
+        baseAnimation.addAnimation([arrowContainerAnimation, arrowAnimation]);
+      }
+
+      return baseAnimation.addAnimation([spinnerArrowContainerAnimation, circleInnerAnimation, circleOuterAnimation]);
+    };
+
+    var createScaleAnimation = function createScaleAnimation(pullingRefresherIcon) {
+      var height = pullingRefresherIcon.clientHeight;
+      var spinnerAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(pullingRefresherIcon).keyframes([{
+        offset: 0,
+        transform: "scale(0) translateY(-".concat(height + 20, "px)")
+      }, {
+        offset: 1,
+        transform: 'scale(1) translateY(100px)'
+      }]);
+      return createBaseAnimation(pullingRefresherIcon).addAnimation([spinnerAnimation]);
+    };
+
+    var createTranslateAnimation = function createTranslateAnimation(pullingRefresherIcon) {
+      var height = pullingRefresherIcon.clientHeight;
+      var spinnerAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(pullingRefresherIcon).keyframes([{
+        offset: 0,
+        transform: "translateY(-".concat(height + 20, "px)")
+      }, {
+        offset: 1,
+        transform: 'translateY(100px)'
+      }]);
+      return createBaseAnimation(pullingRefresherIcon).addAnimation([spinnerAnimation]);
+    };
+
+    var createSnapBackAnimation = function createSnapBackAnimation(pullingRefresherIcon) {
+      return Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().duration(125).addElement(pullingRefresherIcon).fromTo('transform', 'translateY(var(--ion-pulling-refresher-translate, 100px))', 'translateY(0px)');
+    }; // iOS Native Refresher
+    // -----------------------------
+
+
+    var setSpinnerOpacity = function setSpinnerOpacity(spinner, opacity) {
+      spinner.style.setProperty('opacity', opacity.toString());
+    };
+
+    var handleScrollWhilePulling = function handleScrollWhilePulling(spinner, ticks, opacity, currentTickToShow) {
+      Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
+        setSpinnerOpacity(spinner, opacity);
+        ticks.forEach(function (el, i) {
+          return el.style.setProperty('opacity', i <= currentTickToShow ? '0.99' : '0');
+        });
+      });
+    };
+
+    var handleScrollWhileRefreshing = function handleScrollWhileRefreshing(spinner, lastVelocityY) {
+      Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
+        // If user pulls down quickly, the spinner should spin faster
+        spinner.style.setProperty('--refreshing-rotation-duration', lastVelocityY >= 1.0 ? '0.5s' : '2s');
+        spinner.style.setProperty('opacity', '1');
+      });
+    };
+
+    var translateElement = function translateElement(el, value) {
+      if (!el) {
+        return Promise.resolve();
+      }
+
+      var trans = transitionEndAsync(el);
+      Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
+        el.style.setProperty('transition', '0.2s all ease-out');
+
+        if (value === undefined) {
+          el.style.removeProperty('transform');
+        } else {
+          el.style.setProperty('transform', "translate3d(0px, ".concat(value, ", 0px)"));
+        }
+      });
+      return trans;
+    }; // Utils
+    // -----------------------------
+
+
+    var shouldUseNativeRefresher = function shouldUseNativeRefresher(referenceEl, mode) {
+      var pullingSpinner = referenceEl.querySelector('ion-refresher-content .refresher-pulling ion-spinner');
+      var refreshingSpinner = referenceEl.querySelector('ion-refresher-content .refresher-refreshing ion-spinner');
+      return pullingSpinner !== null && refreshingSpinner !== null && (mode === 'ios' && Object(_config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["i"])('mobile') && referenceEl.style.webkitOverflowScrolling !== undefined || mode === 'md');
+    };
+
+    var transitionEndAsync = function transitionEndAsync(el) {
+      return new Promise(function (resolve) {
+        transitionEnd(el, resolve);
+      });
+    };
+
+    var transitionEnd = function transitionEnd(el, callback) {
+      var unRegTrans;
+      var opts = {
+        passive: true
+      };
+
+      var unregister = function unregister() {
+        if (unRegTrans) {
+          unRegTrans();
+        }
+      };
+
+      var onTransitionEnd = function onTransitionEnd(ev) {
+        if (el === ev.target) {
+          unregister();
+          callback(ev);
+        }
+      };
+
+      if (el) {
+        el.addEventListener('webkitTransitionEnd', onTransitionEnd, opts);
+        el.addEventListener('transitionend', onTransitionEnd, opts);
+
+        unRegTrans = function unRegTrans() {
+          el.removeEventListener('webkitTransitionEnd', onTransitionEnd, opts);
+          el.removeEventListener('transitionend', onTransitionEnd, opts);
+        };
+      }
+
+      return unregister;
+    };
+
+    var Refresher = /*#__PURE__*/function () {
+      function Refresher(hostRef) {
+        _classCallCheck(this, Refresher);
+
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.appliedStyles = false;
+        this.didStart = false;
+        this.progress = 0;
+        this.pointerDown = false;
+        this.needsCompletion = false;
+        this.didRefresh = false;
+        this.lastVelocityY = 0;
+        this.animations = [];
+        this.nativeRefresher = false;
         /**
-         * How long, in milliseconds, to wait to trigger the
-         * `ionChange` event after each change in the range value.
+         * The current state which the refresher is in. The refresher's states include:
+         *
+         * - `inactive` - The refresher is not being pulled down or refreshing and is currently hidden.
+         * - `pulling` - The user is actively pulling down the refresher, but has not reached the point yet that if the user lets go, it'll refresh.
+         * - `cancelling` - The user pulled down the refresher and let go, but did not pull down far enough to kick off the `refreshing` state. After letting go, the refresher is in the `cancelling` state while it is closing, and will go back to the `inactive` state once closed.
+         * - `ready` - The user has pulled down the refresher far enough that if they let go, it'll begin the `refreshing` state.
+         * - `refreshing` - The refresher is actively waiting on the async operation to end. Once the refresh handler calls `complete()` it will begin the `completing` state.
+         * - `completing` - The `refreshing` state has finished and the refresher is in the way of closing itself. Once closed, the refresher will go back to the `inactive` state.
          */
-        this.debounce = 0;
+
+        this.state = 1
+        /* Inactive */
+        ;
         /**
-         * The name of the control, which is submitted with the form data.
+         * The minimum distance the user must pull down until the
+         * refresher will go into the `refreshing` state.
+         * Does not apply when the refresher content uses a spinner,
+         * enabling the native refresher.
          */
-        this.name = '';
+
+        this.pullMin = 60;
         /**
-         * Show two knobs.
+         * The maximum distance of the pull until the refresher
+         * will automatically go into the `refreshing` state.
+         * Defaults to the result of `pullMin + 60`.
+         * Does not apply when  the refresher content uses a spinner,
+         * enabling the native refresher.
          */
-        this.dualKnobs = false;
+
+        this.pullMax = this.pullMin + 60;
         /**
-         * Minimum integer value of the range.
+         * Time it takes to close the refresher.
+         * Does not apply when the refresher content uses a spinner,
+         * enabling the native refresher.
          */
-        this.min = 0;
+
+        this.closeDuration = '280ms';
         /**
-         * Maximum integer value of the range.
+         * Time it takes the refresher to to snap back to the `refreshing` state.
+         * Does not apply when the refresher content uses a spinner,
+         * enabling the native refresher.
          */
-        this.max = 100;
+
+        this.snapbackDuration = '280ms';
         /**
-         * If `true`, a pin with integer value is shown when the knob
-         * is pressed.
+         * How much to multiply the pull speed by. To slow the pull animation down,
+         * pass a number less than `1`. To speed up the pull, pass a number greater
+         * than `1`. The default value is `1` which is equal to the speed of the cursor.
+         * If a negative value is passed in, the factor will be `1` instead.
+         *
+         * For example: If the value passed is `1.2` and the content is dragged by
+         * `10` pixels, instead of `10` pixels the content will be pulled by `12` pixels
+         * (an increase of 20 percent). If the value passed is `0.8`, the dragged amount
+         * will be `8` pixels, less than the amount the cursor has moved.
+         *
+         * Does not apply when the refresher content uses a spinner,
+         * enabling the native refresher.
          */
-        this.pin = false;
+
+        this.pullFactor = 1;
         /**
-         * If `true`, the knob snaps to tick marks evenly spaced based
-         * on the step property value.
+         * If `true`, the refresher will be hidden.
          */
-        this.snaps = false;
-        /**
-         * Specifies the value granularity.
-         */
-        this.step = 1;
-        /**
-         * If `true`, tick marks are displayed based on the step value.
-         * Only applies when `snaps` is `true`.
-         */
-        this.ticks = true;
-        /**
-         * If `true`, the user cannot interact with the range.
-         */
+
         this.disabled = false;
-        /**
-         * the value of the range.
-         */
-        this.value = 0;
-        this.clampBounds = function (value) {
-            return Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_3__["c"])(_this.min, value, _this.max);
-        };
-        this.ensureValueInBounds = function (value) {
-            if (_this.dualKnobs) {
-                return {
-                    lower: _this.clampBounds(value.lower),
-                    upper: _this.clampBounds(value.upper)
-                };
-            }
-            else {
-                return _this.clampBounds(value);
-            }
-        };
-        this.handleKeyboard = function (knob, isIncrease) {
-            var step = _this.step;
-            step = step > 0 ? step : 1;
-            step = step / (_this.max - _this.min);
-            if (!isIncrease) {
-                step *= -1;
-            }
-            if (knob === 'A') {
-                _this.ratioA = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_3__["c"])(0, _this.ratioA + step, 1);
-            }
-            else {
-                _this.ratioB = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_3__["c"])(0, _this.ratioB + step, 1);
-            }
-            _this.updateValue();
-        };
-        this.onBlur = function () {
-            if (_this.hasFocus) {
-                _this.hasFocus = false;
-                _this.ionBlur.emit();
-                _this.emitStyle();
-            }
-        };
-        this.onFocus = function () {
-            if (!_this.hasFocus) {
-                _this.hasFocus = true;
-                _this.ionFocus.emit();
-                _this.emitStyle();
-            }
-        };
-        this.ionChange = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["c"])(this, "ionChange", 7);
-        this.ionStyle = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["c"])(this, "ionStyle", 7);
-        this.ionFocus = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["c"])(this, "ionFocus", 7);
-        this.ionBlur = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["c"])(this, "ionBlur", 7);
-    }
-    class_1.prototype.debounceChanged = function () {
-        this.ionChange = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_3__["d"])(this.ionChange, this.debounce);
-    };
-    class_1.prototype.minChanged = function () {
-        if (!this.noUpdate) {
-            this.updateRatio();
+        this.ionRefresh = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionRefresh", 7);
+        this.ionPull = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionPull", 7);
+        this.ionStart = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionStart", 7);
+      }
+
+      _createClass(Refresher, [{
+        key: "disabledChanged",
+        value: function disabledChanged() {
+          if (this.gesture) {
+            this.gesture.enable(!this.disabled);
+          }
         }
-    };
-    class_1.prototype.maxChanged = function () {
-        if (!this.noUpdate) {
-            this.updateRatio();
+      }, {
+        key: "checkNativeRefresher",
+        value: function checkNativeRefresher() {
+          var useNativeRefresher = shouldUseNativeRefresher(this.el, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this));
+
+          if (useNativeRefresher && !this.nativeRefresher) {
+            var contentEl = this.el.closest('ion-content');
+            this.setupNativeRefresher(contentEl);
+          } else if (!useNativeRefresher) {
+            this.destroyNativeRefresher();
+          }
         }
-    };
-    class_1.prototype.disabledChanged = function () {
-        if (this.gesture) {
-            this.gesture.setDisabled(this.disabled);
+      }, {
+        key: "destroyNativeRefresher",
+        value: function destroyNativeRefresher() {
+          if (this.scrollEl && this.scrollListenerCallback) {
+            this.scrollEl.removeEventListener('scroll', this.scrollListenerCallback);
+            this.scrollListenerCallback = undefined;
+          }
+
+          this.nativeRefresher = false;
         }
-        this.emitStyle();
-    };
-    class_1.prototype.valueChanged = function (value) {
-        if (!this.noUpdate) {
-            this.updateRatio();
+      }, {
+        key: "resetNativeRefresher",
+        value: function () {
+          var _resetNativeRefresher = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(el, state) {
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    this.state = state;
+
+                    if (!(Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this) === 'ios')) {
+                      _context.next = 6;
+                      break;
+                    }
+
+                    _context.next = 4;
+                    return translateElement(el, undefined);
+
+                  case 4:
+                    _context.next = 8;
+                    break;
+
+                  case 6:
+                    _context.next = 8;
+                    return transitionEndAsync(this.el.querySelector('.refresher-refreshing-icon'));
+
+                  case 8:
+                    this.didRefresh = false;
+                    this.needsCompletion = false;
+                    this.pointerDown = false;
+                    this.animations.forEach(function (ani) {
+                      return ani.destroy();
+                    });
+                    this.animations = [];
+                    this.progress = 0;
+                    this.state = 1
+                    /* Inactive */
+                    ;
+
+                  case 15:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee, this);
+          }));
+
+          function resetNativeRefresher(_x, _x2) {
+            return _resetNativeRefresher.apply(this, arguments);
+          }
+
+          return resetNativeRefresher;
+        }()
+      }, {
+        key: "setupiOSNativeRefresher",
+        value: function () {
+          var _setupiOSNativeRefresher = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(pullingSpinner, refreshingSpinner) {
+            var _this = this;
+
+            var ticks, MAX_PULL, NUM_TICKS;
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    this.elementToTransform = this.scrollEl;
+                    ticks = pullingSpinner.shadowRoot.querySelectorAll('svg');
+                    MAX_PULL = this.scrollEl.clientHeight * 0.16;
+                    NUM_TICKS = ticks.length;
+                    Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
+                      return ticks.forEach(function (el) {
+                        return el.style.setProperty('animation', 'none');
+                      });
+                    });
+
+                    this.scrollListenerCallback = function () {
+                      // If pointer is not on screen or refresher is not active, ignore scroll
+                      if (!_this.pointerDown && _this.state === 1
+                      /* Inactive */
+                      ) {
+                          return;
+                        }
+
+                      Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["f"])(function () {
+                        // PTR should only be active when overflow scrolling at the top
+                        var scrollTop = _this.scrollEl.scrollTop;
+                        var refresherHeight = _this.el.clientHeight;
+
+                        if (scrollTop > 0) {
+                          /**
+                           * If refresher is refreshing and user tries to scroll
+                           * progressively fade refresher out/in
+                           */
+                          if (_this.state === 8
+                          /* Refreshing */
+                          ) {
+                              var ratio = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["c"])(0, scrollTop / (refresherHeight * 0.5), 1);
+                              Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
+                                return setSpinnerOpacity(refreshingSpinner, 1 - ratio);
+                              });
+                              return;
+                            }
+
+                          Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
+                            return setSpinnerOpacity(pullingSpinner, 0);
+                          });
+                          return;
+                        }
+
+                        if (_this.pointerDown) {
+                          if (!_this.didStart) {
+                            _this.didStart = true;
+
+                            _this.ionStart.emit();
+                          } // emit "pulling" on every move
+
+
+                          if (_this.pointerDown) {
+                            _this.ionPull.emit();
+                          }
+                        } // delay showing the next tick marks until user has pulled 30px
+
+
+                        var opacity = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["c"])(0, Math.abs(scrollTop) / refresherHeight, 0.99);
+                        var pullAmount = _this.progress = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["c"])(0, (Math.abs(scrollTop) - 30) / MAX_PULL, 1);
+                        var currentTickToShow = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["c"])(0, Math.floor(pullAmount * NUM_TICKS), NUM_TICKS - 1);
+                        var shouldShowRefreshingSpinner = _this.state === 8
+                        /* Refreshing */
+                        || currentTickToShow === NUM_TICKS - 1;
+
+                        if (shouldShowRefreshingSpinner) {
+                          if (_this.pointerDown) {
+                            handleScrollWhileRefreshing(refreshingSpinner, _this.lastVelocityY);
+                          }
+
+                          if (!_this.didRefresh) {
+                            _this.beginRefresh();
+
+                            _this.didRefresh = true;
+                            hapticImpact({
+                              style: 'light'
+                            });
+                            /**
+                             * Translate the content element otherwise when pointer is removed
+                             * from screen the scroll content will bounce back over the refresher
+                             */
+
+                            if (!_this.pointerDown) {
+                              translateElement(_this.elementToTransform, "".concat(refresherHeight, "px"));
+                            }
+                          }
+                        } else {
+                          _this.state = 2
+                          /* Pulling */
+                          ;
+                          handleScrollWhilePulling(pullingSpinner, ticks, opacity, currentTickToShow);
+                        }
+                      });
+                    };
+
+                    this.scrollEl.addEventListener('scroll', this.scrollListenerCallback);
+                    _context2.next = 9;
+                    return Promise.resolve().then(__webpack_require__.bind(null,
+                    /*! ./index-c38df685.js */
+                    "./node_modules/@ionic/core/dist/esm/index-c38df685.js"));
+
+                  case 9:
+                    _context2.t0 = {
+                      el: this.scrollEl,
+                      gestureName: 'refresher',
+                      gesturePriority: 10,
+                      direction: 'y',
+                      threshold: 5,
+                      onStart: function onStart() {
+                        _this.pointerDown = true;
+
+                        if (!_this.didRefresh) {
+                          translateElement(_this.elementToTransform, '0px');
+                        }
+                      },
+                      onMove: function onMove(ev) {
+                        _this.lastVelocityY = ev.velocityY;
+                      },
+                      onEnd: function onEnd() {
+                        _this.pointerDown = false;
+                        _this.didStart = false;
+
+                        if (_this.needsCompletion) {
+                          _this.resetNativeRefresher(_this.elementToTransform, 32
+                          /* Completing */
+                          );
+
+                          _this.needsCompletion = false;
+                        } else if (_this.didRefresh) {
+                          Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["f"])(function () {
+                            return translateElement(_this.elementToTransform, "".concat(_this.el.clientHeight, "px"));
+                          });
+                        }
+                      }
+                    };
+                    this.gesture = _context2.sent.createGesture(_context2.t0);
+                    this.disabledChanged();
+
+                  case 12:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2, this);
+          }));
+
+          function setupiOSNativeRefresher(_x3, _x4) {
+            return _setupiOSNativeRefresher.apply(this, arguments);
+          }
+
+          return setupiOSNativeRefresher;
+        }()
+      }, {
+        key: "setupMDNativeRefresher",
+        value: function () {
+          var _setupMDNativeRefresher = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(contentEl, pullingSpinner, refreshingSpinner) {
+            var _this2 = this;
+
+            var circle, pullingRefresherIcon, refreshingCircle;
+            return regeneratorRuntime.wrap(function _callee4$(_context4) {
+              while (1) {
+                switch (_context4.prev = _context4.next) {
+                  case 0:
+                    circle = pullingSpinner.shadowRoot.querySelector('circle');
+                    pullingRefresherIcon = this.el.querySelector('ion-refresher-content .refresher-pulling-icon');
+                    refreshingCircle = refreshingSpinner.shadowRoot.querySelector('circle');
+
+                    if (circle !== null && refreshingCircle !== null) {
+                      Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
+                        circle.style.setProperty('animation', 'none'); // This lines up the animation on the refreshing spinner with the pulling spinner
+
+                        refreshingSpinner.style.setProperty('animation-delay', '-655ms');
+                        refreshingCircle.style.setProperty('animation-delay', '-655ms');
+                      });
+                    }
+
+                    _context4.next = 6;
+                    return Promise.resolve().then(__webpack_require__.bind(null,
+                    /*! ./index-c38df685.js */
+                    "./node_modules/@ionic/core/dist/esm/index-c38df685.js"));
+
+                  case 6:
+                    _context4.t0 = {
+                      el: this.scrollEl,
+                      gestureName: 'refresher',
+                      gesturePriority: 10,
+                      direction: 'y',
+                      threshold: 5,
+                      canStart: function canStart() {
+                        return _this2.state !== 8
+                        /* Refreshing */
+                        && _this2.state !== 32
+                        /* Completing */
+                        && _this2.scrollEl.scrollTop === 0;
+                      },
+                      onStart: function onStart(ev) {
+                        ev.data = {
+                          animation: undefined,
+                          didStart: false,
+                          cancelled: false
+                        };
+                      },
+                      onMove: function onMove(ev) {
+                        if (ev.velocityY < 0 && _this2.progress === 0 && !ev.data.didStart || ev.data.cancelled) {
+                          ev.data.cancelled = true;
+                          return;
+                        }
+
+                        if (!ev.data.didStart) {
+                          ev.data.didStart = true;
+                          _this2.state = 2
+                          /* Pulling */
+                          ;
+                          Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
+                            var animationType = getRefresherAnimationType(contentEl);
+                            var animation = createPullingAnimation(animationType, pullingRefresherIcon);
+                            ev.data.animation = animation;
+
+                            _this2.scrollEl.style.setProperty('--overflow', 'hidden');
+
+                            animation.progressStart(false, 0);
+
+                            _this2.ionStart.emit();
+
+                            _this2.animations.push(animation);
+                          });
+                          return;
+                        } // Since we are using an easing curve, slow the gesture tracking down a bit
+
+
+                        _this2.progress = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["c"])(0, ev.deltaY / 180 * 0.5, 1);
+                        ev.data.animation.progressStep(_this2.progress);
+
+                        _this2.ionPull.emit();
+                      },
+                      onEnd: function onEnd(ev) {
+                        if (!ev.data.didStart) {
+                          return;
+                        }
+
+                        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
+                          return _this2.scrollEl.style.removeProperty('--overflow');
+                        });
+
+                        if (_this2.progress <= 0.4) {
+                          _this2.gesture.enable(false);
+
+                          ev.data.animation.progressEnd(0, _this2.progress, 500).onFinish(function () {
+                            _this2.animations.forEach(function (ani) {
+                              return ani.destroy();
+                            });
+
+                            _this2.animations = [];
+
+                            _this2.gesture.enable(true);
+
+                            _this2.state = 1
+                            /* Inactive */
+                            ;
+                          });
+                          return;
+                        }
+
+                        var progress = Object(_cubic_bezier_1d592096_js__WEBPACK_IMPORTED_MODULE_4__["g"])([0, 0], [0, 0], [1, 1], [1, 1], _this2.progress)[0];
+                        var snapBackAnimation = createSnapBackAnimation(pullingRefresherIcon);
+
+                        _this2.animations.push(snapBackAnimation);
+
+                        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+                          return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                            while (1) {
+                              switch (_context3.prev = _context3.next) {
+                                case 0:
+                                  pullingRefresherIcon.style.setProperty('--ion-pulling-refresher-translate', "".concat(progress * 100, "px"));
+                                  ev.data.animation.progressEnd();
+                                  _context3.next = 4;
+                                  return snapBackAnimation.play();
+
+                                case 4:
+                                  _this2.beginRefresh();
+
+                                  ev.data.animation.destroy();
+
+                                case 6:
+                                case "end":
+                                  return _context3.stop();
+                              }
+                            }
+                          }, _callee3);
+                        })));
+                      }
+                    };
+                    this.gesture = _context4.sent.createGesture(_context4.t0);
+                    this.disabledChanged();
+
+                  case 9:
+                  case "end":
+                    return _context4.stop();
+                }
+              }
+            }, _callee4, this);
+          }));
+
+          function setupMDNativeRefresher(_x5, _x6, _x7) {
+            return _setupMDNativeRefresher.apply(this, arguments);
+          }
+
+          return setupMDNativeRefresher;
+        }()
+      }, {
+        key: "setupNativeRefresher",
+        value: function () {
+          var _setupNativeRefresher = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(contentEl) {
+            var pullingSpinner, refreshingSpinner;
+            return regeneratorRuntime.wrap(function _callee5$(_context5) {
+              while (1) {
+                switch (_context5.prev = _context5.next) {
+                  case 0:
+                    if (!(this.scrollListenerCallback || !contentEl || this.nativeRefresher || !this.scrollEl)) {
+                      _context5.next = 2;
+                      break;
+                    }
+
+                    return _context5.abrupt("return");
+
+                  case 2:
+                    this.nativeRefresher = true;
+                    pullingSpinner = this.el.querySelector('ion-refresher-content .refresher-pulling ion-spinner');
+                    refreshingSpinner = this.el.querySelector('ion-refresher-content .refresher-refreshing ion-spinner');
+
+                    if (Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this) === 'ios') {
+                      this.setupiOSNativeRefresher(pullingSpinner, refreshingSpinner);
+                    } else {
+                      this.setupMDNativeRefresher(contentEl, pullingSpinner, refreshingSpinner);
+                    }
+
+                  case 6:
+                  case "end":
+                    return _context5.stop();
+                }
+              }
+            }, _callee5, this);
+          }));
+
+          function setupNativeRefresher(_x8) {
+            return _setupNativeRefresher.apply(this, arguments);
+          }
+
+          return setupNativeRefresher;
+        }()
+      }, {
+        key: "componentDidUpdate",
+        value: function componentDidUpdate() {
+          this.checkNativeRefresher();
         }
-        value = this.ensureValueInBounds(value);
-        this.ionChange.emit({ value: value });
-    };
-    class_1.prototype.connectedCallback = function () {
-        this.updateRatio();
-        this.debounceChanged();
-        this.disabledChanged();
-    };
-    class_1.prototype.disconnectedCallback = function () {
-        if (this.gesture) {
+      }, {
+        key: "connectedCallback",
+        value: function () {
+          var _connectedCallback = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
+            var _this3 = this;
+
+            var contentEl;
+            return regeneratorRuntime.wrap(function _callee6$(_context6) {
+              while (1) {
+                switch (_context6.prev = _context6.next) {
+                  case 0:
+                    if (!(this.el.getAttribute('slot') !== 'fixed')) {
+                      _context6.next = 3;
+                      break;
+                    }
+
+                    console.error('Make sure you use: <ion-refresher slot="fixed">');
+                    return _context6.abrupt("return");
+
+                  case 3:
+                    contentEl = this.el.closest('ion-content');
+
+                    if (contentEl) {
+                      _context6.next = 7;
+                      break;
+                    }
+
+                    console.error('<ion-refresher> must be used inside an <ion-content>');
+                    return _context6.abrupt("return");
+
+                  case 7:
+                    _context6.next = 9;
+                    return contentEl.getScrollElement();
+
+                  case 9:
+                    this.scrollEl = _context6.sent;
+                    this.backgroundContentEl = contentEl.shadowRoot.querySelector('#background-content');
+
+                    if (!shouldUseNativeRefresher(this.el, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this))) {
+                      _context6.next = 15;
+                      break;
+                    }
+
+                    this.setupNativeRefresher(contentEl);
+                    _context6.next = 20;
+                    break;
+
+                  case 15:
+                    _context6.next = 17;
+                    return Promise.resolve().then(__webpack_require__.bind(null,
+                    /*! ./index-c38df685.js */
+                    "./node_modules/@ionic/core/dist/esm/index-c38df685.js"));
+
+                  case 17:
+                    _context6.t0 = {
+                      el: contentEl,
+                      gestureName: 'refresher',
+                      gesturePriority: 10,
+                      direction: 'y',
+                      threshold: 20,
+                      passive: false,
+                      canStart: function canStart() {
+                        return _this3.canStart();
+                      },
+                      onStart: function onStart() {
+                        return _this3.onStart();
+                      },
+                      onMove: function onMove(ev) {
+                        return _this3.onMove(ev);
+                      },
+                      onEnd: function onEnd() {
+                        return _this3.onEnd();
+                      }
+                    };
+                    this.gesture = _context6.sent.createGesture(_context6.t0);
+                    this.disabledChanged();
+
+                  case 20:
+                  case "end":
+                    return _context6.stop();
+                }
+              }
+            }, _callee6, this);
+          }));
+
+          function connectedCallback() {
+            return _connectedCallback.apply(this, arguments);
+          }
+
+          return connectedCallback;
+        }()
+      }, {
+        key: "disconnectedCallback",
+        value: function disconnectedCallback() {
+          this.destroyNativeRefresher();
+          this.scrollEl = undefined;
+
+          if (this.gesture) {
             this.gesture.destroy();
             this.gesture = undefined;
+          }
         }
-    };
-    class_1.prototype.componentDidLoad = function () {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var rangeSlider, _a;
-            var _this = this;
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        rangeSlider = this.rangeSlider;
-                        if (!rangeSlider) return [3 /*break*/, 2];
-                        _a = this;
-                        return [4 /*yield*/, Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-624eea58.js */ "./node_modules/@ionic/core/dist/esm-es5/index-624eea58.js"))];
-                    case 1:
-                        _a.gesture = (_b.sent()).createGesture({
-                            el: rangeSlider,
-                            gestureName: 'range',
-                            gesturePriority: 100,
-                            threshold: 0,
-                            onStart: function (ev) { return _this.onStart(ev); },
-                            onMove: function (ev) { return _this.onMove(ev); },
-                            onEnd: function (ev) { return _this.onEnd(ev); },
-                        });
-                        this.gesture.setDisabled(this.disabled);
-                        _b.label = 2;
-                    case 2: return [2 /*return*/];
+        /**
+         * Call `complete()` when your async operation has completed.
+         * For example, the `refreshing` state is while the app is performing
+         * an asynchronous operation, such as receiving more data from an
+         * AJAX request. Once the data has been received, you then call this
+         * method to signify that the refreshing has completed and to close
+         * the refresher. This method also changes the refresher's state from
+         * `refreshing` to `completing`.
+         */
+
+      }, {
+        key: "complete",
+        value: function () {
+          var _complete = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7() {
+            return regeneratorRuntime.wrap(function _callee7$(_context7) {
+              while (1) {
+                switch (_context7.prev = _context7.next) {
+                  case 0:
+                    if (this.nativeRefresher) {
+                      this.needsCompletion = true; // Do not reset scroll el until user removes pointer from screen
+
+                      if (!this.pointerDown) {
+                        this.resetNativeRefresher(this.elementToTransform, 32
+                        /* Completing */
+                        );
+                      }
+                    } else {
+                      this.close(32
+                      /* Completing */
+                      , '120ms');
+                    }
+
+                  case 1:
+                  case "end":
+                    return _context7.stop();
                 }
-            });
-        });
-    };
-    class_1.prototype.getValue = function () {
-        var value = this.value || 0;
-        if (this.dualKnobs) {
-            if (typeof value === 'object') {
-                return value;
-            }
-            return {
-                lower: 0,
-                upper: value
-            };
+              }
+            }, _callee7, this);
+          }));
+
+          function complete() {
+            return _complete.apply(this, arguments);
+          }
+
+          return complete;
+        }()
+        /**
+         * Changes the refresher's state from `refreshing` to `cancelling`.
+         */
+
+      }, {
+        key: "cancel",
+        value: function () {
+          var _cancel = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8() {
+            return regeneratorRuntime.wrap(function _callee8$(_context8) {
+              while (1) {
+                switch (_context8.prev = _context8.next) {
+                  case 0:
+                    if (this.nativeRefresher) {
+                      // Do not reset scroll el until user removes pointer from screen
+                      if (!this.pointerDown) {
+                        this.resetNativeRefresher(this.elementToTransform, 16
+                        /* Cancelling */
+                        );
+                      }
+                    } else {
+                      this.close(16
+                      /* Cancelling */
+                      , '');
+                    }
+
+                  case 1:
+                  case "end":
+                    return _context8.stop();
+                }
+              }
+            }, _callee8, this);
+          }));
+
+          function cancel() {
+            return _cancel.apply(this, arguments);
+          }
+
+          return cancel;
+        }()
+        /**
+         * A number representing how far down the user has pulled.
+         * The number `0` represents the user hasn't pulled down at all. The
+         * number `1`, and anything greater than `1`, represents that the user
+         * has pulled far enough down that when they let go then the refresh will
+         * happen. If they let go and the number is less than `1`, then the
+         * refresh will not happen, and the content will return to it's original
+         * position.
+         */
+
+      }, {
+        key: "getProgress",
+        value: function getProgress() {
+          return Promise.resolve(this.progress);
         }
-        else {
-            if (typeof value === 'object') {
-                return value.upper;
-            }
-            return value;
-        }
-    };
-    class_1.prototype.emitStyle = function () {
-        this.ionStyle.emit({
-            'interactive': true,
-            'interactive-disabled': this.disabled
-        });
-    };
-    class_1.prototype.onStart = function (detail) {
-        var rect = this.rect = this.rangeSlider.getBoundingClientRect();
-        var currentX = detail.currentX;
-        // figure out which knob they started closer to
-        var ratio = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_3__["c"])(0, (currentX - rect.left) / rect.width, 1);
-        if (document.dir === 'rtl') {
-            ratio = 1 - ratio;
-        }
-        this.pressedKnob =
-            !this.dualKnobs ||
-                Math.abs(this.ratioA - ratio) < Math.abs(this.ratioB - ratio)
-                ? 'A'
-                : 'B';
-        this.setFocus(this.pressedKnob);
-        // update the active knob's position
-        this.update(currentX);
-    };
-    class_1.prototype.onMove = function (detail) {
-        this.update(detail.currentX);
-    };
-    class_1.prototype.onEnd = function (detail) {
-        this.update(detail.currentX);
-        this.pressedKnob = undefined;
-    };
-    class_1.prototype.update = function (currentX) {
-        // figure out where the pointer is currently at
-        // update the knob being interacted with
-        var rect = this.rect;
-        var ratio = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_3__["c"])(0, (currentX - rect.left) / rect.width, 1);
-        if (document.dir === 'rtl') {
-            ratio = 1 - ratio;
-        }
-        if (this.snaps) {
-            // snaps the ratio to the current value
-            ratio = valueToRatio(ratioToValue(ratio, this.min, this.max, this.step), this.min, this.max);
-        }
-        // update which knob is pressed
-        if (this.pressedKnob === 'A') {
-            this.ratioA = ratio;
-        }
-        else {
-            this.ratioB = ratio;
-        }
-        // Update input value
-        this.updateValue();
-    };
-    Object.defineProperty(class_1.prototype, "valA", {
-        get: function () {
-            return ratioToValue(this.ratioA, this.min, this.max, this.step);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(class_1.prototype, "valB", {
-        get: function () {
-            return ratioToValue(this.ratioB, this.min, this.max, this.step);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(class_1.prototype, "ratioLower", {
-        get: function () {
-            if (this.dualKnobs) {
-                return Math.min(this.ratioA, this.ratioB);
-            }
-            return 0;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(class_1.prototype, "ratioUpper", {
-        get: function () {
-            if (this.dualKnobs) {
-                return Math.max(this.ratioA, this.ratioB);
-            }
-            return this.ratioA;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    class_1.prototype.updateRatio = function () {
-        var value = this.getValue();
-        var _a = this, min = _a.min, max = _a.max;
-        if (this.dualKnobs) {
-            this.ratioA = valueToRatio(value.lower, min, max);
-            this.ratioB = valueToRatio(value.upper, min, max);
-        }
-        else {
-            this.ratioA = valueToRatio(value, min, max);
-        }
-    };
-    class_1.prototype.updateValue = function () {
-        this.noUpdate = true;
-        var _a = this, valA = _a.valA, valB = _a.valB;
-        this.value = !this.dualKnobs
-            ? valA
-            : {
-                lower: Math.min(valA, valB),
-                upper: Math.max(valA, valB)
-            };
-        this.noUpdate = false;
-    };
-    class_1.prototype.setFocus = function (knob) {
-        if (this.el.shadowRoot) {
-            var knobEl = this.el.shadowRoot.querySelector(knob === 'A' ? '.range-knob-a' : '.range-knob-b');
-            if (knobEl) {
-                knobEl.focus();
-            }
-        }
-    };
-    class_1.prototype.render = function () {
-        var _a, _b;
-        var _this = this;
-        var _c = this, min = _c.min, max = _c.max, step = _c.step, el = _c.el, handleKeyboard = _c.handleKeyboard, pressedKnob = _c.pressedKnob, disabled = _c.disabled, pin = _c.pin, ratioLower = _c.ratioLower, ratioUpper = _c.ratioUpper;
-        var mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["d"])(this);
-        var barStart = ratioLower * 100 + "%";
-        var barEnd = 100 - ratioUpper * 100 + "%";
-        var doc = document;
-        var isRTL = doc.dir === 'rtl';
-        var start = isRTL ? 'right' : 'left';
-        var end = isRTL ? 'left' : 'right';
-        var tickStyle = function (tick) {
-            var _a;
-            return _a = {},
-                _a[start] = tick[start],
-                _a;
-        };
-        var barStyle = (_a = {},
-            _a[start] = barStart,
-            _a[end] = barEnd,
-            _a);
-        var ticks = [];
-        if (this.snaps && this.ticks) {
-            for (var value = min; value <= max; value += step) {
-                var ratio = valueToRatio(value, min, max);
-                var tick = {
-                    ratio: ratio,
-                    active: ratio >= ratioLower && ratio <= ratioUpper,
-                };
-                tick[start] = ratio * 100 + "%";
-                ticks.push(tick);
-            }
-        }
-        Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_3__["a"])(true, el, this.name, JSON.stringify(this.getValue()), disabled);
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["H"], { onFocusin: this.onFocus, onFocusout: this.onBlur, class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_4__["c"])(this.color)), (_b = {}, _b[mode] = true, _b['in-item'] = Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_4__["h"])('ion-item', el), _b['range-disabled'] = disabled, _b['range-pressed'] = pressedKnob !== undefined, _b['range-has-pin'] = pin, _b)) }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("slot", { name: "start" }), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("div", { class: "range-slider", ref: function (rangeEl) { return _this.rangeSlider = rangeEl; } }, ticks.map(function (tick) { return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("div", { style: tickStyle(tick), role: "presentation", class: {
-                'range-tick': true,
-                'range-tick-active': tick.active
-            } })); }), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("div", { class: "range-bar", role: "presentation" }), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("div", { class: "range-bar range-bar-active", role: "presentation", style: barStyle }), renderKnob(isRTL, {
-            knob: 'A',
-            pressed: pressedKnob === 'A',
-            value: this.valA,
-            ratio: this.ratioA,
-            pin: pin,
-            disabled: disabled,
-            handleKeyboard: handleKeyboard,
-            min: min,
-            max: max
-        }), this.dualKnobs && renderKnob(isRTL, {
-            knob: 'B',
-            pressed: pressedKnob === 'B',
-            value: this.valB,
-            ratio: this.ratioB,
-            pin: pin,
-            disabled: disabled,
-            handleKeyboard: handleKeyboard,
-            min: min,
-            max: max
-        })), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("slot", { name: "end" })));
-    };
-    Object.defineProperty(class_1.prototype, "el", {
-        get: function () { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["e"])(this); },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(class_1, "watchers", {
-        get: function () {
-            return {
-                "debounce": ["debounceChanged"],
-                "min": ["minChanged"],
-                "max": ["maxChanged"],
-                "disabled": ["disabledChanged"],
-                "value": ["valueChanged"]
-            };
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(class_1, "style", {
-        get: function () { return ":host{--knob-handle-size:calc(var(--knob-size) * 2);display:-ms-flexbox;display:flex;position:relative;-ms-flex:3;flex:3;-ms-flex-align:center;align-items:center;font-family:var(--ion-font-family,inherit);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:2}:host(.range-disabled){pointer-events:none}::slotted(ion-label){-ms-flex:initial;flex:initial}::slotted(ion-icon[slot]){font-size:24px}.range-slider{position:relative;-ms-flex:1;flex:1;width:100%;height:var(--height);contain:size layout style;cursor:-webkit-grab;cursor:grab;-ms-touch-action:pan-y;touch-action:pan-y}:host(.range-pressed) .range-slider{cursor:-webkit-grabbing;cursor:grabbing}.range-pin{position:absolute;background:var(--ion-color-base);color:var(--ion-color-contrast);-webkit-box-sizing:border-box;box-sizing:border-box}.range-knob-handle{left:0;top:calc((var(--height) - var(--knob-handle-size)) / 2);margin-left:calc(0px - var(--knob-handle-size) / 2);position:absolute;width:var(--knob-handle-size);height:var(--knob-handle-size);text-align:center}:host-context([dir=rtl]) .range-knob-handle,[dir=rtl] .range-knob-handle{right:unset;right:0}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.range-knob-handle{margin-left:unset;-webkit-margin-start:calc(0px - var(--knob-handle-size) / 2);margin-inline-start:calc(0px - var(--knob-handle-size) / 2)}}:host-context([dir=rtl]) .range-knob-handle,[dir=rtl] .range-knob-handle{left:unset}.range-knob-handle:active,.range-knob-handle:focus{outline:none}.range-bar{border-radius:var(--bar-border-radius);left:0;top:calc((var(--height) - var(--bar-height)) / 2);position:absolute;width:100%;height:var(--bar-height);background:var(--bar-background);pointer-events:none}:host-context([dir=rtl]) .range-bar,[dir=rtl] .range-bar{right:unset;right:0;left:unset}.range-knob{border-radius:var(--knob-border-radius);left:calc(50% - var(--knob-size) / 2);top:calc(50% - var(--knob-size) / 2);position:absolute;width:var(--knob-size);height:var(--knob-size);background:var(--knob-background);-webkit-box-shadow:var(--knob-box-shadow);box-shadow:var(--knob-box-shadow);z-index:2;pointer-events:none}:host-context([dir=rtl]) .range-knob,[dir=rtl] .range-knob{right:unset;right:calc(50% - var(--knob-size) / 2);left:unset}:host(.range-pressed) .range-bar-active{will-change:left,right}:host(.in-item){width:100%}:host(.in-item) ::slotted(ion-label){-ms-flex-item-align:center;align-self:center}:host{--knob-border-radius:50%;--knob-background:#fff;--knob-box-shadow:0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02);--knob-size:28px;--bar-height:2px;--bar-background:rgba(var(--ion-text-color-rgb,0,0,0),0.1);--bar-background-active:var(--ion-color-primary,#3880ff);--bar-border-radius:0;--height:42px;padding-left:16px;padding-right:16px;padding-top:8px;padding-bottom:8px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host{padding-left:unset;padding-right:unset;-webkit-padding-start:16px;padding-inline-start:16px;-webkit-padding-end:16px;padding-inline-end:16px}}:host(.ion-color) .range-bar-active,:host(.ion-color) .range-tick-active{background:var(--ion-color-base)}::slotted([slot=start]){margin-left:0;margin-right:16px;margin-top:0;margin-bottom:0}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted([slot=start]){margin-left:unset;margin-right:unset;-webkit-margin-start:0;margin-inline-start:0;-webkit-margin-end:16px;margin-inline-end:16px}}::slotted([slot=end]){margin-left:16px;margin-right:0;margin-top:0;margin-bottom:0}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted([slot=end]){margin-left:unset;margin-right:unset;-webkit-margin-start:16px;margin-inline-start:16px;-webkit-margin-end:0;margin-inline-end:0}}:host(.range-has-pin){padding-top:20px}.range-bar-active{bottom:0;width:auto;background:var(--bar-background-active)}.range-tick{margin-left:-1px;border-radius:0;position:absolute;top:18px;width:2px;height:8px;background:rgba(var(--ion-text-color-rgb,0,0,0),.1);pointer-events:none}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.range-tick{margin-left:unset;-webkit-margin-start:-1px;margin-inline-start:-1px}}.range-tick-active{background:var(--bar-background-active)}.range-pin{-webkit-transform:translate3d(0,28px,0) scale(.01);transform:translate3d(0,28px,0) scale(.01);padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px;display:inline-block;position:relative;top:-20px;min-width:28px;-webkit-transition:-webkit-transform .12s ease;transition:-webkit-transform .12s ease;transition:transform .12s ease;transition:transform .12s ease,-webkit-transform .12s ease;background:transparent;color:var(--ion-text-color,#000);font-size:12px;text-align:center}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.range-pin{padding-left:unset;padding-right:unset;-webkit-padding-start:8px;padding-inline-start:8px;-webkit-padding-end:8px;padding-inline-end:8px}}.range-knob-pressed .range-pin{-webkit-transform:translateZ(0) scale(1);transform:translateZ(0) scale(1)}:host(.range-disabled){opacity:.5}"; },
-        enumerable: true,
-        configurable: true
-    });
-    return class_1;
-}());
-var renderKnob = function (isRTL, _a) {
-    var knob = _a.knob, value = _a.value, ratio = _a.ratio, min = _a.min, max = _a.max, disabled = _a.disabled, pressed = _a.pressed, pin = _a.pin, handleKeyboard = _a.handleKeyboard;
-    var start = isRTL ? 'right' : 'left';
-    var knobStyle = function () {
-        var style = {};
-        style[start] = ratio * 100 + "%";
-        return style;
-    };
-    return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("div", { onKeyDown: function (ev) {
-            var key = ev.key;
-            if (key === 'ArrowLeft' || key === 'ArrowDown') {
-                handleKeyboard(knob, false);
-                ev.preventDefault();
-                ev.stopPropagation();
-            }
-            else if (key === 'ArrowRight' || key === 'ArrowUp') {
-                handleKeyboard(knob, true);
-                ev.preventDefault();
-                ev.stopPropagation();
-            }
-        }, class: {
-            'range-knob-handle': true,
-            'range-knob-a': knob === 'A',
-            'range-knob-b': knob === 'B',
-            'range-knob-pressed': pressed,
-            'range-knob-min': value === min,
-            'range-knob-max': value === max
-        }, style: knobStyle(), role: "slider", tabindex: disabled ? -1 : 0, "aria-valuemin": min, "aria-valuemax": max, "aria-disabled": disabled ? 'true' : null, "aria-valuenow": value }, pin && Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("div", { class: "range-pin", role: "presentation" }, Math.round(value)), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("div", { class: "range-knob", role: "presentation" })));
-};
-var ratioToValue = function (ratio, min, max, step) {
-    var value = (max - min) * ratio;
-    if (step > 0) {
-        value = Math.round(value / step) * step + min;
-    }
-    return Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_3__["c"])(min, value, max);
-};
-var valueToRatio = function (value, min, max) {
-    return Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_3__["c"])(0, (value - min) / (max - min), 1);
-};
+      }, {
+        key: "canStart",
+        value: function canStart() {
+          if (!this.scrollEl) {
+            return false;
+          }
+
+          if (this.state !== 1
+          /* Inactive */
+          ) {
+              return false;
+            } // if the scrollTop is greater than zero then it's
+          // not possible to pull the content down yet
 
 
+          if (this.scrollEl.scrollTop > 0) {
+            return false;
+          }
 
-/***/ })
+          return true;
+        }
+      }, {
+        key: "onStart",
+        value: function onStart() {
+          this.progress = 0;
+          this.state = 1
+          /* Inactive */
+          ;
+        }
+      }, {
+        key: "onMove",
+        value: function onMove(detail) {
+          if (!this.scrollEl) {
+            return;
+          } // this method can get called like a bazillion times per second,
+          // so it's built to be as efficient as possible, and does its
+          // best to do any DOM read/writes only when absolutely necessary
+          // if multi-touch then get out immediately
 
+
+          var ev = detail.event;
+
+          if (ev.touches && ev.touches.length > 1) {
+            return;
+          } // do nothing if it's actively refreshing
+          // or it's in the way of closing
+          // or this was never a startY
+
+
+          if ((this.state & 56
+          /* _BUSY_ */
+          ) !== 0) {
+            return;
+          }
+
+          var pullFactor = Number.isNaN(this.pullFactor) || this.pullFactor < 0 ? 1 : this.pullFactor;
+          var deltaY = detail.deltaY * pullFactor; // don't bother if they're scrolling up
+          // and have not already started dragging
+
+          if (deltaY <= 0) {
+            // the current Y is higher than the starting Y
+            // so they scrolled up enough to be ignored
+            this.progress = 0;
+            this.state = 1
+            /* Inactive */
+            ;
+
+            if (this.appliedStyles) {
+              // reset the styles only if they were applied
+              this.setCss(0, '', false, '');
+              return;
+            }
+
+            return;
+          }
+
+          if (this.state === 1
+          /* Inactive */
+          ) {
+              // this refresh is not already actively pulling down
+              // get the content's scrollTop
+              var scrollHostScrollTop = this.scrollEl.scrollTop; // if the scrollTop is greater than zero then it's
+              // not possible to pull the content down yet
+
+              if (scrollHostScrollTop > 0) {
+                this.progress = 0;
+                return;
+              } // content scrolled all the way to the top, and dragging down
+
+
+              this.state = 2
+              /* Pulling */
+              ;
+            } // prevent native scroll events
+
+
+          if (ev.cancelable) {
+            ev.preventDefault();
+          } // the refresher is actively pulling at this point
+          // move the scroll element within the content element
+
+
+          this.setCss(deltaY, '0ms', true, '');
+
+          if (deltaY === 0) {
+            // don't continue if there's no delta yet
+            this.progress = 0;
+            return;
+          }
+
+          var pullMin = this.pullMin; // set pull progress
+
+          this.progress = deltaY / pullMin; // emit "start" if it hasn't started yet
+
+          if (!this.didStart) {
+            this.didStart = true;
+            this.ionStart.emit();
+          } // emit "pulling" on every move
+
+
+          this.ionPull.emit(); // do nothing if the delta is less than the pull threshold
+
+          if (deltaY < pullMin) {
+            // ensure it stays in the pulling state, cuz its not ready yet
+            this.state = 2
+            /* Pulling */
+            ;
+            return;
+          }
+
+          if (deltaY > this.pullMax) {
+            // they pulled farther than the max, so kick off the refresh
+            this.beginRefresh();
+            return;
+          } // pulled farther than the pull min!!
+          // it is now in the `ready` state!!
+          // if they let go then it'll refresh, kerpow!!
+
+
+          this.state = 4
+          /* Ready */
+          ;
+          return;
+        }
+      }, {
+        key: "onEnd",
+        value: function onEnd() {
+          // only run in a zone when absolutely necessary
+          if (this.state === 4
+          /* Ready */
+          ) {
+              // they pulled down far enough, so it's ready to refresh
+              this.beginRefresh();
+            } else if (this.state === 2
+          /* Pulling */
+          ) {
+              // they were pulling down, but didn't pull down far enough
+              // set the content back to it's original location
+              // and close the refresher
+              // set that the refresh is actively cancelling
+              this.cancel();
+            }
+        }
+      }, {
+        key: "beginRefresh",
+        value: function beginRefresh() {
+          // assumes we're already back in a zone
+          // they pulled down far enough, so it's ready to refresh
+          this.state = 8
+          /* Refreshing */
+          ; // place the content in a hangout position while it thinks
+
+          this.setCss(this.pullMin, this.snapbackDuration, true, ''); // emit "refresh" because it was pulled down far enough
+          // and they let go to begin refreshing
+
+          this.ionRefresh.emit({
+            complete: this.complete.bind(this)
+          });
+        }
+      }, {
+        key: "close",
+        value: function close(state, delay) {
+          var _this4 = this;
+
+          // create fallback timer incase something goes wrong with transitionEnd event
+          setTimeout(function () {
+            _this4.state = 1
+            /* Inactive */
+            ;
+            _this4.progress = 0;
+            _this4.didStart = false;
+
+            _this4.setCss(0, '0ms', false, '');
+          }, 600); // reset set the styles on the scroll element
+          // set that the refresh is actively cancelling/completing
+
+          this.state = state;
+          this.setCss(0, this.closeDuration, true, delay); // TODO: stop gesture
+        }
+      }, {
+        key: "setCss",
+        value: function setCss(y, duration, overflowVisible, delay) {
+          var _this5 = this;
+
+          if (this.nativeRefresher) {
+            return;
+          }
+
+          this.appliedStyles = y > 0;
+          Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
+            if (_this5.scrollEl && _this5.backgroundContentEl) {
+              var scrollStyle = _this5.scrollEl.style;
+              var backgroundStyle = _this5.backgroundContentEl.style;
+              scrollStyle.transform = backgroundStyle.transform = y > 0 ? "translateY(".concat(y, "px) translateZ(0px)") : '';
+              scrollStyle.transitionDuration = backgroundStyle.transitionDuration = duration;
+              scrollStyle.transitionDelay = backgroundStyle.transitionDelay = delay;
+              scrollStyle.overflow = overflowVisible ? 'hidden' : '';
+            }
+          });
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          var _class;
+
+          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            slot: "fixed",
+            class: (_class = {}, _defineProperty(_class, mode, true), _defineProperty(_class, "refresher-".concat(mode), true), _defineProperty(_class, 'refresher-native', this.nativeRefresher), _defineProperty(_class, 'refresher-active', this.state !== 1), _defineProperty(_class, 'refresher-pulling', this.state === 2), _defineProperty(_class, 'refresher-ready', this.state === 4), _defineProperty(_class, 'refresher-refreshing', this.state === 8), _defineProperty(_class, 'refresher-cancelling', this.state === 16), _defineProperty(_class, 'refresher-completing', this.state === 32), _class)
+          });
+        }
+      }, {
+        key: "el",
+        get: function get() {
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+        }
+      }], [{
+        key: "watchers",
+        get: function get() {
+          return {
+            "disabled": ["disabledChanged"]
+          };
+        }
+      }, {
+        key: "style",
+        get: function get() {
+          return "ion-refresher{left:0;top:0;display:none;position:absolute;width:100%;height:60px;pointer-events:none;z-index:-1}:host-context([dir=rtl]) ion-refresher,[dir=rtl] ion-refresher{left:unset;right:unset;right:0}ion-refresher.refresher-active{display:block}ion-refresher-content{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:center;justify-content:center;height:100%}.refresher-pulling,.refresher-refreshing{display:none;width:100%}.refresher-pulling-icon,.refresher-refreshing-icon{-webkit-transform-origin:center;transform-origin:center;-webkit-transition:.2s;transition:.2s;font-size:30px;text-align:center}:host-context([dir=rtl]) .refresher-pulling-icon,:host-context([dir=rtl]) .refresher-refreshing-icon,[dir=rtl] .refresher-pulling-icon,[dir=rtl] .refresher-refreshing-icon{-webkit-transform-origin:calc(100% - center);transform-origin:calc(100% - center)}.refresher-pulling-text,.refresher-refreshing-text{font-size:16px;text-align:center}ion-refresher-content .arrow-container{display:none}.refresher-pulling ion-refresher-content .refresher-pulling,.refresher-ready ion-refresher-content .refresher-pulling{display:block}.refresher-ready ion-refresher-content .refresher-pulling-icon{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.refresher-cancelling ion-refresher-content .refresher-pulling,.refresher-refreshing ion-refresher-content .refresher-refreshing{display:block}.refresher-cancelling ion-refresher-content .refresher-pulling-icon{-webkit-transform:scale(0);transform:scale(0)}.refresher-completing ion-refresher-content .refresher-refreshing{display:block}.refresher-completing ion-refresher-content .refresher-refreshing-icon{-webkit-transform:scale(0);transform:scale(0)}.refresher-native .refresher-pulling-text,.refresher-native .refresher-refreshing-text{display:none}.refresher-md .refresher-pulling-icon,.refresher-md .refresher-pulling-text,.refresher-md .refresher-refreshing-icon,.refresher-md .refresher-refreshing-text{color:var(--ion-text-color,#000)}.refresher-md .refresher-refreshing .spinner-crescent circle,.refresher-md .refresher-refreshing .spinner-lines-md line,.refresher-md .refresher-refreshing .spinner-lines-small-md line{stroke:var(--ion-text-color,#000)}.refresher-md .refresher-refreshing .spinner-bubbles circle,.refresher-md .refresher-refreshing .spinner-circles circle,.refresher-md .refresher-refreshing .spinner-dots circle{fill:var(--ion-text-color,#000)}ion-refresher.refresher-native{display:block;z-index:1}ion-refresher.refresher-native ion-spinner{margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;width:24px;height:24px;color:var(--ion-color-primary,#3880ff)}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){ion-refresher.refresher-native ion-spinner{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}ion-refresher.refresher-native .spinner-arrow-container{display:inherit}ion-refresher.refresher-native .arrow-container{display:block;position:absolute;width:24px;height:24px}ion-refresher.refresher-native .arrow-container ion-icon{margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;left:0;right:0;bottom:-4px;position:absolute;color:var(--ion-color-primary,#3880ff);font-size:12px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){ion-refresher.refresher-native .arrow-container ion-icon{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}ion-refresher.refresher-native.refresher-cancelling ion-refresher-content .refresher-refreshing,ion-refresher.refresher-native.refresher-completing ion-refresher-content .refresher-refreshing,ion-refresher.refresher-native.refresher-pulling ion-refresher-content .refresher-pulling,ion-refresher.refresher-native.refresher-ready ion-refresher-content .refresher-pulling,ion-refresher.refresher-native.refresher-refreshing ion-refresher-content .refresher-refreshing{display:-ms-flexbox;display:flex}ion-refresher.refresher-native .refresher-pulling-icon{-webkit-transform:translateY(calc(-100% - 10px));transform:translateY(calc(-100% - 10px))}ion-refresher.refresher-native .refresher-pulling-icon,ion-refresher.refresher-native .refresher-refreshing-icon{margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;border-radius:100%;padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px;display:-ms-flexbox;display:flex;border:1px solid #ececec;background:#fff;-webkit-box-shadow:0 1px 6px rgba(0,0,0,.1);box-shadow:0 1px 6px rgba(0,0,0,.1)}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){ion-refresher.refresher-native .refresher-pulling-icon,ion-refresher.refresher-native .refresher-refreshing-icon{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto;padding-left:unset;padding-right:unset;-webkit-padding-start:8px;padding-inline-start:8px;-webkit-padding-end:8px;padding-inline-end:8px}}";
+        }
+      }]);
+
+      return Refresher;
+    }();
+
+    var RefresherContent = /*#__PURE__*/function () {
+      function RefresherContent(hostRef) {
+        _classCallCheck(this, RefresherContent);
+
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+      }
+
+      _createClass(RefresherContent, [{
+        key: "componentWillLoad",
+        value: function componentWillLoad() {
+          if (this.pullingIcon === undefined) {
+            var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+            var overflowRefresher = this.el.style.webkitOverflowScrolling !== undefined ? 'lines' : 'arrow-down';
+            this.pullingIcon = _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].get('refreshingIcon', mode === 'ios' && Object(_config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["i"])('mobile') ? _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].get('spinner', overflowRefresher) : 'circular');
+          }
+
+          if (this.refreshingSpinner === undefined) {
+            var _mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+
+            this.refreshingSpinner = _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].get('refreshingSpinner', _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].get('spinner', _mode === 'ios' ? 'lines' : 'circular'));
+          }
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          var pullingIcon = this.pullingIcon;
+          var hasSpinner = pullingIcon != null && _spinner_configs_28520d80_js__WEBPACK_IMPORTED_MODULE_12__["S"][pullingIcon] !== undefined;
+          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            class: mode
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "refresher-pulling"
+          }, this.pullingIcon && hasSpinner && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "refresher-pulling-icon"
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "spinner-arrow-container"
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-spinner", {
+            name: this.pullingIcon,
+            paused: true
+          }), mode === 'md' && this.pullingIcon === 'circular' && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "arrow-container"
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-icon", {
+            name: "caret-back-sharp"
+          })))), this.pullingIcon && !hasSpinner && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "refresher-pulling-icon"
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-icon", {
+            icon: this.pullingIcon,
+            lazy: false
+          })), this.pullingText && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "refresher-pulling-text",
+            innerHTML: Object(_index_3476b023_js__WEBPACK_IMPORTED_MODULE_11__["s"])(this.pullingText)
+          })), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "refresher-refreshing"
+          }, this.refreshingSpinner && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "refresher-refreshing-icon"
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-spinner", {
+            name: this.refreshingSpinner
+          })), this.refreshingText && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "refresher-refreshing-text",
+            innerHTML: Object(_index_3476b023_js__WEBPACK_IMPORTED_MODULE_11__["s"])(this.refreshingText)
+          })));
+        }
+      }, {
+        key: "el",
+        get: function get() {
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+        }
+      }]);
+
+      return RefresherContent;
+    }();
+    /***/
+
+  }
 }]);
 //# sourceMappingURL=50-es5.js.map

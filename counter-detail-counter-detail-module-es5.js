@@ -1,144 +1,338 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["counter-detail-counter-detail-module"],{
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/counter-detail/counter-detail.page.html":
-/*!***********************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/counter-detail/counter-detail.page.html ***!
-  \***********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n\n    <ion-buttons slot=\"start\">\n      <ion-back-button\n        icon=\"close\"\n        defaultHref=\"/counters\"\n      >\n      </ion-back-button>\n    </ion-buttons>\n\n    <ion-title>\n      {{counter.title}}\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-tabs>\n    <ion-tab-bar slot=\"bottom\">\n\n      <ion-tab-button tab=\"count\">\n        <ion-icon name=\"infinite\"></ion-icon>\n        <ion-label>Count</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"settings\">\n        <ion-icon name=\"build\"></ion-icon>\n        <ion-label>Settings</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"analytics\">\n        <ion-icon name=\"analytics\"></ion-icon>\n        <ion-label>Analytics</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"edit\"\n        appNotImplemented description=\"Edit count events\" issueId=\"8\"\n      >\n        <ion-icon name=\"create\"></ion-icon>\n        <ion-label>Edit</ion-label>\n      </ion-tab-button>\n\n    </ion-tab-bar>\n  </ion-tabs>\n</ion-content>\n"
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-/***/ }),
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["counter-detail-counter-detail-module"], {
+  /***/
+  "./src/app/counter-detail/counter-detail.module.ts":
+  /*!*********************************************************!*\
+    !*** ./src/app/counter-detail/counter-detail.module.ts ***!
+    \*********************************************************/
 
-/***/ "./src/app/counter-detail/counter-detail.module.ts":
-/*!*********************************************************!*\
-  !*** ./src/app/counter-detail/counter-detail.module.ts ***!
-  \*********************************************************/
-/*! exports provided: CounterDetailPageModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+  /*! exports provided: CounterDetailPageModule */
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CounterDetailPageModule", function() { return CounterDetailPageModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../not-implemented/not-implemented.module */ "./src/app/not-implemented/not-implemented.module.ts");
-/* harmony import */ var _counter_detail_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./counter-detail.page */ "./src/app/counter-detail/counter-detail.page.ts");
+  /***/
+  function srcAppCounterDetailCounterDetailModuleTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
 
 
+    __webpack_require__.d(__webpack_exports__, "CounterDetailPageModule", function () {
+      return CounterDetailPageModule;
+    });
+    /* harmony import */
 
 
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
 
 
+    var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    /* harmony import */
 
 
-var routes = [
-    {
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../not-implemented/not-implemented.module */
+    "./src/app/not-implemented/not-implemented.module.ts");
+    /* harmony import */
+
+
+    var _counter_detail_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./counter-detail.page */
+    "./src/app/counter-detail/counter-detail.page.ts");
+
+    var routes = [{
+      path: '',
+      component: _counter_detail_page__WEBPACK_IMPORTED_MODULE_6__["CounterDetailPage"],
+      children: [{
         path: '',
-        component: _counter_detail_page__WEBPACK_IMPORTED_MODULE_7__["CounterDetailPage"],
-        children: [
-            {
-                path: '',
-                children: [
-                    { path: '', redirectTo: 'settings', pathMatch: 'full', },
-                    {
-                        path: 'count',
-                        loadChildren: './counter-count/counter-count.module#CounterCountPageModule',
-                    },
-                    {
-                        path: 'settings',
-                        loadChildren: './counter-settings/counter-settings.module#CounterSettingsPageModule',
-                    },
-                    {
-                        path: 'analytics',
-                        loadChildren: './counter-analytics-selection/counter-analytics-selection.module#CounterAnalyticsSelectionPageModule'
-                    },
-                ],
-            }
-        ],
-    }
-];
-var CounterDetailPageModule = /** @class */ (function () {
-    function CounterDetailPageModule() {
-    }
-    CounterDetailPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
-                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes),
-                _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_6__["NotImplementedModule"],
-            ],
-            declarations: [_counter_detail_page__WEBPACK_IMPORTED_MODULE_7__["CounterDetailPage"]]
-        })
-    ], CounterDetailPageModule);
-    return CounterDetailPageModule;
-}());
+        children: [{
+          path: '',
+          redirectTo: 'settings',
+          pathMatch: 'full'
+        }, {
+          path: 'count',
+          loadChildren: function loadChildren() {
+            return __webpack_require__.e(
+            /*! import() | counter-count-counter-count-module */
+            "counter-count-counter-count-module").then(__webpack_require__.bind(null,
+            /*! ./counter-count/counter-count.module */
+            "./src/app/counter-detail/counter-count/counter-count.module.ts")).then(function (m) {
+              return m.CounterCountPageModule;
+            });
+          }
+        }, {
+          path: 'settings',
+          loadChildren: function loadChildren() {
+            return __webpack_require__.e(
+            /*! import() | counter-settings-counter-settings-module */
+            "counter-settings-counter-settings-module").then(__webpack_require__.bind(null,
+            /*! ./counter-settings/counter-settings.module */
+            "./src/app/counter-detail/counter-settings/counter-settings.module.ts")).then(function (m) {
+              return m.CounterSettingsPageModule;
+            });
+          }
+        }, {
+          path: 'analytics',
+          loadChildren: function loadChildren() {
+            return __webpack_require__.e(
+            /*! import() | counter-analytics-selection-counter-analytics-selection-module */
+            "counter-analytics-selection-counter-analytics-selection-module").then(__webpack_require__.bind(null,
+            /*! ./counter-analytics-selection/counter-analytics-selection.module */
+            "./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.module.ts")).then(function (m) {
+              return m.CounterAnalyticsSelectionPageModule;
+            });
+          }
+        }]
+      }]
+    }];
+
+    var CounterDetailPageModule = function CounterDetailPageModule() {
+      _classCallCheck(this, CounterDetailPageModule);
+    };
+
+    CounterDetailPageModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+      type: CounterDetailPageModule
+    });
+    CounterDetailPageModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+      factory: function CounterDetailPageModule_Factory(t) {
+        return new (t || CounterDetailPageModule)();
+      },
+      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes), _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__["NotImplementedModule"]]]
+    });
+
+    (function () {
+      (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](CounterDetailPageModule, {
+        declarations: [_counter_detail_page__WEBPACK_IMPORTED_MODULE_6__["CounterDetailPage"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"], _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__["NotImplementedModule"]]
+      });
+    })();
+    /*@__PURE__*/
 
 
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CounterDetailPageModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes), _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__["NotImplementedModule"]],
+          declarations: [_counter_detail_page__WEBPACK_IMPORTED_MODULE_6__["CounterDetailPage"]]
+        }]
+      }], null, null);
+    })();
+    /***/
 
-/***/ }),
+  },
 
-/***/ "./src/app/counter-detail/counter-detail.page.scss":
-/*!*********************************************************!*\
-  !*** ./src/app/counter-detail/counter-detail.page.scss ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+  /***/
+  "./src/app/counter-detail/counter-detail.page.ts":
+  /*!*******************************************************!*\
+    !*** ./src/app/counter-detail/counter-detail.page.ts ***!
+    \*******************************************************/
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvdW50ZXItZGV0YWlsL2NvdW50ZXItZGV0YWlsLnBhZ2Uuc2NzcyJ9 */"
+  /*! exports provided: CounterDetailPage */
 
-/***/ }),
+  /***/
+  function srcAppCounterDetailCounterDetailPageTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
 
-/***/ "./src/app/counter-detail/counter-detail.page.ts":
-/*!*******************************************************!*\
-  !*** ./src/app/counter-detail/counter-detail.page.ts ***!
-  \*******************************************************/
-/*! exports provided: CounterDetailPage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CounterDetailPage", function() { return CounterDetailPage; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
 
 
+    __webpack_require__.d(__webpack_exports__, "CounterDetailPage", function () {
+      return CounterDetailPage;
+    });
+    /* harmony import */
 
-var CounterDetailPage = /** @class */ (function () {
-    function CounterDetailPage(router, route) {
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var _not_implemented_not_implemented_directive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../not-implemented/not-implemented.directive */
+    "./src/app/not-implemented/not-implemented.directive.ts");
+
+    var CounterDetailPage = /*#__PURE__*/function () {
+      function CounterDetailPage(router, route) {
+        _classCallCheck(this, CounterDetailPage);
+
         this.router = router;
         this.route = route;
-    }
-    CounterDetailPage.prototype.ngOnInit = function () {
-        this.counter = this.route.snapshot.data.counter;
+      }
+
+      _createClass(CounterDetailPage, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.counter = this.route.snapshot.data.counter;
+        }
+      }]);
+
+      return CounterDetailPage;
+    }();
+
+    CounterDetailPage.ɵfac = function CounterDetailPage_Factory(t) {
+      return new (t || CounterDetailPage)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]));
     };
-    CounterDetailPage.ctorParameters = function () { return [
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
-    ]; };
-    CounterDetailPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-counter-detail',
-            template: __webpack_require__(/*! raw-loader!./counter-detail.page.html */ "./node_modules/raw-loader/index.js!./src/app/counter-detail/counter-detail.page.html"),
-            styles: [__webpack_require__(/*! ./counter-detail.page.scss */ "./src/app/counter-detail/counter-detail.page.scss")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
-    ], CounterDetailPage);
-    return CounterDetailPage;
-}());
 
+    CounterDetailPage.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+      type: CounterDetailPage,
+      selectors: [["app-counter-detail"]],
+      decls: 25,
+      vars: 1,
+      consts: [["slot", "start"], ["icon", "close", "defaultHref", "/counters"], ["slot", "bottom"], ["tab", "count"], ["name", "infinite"], ["tab", "settings"], ["name", "build"], ["tab", "analytics"], ["name", "analytics"], ["tab", "edit", "appNotImplemented", "", "description", "Edit count events", "issueId", "8"], ["name", "create"]],
+      template: function CounterDetailPage_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-header");
 
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "ion-toolbar");
 
-/***/ })
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "ion-buttons", 0);
 
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "ion-back-button", 1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "ion-title");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "ion-content");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "ion-tabs");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "ion-tab-bar", 2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "ion-tab-button", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](10, "ion-icon", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "ion-label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Count");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "ion-tab-button", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](14, "ion-icon", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "ion-label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Settings");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "ion-tab-button", 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](18, "ion-icon", 8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "ion-label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Analytics");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "ion-tab-button", 9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](22, "ion-icon", 10);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "ion-label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, "Edit");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx.counter.title, " ");
+        }
+      },
+      directives: [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonHeader"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonToolbar"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonButtons"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonBackButton"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonBackButtonDelegate"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonTitle"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonContent"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonTabs"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonTabBar"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonTabButton"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonIcon"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonLabel"], _not_implemented_not_implemented_directive__WEBPACK_IMPORTED_MODULE_3__["NotImplementedDirective"]],
+      styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvdW50ZXItZGV0YWlsL2NvdW50ZXItZGV0YWlsLnBhZ2Uuc2NzcyJ9 */"]
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CounterDetailPage, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+          selector: 'app-counter-detail',
+          templateUrl: './counter-detail.page.html',
+          styleUrls: ['./counter-detail.page.scss']
+        }]
+      }], function () {
+        return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]
+        }];
+      }, null);
+    })();
+    /***/
+
+  }
 }]);
 //# sourceMappingURL=counter-detail-counter-detail-module-es5.js.map

@@ -1,239 +1,228 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[28],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/ion-infinite-scroll_2-md.entry.js":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/ion-infinite-scroll_2-md.entry.js ***!
-  \*****************************************************************************/
-/*! exports provided: ion_infinite_scroll, ion_infinite_scroll_content */
+/***/ "./node_modules/@ionic/core/dist/esm/ion-input-ios.entry.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/ion-input-ios.entry.js ***!
+  \******************************************************************/
+/*! exports provided: ion_input */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_infinite_scroll", function() { return InfiniteScroll; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_infinite_scroll_content", function() { return InfiniteScrollContent; });
-/* harmony import */ var _core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-ca0488fc.js */ "./node_modules/@ionic/core/dist/esm/core-ca0488fc.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_input", function() { return Input; });
+/* harmony import */ var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-0a8d4d2e.js */ "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
 /* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
-/* harmony import */ var _index_3476b023_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index-3476b023.js */ "./node_modules/@ionic/core/dist/esm/index-3476b023.js");
+/* harmony import */ var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-46f4a262.js */ "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
+/* harmony import */ var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme-18cbe2cc.js */ "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
 
 
 
 
-const InfiniteScroll = class {
+
+const Input = class {
     constructor(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.thrPx = 0;
-        this.thrPc = 0;
-        this.didFire = false;
-        this.isBusy = false;
-        this.isLoading = false;
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.inputId = `ion-input-${inputIds++}`;
+        this.didBlurAfterEdit = false;
+        this.hasFocus = false;
         /**
-         * The threshold distance from the bottom
-         * of the content to call the `infinite` output event when scrolled.
-         * The threshold value can be either a percent, or
-         * in pixels. For example, use the value of `10%` for the `infinite`
-         * output event to get called when the user has scrolled 10%
-         * from the bottom of the page. Use the value `100px` when the
-         * scroll is within 100 pixels from the bottom of the page.
+         * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user.
          */
-        this.threshold = '15%';
+        this.autocapitalize = 'off';
         /**
-         * If `true`, the infinite scroll will be hidden and scroll event listeners
-         * will be removed.
-         *
-         * Set this to true to disable the infinite scroll from actively
-         * trying to receive new data while scrolling. This is useful
-         * when it is known that there is no more data that can be added, and
-         * the infinite scroll is no longer needed.
+         * Indicates whether the value of the control can be automatically completed by the browser.
+         */
+        this.autocomplete = 'off';
+        /**
+         * Whether auto correction should be enabled when the user is entering/editing the text value.
+         */
+        this.autocorrect = 'off';
+        /**
+         * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
+         */
+        this.autofocus = false;
+        /**
+         * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+         */
+        this.clearInput = false;
+        /**
+         * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
+         */
+        this.debounce = 0;
+        /**
+         * If `true`, the user cannot interact with the input.
          */
         this.disabled = false;
         /**
-         * The position of the infinite scroll element.
-         * The value can be either `top` or `bottom`.
+         * The name of the control, which is submitted with the form data.
          */
-        this.position = 'bottom';
-        this.onScroll = () => {
-            const scrollEl = this.scrollEl;
-            if (!scrollEl || !this.canStart()) {
-                return 1;
+        this.name = this.inputId;
+        /**
+         * If `true`, the user cannot modify the value.
+         */
+        this.readonly = false;
+        /**
+         * If `true`, the user must fill in a value before submitting a form.
+         */
+        this.required = false;
+        /**
+         * If `true`, the element will have its spelling and grammar checked.
+         */
+        this.spellcheck = false;
+        /**
+         * The type of control to display. The default type is text.
+         */
+        this.type = 'text';
+        /**
+         * The value of the input.
+         */
+        this.value = '';
+        this.onInput = (ev) => {
+            const input = ev.target;
+            if (input) {
+                this.value = input.value || '';
             }
-            const infiniteHeight = this.el.offsetHeight;
-            if (infiniteHeight === 0) {
-                // if there is no height of this element then do nothing
-                return 2;
-            }
-            const scrollTop = scrollEl.scrollTop;
-            const scrollHeight = scrollEl.scrollHeight;
-            const height = scrollEl.offsetHeight;
-            const threshold = this.thrPc !== 0 ? (height * this.thrPc) : this.thrPx;
-            const distanceFromInfinite = (this.position === 'bottom')
-                ? scrollHeight - infiniteHeight - scrollTop - threshold - height
-                : scrollTop - infiniteHeight - threshold;
-            if (distanceFromInfinite < 0) {
-                if (!this.didFire) {
-                    this.isLoading = true;
-                    this.didFire = true;
-                    this.ionInfinite.emit();
-                    return 3;
-                }
-            }
-            else {
-                this.didFire = false;
-            }
-            return 4;
+            this.ionInput.emit(ev);
         };
-        this.ionInfinite = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionInfinite", 7);
+        this.onBlur = () => {
+            this.hasFocus = false;
+            this.focusChanged();
+            this.emitStyle();
+            this.ionBlur.emit();
+        };
+        this.onFocus = () => {
+            this.hasFocus = true;
+            this.focusChanged();
+            this.emitStyle();
+            this.ionFocus.emit();
+        };
+        this.onKeydown = (ev) => {
+            if (this.shouldClearOnEdit()) {
+                // Did the input value change after it was blurred and edited?
+                // Do not clear if user is hitting Enter to submit form
+                if (this.didBlurAfterEdit && this.hasValue() && ev.key !== 'Enter') {
+                    // Clear the input
+                    this.clearTextInput();
+                }
+                // Reset the flag
+                this.didBlurAfterEdit = false;
+            }
+        };
+        this.clearTextInput = (ev) => {
+            if (this.clearInput && !this.readonly && !this.disabled && ev) {
+                ev.preventDefault();
+                ev.stopPropagation();
+            }
+            this.value = '';
+            /**
+             * This is needed for clearOnEdit
+             * Otherwise the value will not be cleared
+             * if user is inside the input
+             */
+            if (this.nativeInput) {
+                this.nativeInput.value = '';
+            }
+        };
+        this.ionInput = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionInput", 7);
+        this.ionChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionChange", 7);
+        this.ionBlur = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionBlur", 7);
+        this.ionFocus = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionFocus", 7);
+        this.ionInputDidLoad = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionInputDidLoad", 7);
+        this.ionInputDidUnload = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionInputDidUnload", 7);
+        this.ionStyle = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionStyle", 7);
     }
-    thresholdChanged() {
-        const val = this.threshold;
-        if (val.lastIndexOf('%') > -1) {
-            this.thrPx = 0;
-            this.thrPc = (parseFloat(val) / 100);
-        }
-        else {
-            this.thrPx = parseFloat(val);
-            this.thrPc = 0;
-        }
+    debounceChanged() {
+        this.ionChange = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["d"])(this.ionChange, this.debounce);
     }
     disabledChanged() {
-        const disabled = this.disabled;
-        if (disabled) {
-            this.isLoading = false;
-            this.isBusy = false;
-        }
-        this.enableScrollEvents(!disabled);
+        this.emitStyle();
     }
-    async connectedCallback() {
-        const contentEl = this.el.closest('ion-content');
-        if (!contentEl) {
-            console.error('<ion-infinite-scroll> must be used inside an <ion-content>');
-            return;
-        }
-        this.scrollEl = await contentEl.getScrollElement();
-        this.thresholdChanged();
-        this.disabledChanged();
-        if (this.position === 'top') {
-            Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["w"])(() => {
-                if (this.scrollEl) {
-                    this.scrollEl.scrollTop = this.scrollEl.scrollHeight - this.scrollEl.clientHeight;
-                }
-            });
+    /**
+     * Update the native input element when the value changes
+     */
+    valueChanged() {
+        this.emitStyle();
+        this.ionChange.emit({ value: this.value == null ? this.value : this.value.toString() });
+    }
+    connectedCallback() {
+        this.emitStyle();
+        this.debounceChanged();
+        {
+            this.el.dispatchEvent(new CustomEvent('ionInputDidLoad', {
+                detail: this.el
+            }));
         }
     }
     disconnectedCallback() {
-        this.enableScrollEvents(false);
-        this.scrollEl = undefined;
+        {
+            document.dispatchEvent(new CustomEvent('ionInputDidUnload', {
+                detail: this.el
+            }));
+        }
     }
     /**
-     * Call `complete()` within the `ionInfinite` output event handler when
-     * your async operation has completed. For example, the `loading`
-     * state is while the app is performing an asynchronous operation,
-     * such as receiving more data from an AJAX request to add more items
-     * to a data list. Once the data has been received and UI updated, you
-     * then call this method to signify that the loading has completed.
-     * This method will change the infinite scroll's state from `loading`
-     * to `enabled`.
+     * Sets focus on the specified `ion-input`. Use this method instead of the global
+     * `input.focus()`.
      */
-    async complete() {
-        const scrollEl = this.scrollEl;
-        if (!this.isLoading || !scrollEl) {
-            return;
-        }
-        this.isLoading = false;
-        if (this.position === 'top') {
-            /**
-             * New content is being added at the top, but the scrollTop position stays the same,
-             * which causes a scroll jump visually. This algorithm makes sure to prevent this.
-             * (Frame 1)
-             *    - complete() is called, but the UI hasn't had time to update yet.
-             *    - Save the current content dimensions.
-             *    - Wait for the next frame using _dom.read, so the UI will be updated.
-             * (Frame 2)
-             *    - Read the new content dimensions.
-             *    - Calculate the height difference and the new scroll position.
-             *    - Delay the scroll position change until other possible dom reads are done using _dom.write to be performant.
-             * (Still frame 2, if I'm correct)
-             *    - Change the scroll position (= visually maintain the scroll position).
-             *    - Change the state to re-enable the InfiniteScroll.
-             *    - This should be after changing the scroll position, or it could
-             *    cause the InfiniteScroll to be triggered again immediately.
-             * (Frame 3)
-             *    Done.
-             */
-            this.isBusy = true;
-            // ******** DOM READ ****************
-            // Save the current content dimensions before the UI updates
-            const prev = scrollEl.scrollHeight - scrollEl.scrollTop;
-            // ******** DOM READ ****************
-            requestAnimationFrame(() => {
-                Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["f"])(() => {
-                    // UI has updated, save the new content dimensions
-                    const scrollHeight = scrollEl.scrollHeight;
-                    // New content was added on top, so the scroll position should be changed immediately to prevent it from jumping around
-                    const newScrollTop = scrollHeight - prev;
-                    // ******** DOM WRITE ****************
-                    requestAnimationFrame(() => {
-                        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["w"])(() => {
-                            scrollEl.scrollTop = newScrollTop;
-                            this.isBusy = false;
-                        });
-                    });
-                });
-            });
+    async setFocus() {
+        if (this.nativeInput) {
+            this.nativeInput.focus();
         }
     }
-    canStart() {
-        return (!this.disabled &&
-            !this.isBusy &&
-            !!this.scrollEl &&
-            !this.isLoading);
+    /**
+     * Returns the native `<input>` element used under the hood.
+     */
+    getInputElement() {
+        return Promise.resolve(this.nativeInput);
     }
-    enableScrollEvents(shouldListen) {
-        if (this.scrollEl) {
-            if (shouldListen) {
-                this.scrollEl.addEventListener('scroll', this.onScroll);
-            }
-            else {
-                this.scrollEl.removeEventListener('scroll', this.onScroll);
-            }
+    shouldClearOnEdit() {
+        const { type, clearOnEdit } = this;
+        return (clearOnEdit === undefined)
+            ? type === 'password'
+            : clearOnEdit;
+    }
+    getValue() {
+        return typeof this.value === 'number' ? this.value.toString() :
+            (this.value || '').toString();
+    }
+    emitStyle() {
+        this.ionStyle.emit({
+            'interactive': true,
+            'input': true,
+            'has-placeholder': this.placeholder != null,
+            'has-value': this.hasValue(),
+            'has-focus': this.hasFocus,
+            'interactive-disabled': this.disabled,
+        });
+    }
+    focusChanged() {
+        // If clearOnEdit is enabled and the input blurred but has a value, set a flag
+        if (!this.hasFocus && this.shouldClearOnEdit() && this.hasValue()) {
+            this.didBlurAfterEdit = true;
         }
+    }
+    hasValue() {
+        return this.getValue().length > 0;
     }
     render() {
-        const mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this);
-        const disabled = this.disabled;
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["H"], { class: {
-                [mode]: true,
-                'infinite-scroll-loading': this.isLoading,
-                'infinite-scroll-enabled': !disabled
-            } }));
+        const mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+        const value = this.getValue();
+        const labelId = this.inputId + '-lbl';
+        const label = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["f"])(this.el);
+        if (label) {
+            label.id = labelId;
+        }
+        return (Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], { "aria-disabled": this.disabled ? 'true' : null, class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), { [mode]: true, 'has-value': this.hasValue(), 'has-focus': this.hasFocus }) }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("input", { class: "native-input", ref: input => this.nativeInput = input, "aria-labelledby": labelId, disabled: this.disabled, accept: this.accept, autoCapitalize: this.autocapitalize, autoComplete: this.autocomplete, autoCorrect: this.autocorrect, autoFocus: this.autofocus, inputMode: this.inputmode, min: this.min, max: this.max, minLength: this.minlength, maxLength: this.maxlength, multiple: this.multiple, name: this.name, pattern: this.pattern, placeholder: this.placeholder || '', readOnly: this.readonly, required: this.required, spellCheck: this.spellcheck, step: this.step, size: this.size, type: this.type, value: value, onInput: this.onInput, onBlur: this.onBlur, onFocus: this.onFocus, onKeyDown: this.onKeydown }), (this.clearInput && !this.readonly && !this.disabled) && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", { type: "button", class: "input-clear-icon", tabindex: "-1", onTouchStart: this.clearTextInput, onMouseDown: this.clearTextInput })));
     }
-    get el() { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
+    get el() { return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
     static get watchers() { return {
-        "threshold": ["thresholdChanged"],
-        "disabled": ["disabledChanged"]
+        "debounce": ["debounceChanged"],
+        "disabled": ["disabledChanged"],
+        "value": ["valueChanged"]
     }; }
-    static get style() { return "ion-infinite-scroll{display:none;width:100%}.infinite-scroll-enabled{display:block}"; }
+    static get style() { return ".sc-ion-input-ios-h{--placeholder-color:initial;--placeholder-font-style:initial;--placeholder-font-weight:initial;--placeholder-opacity:.5;--padding-top:0;--padding-end:0;--padding-bottom:0;--background:transparent;--color:initial;display:-ms-flexbox;display:flex;position:relative;-ms-flex:1;flex:1;-ms-flex-align:center;align-items:center;width:100%;padding:0!important;background:var(--background);color:var(--color);font-family:var(--ion-font-family,inherit);z-index:2}ion-item.sc-ion-input-ios-h:not(.item-label), ion-item:not(.item-label) .sc-ion-input-ios-h{--padding-start:0}.ion-color.sc-ion-input-ios-h{color:var(--ion-color-base)}.native-input.sc-ion-input-ios{border-radius:var(--border-radius);padding-left:var(--padding-start);padding-right:var(--padding-end);padding-top:var(--padding-top);padding-bottom:var(--padding-bottom);font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;text-decoration:inherit;text-indent:inherit;text-overflow:inherit;text-transform:inherit;text-align:inherit;white-space:inherit;color:inherit;display:inline-block;-ms-flex:1;flex:1;width:100%;max-width:100%;max-height:100%;border:0;outline:none;background:transparent;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-appearance:none;-moz-appearance:none;appearance:none}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.native-input.sc-ion-input-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--padding-start);padding-inline-start:var(--padding-start);-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}.native-input.sc-ion-input-ios::-webkit-input-placeholder{color:var(--placeholder-color);font-family:inherit;font-style:var(--placeholder-font-style);font-weight:var(--placeholder-font-weight);opacity:var(--placeholder-opacity)}.native-input.sc-ion-input-ios::-moz-placeholder{color:var(--placeholder-color);font-family:inherit;font-style:var(--placeholder-font-style);font-weight:var(--placeholder-font-weight);opacity:var(--placeholder-opacity)}.native-input.sc-ion-input-ios:-ms-input-placeholder{color:var(--placeholder-color);font-family:inherit;font-style:var(--placeholder-font-style);font-weight:var(--placeholder-font-weight);opacity:var(--placeholder-opacity)}.native-input.sc-ion-input-ios::-ms-input-placeholder{color:var(--placeholder-color);font-family:inherit;font-style:var(--placeholder-font-style);font-weight:var(--placeholder-font-weight);opacity:var(--placeholder-opacity)}.native-input.sc-ion-input-ios::placeholder{color:var(--placeholder-color);font-family:inherit;font-style:var(--placeholder-font-style);font-weight:var(--placeholder-font-weight);opacity:var(--placeholder-opacity)}.native-input.sc-ion-input-ios:-webkit-autofill{background-color:transparent}.native-input.sc-ion-input-ios:invalid{-webkit-box-shadow:none;box-shadow:none}.native-input.sc-ion-input-ios::-ms-clear{display:none}.native-input[disabled].sc-ion-input-ios{opacity:.4}.cloned-input.sc-ion-input-ios{left:0;top:0;position:absolute;pointer-events:none}[dir=rtl].sc-ion-input-ios-h .cloned-input.sc-ion-input-ios, [dir=rtl] .sc-ion-input-ios-h .cloned-input.sc-ion-input-ios, [dir=rtl].sc-ion-input-ios .cloned-input.sc-ion-input-ios{left:unset;right:unset;right:0}.input-clear-icon.sc-ion-input-ios{margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;background-position:50%;border:0;outline:none;background-color:transparent;background-repeat:no-repeat;visibility:hidden;-webkit-appearance:none;-moz-appearance:none;appearance:none}.has-focus.has-value.sc-ion-input-ios-h .input-clear-icon.sc-ion-input-ios{visibility:visible}.has-focus.sc-ion-input-ios-h{pointer-events:none}.has-focus.sc-ion-input-ios-h a.sc-ion-input-ios, .has-focus.sc-ion-input-ios-h button.sc-ion-input-ios, .has-focus.sc-ion-input-ios-h input.sc-ion-input-ios{pointer-events:auto}.sc-ion-input-ios-h{--padding-top:10px;--padding-end:10px;--padding-bottom:10px;--padding-start:0;font-size:inherit}.item-label-floating.sc-ion-input-ios-h, .item-label-floating .sc-ion-input-ios-h, .item-label-stacked.sc-ion-input-ios-h, .item-label-stacked .sc-ion-input-ios-h{--padding-top:8px;--padding-bottom:8px;--padding-start:0px}.input-clear-icon.sc-ion-input-ios{background-image:url(\"data:image/svg+xml;charset=utf-8,<svg%20xmlns=\'http://www.w3.org/2000/svg\'%20viewBox=\'0%200%20512%20512\'><path%20fill=\'var(--ion-color-step-600,%20%23666666)\'%20d=\'M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0S484.3,190.1,403.1,108.9z%20M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2l11.8,11.8L267.6,256L352,340.2z\'/></svg>\");width:30px;height:30px;background-size:18px}"; }
 };
-
-const InfiniteScrollContent = class {
-    constructor(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-    }
-    componentDidLoad() {
-        if (this.loadingSpinner === undefined) {
-            const mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this);
-            this.loadingSpinner = _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].get('infiniteLoadingSpinner', _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].get('spinner', mode === 'ios' ? 'lines' : 'crescent'));
-        }
-    }
-    render() {
-        const mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this);
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["H"], { class: {
-                [mode]: true,
-                // Used internally for styling
-                [`infinite-scroll-content-${mode}`]: true
-            } }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "infinite-loading" }, this.loadingSpinner && (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "infinite-loading-spinner" }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-spinner", { name: this.loadingSpinner }))), this.loadingText && (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "infinite-loading-text", innerHTML: Object(_index_3476b023_js__WEBPACK_IMPORTED_MODULE_2__["s"])(this.loadingText) })))));
-    }
-    static get style() { return "ion-infinite-scroll-content{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:center;justify-content:center;min-height:84px;text-align:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.infinite-loading{margin-left:0;margin-right:0;margin-top:0;margin-bottom:32px;display:none;width:100%}.infinite-loading-text{margin-left:32px;margin-right:32px;margin-top:4px;margin-bottom:0}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.infinite-loading-text{margin-left:unset;margin-right:unset;-webkit-margin-start:32px;margin-inline-start:32px;-webkit-margin-end:32px;margin-inline-end:32px}}.infinite-scroll-loading ion-infinite-scroll-content>.infinite-loading{display:block}.infinite-scroll-content-md .infinite-loading-text{color:var(--ion-color-step-600,#666)}.infinite-scroll-content-md .infinite-loading-spinner .spinner-crescent circle,.infinite-scroll-content-md .infinite-loading-spinner .spinner-lines-md line,.infinite-scroll-content-md .infinite-loading-spinner .spinner-lines-small-md line{stroke:var(--ion-color-step-600,#666)}.infinite-scroll-content-md .infinite-loading-spinner .spinner-bubbles circle,.infinite-scroll-content-md .infinite-loading-spinner .spinner-circles circle,.infinite-scroll-content-md .infinite-loading-spinner .spinner-dots circle{fill:var(--ion-color-step-600,#666)}"; }
-};
+let inputIds = 0;
 
 
 

@@ -1,369 +1,426 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],{
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-/***/ "./node_modules/@ionic/core/dist/esm-es5/framework-delegate-c2e2e1f4.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm-es5/framework-delegate-c2e2e1f4.js ***!
-  \******************************************************************************/
-/*! exports provided: a, d */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return attachComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return detachComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var attachComponent = function (delegate, container, component, cssClasses, componentProps) { return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
-    var el;
-    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                if (delegate) {
-                    return [2 /*return*/, delegate.attachViewToDom(container, component, componentProps, cssClasses)];
-                }
-                if (typeof component !== 'string' && !(component instanceof HTMLElement)) {
-                    throw new Error('framework delegate is missing');
-                }
-                el = (typeof component === 'string')
-                    ? container.ownerDocument && container.ownerDocument.createElement(component)
-                    : component;
-                if (cssClasses) {
-                    cssClasses.forEach(function (c) { return el.classList.add(c); });
-                }
-                if (componentProps) {
-                    Object.assign(el, componentProps);
-                }
-                container.appendChild(el);
-                if (!el.componentOnReady) return [3 /*break*/, 2];
-                return [4 /*yield*/, el.componentOnReady()];
-            case 1:
-                _a.sent();
-                _a.label = 2;
-            case 2: return [2 /*return*/, el];
-        }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0], {
+  /***/
+  "./node_modules/@ionic/core/dist/esm/ion-action-sheet-ios.entry.js":
+  /*!*************************************************************************!*\
+    !*** ./node_modules/@ionic/core/dist/esm/ion-action-sheet-ios.entry.js ***!
+    \*************************************************************************/
+
+  /*! exports provided: ion_action_sheet */
+
+  /***/
+  function node_modulesIonicCoreDistEsmIonActionSheetIosEntryJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ion_action_sheet", function () {
+      return ActionSheet;
     });
-}); };
-var detachComponent = function (delegate, element) {
-    if (element) {
-        if (delegate) {
-            var container = element.parentElement;
-            return delegate.removeViewFromDom(container, element);
-        }
-        element.remove();
-    }
-    return Promise.resolve();
-};
+    /* harmony import */
 
 
-
-/***/ }),
-
-/***/ "./node_modules/@ionic/core/dist/esm-es5/index-6826f2f6.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm-es5/index-6826f2f6.js ***!
-  \*****************************************************************/
-/*! exports provided: d, g, l, s, t */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return deepReady; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return getIonPageElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return lifecycle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return setPageHidden; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return transition; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./core-ca0488fc.js */ "./node_modules/@ionic/core/dist/esm-es5/core-ca0488fc.js");
-/* harmony import */ var _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constants-3c3e1099.js */ "./node_modules/@ionic/core/dist/esm-es5/constants-3c3e1099.js");
+    var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./core-0a8d4d2e.js */
+    "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
+    /* harmony import */
 
 
+    var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./config-3c7f3790.js */
+    "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
+    /* harmony import */
 
-var iosTransitionAnimation = function () { return __webpack_require__.e(/*! import() | ios-transition-071bd421-js */ "ios-transition-071bd421-js").then(__webpack_require__.bind(null, /*! ./ios.transition-071bd421.js */ "./node_modules/@ionic/core/dist/esm-es5/ios.transition-071bd421.js")); };
-var mdTransitionAnimation = function () { return __webpack_require__.e(/*! import() | md-transition-15a81b08-js */ "md-transition-15a81b08-js").then(__webpack_require__.bind(null, /*! ./md.transition-15a81b08.js */ "./node_modules/@ionic/core/dist/esm-es5/md.transition-15a81b08.js")); };
-var transition = function (opts) {
-    return new Promise(function (resolve, reject) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["w"])(function () {
-            beforeTransition(opts);
-            runTransition(opts).then(function (result) {
-                if (result.animation) {
-                    result.animation.destroy();
-                }
-                afterTransition(opts);
-                resolve(result);
-            }, function (error) {
-                afterTransition(opts);
-                reject(error);
+
+    var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./helpers-46f4a262.js */
+    "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
+    /* harmony import */
+
+
+    var _animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./animation-56279521.js */
+    "./node_modules/@ionic/core/dist/esm/animation-56279521.js");
+    /* harmony import */
+
+
+    var _hardware_back_button_1ed0083a_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./hardware-back-button-1ed0083a.js */
+    "./node_modules/@ionic/core/dist/esm/hardware-back-button-1ed0083a.js");
+    /* harmony import */
+
+
+    var _overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ./overlays-e336664a.js */
+    "./node_modules/@ionic/core/dist/esm/overlays-e336664a.js");
+    /* harmony import */
+
+
+    var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./theme-18cbe2cc.js */
+    "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
+    /**
+     * iOS Action Sheet Enter Animation
+     */
+
+
+    var iosEnterAnimation = function iosEnterAnimation(baseEl) {
+      var baseAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var backdropAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var wrapperAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)');
+      wrapperAnimation.addElement(baseEl.querySelector('.action-sheet-wrapper')).fromTo('transform', 'translateY(100%)', 'translateY(0%)');
+      return baseAnimation.addElement(baseEl).easing('cubic-bezier(.36,.66,.04,1)').duration(400).addAnimation([backdropAnimation, wrapperAnimation]);
+    };
+    /**
+     * iOS Action Sheet Leave Animation
+     */
+
+
+    var iosLeaveAnimation = function iosLeaveAnimation(baseEl) {
+      var baseAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var backdropAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var wrapperAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0);
+      wrapperAnimation.addElement(baseEl.querySelector('.action-sheet-wrapper')).fromTo('transform', 'translateY(0%)', 'translateY(100%)');
+      return baseAnimation.addElement(baseEl).easing('cubic-bezier(.36,.66,.04,1)').duration(450).addAnimation([backdropAnimation, wrapperAnimation]);
+    };
+    /**
+     * MD Action Sheet Enter Animation
+     */
+
+
+    var mdEnterAnimation = function mdEnterAnimation(baseEl) {
+      var baseAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var backdropAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var wrapperAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)');
+      wrapperAnimation.addElement(baseEl.querySelector('.action-sheet-wrapper')).fromTo('transform', 'translateY(100%)', 'translateY(0%)');
+      return baseAnimation.addElement(baseEl).easing('cubic-bezier(.36,.66,.04,1)').duration(400).addAnimation([backdropAnimation, wrapperAnimation]);
+    };
+    /**
+     * MD Action Sheet Leave Animation
+     */
+
+
+    var mdLeaveAnimation = function mdLeaveAnimation(baseEl) {
+      var baseAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var backdropAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var wrapperAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0);
+      wrapperAnimation.addElement(baseEl.querySelector('.action-sheet-wrapper')).fromTo('transform', 'translateY(0%)', 'translateY(100%)');
+      return baseAnimation.addElement(baseEl).easing('cubic-bezier(.36,.66,.04,1)').duration(450).addAnimation([backdropAnimation, wrapperAnimation]);
+    };
+
+    var ActionSheet = /*#__PURE__*/function () {
+      function ActionSheet(hostRef) {
+        var _this = this;
+
+        _classCallCheck(this, ActionSheet);
+
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.presented = false;
+        this.mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+        /**
+         * If `true`, the keyboard will be automatically dismissed when the overlay is presented.
+         */
+
+        this.keyboardClose = true;
+        /**
+         * An array of buttons for the action sheet.
+         */
+
+        this.buttons = [];
+        /**
+         * If `true`, the action sheet will be dismissed when the backdrop is clicked.
+         */
+
+        this.backdropDismiss = true;
+        /**
+         * If `true`, the action sheet will be translucent.
+         * Only applies when the mode is `"ios"` and the device supports
+         * [`backdrop-filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter#Browser_compatibility).
+         */
+
+        this.translucent = false;
+        /**
+         * If `true`, the action sheet will animate.
+         */
+
+        this.animated = true;
+
+        this.onBackdropTap = function () {
+          _this.dismiss(undefined, _overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_5__["B"]);
+        };
+
+        this.dispatchCancelHandler = function (ev) {
+          var role = ev.detail.role;
+
+          if (Object(_overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_5__["i"])(role)) {
+            var cancelButton = _this.getButtons().find(function (b) {
+              return b.role === 'cancel';
             });
-        });
-    });
-};
-var beforeTransition = function (opts) {
-    var enteringEl = opts.enteringEl;
-    var leavingEl = opts.leavingEl;
-    setZIndex(enteringEl, leavingEl, opts.direction);
-    if (opts.showGoBack) {
-        enteringEl.classList.add('can-go-back');
-    }
-    else {
-        enteringEl.classList.remove('can-go-back');
-    }
-    setPageHidden(enteringEl, false);
-    if (leavingEl) {
-        setPageHidden(leavingEl, false);
-    }
-};
-var runTransition = function (opts) { return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
-    var animationBuilder, ani;
-    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, getAnimationBuilder(opts)];
-            case 1:
-                animationBuilder = _a.sent();
-                ani = (animationBuilder)
-                    ? animation(animationBuilder, opts)
-                    : noAnimation(opts);
-                return [2 /*return*/, ani];
+
+            _this.callButtonHandler(cancelButton);
+          }
+        };
+
+        Object(_overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_5__["d"])(this.el);
+        this.didPresent = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionActionSheetDidPresent", 7);
+        this.willPresent = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionActionSheetWillPresent", 7);
+        this.willDismiss = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionActionSheetWillDismiss", 7);
+        this.didDismiss = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionActionSheetDidDismiss", 7);
+      }
+      /**
+       * Present the action sheet overlay after it has been created.
+       */
+
+
+      _createClass(ActionSheet, [{
+        key: "present",
+        value: function present() {
+          return Object(_overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, 'actionSheetEnter', iosEnterAnimation, mdEnterAnimation);
         }
-    });
-}); };
-var afterTransition = function (opts) {
-    var enteringEl = opts.enteringEl;
-    var leavingEl = opts.leavingEl;
-    enteringEl.classList.remove('ion-page-invisible');
-    if (leavingEl !== undefined) {
-        leavingEl.classList.remove('ion-page-invisible');
-    }
-};
-var getAnimationBuilder = function (opts) { return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
-    var getAnimation, _a;
-    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                if (!opts.leavingEl || !opts.animated || opts.duration === 0) {
-                    return [2 /*return*/, undefined];
+        /**
+         * Dismiss the action sheet overlay after it has been presented.
+         *
+         * @param data Any data to emit in the dismiss events.
+         * @param role The role of the element that is dismissing the action sheet.
+         * This can be useful in a button handler for determining which button was
+         * clicked to dismiss the action sheet.
+         * Some examples include: ``"cancel"`, `"destructive"`, "selected"`, and `"backdrop"`.
+         */
+
+      }, {
+        key: "dismiss",
+        value: function dismiss(data, role) {
+          return Object(_overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_5__["f"])(this, data, role, 'actionSheetLeave', iosLeaveAnimation, mdLeaveAnimation);
+        }
+        /**
+         * Returns a promise that resolves when the action sheet did dismiss.
+         */
+
+      }, {
+        key: "onDidDismiss",
+        value: function onDidDismiss() {
+          return Object(_overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_5__["g"])(this.el, 'ionActionSheetDidDismiss');
+        }
+        /**
+         * Returns a promise that resolves when the action sheet will dismiss.
+         *
+         */
+
+      }, {
+        key: "onWillDismiss",
+        value: function onWillDismiss() {
+          return Object(_overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_5__["g"])(this.el, 'ionActionSheetWillDismiss');
+        }
+      }, {
+        key: "buttonClick",
+        value: function () {
+          var _buttonClick = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(button) {
+            var role, shouldDismiss;
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    role = button.role;
+
+                    if (!Object(_overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_5__["i"])(role)) {
+                      _context.next = 3;
+                      break;
+                    }
+
+                    return _context.abrupt("return", this.dismiss(undefined, role));
+
+                  case 3:
+                    _context.next = 5;
+                    return this.callButtonHandler(button);
+
+                  case 5:
+                    shouldDismiss = _context.sent;
+
+                    if (!shouldDismiss) {
+                      _context.next = 8;
+                      break;
+                    }
+
+                    return _context.abrupt("return", this.dismiss(undefined, button.role));
+
+                  case 8:
+                    return _context.abrupt("return", Promise.resolve());
+
+                  case 9:
+                  case "end":
+                    return _context.stop();
                 }
-                if (opts.animationBuilder) {
-                    return [2 /*return*/, opts.animationBuilder];
+              }
+            }, _callee, this);
+          }));
+
+          function buttonClick(_x) {
+            return _buttonClick.apply(this, arguments);
+          }
+
+          return buttonClick;
+        }()
+      }, {
+        key: "callButtonHandler",
+        value: function () {
+          var _callButtonHandler = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(button) {
+            var rtn;
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    if (!button) {
+                      _context2.next = 6;
+                      break;
+                    }
+
+                    _context2.next = 3;
+                    return Object(_overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_5__["s"])(button.handler);
+
+                  case 3:
+                    rtn = _context2.sent;
+
+                    if (!(rtn === false)) {
+                      _context2.next = 6;
+                      break;
+                    }
+
+                    return _context2.abrupt("return", false);
+
+                  case 6:
+                    return _context2.abrupt("return", true);
+
+                  case 7:
+                  case "end":
+                    return _context2.stop();
                 }
-                if (!(opts.mode === 'ios')) return [3 /*break*/, 2];
-                return [4 /*yield*/, iosTransitionAnimation()];
-            case 1:
-                _a = (_b.sent()).iosTransitionAnimation;
-                return [3 /*break*/, 4];
-            case 2: return [4 /*yield*/, mdTransitionAnimation()];
-            case 3:
-                _a = (_b.sent()).mdTransitionAnimation;
-                _b.label = 4;
-            case 4:
-                getAnimation = _a;
-                return [2 /*return*/, getAnimation];
+              }
+            }, _callee2);
+          }));
+
+          function callButtonHandler(_x2) {
+            return _callButtonHandler.apply(this, arguments);
+          }
+
+          return callButtonHandler;
+        }()
+      }, {
+        key: "getButtons",
+        value: function getButtons() {
+          return this.buttons.map(function (b) {
+            return typeof b === 'string' ? {
+              text: b
+            } : b;
+          });
         }
-    });
-}); };
-var animation = function (animationBuilder, opts) { return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
-    var trans, mod, err_1, didComplete;
-    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, waitForReady(opts, true)];
-            case 1:
-                _a.sent();
-                _a.label = 2;
-            case 2:
-                _a.trys.push([2, 5, , 6]);
-                return [4 /*yield*/, __webpack_require__.e(/*! import() | index-69c37885-js */ "index-69c37885-js").then(__webpack_require__.bind(null, /*! ./index-69c37885.js */ "./node_modules/@ionic/core/dist/esm-es5/index-69c37885.js"))];
-            case 3:
-                mod = _a.sent();
-                return [4 /*yield*/, mod.create(animationBuilder, opts.baseEl, opts)];
-            case 4:
-                trans = _a.sent();
-                return [3 /*break*/, 6];
-            case 5:
-                err_1 = _a.sent();
-                trans = animationBuilder(opts.baseEl, opts);
-                return [3 /*break*/, 6];
-            case 6:
-                fireWillEvents(opts.enteringEl, opts.leavingEl);
-                return [4 /*yield*/, playTransition(trans, opts)];
-            case 7:
-                didComplete = _a.sent();
-                if (opts.progressCallback) {
-                    opts.progressCallback(undefined);
-                }
-                if (didComplete) {
-                    fireDidEvents(opts.enteringEl, opts.leavingEl);
-                }
-                return [2 /*return*/, {
-                        hasCompleted: didComplete,
-                        animation: trans
-                    }];
-        }
-    });
-}); };
-var noAnimation = function (opts) { return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
-    var enteringEl, leavingEl;
-    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                enteringEl = opts.enteringEl;
-                leavingEl = opts.leavingEl;
-                return [4 /*yield*/, waitForReady(opts, false)];
-            case 1:
-                _a.sent();
-                fireWillEvents(enteringEl, leavingEl);
-                fireDidEvents(enteringEl, leavingEl);
-                return [2 /*return*/, {
-                        hasCompleted: true
-                    }];
-        }
-    });
-}); };
-var waitForReady = function (opts, defaultDeep) { return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
-    var deep, promises;
-    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                deep = opts.deepWait !== undefined ? opts.deepWait : defaultDeep;
-                promises = deep ? [
-                    deepReady(opts.enteringEl),
-                    deepReady(opts.leavingEl),
-                ] : [
-                    shallowReady(opts.enteringEl),
-                    shallowReady(opts.leavingEl),
-                ];
-                return [4 /*yield*/, Promise.all(promises)];
-            case 1:
-                _a.sent();
-                return [4 /*yield*/, notifyViewReady(opts.viewIsReady, opts.enteringEl)];
-            case 2:
-                _a.sent();
-                return [2 /*return*/];
-        }
-    });
-}); };
-var notifyViewReady = function (viewIsReady, enteringEl) { return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
-    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                if (!viewIsReady) return [3 /*break*/, 2];
-                return [4 /*yield*/, viewIsReady(enteringEl)];
-            case 1:
-                _a.sent();
-                _a.label = 2;
-            case 2: return [2 /*return*/];
-        }
-    });
-}); };
-var playTransition = function (trans, opts) {
-    var progressCallback = opts.progressCallback;
-    // TODO: Remove AnimationBuilder
-    var promise = new Promise(function (resolve) {
-        trans.onFinish(function (currentStep) {
-            if (typeof currentStep === 'number') {
-                resolve(currentStep === 1);
+      }, {
+        key: "render",
+        value: function render() {
+          var _this2 = this;
+
+          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+          var allButtons = this.getButtons();
+          var cancelButton = allButtons.find(function (b) {
+            return b.role === 'cancel';
+          });
+          var buttons = allButtons.filter(function (b) {
+            return b.role !== 'cancel';
+          });
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            role: "dialog",
+            "aria-modal": "true",
+            style: {
+              zIndex: "".concat(20000 + this.overlayIndex)
+            },
+            class: Object.assign(Object.assign(_defineProperty({}, mode, true), Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_6__["g"])(this.cssClass)), {
+              'action-sheet-translucent': this.translucent
+            }),
+            onIonActionSheetWillDismiss: this.dispatchCancelHandler,
+            onIonBackdropTap: this.onBackdropTap
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-backdrop", {
+            tappable: this.backdropDismiss
+          }), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "action-sheet-wrapper",
+            role: "dialog"
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "action-sheet-container"
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "action-sheet-group"
+          }, this.header !== undefined && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "action-sheet-title"
+          }, this.header, this.subHeader && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "action-sheet-sub-title"
+          }, this.subHeader)), buttons.map(function (b) {
+            return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", {
+              type: "button",
+              class: buttonClass(b),
+              onClick: function onClick() {
+                return _this2.buttonClick(b);
+              }
+            }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("span", {
+              class: "action-sheet-button-inner"
+            }, b.icon && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-icon", {
+              icon: b.icon,
+              lazy: false,
+              class: "action-sheet-icon"
+            }), b.text), mode === 'md' && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-ripple-effect", null));
+          })), cancelButton && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "action-sheet-group action-sheet-group-cancel"
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", {
+            type: "button",
+            class: buttonClass(cancelButton),
+            onClick: function onClick() {
+              return _this2.buttonClick(cancelButton);
             }
-            else if (trans.hasCompleted !== undefined) {
-                resolve(trans.hasCompleted);
-            }
-        });
-    });
-    // cool, let's do this, start the transition
-    if (progressCallback) {
-        // this is a swipe to go back, just get the transition progress ready
-        // kick off the swipe animation start
-        trans.progressStart(true);
-        progressCallback(trans);
-    }
-    else {
-        // only the top level transition should actually start "play"
-        // kick it off and let it play through
-        // ******** DOM WRITE ****************
-        trans.play();
-    }
-    // create a callback for when the animation is done
-    return promise;
-};
-var fireWillEvents = function (enteringEl, leavingEl) {
-    lifecycle(leavingEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_2__["b"]);
-    lifecycle(enteringEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_2__["L"]);
-};
-var fireDidEvents = function (enteringEl, leavingEl) {
-    lifecycle(enteringEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_2__["a"]);
-    lifecycle(leavingEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_2__["c"]);
-};
-var lifecycle = function (el, eventName) {
-    if (el) {
-        var ev = new CustomEvent(eventName, {
-            bubbles: false,
-            cancelable: false,
-        });
-        el.dispatchEvent(ev);
-    }
-};
-var shallowReady = function (el) {
-    if (el && el.componentOnReady) {
-        return el.componentOnReady();
-    }
-    return Promise.resolve();
-};
-var deepReady = function (el) { return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
-    var element, stencilEl;
-    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                element = el;
-                if (!element) return [3 /*break*/, 4];
-                if (!(element.componentOnReady != null)) return [3 /*break*/, 2];
-                return [4 /*yield*/, element.componentOnReady()];
-            case 1:
-                stencilEl = _a.sent();
-                if (stencilEl != null) {
-                    return [2 /*return*/];
-                }
-                _a.label = 2;
-            case 2: return [4 /*yield*/, Promise.all(Array.from(element.children).map(deepReady))];
-            case 3:
-                _a.sent();
-                _a.label = 4;
-            case 4: return [2 /*return*/];
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("span", {
+            class: "action-sheet-button-inner"
+          }, cancelButton.icon && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-icon", {
+            icon: cancelButton.icon,
+            lazy: false,
+            class: "action-sheet-icon"
+          }), cancelButton.text), mode === 'md' && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-ripple-effect", null))))));
         }
-    });
-}); };
-var setPageHidden = function (el, hidden) {
-    if (hidden) {
-        el.setAttribute('aria-hidden', 'true');
-        el.classList.add('ion-page-hidden');
-    }
-    else {
-        el.hidden = false;
-        el.removeAttribute('aria-hidden');
-        el.classList.remove('ion-page-hidden');
-    }
-};
-var setZIndex = function (enteringEl, leavingEl, direction) {
-    if (enteringEl !== undefined) {
-        enteringEl.style.zIndex = (direction === 'back')
-            ? '99'
-            : '101';
-    }
-    if (leavingEl !== undefined) {
-        leavingEl.style.zIndex = '100';
-    }
-};
-var getIonPageElement = function (element) {
-    if (element.classList.contains('ion-page')) {
-        return element;
-    }
-    var ionPage = element.querySelector(':scope > .ion-page, :scope > ion-nav, :scope > ion-tabs');
-    if (ionPage) {
-        return ionPage;
-    }
-    // idk, return the original element so at least something animates and we don't have a null pointer
-    return element;
-};
+      }, {
+        key: "el",
+        get: function get() {
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+        }
+      }], [{
+        key: "style",
+        get: function get() {
+          return ".sc-ion-action-sheet-ios-h{--color:initial;--button-color-activated:var(--button-color);--button-color-focused:var(--button-color);--button-color-hover:var(--button-color);--button-color-selected:var(--button-color);--min-width:auto;--width:100%;--max-width:500px;--min-height:auto;--height:100%;--max-height:calc(100% - (var(--ion-safe-area-top) + var(--ion-safe-area-bottom)));-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;left:0;right:0;top:0;bottom:0;display:block;position:fixed;font-family:var(--ion-font-family,inherit);-ms-touch-action:none;touch-action:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:1001}.overlay-hidden.sc-ion-action-sheet-ios-h{display:none}.action-sheet-wrapper.sc-ion-action-sheet-ios{left:0;right:0;bottom:0;margin-top:auto;margin-bottom:auto;-webkit-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0);display:block;position:absolute;width:var(--width);min-width:var(--min-width);max-width:var(--max-width);height:var(--height);min-height:var(--min-height);max-height:var(--max-height);z-index:10;pointer-events:none}.action-sheet-button.sc-ion-action-sheet-ios{display:block;position:relative;width:100%;border:0;outline:none;background:var(--button-background);color:var(--button-color);font-family:inherit;overflow:hidden}.action-sheet-button-inner.sc-ion-action-sheet-ios{display:-ms-flexbox;display:flex;position:relative;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-ms-flex-negative:0;flex-shrink:0;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;width:100%;height:100%;z-index:1}.action-sheet-container.sc-ion-action-sheet-ios{display:-ms-flexbox;display:flex;-ms-flex-flow:column;flex-flow:column;-ms-flex-pack:end;justify-content:flex-end;height:100%;max-height:100%}.action-sheet-group.sc-ion-action-sheet-ios{-ms-flex-negative:2;flex-shrink:2;overscroll-behavior-y:contain;overflow-y:auto;-webkit-overflow-scrolling:touch;pointer-events:all;background:var(--background)}.action-sheet-group.sc-ion-action-sheet-ios::-webkit-scrollbar{display:none}.action-sheet-group-cancel.sc-ion-action-sheet-ios{-ms-flex-negative:0;flex-shrink:0;overflow:hidden}.action-sheet-button.sc-ion-action-sheet-ios:after{left:0;right:0;top:0;bottom:0;position:absolute;content:\"\";opacity:0}.action-sheet-selected.sc-ion-action-sheet-ios{color:var(--button-color-selected)}.action-sheet-selected.sc-ion-action-sheet-ios:after{background:var(--button-background-selected);opacity:var(--button-background-selected-opacity)}.action-sheet-button.ion-activated.sc-ion-action-sheet-ios{color:var(--button-color-activated)}.action-sheet-button.ion-activated.sc-ion-action-sheet-ios:after{background:var(--button-background-activated);opacity:var(--button-background-activated-opacity)}.action-sheet-button.ion-focused.sc-ion-action-sheet-ios{color:var(--button-color-focused)}.action-sheet-button.ion-focused.sc-ion-action-sheet-ios:after{background:var(--button-background-focused);opacity:var(--button-background-focused-opacity)}\@media (any-hover:hover){.action-sheet-button.sc-ion-action-sheet-ios:hover{color:var(--button-color-hover)}.action-sheet-button.sc-ion-action-sheet-ios:hover:after{background:var(--button-background-hover);opacity:var(--button-background-hover-opacity)}}.sc-ion-action-sheet-ios-h{--background:var(--ion-overlay-background-color,var(--ion-color-step-100,#f9f9f9));--backdrop-opacity:var(--ion-backdrop-opacity,0.4);--button-background:linear-gradient(0deg,rgba(var(--ion-text-color-rgb,0,0,0),0.08),rgba(var(--ion-text-color-rgb,0,0,0),0.08) 50%,transparent 0) bottom/100% 1px no-repeat transparent;--button-background-activated:var(--ion-text-color,#000);--button-background-activated-opacity:.08;--button-background-hover:currentColor;--button-background-hover-opacity:.04;--button-background-focused:currentColor;--button-background-focused-opacity:.12;--button-background-selected:var(--ion-background-color,#fff);--button-background-selected-opacity:1;--button-color:var(--ion-color-primary,#3880ff);--color:var(--ion-color-step-400,#999);text-align:center}.action-sheet-wrapper.sc-ion-action-sheet-ios{margin-left:auto;margin-right:auto;margin-top:var(--ion-safe-area-top,0);margin-bottom:var(--ion-safe-area-bottom,0)}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.action-sheet-wrapper.sc-ion-action-sheet-ios{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}.action-sheet-container.sc-ion-action-sheet-ios{padding-left:8px;padding-right:8px;padding-top:0;padding-bottom:0}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.action-sheet-container.sc-ion-action-sheet-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:8px;padding-inline-start:8px;-webkit-padding-end:8px;padding-inline-end:8px}}.action-sheet-group.sc-ion-action-sheet-ios{border-radius:13px;margin-bottom:8px}.action-sheet-group.sc-ion-action-sheet-ios:first-child{margin-top:10px}.action-sheet-group.sc-ion-action-sheet-ios:last-child{margin-bottom:10px}\@supports ((-webkit-backdrop-filter:blur(0)) or (backdrop-filter:blur(0))){.action-sheet-translucent.sc-ion-action-sheet-ios-h .action-sheet-group.sc-ion-action-sheet-ios{background-color:transparent;-webkit-backdrop-filter:saturate(280%) blur(20px);backdrop-filter:saturate(280%) blur(20px)}.action-sheet-translucent.sc-ion-action-sheet-ios-h .action-sheet-button.sc-ion-action-sheet-ios, .action-sheet-translucent.sc-ion-action-sheet-ios-h .action-sheet-title.sc-ion-action-sheet-ios{background-color:transparent;background-image:-webkit-gradient(linear,left bottom,left top,from(rgba(var(--ion-background-color-rgb,255,255,255),.8)),to(rgba(var(--ion-background-color-rgb,255,255,255),.8))),-webkit-gradient(linear,left bottom,left top,from(rgba(var(--ion-background-color-rgb,255,255,255),.4)),color-stop(50%,rgba(var(--ion-background-color-rgb,255,255,255),.4)),color-stop(50%,rgba(var(--ion-background-color-rgb,255,255,255),.8)));background-image:linear-gradient(0deg,rgba(var(--ion-background-color-rgb,255,255,255),.8),rgba(var(--ion-background-color-rgb,255,255,255),.8) 100%),linear-gradient(0deg,rgba(var(--ion-background-color-rgb,255,255,255),.4),rgba(var(--ion-background-color-rgb,255,255,255),.4) 50%,rgba(var(--ion-background-color-rgb,255,255,255),.8) 0);background-repeat:no-repeat;background-position:top,bottom;background-size:100% calc(100% - 1px),100% 1px;-webkit-backdrop-filter:saturate(120%);backdrop-filter:saturate(120%)}.action-sheet-translucent.sc-ion-action-sheet-ios-h .action-sheet-button.ion-activated.sc-ion-action-sheet-ios{background-color:rgba(var(--ion-background-color-rgb,255,255,255),.7);background-image:none}.action-sheet-translucent.sc-ion-action-sheet-ios-h .action-sheet-cancel.sc-ion-action-sheet-ios{background:var(--button-background-selected)}}.action-sheet-title.sc-ion-action-sheet-ios{background:-webkit-gradient(linear,left bottom,left top,from(rgba(var(--ion-text-color-rgb,0,0,0),.08)),color-stop(50%,rgba(var(--ion-text-color-rgb,0,0,0),.08)),color-stop(50%,transparent)) bottom/100% 1px no-repeat transparent;background:linear-gradient(0deg,rgba(var(--ion-text-color-rgb,0,0,0),.08),rgba(var(--ion-text-color-rgb,0,0,0),.08) 50%,transparent 0) bottom/100% 1px no-repeat transparent;padding-left:10px;padding-right:10px;padding-top:14px;padding-bottom:13px;color:var(--color,var(--ion-color-step-400,#999));font-size:13px;font-weight:400;text-align:center}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.action-sheet-title.sc-ion-action-sheet-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:10px;padding-inline-start:10px;-webkit-padding-end:10px;padding-inline-end:10px}}.action-sheet-sub-title.sc-ion-action-sheet-ios{padding-left:0;padding-right:0;padding-top:15px;padding-bottom:0;font-size:12px}.action-sheet-button.sc-ion-action-sheet-ios{padding-left:18px;padding-right:18px;padding-top:18px;padding-bottom:18px;height:56px;font-size:20px;contain:strict}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.action-sheet-button.sc-ion-action-sheet-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:18px;padding-inline-start:18px;-webkit-padding-end:18px;padding-inline-end:18px}}.action-sheet-button.sc-ion-action-sheet-ios .action-sheet-icon.sc-ion-action-sheet-ios{margin-right:.1em;font-size:28px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.action-sheet-button.sc-ion-action-sheet-ios .action-sheet-icon.sc-ion-action-sheet-ios{margin-right:unset;-webkit-margin-end:.1em;margin-inline-end:.1em}}.action-sheet-button.sc-ion-action-sheet-ios:last-child{background-image:none}.action-sheet-selected.sc-ion-action-sheet-ios{font-weight:700}.action-sheet-cancel.sc-ion-action-sheet-ios{font-weight:600}.action-sheet-cancel.sc-ion-action-sheet-ios:after{background:var(--button-background-selected);opacity:var(--button-background-selected-opacity)}.action-sheet-destructive.sc-ion-action-sheet-ios, .action-sheet-destructive.ion-activated.sc-ion-action-sheet-ios, .action-sheet-destructive.ion-focused.sc-ion-action-sheet-ios{color:var(--ion-color-danger,#eb445a)}\@media (any-hover:hover){.action-sheet-destructive.sc-ion-action-sheet-ios:hover{color:var(--ion-color-danger,#eb445a)}}";
+        }
+      }]);
 
+      return ActionSheet;
+    }();
 
+    var buttonClass = function buttonClass(button) {
+      return Object.assign(_defineProperty({
+        'action-sheet-button': true,
+        'ion-activatable': true,
+        'ion-focusable': true
+      }, "action-sheet-".concat(button.role), button.role !== undefined), Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_6__["g"])(button.cssClass));
+    };
+    /***/
 
-/***/ })
-
+  }
 }]);
 //# sourceMappingURL=0-es5.js.map

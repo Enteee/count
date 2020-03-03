@@ -1,173 +1,362 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["counter-analytics-selection-counter-analytics-selection-module"],{
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.page.html":
-/*!****************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.page.html ***!
-  \****************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-module.exports = "<ion-content>\n\n  <ion-list>\n    <ion-item *ngFor=\"let analyticsItem of analyticsItems\"\n              [routerLink]=\"['/counter-analytics', analyticsItem.info.url, counter.id]\">\n      <ion-avatar slot=\"start\">\n        <ion-icon name=\"{{analyticsItem.info.icon}}\" size=\"large\"></ion-icon>\n      </ion-avatar>\n      <ion-label>\n        <h2>{{analyticsItem.info.name}}</h2>\n        <p>{{analyticsItem.info.description}}</p>\n      </ion-label>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n"
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-/***/ }),
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["counter-analytics-selection-counter-analytics-selection-module"], {
+  /***/
+  "./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.module.ts":
+  /*!**************************************************************************************************!*\
+    !*** ./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.module.ts ***!
+    \**************************************************************************************************/
 
-/***/ "./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.module.ts":
-/*!**************************************************************************************************!*\
-  !*** ./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.module.ts ***!
-  \**************************************************************************************************/
-/*! exports provided: CounterAnalyticsSelectionPageModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+  /*! exports provided: CounterAnalyticsSelectionPageModule */
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CounterAnalyticsSelectionPageModule", function() { return CounterAnalyticsSelectionPageModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _counter_analytics_selection_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./counter-analytics-selection.page */ "./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.page.ts");
+  /***/
+  function srcAppCounterDetailCounterAnalyticsSelectionCounterAnalyticsSelectionModuleTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
 
 
+    __webpack_require__.d(__webpack_exports__, "CounterAnalyticsSelectionPageModule", function () {
+      return CounterAnalyticsSelectionPageModule;
+    });
+    /* harmony import */
 
 
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
 
 
+    var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    /* harmony import */
 
-var routes = [
-    {
-        path: '',
-        component: _counter_analytics_selection_page__WEBPACK_IMPORTED_MODULE_6__["CounterAnalyticsSelectionPage"],
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var _counter_analytics_selection_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ./counter-analytics-selection.page */
+    "./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.page.ts");
+
+    var routes = [{
+      path: '',
+      component: _counter_analytics_selection_page__WEBPACK_IMPORTED_MODULE_5__["CounterAnalyticsSelectionPage"]
+    }];
+
+    var CounterAnalyticsSelectionPageModule = function CounterAnalyticsSelectionPageModule() {
+      _classCallCheck(this, CounterAnalyticsSelectionPageModule);
+    };
+
+    CounterAnalyticsSelectionPageModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+      type: CounterAnalyticsSelectionPageModule
+    });
+    CounterAnalyticsSelectionPageModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+      factory: function CounterAnalyticsSelectionPageModule_Factory(t) {
+        return new (t || CounterAnalyticsSelectionPageModule)();
+      },
+      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes)]]
+    });
+
+    (function () {
+      (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](CounterAnalyticsSelectionPageModule, {
+        declarations: [_counter_analytics_selection_page__WEBPACK_IMPORTED_MODULE_5__["CounterAnalyticsSelectionPage"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"]]
+      });
+    })();
+    /*@__PURE__*/
+
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CounterAnalyticsSelectionPageModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes)],
+          declarations: [_counter_analytics_selection_page__WEBPACK_IMPORTED_MODULE_5__["CounterAnalyticsSelectionPage"]]
+        }]
+      }], null, null);
+    })();
+    /***/
+
+  },
+
+  /***/
+  "./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.page.ts":
+  /*!************************************************************************************************!*\
+    !*** ./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.page.ts ***!
+    \************************************************************************************************/
+
+  /*! exports provided: CounterAnalyticsSelectionPage */
+
+  /***/
+  function srcAppCounterDetailCounterAnalyticsSelectionCounterAnalyticsSelectionPageTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "CounterAnalyticsSelectionPage", function () {
+      return CounterAnalyticsSelectionPage;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _services_analytics_item_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../services/analytics-item.service */
+    "./src/app/services/analytics-item.service.ts");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+    var _c0 = function _c0(a1, a2) {
+      return ["/counter-analytics", a1, a2];
+    };
+
+    function CounterAnalyticsSelectionPage_ion_item_2_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-item", 1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "ion-avatar", 2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "ion-icon", 3);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "ion-label");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "h2");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var analyticsItem_r37 = ctx.$implicit;
+
+        var ctx_r36 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](4, _c0, analyticsItem_r37.info.url, ctx_r36.counter.id));
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("name", analyticsItem_r37.info.icon);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](analyticsItem_r37.info.name);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](analyticsItem_r37.info.description);
+      }
     }
-];
-var CounterAnalyticsSelectionPageModule = /** @class */ (function () {
-    function CounterAnalyticsSelectionPageModule() {
-    }
-    CounterAnalyticsSelectionPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
-            ],
-            declarations: [_counter_analytics_selection_page__WEBPACK_IMPORTED_MODULE_6__["CounterAnalyticsSelectionPage"]]
-        })
-    ], CounterAnalyticsSelectionPageModule);
-    return CounterAnalyticsSelectionPageModule;
-}());
 
+    var CounterAnalyticsSelectionPage = /*#__PURE__*/function () {
+      function CounterAnalyticsSelectionPage(route, analyticsItemService) {
+        _classCallCheck(this, CounterAnalyticsSelectionPage);
 
-
-/***/ }),
-
-/***/ "./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.page.scss":
-/*!**************************************************************************************************!*\
-  !*** ./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.page.scss ***!
-  \**************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "ion-item p {\n  white-space: normal;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL2NvdW50L2NvdW50L3NyYy9hcHAvY291bnRlci1kZXRhaWwvY291bnRlci1hbmFseXRpY3Mtc2VsZWN0aW9uL2NvdW50ZXItYW5hbHl0aWNzLXNlbGVjdGlvbi5wYWdlLnNjc3MiLCJzcmMvYXBwL2NvdW50ZXItZGV0YWlsL2NvdW50ZXItYW5hbHl0aWNzLXNlbGVjdGlvbi9jb3VudGVyLWFuYWx5dGljcy1zZWxlY3Rpb24ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsbUJBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2NvdW50ZXItZGV0YWlsL2NvdW50ZXItYW5hbHl0aWNzLXNlbGVjdGlvbi9jb3VudGVyLWFuYWx5dGljcy1zZWxlY3Rpb24ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWl0ZW0gcCB7XG4gIHdoaXRlLXNwYWNlOiBub3JtYWw7XG59XG4iLCJpb24taXRlbSBwIHtcbiAgd2hpdGUtc3BhY2U6IG5vcm1hbDtcbn0iXX0= */"
-
-/***/ }),
-
-/***/ "./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.page.ts":
-/*!************************************************************************************************!*\
-  !*** ./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.page.ts ***!
-  \************************************************************************************************/
-/*! exports provided: CounterAnalyticsSelectionPage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CounterAnalyticsSelectionPage", function() { return CounterAnalyticsSelectionPage; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_analytics_item_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/analytics-item.service */ "./src/app/services/analytics-item.service.ts");
-
-
-
-
-var CounterAnalyticsSelectionPage = /** @class */ (function () {
-    function CounterAnalyticsSelectionPage(route, analyticsItemService) {
         this.route = route;
         this.analyticsItemService = analyticsItemService;
-    }
-    CounterAnalyticsSelectionPage.prototype.ngOnInit = function () {
-        this.counter = this.route.snapshot.data.counter;
+      }
+
+      _createClass(CounterAnalyticsSelectionPage, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.counter = this.route.snapshot.data.counter;
+        }
+      }, {
+        key: "analyticsItems",
+        get: function get() {
+          return this.analyticsItemService.all;
+        }
+      }]);
+
+      return CounterAnalyticsSelectionPage;
+    }();
+
+    CounterAnalyticsSelectionPage.ɵfac = function CounterAnalyticsSelectionPage_Factory(t) {
+      return new (t || CounterAnalyticsSelectionPage)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_analytics_item_service__WEBPACK_IMPORTED_MODULE_2__["AnalyticsItemService"]));
     };
-    Object.defineProperty(CounterAnalyticsSelectionPage.prototype, "analyticsItems", {
-        get: function () {
-            return this.analyticsItemService.all;
-        },
-        enumerable: true,
-        configurable: true
+
+    CounterAnalyticsSelectionPage.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+      type: CounterAnalyticsSelectionPage,
+      selectors: [["app-counter-analytics-selection"]],
+      decls: 3,
+      vars: 1,
+      consts: [[3, "routerLink", 4, "ngFor", "ngForOf"], [3, "routerLink"], ["slot", "start"], ["size", "large", 3, "name"]],
+      template: function CounterAnalyticsSelectionPage_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-content");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "ion-list");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, CounterAnalyticsSelectionPage_ion_item_2_Template, 8, 7, "ion-item", 0);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.analyticsItems);
+        }
+      },
+      directives: [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonContent"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonList"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonItem"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["RouterLinkDelegate"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterLink"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonAvatar"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonIcon"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonLabel"]],
+      styles: ["ion-item[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  white-space: normal;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL2NvdW50L2NvdW50L3NyYy9hcHAvY291bnRlci1kZXRhaWwvY291bnRlci1hbmFseXRpY3Mtc2VsZWN0aW9uL2NvdW50ZXItYW5hbHl0aWNzLXNlbGVjdGlvbi5wYWdlLnNjc3MiLCJzcmMvYXBwL2NvdW50ZXItZGV0YWlsL2NvdW50ZXItYW5hbHl0aWNzLXNlbGVjdGlvbi9jb3VudGVyLWFuYWx5dGljcy1zZWxlY3Rpb24ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsbUJBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2NvdW50ZXItZGV0YWlsL2NvdW50ZXItYW5hbHl0aWNzLXNlbGVjdGlvbi9jb3VudGVyLWFuYWx5dGljcy1zZWxlY3Rpb24ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWl0ZW0gcCB7XG4gIHdoaXRlLXNwYWNlOiBub3JtYWw7XG59XG4iLCJpb24taXRlbSBwIHtcbiAgd2hpdGUtc3BhY2U6IG5vcm1hbDtcbn0iXX0= */"]
     });
-    CounterAnalyticsSelectionPage.ctorParameters = function () { return [
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-        { type: _services_analytics_item_service__WEBPACK_IMPORTED_MODULE_3__["AnalyticsItemService"] }
-    ]; };
-    CounterAnalyticsSelectionPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-counter-analytics-selection',
-            template: __webpack_require__(/*! raw-loader!./counter-analytics-selection.page.html */ "./node_modules/raw-loader/index.js!./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.page.html"),
-            styles: [__webpack_require__(/*! ./counter-analytics-selection.page.scss */ "./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.page.scss")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-            _services_analytics_item_service__WEBPACK_IMPORTED_MODULE_3__["AnalyticsItemService"]])
-    ], CounterAnalyticsSelectionPage);
-    return CounterAnalyticsSelectionPage;
-}());
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CounterAnalyticsSelectionPage, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+          selector: 'app-counter-analytics-selection',
+          templateUrl: './counter-analytics-selection.page.html',
+          styleUrls: ['./counter-analytics-selection.page.scss']
+        }]
+      }], function () {
+        return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]
+        }, {
+          type: _services_analytics_item_service__WEBPACK_IMPORTED_MODULE_2__["AnalyticsItemService"]
+        }];
+      }, null);
+    })();
+    /***/
+
+  },
+
+  /***/
+  "./src/app/services/analytics-item.service.ts":
+  /*!****************************************************!*\
+    !*** ./src/app/services/analytics-item.service.ts ***!
+    \****************************************************/
+
+  /*! exports provided: AnalyticsItemService */
+
+  /***/
+  function srcAppServicesAnalyticsItemServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
 
 
-
-/***/ }),
-
-/***/ "./src/app/services/analytics-item.service.ts":
-/*!****************************************************!*\
-  !*** ./src/app/services/analytics-item.service.ts ***!
-  \****************************************************/
-/*! exports provided: AnalyticsItemService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnalyticsItemService", function() { return AnalyticsItemService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _models_analytics_item_repository_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/analytics-item-repository.service */ "./src/app/models/analytics-item-repository.service.ts");
+    __webpack_require__.d(__webpack_exports__, "AnalyticsItemService", function () {
+      return AnalyticsItemService;
+    });
+    /* harmony import */
 
 
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
 
-var AnalyticsItemService = /** @class */ (function () {
-    function AnalyticsItemService(analyticsItemRepositoryService) {
+
+    var _models_analytics_item_repository_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ../models/analytics-item-repository.service */
+    "./src/app/models/analytics-item-repository.service.ts");
+
+    var AnalyticsItemService = /*#__PURE__*/function () {
+      function AnalyticsItemService(analyticsItemRepositoryService) {
+        _classCallCheck(this, AnalyticsItemService);
+
         this.analyticsItemRepositoryService = analyticsItemRepositoryService;
-    }
-    Object.defineProperty(AnalyticsItemService.prototype, "all", {
-        get: function () {
-            return this.analyticsItemRepositoryService.all;
-        },
-        enumerable: true,
-        configurable: true
+      }
+
+      _createClass(AnalyticsItemService, [{
+        key: "all",
+        get: function get() {
+          return this.analyticsItemRepositoryService.all;
+        }
+      }]);
+
+      return AnalyticsItemService;
+    }();
+
+    AnalyticsItemService.ɵfac = function AnalyticsItemService_Factory(t) {
+      return new (t || AnalyticsItemService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_models_analytics_item_repository_service__WEBPACK_IMPORTED_MODULE_1__["AnalyticsItemRepositoryService"]));
+    };
+
+    AnalyticsItemService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
+      token: AnalyticsItemService,
+      factory: AnalyticsItemService.ɵfac,
+      providedIn: 'root'
     });
-    AnalyticsItemService.ctorParameters = function () { return [
-        { type: _models_analytics_item_repository_service__WEBPACK_IMPORTED_MODULE_2__["AnalyticsItemRepositoryService"] }
-    ]; };
-    AnalyticsItemService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-            providedIn: 'root'
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_models_analytics_item_repository_service__WEBPACK_IMPORTED_MODULE_2__["AnalyticsItemRepositoryService"]])
-    ], AnalyticsItemService);
-    return AnalyticsItemService;
-}());
+    /*@__PURE__*/
 
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AnalyticsItemService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+          providedIn: 'root'
+        }]
+      }], function () {
+        return [{
+          type: _models_analytics_item_repository_service__WEBPACK_IMPORTED_MODULE_1__["AnalyticsItemRepositoryService"]
+        }];
+      }, null);
+    })();
+    /***/
 
-
-/***/ })
-
+  }
 }]);
 //# sourceMappingURL=counter-analytics-selection-counter-analytics-selection-module-es5.js.map

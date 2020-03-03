@@ -1,190 +1,391 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[70],{
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-/***/ "./node_modules/@ionic/core/dist/esm-es5/ion-tab-bar_2-md.entry.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm-es5/ion-tab-bar_2-md.entry.js ***!
-  \*************************************************************************/
-/*! exports provided: ion_tab_bar, ion_tab_button */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_tab_bar", function() { return TabBar; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_tab_button", function() { return TabButton; });
-/* harmony import */ var _core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-ca0488fc.js */ "./node_modules/@ionic/core/dist/esm-es5/core-ca0488fc.js");
-/* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm-es5/config-3c7f3790.js");
-/* harmony import */ var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./theme-18cbe2cc.js */ "./node_modules/@ionic/core/dist/esm-es5/theme-18cbe2cc.js");
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[70], {
+  /***/
+  "./node_modules/@ionic/core/dist/esm/ion-textarea-ios.entry.js":
+  /*!*********************************************************************!*\
+    !*** ./node_modules/@ionic/core/dist/esm/ion-textarea-ios.entry.js ***!
+    \*********************************************************************/
+
+  /*! exports provided: ion_textarea */
+
+  /***/
+  function node_modulesIonicCoreDistEsmIonTextareaIosEntryJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
 
 
+    __webpack_require__.d(__webpack_exports__, "ion_textarea", function () {
+      return Textarea;
+    });
+    /* harmony import */
 
-var TabBar = /** @class */ (function () {
-    function TabBar(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.keyboardVisible = false;
-        /**
-         * If `true`, the tab bar will be translucent.
-         * Only applies when the mode is `"ios"` and the device supports
-         * [`backdrop-filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter#Browser_compatibility).
-         */
-        this.translucent = false;
-        this.ionTabBarChanged = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionTabBarChanged", 7);
-    }
-    TabBar.prototype.selectedTabChanged = function () {
-        if (this.selectedTab !== undefined) {
-            this.ionTabBarChanged.emit({
-                tab: this.selectedTab
-            });
-        }
-    };
-    TabBar.prototype.onKeyboardWillHide = function () {
+
+    var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./core-0a8d4d2e.js */
+    "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
+    /* harmony import */
+
+
+    var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./config-3c7f3790.js */
+    "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
+    /* harmony import */
+
+
+    var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./helpers-46f4a262.js */
+    "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
+    /* harmony import */
+
+
+    var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./theme-18cbe2cc.js */
+    "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
+
+    var Textarea = /*#__PURE__*/function () {
+      function Textarea(hostRef) {
         var _this = this;
-        setTimeout(function () { return _this.keyboardVisible = false; }, 50);
-    };
-    TabBar.prototype.onKeyboardWillShow = function () {
-        if (this.el.getAttribute('slot') !== 'top') {
-            this.keyboardVisible = true;
-        }
-    };
-    TabBar.prototype.componentWillLoad = function () {
-        this.selectedTabChanged();
-    };
-    TabBar.prototype.render = function () {
-        var _a;
-        var _b = this, color = _b.color, translucent = _b.translucent, keyboardVisible = _b.keyboardVisible;
-        var mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this);
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["H"], { role: "tablist", "aria-hidden": keyboardVisible ? 'true' : null, class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_2__["c"])(color)), (_a = {}, _a[mode] = true, _a['tab-bar-translucent'] = translucent, _a['tab-bar-hidden'] = keyboardVisible, _a)) }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null)));
-    };
-    Object.defineProperty(TabBar.prototype, "el", {
-        get: function () { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TabBar, "watchers", {
-        get: function () {
-            return {
-                "selectedTab": ["selectedTabChanged"]
-            };
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TabBar, "style", {
-        get: function () { return ":host{padding-left:var(--ion-safe-area-left);padding-right:var(--ion-safe-area-right);display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;width:auto;padding-bottom:var(--ion-safe-area-bottom,0);border-top:var(--border);background:var(--background);color:var(--color);text-align:center;contain:strict;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:10;-webkit-box-sizing:content-box!important;box-sizing:content-box!important}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--ion-safe-area-left);padding-inline-start:var(--ion-safe-area-left);-webkit-padding-end:var(--ion-safe-area-right);padding-inline-end:var(--ion-safe-area-right)}}:host(.ion-color) ::slotted(ion-tab-button){--background-focused:var(--ion-color-shade);--color-selected:var(--ion-color-contrast)}:host(.ion-color) ::slotted(.tab-selected){color:var(--ion-color-contrast)}:host(.ion-color),:host(.ion-color) ::slotted(ion-tab-button){color:rgba(var(--ion-color-contrast-rgb),.7);background:var(--ion-color-base)}:host(.ion-color) ::slotted(ion-tab-button.ion-focused),:host(.tab-bar-translucent) ::slotted(ion-tab-button.ion-focused){background:var(--background-focused)}:host(.tab-bar-translucent) ::slotted(ion-tab-button){background:transparent}:host([slot=top]){padding-bottom:0;border-top:0;border-bottom:var(--border)}:host(.tab-bar-hidden){display:none!important}:host{--background:var(--ion-tab-bar-background,var(--ion-background-color,#fff));--background-focused:var(--ion-tab-bar-background-focused,#e0e0e0);--border:1px solid var(--ion-tab-bar-border-color,var(--ion-border-color,var(--ion-color-step-150,rgba(0,0,0,0.07))));--color:var(--ion-tab-bar-color,var(--ion-color-step-600,#666));--color-selected:var(--ion-tab-bar-color-activated,var(--ion-color-primary,#3880ff));height:56px}"; },
-        enumerable: true,
-        configurable: true
-    });
-    return TabBar;
-}());
-var TabButton = /** @class */ (function () {
-    function TabButton(hostRef) {
-        var _this = this;
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+
+        _classCallCheck(this, Textarea);
+
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.inputId = "ion-input-".concat(textareaIds++);
+        this.didBlurAfterEdit = false;
+        this.hasFocus = false;
         /**
-         * If `true`, the user cannot interact with the tab button.
+         * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user.
          */
+
+        this.autocapitalize = 'none';
+        /**
+         * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
+         */
+
+        this.autofocus = false;
+        /**
+         * If `true`, the value will be cleared after focus upon edit. Defaults to `true` when `type` is `"password"`, `false` for all other types.
+         */
+
+        this.clearOnEdit = false;
+        /**
+         * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
+         */
+
+        this.debounce = 0;
+        /**
+         * If `true`, the user cannot interact with the textarea.
+         */
+
         this.disabled = false;
         /**
-         * The selected tab component
+         * The name of the control, which is submitted with the form data.
          */
-        this.selected = false;
-        this.onKeyUp = function (ev) {
-            if (ev.key === 'Enter' || ev.key === ' ') {
-                _this.selectTab(ev);
-            }
+
+        this.name = this.inputId;
+        /**
+         * If `true`, the user cannot modify the value.
+         */
+
+        this.readonly = false;
+        /**
+         * If `true`, the user must fill in a value before submitting a form.
+         */
+
+        this.required = false;
+        /**
+         * If `true`, the element will have its spelling and grammar checked.
+         */
+
+        this.spellcheck = false;
+        /**
+         * If `true`, the element height will increase based on the value.
+         */
+
+        this.autoGrow = false;
+        /**
+         * The value of the textarea.
+         */
+
+        this.value = '';
+
+        this.onInput = function (ev) {
+          if (_this.nativeInput) {
+            _this.value = _this.nativeInput.value;
+          }
+
+          _this.emitStyle();
+
+          _this.ionInput.emit(ev);
         };
-        this.onClick = function (ev) {
-            _this.selectTab(ev);
+
+        this.onFocus = function () {
+          _this.hasFocus = true;
+
+          _this.focusChange();
+
+          _this.ionFocus.emit();
         };
-        this.ionTabButtonClick = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionTabButtonClick", 7);
-    }
-    TabButton.prototype.onTabBarChanged = function (ev) {
-        this.selected = this.tab === ev.detail.tab;
-    };
-    TabButton.prototype.componentWillLoad = function () {
-        if (this.layout === undefined) {
-            this.layout = _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].get('tabButtonLayout', 'icon-top');
+
+        this.onBlur = function () {
+          _this.hasFocus = false;
+
+          _this.focusChange();
+
+          _this.ionBlur.emit();
+        };
+
+        this.onKeyDown = function () {
+          _this.checkClearOnEdit();
+        };
+
+        this.ionChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionChange", 7);
+        this.ionInput = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionInput", 7);
+        this.ionStyle = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionStyle", 7);
+        this.ionBlur = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionBlur", 7);
+        this.ionFocus = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionFocus", 7);
+      }
+
+      _createClass(Textarea, [{
+        key: "debounceChanged",
+        value: function debounceChanged() {
+          this.ionChange = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["d"])(this.ionChange, this.debounce);
         }
-    };
-    TabButton.prototype.selectTab = function (ev) {
-        if (this.tab !== undefined) {
-            if (!this.disabled) {
-                this.ionTabButtonClick.emit({
-                    tab: this.tab,
-                    href: this.href,
-                    selected: this.selected
-                });
-            }
-            ev.preventDefault();
+      }, {
+        key: "disabledChanged",
+        value: function disabledChanged() {
+          this.emitStyle();
         }
-    };
-    Object.defineProperty(TabButton.prototype, "hasLabel", {
-        get: function () {
-            return !!this.el.querySelector('ion-label');
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TabButton.prototype, "hasIcon", {
-        get: function () {
-            return !!this.el.querySelector('ion-icon');
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TabButton.prototype, "tabIndex", {
-        get: function () {
-            if (this.disabled) {
-                return -1;
-            }
-            var hasTabIndex = this.el.hasAttribute('tabindex');
-            if (hasTabIndex) {
-                return this.el.getAttribute('tabindex');
-            }
-            return 0;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    TabButton.prototype.render = function () {
-        var _a;
-        var _b = this, disabled = _b.disabled, hasIcon = _b.hasIcon, hasLabel = _b.hasLabel, tabIndex = _b.tabIndex, href = _b.href, rel = _b.rel, target = _b.target, layout = _b.layout, selected = _b.selected, tab = _b.tab;
-        var mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this);
-        var attrs = {
-            download: this.download,
-            href: href,
-            rel: rel,
-            target: target
-        };
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.onClick, onKeyup: this.onKeyUp, role: "tab", tabindex: tabIndex, "aria-selected": selected ? 'true' : null, id: tab !== undefined ? "tab-button-" + tab : null, class: (_a = {},
-                _a[mode] = true,
-                _a['tab-selected'] = selected,
-                _a['tab-disabled'] = disabled,
-                _a['tab-has-label'] = hasLabel,
-                _a['tab-has-icon'] = hasIcon,
-                _a['tab-has-label-only'] = hasLabel && !hasIcon,
-                _a['tab-has-icon-only'] = hasIcon && !hasLabel,
-                _a["tab-layout-" + layout] = true,
-                _a['ion-activatable'] = true,
-                _a['ion-selectable'] = true,
-                _a['ion-focusable'] = true,
-                _a) }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("a", Object.assign({}, attrs, { tabIndex: -1 }), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null), mode === 'md' && Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-ripple-effect", { type: "unbounded" }))));
-    };
-    Object.defineProperty(TabButton.prototype, "el", {
-        get: function () { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(TabButton, "style", {
-        get: function () { return ":host{--ripple-color:var(--color-selected);-ms-flex:1;flex:1;-ms-flex-direction:column;flex-direction:column;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;background:var(--background);color:var(--color)}:host,a{height:100%;outline:none}a{margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:var(--padding-start);padding-right:var(--padding-end);padding-top:var(--padding-top);padding-bottom:var(--padding-bottom);font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;text-decoration:inherit;text-overflow:inherit;text-transform:inherit;text-align:inherit;white-space:inherit;color:inherit;display:-ms-flexbox;display:flex;position:relative;-ms-flex-direction:inherit;flex-direction:inherit;-ms-flex-align:inherit;align-items:inherit;-ms-flex-pack:inherit;justify-content:inherit;width:100%;border:0;background:transparent;text-decoration:none;cursor:pointer;overflow:hidden;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-user-drag:none}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){a{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--padding-start);padding-inline-start:var(--padding-start);-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}:host(.ion-focused){background:var(--background-focused)}\@media (any-hover:hover){a:hover{color:var(--color-selected)}}:host(.tab-selected){color:var(--color-selected)}:host(.tab-hidden){display:none!important}:host(.tab-disabled){pointer-events:none;opacity:.4}::slotted(ion-icon),::slotted(ion-label){display:block;-ms-flex-item-align:center;align-self:center;max-width:100%;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;-webkit-box-sizing:border-box;box-sizing:border-box}::slotted(ion-label){-ms-flex-order:0;order:0}::slotted(ion-icon){-ms-flex-order:-1;order:-1;height:1em}:host(.tab-has-label-only) ::slotted(ion-label){white-space:normal}::slotted(ion-badge){-webkit-box-sizing:border-box;box-sizing:border-box;position:absolute;z-index:1}:host(.tab-layout-icon-start){-ms-flex-direction:row;flex-direction:row}:host(.tab-layout-icon-end){-ms-flex-direction:row-reverse;flex-direction:row-reverse}:host(.tab-layout-icon-bottom){-ms-flex-direction:column-reverse;flex-direction:column-reverse}:host(.tab-layout-icon-hide) ::slotted(ion-icon),:host(.tab-layout-label-hide) ::slotted(ion-label){display:none}ion-ripple-effect{color:var(--ripple-color)}:host{--padding-top:0;--padding-end:12px;--padding-bottom:0;--padding-start:12px;max-width:168px;font-size:12px;font-weight:400;letter-spacing:.03em}::slotted(ion-label){margin-left:0;margin-right:0;margin-top:2px;margin-bottom:2px;text-transform:none}::slotted(ion-icon){margin-left:0;margin-right:0;margin-top:16px;margin-bottom:16px;-webkit-transform-origin:center center;transform-origin:center center;font-size:22px}:host-context([dir=rtl]) ::slotted(ion-icon),[dir=rtl] ::slotted(ion-icon){-webkit-transform-origin:calc(100% - center) center;transform-origin:calc(100% - center) center}::slotted(ion-badge){border-radius:8px;padding-left:2px;padding-right:2px;padding-top:3px;padding-bottom:2px;left:calc(50% + 6px);top:8px;min-width:12px;font-size:8px;font-weight:400}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted(ion-badge){padding-left:unset;padding-right:unset;-webkit-padding-start:2px;padding-inline-start:2px;-webkit-padding-end:2px;padding-inline-end:2px}}:host-context([dir=rtl]) ::slotted(ion-badge),[dir=rtl] ::slotted(ion-badge){left:unset;right:unset;right:calc(50% + 6px)}::slotted(ion-badge:empty){display:block;min-width:8px;height:8px}:host(.tab-layout-icon-top) ::slotted(ion-icon){margin-top:6px;margin-bottom:2px}:host(.tab-layout-icon-top) ::slotted(ion-label){margin-top:0;margin-bottom:6px}:host(.tab-layout-icon-bottom) ::slotted(ion-badge){left:70%;top:8px}:host-context([dir=rtl]).tab-layout-icon-bottom ::slotted(ion-badge),:host-context([dir=rtl]):host(.tab-layout-icon-bottom) ::slotted(ion-badge){left:unset;right:unset;right:70%}:host(.tab-layout-icon-bottom) ::slotted(ion-icon){margin-top:0;margin-bottom:6px}:host(.tab-layout-icon-bottom) ::slotted(ion-label){margin-top:6px;margin-bottom:0}:host(.tab-layout-icon-end) ::slotted(ion-badge),:host(.tab-layout-icon-start) ::slotted(ion-badge){left:80%;top:16px}:host-context([dir=rtl]).tab-layout-icon-end ::slotted(ion-badge),:host-context([dir=rtl]).tab-layout-icon-start ::slotted(ion-badge),:host-context([dir=rtl]):host(.tab-layout-icon-end) ::slotted(ion-badge),:host-context([dir=rtl]):host(.tab-layout-icon-start) ::slotted(ion-badge){left:unset;right:unset;right:80%}:host(.tab-layout-icon-start) ::slotted(ion-icon){margin-right:6px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host(.tab-layout-icon-start) ::slotted(ion-icon){margin-right:unset;-webkit-margin-end:6px;margin-inline-end:6px}}:host(.tab-layout-icon-end) ::slotted(ion-icon){margin-left:6px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host(.tab-layout-icon-end) ::slotted(ion-icon){margin-left:unset;-webkit-margin-start:6px;margin-inline-start:6px}}:host(.tab-has-label-only) ::slotted(ion-badge),:host(.tab-layout-icon-hide) ::slotted(ion-badge){left:70%;top:16px}:host-context([dir=rtl]).tab-has-label-only ::slotted(ion-badge),:host-context([dir=rtl]).tab-layout-icon-hide ::slotted(ion-badge),:host-context([dir=rtl]):host(.tab-has-label-only) ::slotted(ion-badge),:host-context([dir=rtl]):host(.tab-layout-icon-hide) ::slotted(ion-badge){left:unset;right:unset;right:70%}:host(.tab-has-label-only) ::slotted(ion-label),:host(.tab-layout-icon-hide) ::slotted(ion-label){margin-top:0;margin-bottom:0}:host(.tab-has-icon-only) ::slotted(ion-badge),:host(.tab-layout-label-hide) ::slotted(ion-badge){top:16px}:host(.tab-has-icon-only) ::slotted(ion-icon),:host(.tab-layout-label-hide) ::slotted(ion-icon){margin-top:0;margin-bottom:0;font-size:24px}"; },
-        enumerable: true,
-        configurable: true
-    });
-    return TabButton;
-}());
+        /**
+         * Update the native input element when the value changes
+         */
+
+      }, {
+        key: "valueChanged",
+        value: function valueChanged() {
+          var nativeInput = this.nativeInput;
+          var value = this.getValue();
+
+          if (nativeInput && nativeInput.value !== value) {
+            nativeInput.value = value;
+          }
+
+          this.runAutoGrow();
+          this.emitStyle();
+          this.ionChange.emit({
+            value: value
+          });
+        }
+      }, {
+        key: "connectedCallback",
+        value: function connectedCallback() {
+          this.emitStyle();
+          this.debounceChanged();
+          {
+            this.el.dispatchEvent(new CustomEvent('ionInputDidLoad', {
+              detail: this.el
+            }));
+          }
+        }
+      }, {
+        key: "disconnectedCallback",
+        value: function disconnectedCallback() {
+          {
+            document.dispatchEvent(new CustomEvent('ionInputDidUnload', {
+              detail: this.el
+            }));
+          }
+        }
+      }, {
+        key: "componentDidLoad",
+        value: function componentDidLoad() {
+          this.runAutoGrow();
+        } // TODO: performance hit, this cause layout thrashing
+
+      }, {
+        key: "runAutoGrow",
+        value: function runAutoGrow() {
+          var nativeInput = this.nativeInput;
+
+          if (nativeInput && this.autoGrow) {
+            Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["f"])(function () {
+              nativeInput.style.height = 'inherit';
+              nativeInput.style.height = nativeInput.scrollHeight + 'px';
+            });
+          }
+        }
+        /**
+         * Sets focus on the specified `ion-textarea`. Use this method instead of the global
+         * `input.focus()`.
+         */
+
+      }, {
+        key: "setFocus",
+        value: function () {
+          var _setFocus = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    if (this.nativeInput) {
+                      this.nativeInput.focus();
+                    }
+
+                  case 1:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee, this);
+          }));
+
+          function setFocus() {
+            return _setFocus.apply(this, arguments);
+          }
+
+          return setFocus;
+        }()
+        /**
+         * Returns the native `<textarea>` element used under the hood.
+         */
+
+      }, {
+        key: "getInputElement",
+        value: function getInputElement() {
+          return Promise.resolve(this.nativeInput);
+        }
+      }, {
+        key: "emitStyle",
+        value: function emitStyle() {
+          this.ionStyle.emit({
+            'interactive': true,
+            'textarea': true,
+            'input': true,
+            'interactive-disabled': this.disabled,
+            'has-placeholder': this.placeholder != null,
+            'has-value': this.hasValue(),
+            'has-focus': this.hasFocus
+          });
+        }
+        /**
+         * Check if we need to clear the text input if clearOnEdit is enabled
+         */
+
+      }, {
+        key: "checkClearOnEdit",
+        value: function checkClearOnEdit() {
+          if (!this.clearOnEdit) {
+            return;
+          } // Did the input value change after it was blurred and edited?
 
 
+          if (this.didBlurAfterEdit && this.hasValue()) {
+            // Clear the input
+            this.value = '';
+          } // Reset the flag
 
-/***/ })
 
+          this.didBlurAfterEdit = false;
+        }
+      }, {
+        key: "focusChange",
+        value: function focusChange() {
+          // If clearOnEdit is enabled and the input blurred but has a value, set a flag
+          if (this.clearOnEdit && !this.hasFocus && this.hasValue()) {
+            this.didBlurAfterEdit = true;
+          }
+
+          this.emitStyle();
+        }
+      }, {
+        key: "hasValue",
+        value: function hasValue() {
+          return this.getValue() !== '';
+        }
+      }, {
+        key: "getValue",
+        value: function getValue() {
+          return this.value || '';
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          var _this2 = this;
+
+          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+          var value = this.getValue();
+          var labelId = this.inputId + '-lbl';
+          var label = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["f"])(this.el);
+
+          if (label) {
+            label.id = labelId;
+          }
+
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            "aria-disabled": this.disabled ? 'true' : null,
+            class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), _defineProperty({}, mode, true))
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("textarea", {
+            class: "native-textarea",
+            ref: function ref(el) {
+              return _this2.nativeInput = el;
+            },
+            autoCapitalize: this.autocapitalize,
+            autoFocus: this.autofocus,
+            disabled: this.disabled,
+            maxLength: this.maxlength,
+            minLength: this.minlength,
+            name: this.name,
+            placeholder: this.placeholder || '',
+            readOnly: this.readonly,
+            required: this.required,
+            spellCheck: this.spellcheck,
+            cols: this.cols,
+            rows: this.rows,
+            wrap: this.wrap,
+            onInput: this.onInput,
+            onBlur: this.onBlur,
+            onFocus: this.onFocus,
+            onKeyDown: this.onKeyDown
+          }, value));
+        }
+      }, {
+        key: "el",
+        get: function get() {
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+        }
+      }], [{
+        key: "watchers",
+        get: function get() {
+          return {
+            "debounce": ["debounceChanged"],
+            "disabled": ["disabledChanged"],
+            "value": ["valueChanged"]
+          };
+        }
+      }, {
+        key: "style",
+        get: function get() {
+          return ".sc-ion-textarea-ios-h{--background:initial;--color:initial;--placeholder-color:initial;--placeholder-font-style:initial;--placeholder-font-weight:initial;--placeholder-opacity:.5;--padding-top:0;--padding-end:0;--padding-bottom:0;--border-radius:0;display:block;position:relative;-ms-flex:1;flex:1;width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;background:var(--background);color:var(--color);font-family:var(--ion-font-family,inherit);white-space:pre-wrap;z-index:2}.ion-color.sc-ion-textarea-ios-h{background:initial;color:var(--ion-color-base)}ion-item.sc-ion-textarea-ios-h, ion-item .sc-ion-textarea-ios-h{-ms-flex-item-align:baseline;align-self:baseline}ion-item.sc-ion-textarea-ios-h:not(.item-label), ion-item:not(.item-label) .sc-ion-textarea-ios-h{--padding-start:0}.native-textarea.sc-ion-textarea-ios{border-radius:var(--border-radius);margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:var(--padding-start);padding-right:var(--padding-end);padding-top:var(--padding-top);padding-bottom:var(--padding-bottom);font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;text-decoration:inherit;text-indent:inherit;text-overflow:inherit;text-transform:inherit;text-align:inherit;white-space:inherit;color:inherit;display:block;width:100%;max-width:100%;max-height:100%;border:0;outline:none;background:transparent;-webkit-box-sizing:border-box;box-sizing:border-box;resize:none;-webkit-appearance:none;-moz-appearance:none;appearance:none}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.native-textarea.sc-ion-textarea-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--padding-start);padding-inline-start:var(--padding-start);-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}.native-textarea.sc-ion-textarea-ios::-webkit-input-placeholder{padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;color:var(--placeholder-color);font-family:inherit;font-style:var(--placeholder-font-style);font-weight:var(--placeholder-font-weight);opacity:var(--placeholder-opacity)}.native-textarea.sc-ion-textarea-ios::-moz-placeholder{padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;color:var(--placeholder-color);font-family:inherit;font-style:var(--placeholder-font-style);font-weight:var(--placeholder-font-weight);opacity:var(--placeholder-opacity)}.native-textarea.sc-ion-textarea-ios:-ms-input-placeholder{padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;color:var(--placeholder-color);font-family:inherit;font-style:var(--placeholder-font-style);font-weight:var(--placeholder-font-weight);opacity:var(--placeholder-opacity)}.native-textarea.sc-ion-textarea-ios::-ms-input-placeholder{padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;color:var(--placeholder-color);font-family:inherit;font-style:var(--placeholder-font-style);font-weight:var(--placeholder-font-weight);opacity:var(--placeholder-opacity)}.native-textarea.sc-ion-textarea-ios::placeholder{padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;color:var(--placeholder-color);font-family:inherit;font-style:var(--placeholder-font-style);font-weight:var(--placeholder-font-weight);opacity:var(--placeholder-opacity)}.native-textarea[disabled].sc-ion-textarea-ios{opacity:.4}.cloned-input.sc-ion-textarea-ios{left:0;top:0;position:absolute;pointer-events:none}[dir=rtl].sc-ion-textarea-ios-h .cloned-input.sc-ion-textarea-ios, [dir=rtl] .sc-ion-textarea-ios-h .cloned-input.sc-ion-textarea-ios, [dir=rtl].sc-ion-textarea-ios .cloned-input.sc-ion-textarea-ios{left:unset;right:unset;right:0}.sc-ion-textarea-ios-h{--padding-top:10px;--padding-end:10px;--padding-bottom:10px;--padding-start:0;font-size:inherit}.item-label-floating.sc-ion-textarea-ios-h, .item-label-floating .sc-ion-textarea-ios-h, .item-label-stacked.sc-ion-textarea-ios-h, .item-label-stacked .sc-ion-textarea-ios-h{--padding-top:8px;--padding-bottom:8px;--padding-start:0px}";
+        }
+      }]);
+
+      return Textarea;
+    }();
+
+    var textareaIds = 0;
+    /***/
+  }
 }]);
 //# sourceMappingURL=70-es5.js.map

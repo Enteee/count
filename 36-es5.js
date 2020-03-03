@@ -1,380 +1,1078 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[36],{
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-/***/ "./node_modules/@ionic/core/dist/esm-es5/ion-item_8-md.entry.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm-es5/ion-item_8-md.entry.js ***!
-  \**********************************************************************/
-/*! exports provided: ion_item, ion_item_divider, ion_item_group, ion_label, ion_list, ion_list_header, ion_note, ion_skeleton_text */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_item", function() { return Item; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_item_divider", function() { return ItemDivider; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_item_group", function() { return ItemGroup; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_label", function() { return Label; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_list", function() { return List; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_list_header", function() { return ListHeader; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_note", function() { return Note; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_skeleton_text", function() { return SkeletonText; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./core-ca0488fc.js */ "./node_modules/@ionic/core/dist/esm-es5/core-ca0488fc.js");
-/* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm-es5/config-3c7f3790.js");
-/* harmony import */ var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme-18cbe2cc.js */ "./node_modules/@ionic/core/dist/esm-es5/theme-18cbe2cc.js");
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[36], {
+  /***/
+  "./node_modules/@ionic/core/dist/esm/ion-menu_3-ios.entry.js":
+  /*!*******************************************************************!*\
+    !*** ./node_modules/@ionic/core/dist/esm/ion-menu_3-ios.entry.js ***!
+    \*******************************************************************/
+
+  /*! exports provided: ion_menu, ion_menu_button, ion_menu_toggle */
+
+  /***/
+  function node_modulesIonicCoreDistEsmIonMenu_3IosEntryJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
 
 
+    __webpack_require__.d(__webpack_exports__, "ion_menu", function () {
+      return Menu;
+    });
+    /* harmony export (binding) */
 
 
-var Item = /** @class */ (function () {
-    function Item(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["r"])(this, hostRef);
-        this.itemStyles = new Map();
-        this.multipleInputs = false;
+    __webpack_require__.d(__webpack_exports__, "ion_menu_button", function () {
+      return MenuButton;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ion_menu_toggle", function () {
+      return MenuToggle;
+    });
+    /* harmony import */
+
+
+    var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./core-0a8d4d2e.js */
+    "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
+    /* harmony import */
+
+
+    var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./config-3c7f3790.js */
+    "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
+    /* harmony import */
+
+
+    var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./helpers-46f4a262.js */
+    "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
+    /* harmony import */
+
+
+    var _animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./animation-56279521.js */
+    "./node_modules/@ionic/core/dist/esm/animation-56279521.js");
+    /* harmony import */
+
+
+    var _cubic_bezier_1d592096_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./cubic-bezier-1d592096.js */
+    "./node_modules/@ionic/core/dist/esm/cubic-bezier-1d592096.js");
+    /* harmony import */
+
+
+    var _index_c38df685_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ./index-c38df685.js */
+    "./node_modules/@ionic/core/dist/esm/index-c38df685.js");
+    /* harmony import */
+
+
+    var _hardware_back_button_1ed0083a_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./hardware-back-button-1ed0083a.js */
+    "./node_modules/@ionic/core/dist/esm/hardware-back-button-1ed0083a.js");
+    /* harmony import */
+
+
+    var _index_c58c7441_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ./index-c58c7441.js */
+    "./node_modules/@ionic/core/dist/esm/index-c58c7441.js");
+    /* harmony import */
+
+
+    var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ./theme-18cbe2cc.js */
+    "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
+
+    var iosEasing = 'cubic-bezier(0.32,0.72,0,1)';
+    var mdEasing = 'cubic-bezier(0.0,0.0,0.2,1)';
+    var iosEasingReverse = 'cubic-bezier(1, 0, 0.68, 0.28)';
+    var mdEasingReverse = 'cubic-bezier(0.4, 0, 0.6, 1)';
+
+    var Menu = /*#__PURE__*/function () {
+      function Menu(hostRef) {
+        _classCallCheck(this, Menu);
+
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.lastOnEnd = 0;
+        this.blocker = _index_c38df685_js__WEBPACK_IMPORTED_MODULE_5__["GESTURE_CONTROLLER"].createBlocker({
+          disableScroll: true
+        });
+        this.mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+        this.easing = this.mode === 'ios' ? iosEasing : mdEasing;
+        this.easingReverse = this.mode === 'ios' ? iosEasingReverse : mdEasingReverse;
+        this.isAnimating = false;
+        this._isOpen = false;
+        this.isPaneVisible = false;
+        this.isEndSide = false;
         /**
-         * If `true`, a button tag will be rendered and the item will be tappable.
+         * If `true`, the menu is disabled.
          */
-        this.button = false;
-        /**
-         * The icon to use when `detail` is set to `true`.
-         */
-        this.detailIcon = 'ios-arrow-forward';
-        /**
-         * If `true`, the user cannot interact with the item.
-         */
+
         this.disabled = false;
         /**
-         * When using a router, it specifies the transition direction when navigating to
-         * another page using `href`.
+         * Which side of the view the menu should be placed.
          */
-        this.routerDirection = 'forward';
+
+        this.side = 'start';
         /**
-         * The type of the button. Only used when an `onclick` or `button` property is present.
+         * If `true`, swiping the menu is enabled.
          */
-        this.type = 'button';
-    }
-    Item.prototype.itemStyle = function (ev) {
-        ev.stopPropagation();
-        var tagName = ev.target.tagName;
-        var updatedStyles = ev.detail;
-        var newStyles = {};
-        var childStyles = this.itemStyles.get(tagName) || {};
-        var hasStyleChange = false;
-        Object.keys(updatedStyles).forEach(function (key) {
-            if (updatedStyles[key]) {
-                var itemKey = "item-" + key;
-                if (!childStyles[itemKey]) {
-                    hasStyleChange = true;
-                }
-                newStyles[itemKey] = true;
+
+        this.swipeGesture = true;
+        /**
+         * The edge threshold for dragging the menu open.
+         * If a drag/swipe happens over this value, the menu is not triggered.
+         */
+
+        this.maxEdgeStart = 50;
+        this.ionWillOpen = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionWillOpen", 7);
+        this.ionWillClose = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionWillClose", 7);
+        this.ionDidOpen = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionDidOpen", 7);
+        this.ionDidClose = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionDidClose", 7);
+        this.ionMenuChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionMenuChange", 7);
+      }
+
+      _createClass(Menu, [{
+        key: "typeChanged",
+        value: function typeChanged(type, oldType) {
+          var contentEl = this.contentEl;
+
+          if (contentEl) {
+            if (oldType !== undefined) {
+              contentEl.classList.remove("menu-content-".concat(oldType));
             }
-        });
-        if (!hasStyleChange && Object.keys(newStyles).length !== Object.keys(childStyles).length) {
-            hasStyleChange = true;
+
+            contentEl.classList.add("menu-content-".concat(type));
+            contentEl.removeAttribute('style');
+          }
+
+          if (this.menuInnerEl) {
+            // Remove effects of previous animations
+            this.menuInnerEl.removeAttribute('style');
+          }
+
+          this.animation = undefined;
         }
-        if (hasStyleChange) {
-            this.itemStyles.set(tagName, newStyles);
-            this.el.forceUpdate();
+      }, {
+        key: "disabledChanged",
+        value: function disabledChanged() {
+          this.updateState();
+          this.ionMenuChange.emit({
+            disabled: this.disabled,
+            open: this._isOpen
+          });
         }
-    };
-    Item.prototype.componentDidLoad = function () {
-        // The following elements have a clickable cover that is relative to the entire item
-        var covers = this.el.querySelectorAll('ion-checkbox, ion-datetime, ion-select, ion-radio');
-        // The following elements can accept focus alongside the previous elements
-        // therefore if these elements are also a child of item, we don't want the
-        // input cover on top of those interfering with their clicks
-        var inputs = this.el.querySelectorAll('ion-input, ion-range, ion-searchbar, ion-segment, ion-textarea, ion-toggle');
-        // Check for multiple inputs to change the position of the input cover to relative
-        // for all of the covered inputs above
-        this.multipleInputs = covers.length + inputs.length > 1;
-    };
-    // If the item contains an input including a checkbox, datetime, select, or radio
-    // then the item will have a clickable input cover that covers the item
-    // that should get the hover, focused and activated states UNLESS it has multiple
-    // inputs, then those need to individually get each click
-    Item.prototype.hasCover = function () {
-        var inputs = this.el.querySelectorAll('ion-checkbox, ion-datetime, ion-select, ion-radio');
-        return inputs.length === 1 && !this.multipleInputs;
-    };
-    // If the item has an href or button property it will render a native
-    // anchor or button that is clickable
-    Item.prototype.isClickable = function () {
-        return (this.href !== undefined || this.button);
-    };
-    Item.prototype.canActivate = function () {
-        return (this.isClickable() || this.hasCover());
-    };
-    Item.prototype.render = function () {
-        var _a;
-        var _b = this, detail = _b.detail, detailIcon = _b.detailIcon, download = _b.download, lines = _b.lines, disabled = _b.disabled, href = _b.href, rel = _b.rel, target = _b.target, routerDirection = _b.routerDirection;
-        var childStyles = {};
-        var mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["d"])(this);
-        var clickable = this.isClickable();
-        var canActivate = this.canActivate();
-        var TagType = clickable ? (href === undefined ? 'button' : 'a') : 'div';
-        var attrs = (TagType === 'button')
-            ? { type: this.type }
-            : {
-                download: download,
-                href: href,
-                rel: rel,
-                target: target
-            };
-        var showDetail = detail !== undefined ? detail : mode === 'ios' && clickable;
-        this.itemStyles.forEach(function (value) {
-            Object.assign(childStyles, value);
-        });
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["H"], { "aria-disabled": disabled ? 'true' : null, class: Object.assign(Object.assign(Object.assign({}, childStyles), Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), (_a = { 'item': true }, _a[mode] = true, _a["item-lines-" + lines] = lines !== undefined, _a['item-disabled'] = disabled, _a['in-list'] = Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["h"])('ion-list', this.el), _a['item-multiple-inputs'] = this.multipleInputs, _a['ion-activatable'] = canActivate, _a['ion-focusable'] = true, _a)) }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])(TagType, Object.assign({}, attrs, { class: "item-native", disabled: disabled, onClick: function (ev) { return Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["o"])(href, ev, routerDirection); } }), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("slot", { name: "start" }), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("div", { class: "item-inner" }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("div", { class: "input-wrapper" }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("slot", null)), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("slot", { name: "end" }), showDetail && Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("ion-icon", { icon: detailIcon, lazy: false, class: "item-detail-icon" }), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("div", { class: "item-inner-highlight" })), canActivate && mode === 'md' && Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("ion-ripple-effect", null)), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("div", { class: "item-highlight" })));
-    };
-    Object.defineProperty(Item.prototype, "el", {
-        get: function () { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["e"])(this); },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Item, "style", {
-        get: function () { return ":host{--border-radius:0px;--border-width:0px;--border-style:solid;--padding-top:0px;--padding-bottom:0px;--padding-end:0px;--padding-start:0px;--box-shadow:none;--inner-border-width:0px;--inner-padding-top:0px;--inner-padding-bottom:0px;--inner-padding-start:0px;--inner-padding-end:0px;--inner-box-shadow:none;--show-full-highlight:0;--show-inset-highlight:0;--detail-icon-color:initial;--detail-icon-font-size:20px;--detail-icon-opacity:0.25;--color-activated:var(--color);--color-focused:var(--color);--color-hover:var(--color);--ripple-color:var(--ion-item-background-activated,currentColor);-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:block;position:relative;outline:none;color:var(--color);font-family:var(--ion-font-family,inherit);text-align:initial;text-decoration:none;-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden}:host(.ion-color) .item-native{background:var(--ion-color-base);color:var(--ion-color-contrast)}:host(.ion-color) .item-inner,:host(.ion-color) .item-native{border-color:var(--ion-color-shade)}:host(.ion-focused) .item-native{background:var(--background-focused);color:var(--color-focused)}:host(.ion-color.ion-focused) .item-native{background:var(--ion-color-shade);color:var(--ion-color-contrast)}\@media (any-hover:hover){:host(.ion-activatable:hover) .item-native{background:var(--background-hover);color:var(--color-hover)}:host(.ion-color.ion-activatable:hover) .item-native{background:var(--ion-color-tint);color:var(--ion-color-contrast)}}:host(.activated) .item-native{background:var(--background-activated);color:var(--color-activated)}:host(.item-disabled),:host(.item-interactive-disabled:not(.item-multiple-inputs)){cursor:default;pointer-events:none}:host(.item-disabled){opacity:.3}.item-native{border-radius:var(--border-radius);margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:calc(var(--padding-start) + var(--ion-safe-area-left, 0px));padding-right:var(--padding-end);padding-top:var(--padding-top);padding-bottom:var(--padding-bottom);font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;text-decoration:inherit;text-overflow:inherit;text-transform:inherit;text-align:inherit;white-space:inherit;color:inherit;display:-ms-flexbox;display:flex;position:relative;-ms-flex-align:center;align-items:center;-ms-flex-pack:justify;justify-content:space-between;width:100%;min-height:var(--min-height);-webkit-transition:var(--transition);transition:var(--transition);border-width:var(--border-width);border-style:var(--border-style);border-color:var(--border-color);outline:none;background:var(--background);-webkit-box-shadow:var(--box-shadow);box-shadow:var(--box-shadow);overflow:inherit;-webkit-box-sizing:border-box;box-sizing:border-box}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.item-native{padding-left:unset;padding-right:unset;-webkit-padding-start:calc(var(--padding-start) + var(--ion-safe-area-left, 0px));padding-inline-start:calc(var(--padding-start) + var(--ion-safe-area-left, 0px));-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}.item-native::-moz-focus-inner{border:0}a,button{cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-drag:none}.item-inner{margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:var(--inner-padding-start);padding-right:calc(var(--ion-safe-area-right, 0px) + var(--inner-padding-end));padding-top:var(--inner-padding-top);padding-bottom:var(--inner-padding-bottom);display:-ms-flexbox;display:flex;position:relative;-ms-flex:1;flex:1;-ms-flex-direction:inherit;flex-direction:inherit;-ms-flex-align:inherit;align-items:inherit;-ms-flex-item-align:stretch;align-self:stretch;min-height:inherit;border-width:var(--inner-border-width);border-style:var(--border-style);border-color:var(--border-color);-webkit-box-shadow:var(--inner-box-shadow);box-shadow:var(--inner-box-shadow);overflow:inherit;-webkit-box-sizing:border-box;box-sizing:border-box}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.item-inner{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--inner-padding-start);padding-inline-start:var(--inner-padding-start);-webkit-padding-end:calc(var(--ion-safe-area-right, 0px) + var(--inner-padding-end));padding-inline-end:calc(var(--ion-safe-area-right, 0px) + var(--inner-padding-end))}}.item-detail-icon{color:var(--detail-icon-color);font-size:var(--detail-icon-font-size);opacity:var(--detail-icon-opacity)}::slotted(ion-icon){font-size:1.6em}::slotted(ion-button){--margin-top:0;--margin-bottom:0;--margin-start:0;--margin-end:0;z-index:1}::slotted(ion-label){-ms-flex:1;flex:1}:host(.item-input),:host([vertical-align-top]){-ms-flex-align:start;align-items:flex-start}.input-wrapper{display:-ms-flexbox;display:flex;-ms-flex:1;flex:1;-ms-flex-direction:inherit;flex-direction:inherit;-ms-flex-align:inherit;align-items:inherit;-ms-flex-item-align:stretch;align-self:stretch;text-overflow:ellipsis;overflow:hidden;-webkit-box-sizing:border-box;box-sizing:border-box}:host(.item-label-floating) .item-native,:host(.item-label-stacked) .item-native{-ms-flex-align:start;align-items:start}:host(.item-label-floating) .input-wrapper,:host(.item-label-stacked) .input-wrapper{-ms-flex:1;flex:1;-ms-flex-direction:column;flex-direction:column}.item-highlight,.item-inner-highlight{left:0;right:0;bottom:0;position:absolute;background:var(--highlight-background)}.item-highlight{height:var(--full-highlight-height)}.item-inner-highlight{height:var(--inset-highlight-height)}:host(.item-interactive.ion-touched.ion-invalid),:host(.item-interactive.item-has-focus){--full-highlight-height:calc(var(--highlight-height) * var(--show-full-highlight));--inset-highlight-height:calc(var(--highlight-height) * var(--show-inset-highlight))}:host(.item-interactive.item-has-focus){--highlight-background:var(--highlight-color-focused)}:host(.item-interactive.ion-valid){--highlight-background:var(--highlight-color-valid)}:host(.item-interactive.ion-invalid){--highlight-background:var(--highlight-color-invalid)}:host(.item-label-floating) ::slotted(ion-select),:host(.item-label-stacked) ::slotted(ion-select){-ms-flex-item-align:stretch;align-self:stretch;width:100%;max-width:100%}:host(.item-label-floating) ::slotted(ion-datetime),:host(.item-label-stacked) ::slotted(ion-datetime){--padding-start:0;width:100%}:host(.item-multiple-inputs) ::slotted(ion-checkbox),:host(.item-multiple-inputs) ::slotted(ion-datetime),:host(.item-multiple-inputs) ::slotted(ion-radio),:host(.item-multiple-inputs) ::slotted(ion-select){position:relative}:host(.item-textarea){-ms-flex-align:stretch;align-items:stretch}::slotted(ion-reorder[slot]){margin-top:0;margin-bottom:0}ion-ripple-effect{color:var(--ripple-color)}:host{--min-height:48px;--background:var(--ion-item-background,var(--ion-background-color,#fff));--background-activated:var(--background);--background-focused:var(--ion-item-background-focused,var(--ion-color-step-100,#e1e1e1));--background-hover:var(--ion-item-background-hover,rgba(var(--ion-text-color-rgb,0,0,0),0.04));--transition:background-color 300ms cubic-bezier(.4,0,.2,1);--padding-start:16px;--color:var(--ion-item-color,var(--ion-text-color,#000));--border-color:var(--ion-item-border-color,var(--ion-border-color,var(--ion-color-step-150,rgba(0,0,0,0.13))));--inner-padding-end:16px;--inner-border-width:0 0 1px 0;--highlight-height:2px;--highlight-color-focused:var(--ion-color-primary,#3880ff);--highlight-color-valid:var(--ion-color-success,#10dc60);--highlight-color-invalid:var(--ion-color-danger,#f04141);font-size:16px;font-weight:400;text-transform:none}:host(.ion-focused.activated) .item-native{background:var(--background-focused);color:var(--color-focused)}:host(.ion-color.activated) .item-native{background:var(--ion-color-base);color:var(--ion-color-contrast)}:host(.ion-color.ion-focused.activated) .item-native{background:var(--ion-color-shade);color:var(--ion-color-contrast)}:host(.item-interactive){--inner-border-width:0}:host(.item-interactive),:host(.item-lines-full){--border-width:0 0 1px 0;--show-full-highlight:1;--show-inset-highlight:0}:host(.item-lines-inset){--inner-border-width:0 0 1px 0;--show-full-highlight:0;--show-inset-highlight:1}:host(.item-lines-inset),:host(.item-lines-none){--border-width:0;--show-full-highlight:0}:host(.item-lines-full),:host(.item-lines-none){--inner-border-width:0;--show-inset-highlight:0}:host(.item-multi-line) ::slotted([slot=end]),:host(.item-multi-line) ::slotted([slot=start]){margin-top:16px;margin-bottom:16px;-ms-flex-item-align:start;align-self:flex-start}::slotted([slot=start]){margin-right:32px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted([slot=start]){margin-right:unset;-webkit-margin-end:32px;margin-inline-end:32px}}::slotted([slot=end]){margin-left:32px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted([slot=end]){margin-left:unset;-webkit-margin-start:32px;margin-inline-start:32px}}::slotted(ion-icon){color:rgba(var(--ion-text-color-rgb,0,0,0),.54);font-size:24px}:host(.ion-color) ::slotted(ion-icon){color:var(--ion-color-contrast)}::slotted(ion-icon[slot]){margin-top:12px;margin-bottom:12px}::slotted(ion-icon[slot=start]){margin-right:32px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted(ion-icon[slot=start]){margin-right:unset;-webkit-margin-end:32px;margin-inline-end:32px}}::slotted(ion-icon[slot=end]){margin-left:16px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted(ion-icon[slot=end]){margin-left:unset;-webkit-margin-start:16px;margin-inline-start:16px}}::slotted(ion-note),::slotted(ion-toggle[slot=end]),::slotted(ion-toggle[slot=start]){margin-left:0;margin-right:0;margin-top:0;margin-bottom:0}::slotted(ion-note){-ms-flex-item-align:start;align-self:flex-start;font-size:11px}::slotted(ion-note[slot]){padding-left:0;padding-right:0;padding-top:18px;padding-bottom:10px}::slotted(ion-note[slot=start]){padding-right:16px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted(ion-note[slot=start]){padding-right:unset;-webkit-padding-end:16px;padding-inline-end:16px}}::slotted(ion-note[slot=end]){padding-left:16px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted(ion-note[slot=end]){padding-left:unset;-webkit-padding-start:16px;padding-inline-start:16px}}::slotted(ion-avatar){width:40px;height:40px}::slotted(ion-thumbnail){width:56px;height:56px}::slotted(ion-avatar),::slotted(ion-thumbnail){margin-top:8px;margin-bottom:8px}::slotted(ion-avatar[slot=start]),::slotted(ion-thumbnail[slot=start]){margin-right:16px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted(ion-avatar[slot=start]),::slotted(ion-thumbnail[slot=start]){margin-right:unset;-webkit-margin-end:16px;margin-inline-end:16px}}::slotted(ion-avatar[slot=end]),::slotted(ion-thumbnail[slot=end]){margin-left:16px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted(ion-avatar[slot=end]),::slotted(ion-thumbnail[slot=end]){margin-left:unset;-webkit-margin-start:16px;margin-inline-start:16px}}::slotted(ion-label){margin-left:0;margin-right:0;margin-top:11px;margin-bottom:10px}:host(.item-label-floating) ::slotted([slot=end]),:host(.item-label-stacked) ::slotted([slot=end]){margin-top:7px;margin-bottom:7px}:host(.item-radio) ::slotted(ion-label),:host(.item-toggle) ::slotted(ion-label){margin-left:0}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host(.item-radio) ::slotted(ion-label),:host(.item-toggle) ::slotted(ion-label){margin-left:unset;-webkit-margin-start:0;margin-inline-start:0}}::slotted(.button-small){--padding-top:0;--padding-bottom:0;--padding-start:.6em;--padding-end:.6em;height:25px;font-size:12px}:host(.item-label-floating),:host(.item-label-stacked){--min-height:55px}:host(.item-label-floating) ::slotted(ion-select),:host(.item-label-stacked) ::slotted(ion-select){--padding-top:8px;--padding-bottom:8px;--padding-start:0}:host(.item-has-focus:not(.ion-color)) ::slotted(.label-floating),:host(.item-has-focus:not(.ion-color)) ::slotted(.label-stacked){color:var(--ion-color-primary,#3880ff)}"; },
-        enumerable: true,
-        configurable: true
-    });
-    return Item;
-}());
-var ItemDivider = /** @class */ (function () {
-    function ItemDivider(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["r"])(this, hostRef);
+      }, {
+        key: "sideChanged",
+        value: function sideChanged() {
+          this.isEndSide = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["i"])(this.side);
+        }
+      }, {
+        key: "swipeGestureChanged",
+        value: function swipeGestureChanged() {
+          this.updateState();
+        }
+      }, {
+        key: "connectedCallback",
+        value: function () {
+          var _connectedCallback = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+            var _this = this;
+
+            var el, parent, content;
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    if (this.type === undefined) {
+                      this.type = _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].get('menuType', 'overlay');
+                    }
+
+                    el = this.el;
+                    parent = el.parentNode;
+
+                    if (this.contentId === undefined) {
+                      console.warn("[DEPRECATED][ion-menu] Using the [main] attribute is deprecated, please use the \"contentId\" property instead:\nBEFORE:\n  <ion-menu>...</ion-menu>\n  <div main>...</div>\n\nAFTER:\n  <ion-menu contentId=\"main-content\"></ion-menu>\n  <div id=\"main-content\">...</div>\n");
+                    }
+
+                    content = this.contentId !== undefined ? document.getElementById(this.contentId) : parent && parent.querySelector && parent.querySelector('[main]');
+
+                    if (!(!content || !content.tagName)) {
+                      _context.next = 8;
+                      break;
+                    }
+
+                    // requires content element
+                    console.error('Menu: must have a "content" element to listen for drag events on.');
+                    return _context.abrupt("return");
+
+                  case 8:
+                    this.contentEl = content; // add menu's content classes
+
+                    content.classList.add('menu-content');
+                    this.typeChanged(this.type, undefined);
+                    this.sideChanged(); // register this menu with the app's menu controller
+
+                    _index_c58c7441_js__WEBPACK_IMPORTED_MODULE_7__["m"]._register(this);
+
+                    _context.next = 15;
+                    return Promise.resolve().then(__webpack_require__.bind(null,
+                    /*! ./index-c38df685.js */
+                    "./node_modules/@ionic/core/dist/esm/index-c38df685.js"));
+
+                  case 15:
+                    _context.t0 = {
+                      el: document,
+                      gestureName: 'menu-swipe',
+                      gesturePriority: 30,
+                      threshold: 10,
+                      canStart: function canStart(ev) {
+                        return _this.canStart(ev);
+                      },
+                      onWillStart: function onWillStart() {
+                        return _this.onWillStart();
+                      },
+                      onStart: function onStart() {
+                        return _this.onStart();
+                      },
+                      onMove: function onMove(ev) {
+                        return _this.onMove(ev);
+                      },
+                      onEnd: function onEnd(ev) {
+                        return _this.onEnd(ev);
+                      }
+                    };
+                    this.gesture = _context.sent.createGesture(_context.t0);
+                    this.updateState();
+
+                  case 18:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee, this);
+          }));
+
+          function connectedCallback() {
+            return _connectedCallback.apply(this, arguments);
+          }
+
+          return connectedCallback;
+        }()
+      }, {
+        key: "componentDidLoad",
+        value: function () {
+          var _componentDidLoad = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    this.ionMenuChange.emit({
+                      disabled: this.disabled,
+                      open: this._isOpen
+                    });
+                    this.updateState();
+
+                  case 2:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2, this);
+          }));
+
+          function componentDidLoad() {
+            return _componentDidLoad.apply(this, arguments);
+          }
+
+          return componentDidLoad;
+        }()
+      }, {
+        key: "disconnectedCallback",
+        value: function disconnectedCallback() {
+          this.blocker.destroy();
+
+          _index_c58c7441_js__WEBPACK_IMPORTED_MODULE_7__["m"]._unregister(this);
+
+          if (this.animation) {
+            this.animation.destroy();
+          }
+
+          if (this.gesture) {
+            this.gesture.destroy();
+            this.gesture = undefined;
+          }
+
+          this.animation = undefined;
+          this.contentEl = this.backdropEl = this.menuInnerEl = undefined;
+        }
+      }, {
+        key: "onSplitPaneChanged",
+        value: function onSplitPaneChanged(ev) {
+          this.isPaneVisible = ev.detail.isPane(this.el);
+          this.updateState();
+        }
+      }, {
+        key: "onBackdropClick",
+        value: function onBackdropClick(ev) {
+          if (this._isOpen && this.lastOnEnd < ev.timeStamp - 100) {
+            var shouldClose = ev.composedPath ? !ev.composedPath().includes(this.menuInnerEl) : false;
+
+            if (shouldClose) {
+              ev.preventDefault();
+              ev.stopPropagation();
+              this.close();
+            }
+          }
+        }
         /**
-         * When it's set to `true`, the item-divider will stay visible when it reaches the top
-         * of the viewport until the next `ion-item-divider` replaces it.
+         * Returns `true` is the menu is open.
+         */
+
+      }, {
+        key: "isOpen",
+        value: function isOpen() {
+          return Promise.resolve(this._isOpen);
+        }
+        /**
+         * Returns `true` is the menu is active.
          *
-         * This feature relies in `position:sticky`:
-         * https://caniuse.com/#feat=css-sticky
+         * A menu is active when it can be opened or closed, meaning it's enabled
+         * and it's not part of a `ion-split-pane`.
          */
-        this.sticky = false;
-    }
-    ItemDivider.prototype.render = function () {
-        var _a;
-        var mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["d"])(this);
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["H"], { class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), (_a = {}, _a[mode] = true, _a['item-divider-sticky'] = this.sticky, _a['item'] = true, _a)) }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("slot", { name: "start" }), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("div", { class: "item-divider-inner" }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("div", { class: "item-divider-wrapper" }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("slot", null)), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("slot", { name: "end" }))));
-    };
-    Object.defineProperty(ItemDivider.prototype, "el", {
-        get: function () { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["e"])(this); },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(ItemDivider, "style", {
-        get: function () { return ":host{--padding-top:0px;--padding-end:0px;--padding-bottom:0px;--padding-start:0px;--inner-padding-top:0px;--inner-padding-end:0px;--inner-padding-bottom:0px;--inner-padding-start:0px;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:calc(var(--padding-start) + var(--ion-safe-area-left, 0px));padding-right:var(--padding-end);padding-top:var(--padding-top);padding-bottom:var(--padding-bottom);display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:justify;justify-content:space-between;width:100%;min-height:30px;background:var(--background);color:var(--color);font-family:var(--ion-font-family,inherit);overflow:hidden;z-index:100;-webkit-box-sizing:border-box;box-sizing:border-box}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host{padding-left:unset;padding-right:unset;-webkit-padding-start:calc(var(--padding-start) + var(--ion-safe-area-left, 0px));padding-inline-start:calc(var(--padding-start) + var(--ion-safe-area-left, 0px));-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}:host(.ion-color){background:var(--ion-color-base);color:var(--ion-color-contrast)}:host(.item-divider-sticky){position:-webkit-sticky;position:sticky;top:0}.item-divider-inner{margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:var(--inner-padding-start);padding-right:calc(var(--ion-safe-area-right, 0px) + var(--inner-padding-end));padding-top:var(--inner-padding-top);padding-bottom:var(--inner-padding-bottom);display:-ms-flexbox;display:flex;-ms-flex:1;flex:1;-ms-flex-direction:inherit;flex-direction:inherit;-ms-flex-align:inherit;align-items:inherit;-ms-flex-item-align:stretch;align-self:stretch;min-height:inherit;border:0;overflow:hidden}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.item-divider-inner{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--inner-padding-start);padding-inline-start:var(--inner-padding-start);-webkit-padding-end:calc(var(--ion-safe-area-right, 0px) + var(--inner-padding-end));padding-inline-end:calc(var(--ion-safe-area-right, 0px) + var(--inner-padding-end))}}.item-divider-wrapper{display:-ms-flexbox;display:flex;-ms-flex:1;flex:1;-ms-flex-direction:inherit;flex-direction:inherit;-ms-flex-align:inherit;align-items:inherit;-ms-flex-item-align:stretch;align-self:stretch;text-overflow:ellipsis;overflow:hidden}:host{--background:var(--ion-background-color,#fff);--color:var(--ion-color-step-400,#999);--padding-start:16px;--inner-padding-end:0;border-bottom:1px solid var(--ion-item-border-color,var(--ion-border-color,var(--ion-color-step-150,rgba(0,0,0,.13))));font-size:14px}::slotted([slot=start]){margin-right:32px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted([slot=start]){margin-right:unset;-webkit-margin-end:32px;margin-inline-end:32px}}::slotted([slot=end]){margin-left:32px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted([slot=end]){margin-left:unset;-webkit-margin-start:32px;margin-inline-start:32px}}::slotted(ion-label){margin-left:0;margin-right:0;margin-top:13px;margin-bottom:10px}::slotted(ion-icon){color:rgba(var(--ion-text-color-rgb,0,0,0),.54);font-size:24px}:host(.ion-color) ::slotted(ion-icon){color:var(--ion-color-contrast)}::slotted(ion-icon[slot]){margin-top:12px;margin-bottom:12px}::slotted(ion-icon[slot=start]){margin-right:32px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted(ion-icon[slot=start]){margin-right:unset;-webkit-margin-end:32px;margin-inline-end:32px}}::slotted(ion-icon[slot=end]){margin-left:16px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted(ion-icon[slot=end]){margin-left:unset;-webkit-margin-start:16px;margin-inline-start:16px}}::slotted(ion-note){margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;-ms-flex-item-align:start;align-self:flex-start;font-size:11px}::slotted(ion-note[slot]){padding-left:0;padding-right:0;padding-top:18px;padding-bottom:10px}::slotted(ion-note[slot=start]){padding-right:16px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted(ion-note[slot=start]){padding-right:unset;-webkit-padding-end:16px;padding-inline-end:16px}}::slotted(ion-note[slot=end]){padding-left:16px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted(ion-note[slot=end]){padding-left:unset;-webkit-padding-start:16px;padding-inline-start:16px}}::slotted(ion-avatar){width:40px;height:40px}::slotted(ion-thumbnail){width:56px;height:56px}::slotted(ion-avatar),::slotted(ion-thumbnail){margin-top:8px;margin-bottom:8px}::slotted(ion-avatar[slot=start]),::slotted(ion-thumbnail[slot=start]){margin-right:16px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted(ion-avatar[slot=start]),::slotted(ion-thumbnail[slot=start]){margin-right:unset;-webkit-margin-end:16px;margin-inline-end:16px}}::slotted(ion-avatar[slot=end]),::slotted(ion-thumbnail[slot=end]){margin-left:16px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted(ion-avatar[slot=end]),::slotted(ion-thumbnail[slot=end]){margin-left:unset;-webkit-margin-start:16px;margin-inline-start:16px}}::slotted(h1){margin-left:0;margin-right:0;margin-top:0;margin-bottom:2px;font-size:24px;font-weight:400}::slotted(h2){font-size:16px}::slotted(h2),::slotted(h3,h4,h5,h6){margin-left:0;margin-right:0;margin-top:2px;margin-bottom:2px;font-weight:400}::slotted(h3,h4,h5,h6),::slotted(p){font-size:14px;line-height:normal}::slotted(p){margin-left:0;margin-right:0;margin-top:0;margin-bottom:2px;color:var(--ion-color-step-600,#666);text-overflow:inherit;overflow:inherit}"; },
-        enumerable: true,
-        configurable: true
-    });
-    return ItemDivider;
-}());
-var ItemGroup = /** @class */ (function () {
-    function ItemGroup(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["r"])(this, hostRef);
-    }
-    ItemGroup.prototype.render = function () {
-        var _a;
-        var mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["d"])(this);
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["H"], { role: "group", class: (_a = {},
-                _a[mode] = true,
-                // Used internally for styling
-                _a["item-group-" + mode] = true,
-                _a['item'] = true,
-                _a) }));
-    };
-    Object.defineProperty(ItemGroup, "style", {
-        get: function () { return "ion-item-group{display:block}.item-group-md ion-item-sliding:last-child ion-item,.item-group-md ion-item:last-child{--border-width:0}"; },
-        enumerable: true,
-        configurable: true
-    });
-    return ItemGroup;
-}());
-var Label = /** @class */ (function () {
-    function Label(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["r"])(this, hostRef);
-        this.noAnimate = false;
-        this.ionStyle = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["c"])(this, "ionStyle", 7);
-    }
-    Label.prototype.componentWillLoad = function () {
-        this.noAnimate = (this.position === 'floating');
-        this.emitStyle();
-    };
-    Label.prototype.componentDidLoad = function () {
-        var _this = this;
-        if (this.noAnimate) {
-            setTimeout(function () {
-                _this.noAnimate = false;
-            }, 1000);
+
+      }, {
+        key: "isActive",
+        value: function isActive() {
+          return Promise.resolve(this._isActive());
         }
-    };
-    Label.prototype.positionChanged = function () {
-        this.emitStyle();
-    };
-    Label.prototype.emitStyle = function () {
-        var _a;
-        var position = this.position;
-        this.ionStyle.emit((_a = {
-                'label': true
+        /**
+         * Opens the menu. If the menu is already open or it can't be opened,
+         * it returns `false`.
+         */
+
+      }, {
+        key: "open",
+        value: function open() {
+          var animated = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          return this.setOpen(true, animated);
+        }
+        /**
+         * Closes the menu. If the menu is already closed or it can't be closed,
+         * it returns `false`.
+         */
+
+      }, {
+        key: "close",
+        value: function close() {
+          var animated = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          return this.setOpen(false, animated);
+        }
+        /**
+         * Toggles the menu. If the menu is already open, it will try to close, otherwise it will try to open it.
+         * If the operation can't be completed successfully, it returns `false`.
+         */
+
+      }, {
+        key: "toggle",
+        value: function toggle() {
+          var animated = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          return this.setOpen(!this._isOpen, animated);
+        }
+        /**
+         * Opens or closes the button.
+         * If the operation can't be completed successfully, it returns `false`.
+         */
+
+      }, {
+        key: "setOpen",
+        value: function setOpen(shouldOpen) {
+          var animated = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+          return _index_c58c7441_js__WEBPACK_IMPORTED_MODULE_7__["m"]._setOpen(this, shouldOpen, animated);
+        }
+      }, {
+        key: "_setOpen",
+        value: function () {
+          var _setOpen2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(shouldOpen) {
+            var animated,
+                _args3 = arguments;
+            return regeneratorRuntime.wrap(function _callee3$(_context3) {
+              while (1) {
+                switch (_context3.prev = _context3.next) {
+                  case 0:
+                    animated = _args3.length > 1 && _args3[1] !== undefined ? _args3[1] : true;
+
+                    if (!(!this._isActive() || this.isAnimating || shouldOpen === this._isOpen)) {
+                      _context3.next = 3;
+                      break;
+                    }
+
+                    return _context3.abrupt("return", false);
+
+                  case 3:
+                    this.beforeAnimation(shouldOpen);
+                    _context3.next = 6;
+                    return this.loadAnimation();
+
+                  case 6:
+                    _context3.next = 8;
+                    return this.startAnimation(shouldOpen, animated);
+
+                  case 8:
+                    this.afterAnimation(shouldOpen);
+                    return _context3.abrupt("return", true);
+
+                  case 10:
+                  case "end":
+                    return _context3.stop();
+                }
+              }
+            }, _callee3, this);
+          }));
+
+          function _setOpen(_x) {
+            return _setOpen2.apply(this, arguments);
+          }
+
+          return _setOpen;
+        }()
+      }, {
+        key: "loadAnimation",
+        value: function () {
+          var _loadAnimation = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+            var width;
+            return regeneratorRuntime.wrap(function _callee4$(_context4) {
+              while (1) {
+                switch (_context4.prev = _context4.next) {
+                  case 0:
+                    // Menu swipe animation takes the menu's inner width as parameter,
+                    // If `offsetWidth` changes, we need to create a new animation.
+                    width = this.menuInnerEl.offsetWidth;
+
+                    if (!(width === this.width && this.animation !== undefined)) {
+                      _context4.next = 3;
+                      break;
+                    }
+
+                    return _context4.abrupt("return");
+
+                  case 3:
+                    this.width = width; // Destroy existing animation
+
+                    if (this.animation) {
+                      this.animation.destroy();
+                      this.animation = undefined;
+                    } // Create new animation
+
+
+                    _context4.next = 7;
+                    return _index_c58c7441_js__WEBPACK_IMPORTED_MODULE_7__["m"]._createAnimation(this.type, this);
+
+                  case 7:
+                    this.animation = _context4.sent;
+
+                    if (!_config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].getBoolean('animated', true)) {
+                      this.animation.duration(0);
+                    }
+
+                    this.animation.fill('both');
+
+                  case 10:
+                  case "end":
+                    return _context4.stop();
+                }
+              }
+            }, _callee4, this);
+          }));
+
+          function loadAnimation() {
+            return _loadAnimation.apply(this, arguments);
+          }
+
+          return loadAnimation;
+        }()
+      }, {
+        key: "startAnimation",
+        value: function () {
+          var _startAnimation = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(shouldOpen, animated) {
+            var isReversed, ani;
+            return regeneratorRuntime.wrap(function _callee5$(_context5) {
+              while (1) {
+                switch (_context5.prev = _context5.next) {
+                  case 0:
+                    isReversed = !shouldOpen;
+                    ani = this.animation.direction(isReversed ? 'reverse' : 'normal').easing(isReversed ? this.easingReverse : this.easing).onFinish(function () {
+                      if (ani.getDirection() === 'reverse') {
+                        ani.direction('normal');
+                      }
+                    });
+
+                    if (!animated) {
+                      _context5.next = 7;
+                      break;
+                    }
+
+                    _context5.next = 5;
+                    return ani.play();
+
+                  case 5:
+                    _context5.next = 8;
+                    break;
+
+                  case 7:
+                    ani.play({
+                      sync: true
+                    });
+
+                  case 8:
+                  case "end":
+                    return _context5.stop();
+                }
+              }
+            }, _callee5, this);
+          }));
+
+          function startAnimation(_x2, _x3) {
+            return _startAnimation.apply(this, arguments);
+          }
+
+          return startAnimation;
+        }()
+      }, {
+        key: "_isActive",
+        value: function _isActive() {
+          return !this.disabled && !this.isPaneVisible;
+        }
+      }, {
+        key: "canSwipe",
+        value: function canSwipe() {
+          return this.swipeGesture && !this.isAnimating && this._isActive();
+        }
+      }, {
+        key: "canStart",
+        value: function canStart(detail) {
+          // Do not allow swipe gesture if a modal is open
+          var isModalPresented = !!document.querySelector('ion-modal.show-modal');
+
+          if (isModalPresented || !this.canSwipe()) {
+            return false;
+          }
+
+          if (this._isOpen) {
+            return true; // TODO error
+          } else if (_index_c58c7441_js__WEBPACK_IMPORTED_MODULE_7__["m"]._getOpenSync()) {
+            return false;
+          }
+
+          return checkEdgeSide(window, detail.currentX, this.isEndSide, this.maxEdgeStart);
+        }
+      }, {
+        key: "onWillStart",
+        value: function onWillStart() {
+          this.beforeAnimation(!this._isOpen);
+          return this.loadAnimation();
+        }
+      }, {
+        key: "onStart",
+        value: function onStart() {
+          if (!this.isAnimating || !this.animation) {
+            Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(false, 'isAnimating has to be true');
+            return;
+          } // the cloned animation should not use an easing curve during seek
+
+
+          this.animation.progressStart(true, this._isOpen ? 1 : 0);
+        }
+      }, {
+        key: "onMove",
+        value: function onMove(detail) {
+          if (!this.isAnimating || !this.animation) {
+            Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(false, 'isAnimating has to be true');
+            return;
+          }
+
+          var delta = computeDelta(detail.deltaX, this._isOpen, this.isEndSide);
+          var stepValue = delta / this.width;
+          this.animation.progressStep(this._isOpen ? 1 - stepValue : stepValue);
+        }
+      }, {
+        key: "onEnd",
+        value: function onEnd(detail) {
+          var _this2 = this;
+
+          if (!this.isAnimating || !this.animation) {
+            Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(false, 'isAnimating has to be true');
+            return;
+          }
+
+          var isOpen = this._isOpen;
+          var isEndSide = this.isEndSide;
+          var delta = computeDelta(detail.deltaX, isOpen, isEndSide);
+          var width = this.width;
+          var stepValue = delta / width;
+          var velocity = detail.velocityX;
+          var z = width / 2.0;
+          var shouldCompleteRight = velocity >= 0 && (velocity > 0.2 || detail.deltaX > z);
+          var shouldCompleteLeft = velocity <= 0 && (velocity < -0.2 || detail.deltaX < -z);
+          var shouldComplete = isOpen ? isEndSide ? shouldCompleteRight : shouldCompleteLeft : isEndSide ? shouldCompleteLeft : shouldCompleteRight;
+          var shouldOpen = !isOpen && shouldComplete;
+
+          if (isOpen && !shouldComplete) {
+            shouldOpen = true;
+          }
+
+          this.lastOnEnd = detail.currentTime; // Account for rounding errors in JS
+
+          var newStepValue = shouldComplete ? 0.001 : -0.001;
+          /**
+           * TODO: stepValue can sometimes return a negative
+           * value, but you can't have a negative time value
+           * for the cubic bezier curve (at least with web animations)
+           * Not sure if the negative step value is an error or not
+           */
+
+          var adjustedStepValue = stepValue < 0 ? 0.01 : stepValue;
+          /**
+           * Animation will be reversed here, so need to
+           * reverse the easing curve as well
+           *
+           * Additionally, we need to account for the time relative
+           * to the new easing curve, as `stepValue` is going to be given
+           * in terms of a linear curve.
+           */
+
+          newStepValue += Object(_cubic_bezier_1d592096_js__WEBPACK_IMPORTED_MODULE_4__["g"])([0, 0], [0.4, 0], [0.6, 1], [1, 1], Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["c"])(0, adjustedStepValue, 0.9999))[0] || 0;
+          var playTo = this._isOpen ? !shouldComplete : shouldComplete;
+          this.animation.easing('cubic-bezier(0.4, 0.0, 0.6, 1)').onFinish(function () {
+            return _this2.afterAnimation(shouldOpen);
+          }, {
+            oneTimeCallback: true
+          }).progressEnd(playTo ? 1 : 0, this._isOpen ? 1 - newStepValue : newStepValue, 300);
+        }
+      }, {
+        key: "beforeAnimation",
+        value: function beforeAnimation(shouldOpen) {
+          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(!this.isAnimating, '_before() should not be called while animating'); // this places the menu into the correct location before it animates in
+          // this css class doesn't actually kick off any animations
+
+          this.el.classList.add(SHOW_MENU);
+
+          if (this.backdropEl) {
+            this.backdropEl.classList.add(SHOW_BACKDROP);
+          }
+
+          this.blocker.block();
+          this.isAnimating = true;
+
+          if (shouldOpen) {
+            this.ionWillOpen.emit();
+          } else {
+            this.ionWillClose.emit();
+          }
+        }
+      }, {
+        key: "afterAnimation",
+        value: function afterAnimation(isOpen) {
+          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(this.isAnimating, '_before() should be called while animating'); // keep opening/closing the menu disabled for a touch more yet
+          // only add listeners/css if it's enabled and isOpen
+          // and only remove listeners/css if it's not open
+          // emit opened/closed events
+
+          this._isOpen = isOpen;
+          this.isAnimating = false;
+
+          if (!this._isOpen) {
+            this.blocker.unblock();
+          }
+
+          if (isOpen) {
+            // add css class
+            if (this.contentEl) {
+              this.contentEl.classList.add(MENU_CONTENT_OPEN);
+            } // emit open event
+
+
+            this.ionDidOpen.emit();
+          } else {
+            // remove css classes
+            this.el.classList.remove(SHOW_MENU);
+
+            if (this.contentEl) {
+              this.contentEl.classList.remove(MENU_CONTENT_OPEN);
+            }
+
+            if (this.backdropEl) {
+              this.backdropEl.classList.remove(SHOW_BACKDROP);
+            }
+
+            if (this.animation) {
+              this.animation.stop();
+            } // emit close event
+
+
+            this.ionDidClose.emit();
+          }
+        }
+      }, {
+        key: "updateState",
+        value: function updateState() {
+          var isActive = this._isActive();
+
+          if (this.gesture) {
+            this.gesture.enable(isActive && this.swipeGesture);
+          } // Close menu immediately
+
+
+          if (!isActive && this._isOpen) {
+            // close if this menu is open, and should not be enabled
+            this.forceClosing();
+          }
+
+          if (!this.disabled) {
+            _index_c58c7441_js__WEBPACK_IMPORTED_MODULE_7__["m"]._setActiveMenu(this);
+          }
+
+          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(!this.isAnimating, 'can not be animating');
+        }
+      }, {
+        key: "forceClosing",
+        value: function forceClosing() {
+          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(this._isOpen, 'menu cannot be closed');
+          this.isAnimating = true;
+          var ani = this.animation.direction('reverse');
+          ani.play({
+            sync: true
+          });
+          this.afterAnimation(false);
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          var _class,
+              _this3 = this;
+
+          var isEndSide = this.isEndSide,
+              type = this.type,
+              disabled = this.disabled,
+              mode = this.mode,
+              isPaneVisible = this.isPaneVisible;
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            role: "navigation",
+            class: (_class = {}, _defineProperty(_class, mode, true), _defineProperty(_class, "menu-type-".concat(type), true), _defineProperty(_class, 'menu-enabled', !disabled), _defineProperty(_class, 'menu-side-end', isEndSide), _defineProperty(_class, 'menu-side-start', !isEndSide), _defineProperty(_class, 'menu-pane-visible', isPaneVisible), _class)
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            class: "menu-inner",
+            ref: function ref(el) {
+              return _this3.menuInnerEl = el;
+            }
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null)), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-backdrop", {
+            ref: function ref(el) {
+              return _this3.backdropEl = el;
             },
-            _a["label-" + position] = position !== undefined,
-            _a));
-    };
-    Label.prototype.render = function () {
-        var _a;
-        var position = this.position;
-        var mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["d"])(this);
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["H"], { class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), (_a = {}, _a[mode] = true, _a["label-" + position] = position !== undefined, _a["label-no-animate"] = (this.noAnimate), _a)) }));
-    };
-    Object.defineProperty(Label.prototype, "el", {
-        get: function () { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["e"])(this); },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Label, "watchers", {
-        get: function () {
-            return {
-                "position": ["positionChanged"]
-            };
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Label, "style", {
-        get: function () { return ".item.sc-ion-label-md-h, .item .sc-ion-label-md-h{--color:initial;display:block;color:var(--color);font-family:var(--ion-font-family,inherit);font-size:inherit;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;-webkit-box-sizing:border-box;box-sizing:border-box}.ion-color.sc-ion-label-md-h{color:var(--ion-color-base)}.ion-text-wrap.sc-ion-label-md-h, [text-wrap].sc-ion-label-md-h{white-space:normal}.item-interactive-disabled.sc-ion-label-md-h:not(.item-multiple-inputs), .item-interactive-disabled:not(.item-multiple-inputs) .sc-ion-label-md-h{cursor:default;opacity:.3;pointer-events:none}.item-input.sc-ion-label-md-h, .item-input .sc-ion-label-md-h{-ms-flex:initial;flex:initial;max-width:200px;pointer-events:none}.item-textarea.sc-ion-label-md-h, .item-textarea .sc-ion-label-md-h{-ms-flex-item-align:baseline;align-self:baseline}.label-fixed.sc-ion-label-md-h{-ms-flex:0 0 100px;flex:0 0 100px;width:100px;min-width:100px;max-width:200px}.label-floating.sc-ion-label-md-h, .label-stacked.sc-ion-label-md-h{-ms-flex-item-align:stretch;align-self:stretch;width:auto;max-width:100%}.label-no-animate.label-floating.sc-ion-label-md-h{-webkit-transition:none;transition:none}.ion-text-wrap.sc-ion-label-md-h, [text-wrap].sc-ion-label-md-h{line-height:1.5}.label-stacked.sc-ion-label-md-h{-webkit-transform-origin:left top;transform-origin:left top;-webkit-transform:translate3d(0,50%,0) scale(.75);transform:translate3d(0,50%,0) scale(.75);-webkit-transition:color .15s cubic-bezier(.4,0,.2,1);transition:color .15s cubic-bezier(.4,0,.2,1)}[dir=rtl].label-stacked.sc-ion-label-md-h, [dir=rtl] .label-stacked.sc-ion-label-md-h, [dir=rtl].sc-ion-label-md-h -no-combinator.label-stacked.sc-ion-label-md-h, [dir=rtl] .sc-ion-label-md-h -no-combinator.label-stacked.sc-ion-label-md-h{-webkit-transform-origin:right top;transform-origin:right top}.label-floating.sc-ion-label-md-h{-webkit-transform:translate3d(0,96%,0);transform:translate3d(0,96%,0);-webkit-transform-origin:left top;transform-origin:left top;-webkit-transition:color .15s cubic-bezier(.4,0,.2,1),-webkit-transform .15s cubic-bezier(.4,0,.2,1);transition:color .15s cubic-bezier(.4,0,.2,1),-webkit-transform .15s cubic-bezier(.4,0,.2,1);transition:color .15s cubic-bezier(.4,0,.2,1),transform .15s cubic-bezier(.4,0,.2,1);transition:color .15s cubic-bezier(.4,0,.2,1),transform .15s cubic-bezier(.4,0,.2,1),-webkit-transform .15s cubic-bezier(.4,0,.2,1)}[dir=rtl].label-floating.sc-ion-label-md-h, [dir=rtl] .label-floating.sc-ion-label-md-h, [dir=rtl].sc-ion-label-md-h -no-combinator.label-floating.sc-ion-label-md-h, [dir=rtl] .sc-ion-label-md-h -no-combinator.label-floating.sc-ion-label-md-h{-webkit-transform-origin:right top;transform-origin:right top}.label-floating.sc-ion-label-md-h, .label-stacked.sc-ion-label-md-h{margin-left:0;margin-right:0;margin-top:0;margin-bottom:0}.item-select.label-floating.sc-ion-label-md-h, .item-select .label-floating.sc-ion-label-md-h{-webkit-transform:translate3d(0,130%,0);transform:translate3d(0,130%,0)}.item-has-focus.label-floating.sc-ion-label-md-h, .item-has-focus .label-floating.sc-ion-label-md-h, .item-has-placeholder.label-floating.sc-ion-label-md-h, .item-has-placeholder .label-floating.sc-ion-label-md-h, .item-has-value.label-floating.sc-ion-label-md-h, .item-has-value .label-floating.sc-ion-label-md-h{-webkit-transform:translate3d(0,50%,0) scale(.75);transform:translate3d(0,50%,0) scale(.75)}.item-has-focus.label-floating.sc-ion-label-md-h, .item-has-focus .label-floating.sc-ion-label-md-h, .item-has-focus.label-stacked.sc-ion-label-md-h, .item-has-focus .label-stacked.sc-ion-label-md-h{color:var(--ion-color-primary,#3880ff)}.sc-ion-label-md-s  h1 {margin-left:0;margin-right:0;margin-top:0;margin-bottom:2px;font-size:24px;font-weight:400}.sc-ion-label-md-s  h2 {margin-left:0;margin-right:0;margin-top:2px;margin-bottom:2px;font-size:16px;font-weight:400}.sc-ion-label-md-s  h3 , .sc-ion-label-md-s  h4 , .sc-ion-label-md-s  h5 , .sc-ion-label-md-s  h6 {margin-left:0;margin-right:0;margin-top:2px;margin-bottom:2px;font-size:14px;font-weight:400;line-height:normal}.sc-ion-label-md-s  p {margin-left:0;margin-right:0;margin-top:0;margin-bottom:2px;font-size:14px;line-height:20px;text-overflow:inherit;overflow:inherit}.sc-ion-label-md-s > p{color:var(--ion-color-step-600,#666)}.sc-ion-label-md-h.ion-color.sc-ion-label-md-s > p, .ion-color .sc-ion-label-md-h.sc-ion-label-md-s > p{color:inherit}"; },
-        enumerable: true,
-        configurable: true
-    });
-    return Label;
-}());
-var List = /** @class */ (function () {
-    function class_1(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["r"])(this, hostRef);
-        /**
-         * If `true`, the list will have margin around it and rounded corners.
-         */
-        this.inset = false;
-    }
-    /**
-     * If `ion-item-sliding` are used inside the list, this method closes
-     * any open sliding item.
-     *
-     * Returns `true` if an actual `ion-item-sliding` is closed.
-     */
-    class_1.prototype.closeSlidingItems = function () {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var item;
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-                item = this.el.querySelector('ion-item-sliding');
-                if (item && item.closeOpened) {
-                    return [2 /*return*/, item.closeOpened()];
-                }
-                return [2 /*return*/, false];
-            });
-        });
-    };
-    class_1.prototype.render = function () {
-        var _a;
-        var mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["d"])(this);
-        var _b = this, lines = _b.lines, inset = _b.inset;
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["H"], { class: (_a = {},
-                _a[mode] = true,
-                // Used internally for styling
-                _a["list-" + mode] = true,
-                _a['list-inset'] = inset,
-                _a["list-lines-" + lines] = lines !== undefined,
-                _a["list-" + mode + "-lines-" + lines] = lines !== undefined,
-                _a) }));
-    };
-    Object.defineProperty(class_1.prototype, "el", {
-        get: function () { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["e"])(this); },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(class_1, "style", {
-        get: function () { return "ion-list{margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;display:block;contain:content;list-style-type:none}ion-list.list-inset{-webkit-transform:translateZ(0);transform:translateZ(0);overflow:hidden}.list-md{margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:0;padding-right:0;padding-top:8px;padding-bottom:8px;background:var(--ion-item-background,var(--ion-background-color,#fff))}.list-md>.input:last-child:after{left:0}:host-context([dir=rtl]) .list-md>.input:last-child:after,[dir=rtl] .list-md>.input:last-child:after{left:unset;right:unset;right:0}.list-md.list-inset{margin-left:16px;margin-right:16px;margin-top:16px;margin-bottom:16px;border-radius:2px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.list-md.list-inset{margin-left:unset;margin-right:unset;-webkit-margin-start:16px;margin-inline-start:16px;-webkit-margin-end:16px;margin-inline-end:16px}}.list-md.list-inset ion-item:first-child{--border-radius:2px 2px 0 0;--border-width:0 0 1px 0}.list-md.list-inset ion-item:last-child{--border-radius:0 0 2px,2px;--border-width:0}.list-md.list-inset .item-interactive{--padding-start:0;--padding-end:0}.list-md.list-inset+ion-list.list-inset{margin-top:0}.list-md-lines-none .item{--border-width:0;--inner-border-width:0}.list-md-lines-full .item,.list-md .item-lines-full{--border-width:0 0 1px 0}.list-md-lines-full .item{--inner-border-width:0}.list-md-lines-inset .item,.list-md .item-lines-inset{--inner-border-width:0 0 1px 0}.list-md .item-lines-inset{--border-width:0}.list-md .item-lines-full{--inner-border-width:0}.list-md .item-lines-none{--border-width:0;--inner-border-width:0}"; },
-        enumerable: true,
-        configurable: true
-    });
-    return class_1;
-}());
-var ListHeader = /** @class */ (function () {
-    function ListHeader(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["r"])(this, hostRef);
-    }
-    ListHeader.prototype.render = function () {
-        var _a;
-        var mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["d"])(this);
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["H"], { class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), (_a = {}, _a[mode] = true, _a)) }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("slot", null)));
-    };
-    Object.defineProperty(ListHeader, "style", {
-        get: function () { return ":host{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:justify;justify-content:space-between;width:100%;min-height:40px;background:var(--background);color:var(--color);overflow:hidden}:host(.ion-color){background:var(--ion-color-base);color:var(--ion-color-contrast)}:host{--background:transparent;--color:var(--ion-text-color,#000);padding-left:calc(var(--ion-safe-area-left, 0px) + 16px);min-height:45px;font-size:14px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host{padding-left:unset;-webkit-padding-start:calc(var(--ion-safe-area-left, 0px) + 16px);padding-inline-start:calc(var(--ion-safe-area-left, 0px) + 16px)}}"; },
-        enumerable: true,
-        configurable: true
-    });
-    return ListHeader;
-}());
-var Note = /** @class */ (function () {
-    function Note(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["r"])(this, hostRef);
-    }
-    Note.prototype.render = function () {
-        var _a;
-        var mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["d"])(this);
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["H"], { class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), (_a = {}, _a[mode] = true, _a)) }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("slot", null)));
-    };
-    Object.defineProperty(Note, "style", {
-        get: function () { return ":host{color:var(--color);font-family:var(--ion-font-family,inherit);-webkit-box-sizing:border-box;box-sizing:border-box}:host(.ion-color){color:var(--ion-color-base)}:host{--color:var(--ion-color-step-600,#666);font-size:14px}"; },
-        enumerable: true,
-        configurable: true
-    });
-    return Note;
-}());
-var SkeletonText = /** @class */ (function () {
-    function SkeletonText(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["r"])(this, hostRef);
-        /**
-         * If `true`, the skeleton text will animate.
-         */
-        this.animated = false;
-    }
-    SkeletonText.prototype.calculateWidth = function () {
-        // If width was passed in to the property use that first
-        // tslint:disable-next-line: deprecation
-        if (this.width !== undefined) {
-            return {
-                style: {
-                    // tslint:disable-next-line: deprecation
-                    width: this.width
-                }
-            };
+            class: "menu-backdrop",
+            tappable: false,
+            stopPropagation: false
+          }));
         }
-        return;
+      }, {
+        key: "el",
+        get: function get() {
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+        }
+      }], [{
+        key: "watchers",
+        get: function get() {
+          return {
+            "type": ["typeChanged"],
+            "disabled": ["disabledChanged"],
+            "side": ["sideChanged"],
+            "swipeGesture": ["swipeGestureChanged"]
+          };
+        }
+      }, {
+        key: "style",
+        get: function get() {
+          return ":host{--width:304px;--min-width:auto;--max-width:auto;--height:100%;--min-height:auto;--max-height:auto;--background:var(--ion-background-color,#fff);left:0;right:0;top:0;bottom:0;display:none;position:absolute;contain:strict}:host(.show-menu){display:block}.menu-inner{left:0;right:auto;top:0;bottom:0;-webkit-transform:translate3d(-9999px,0,0);transform:translate3d(-9999px,0,0);display:-ms-flexbox;display:flex;position:absolute;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:justify;justify-content:space-between;width:var(--width);min-width:var(--min-width);max-width:var(--max-width);height:var(--height);min-height:var(--min-height);max-height:var(--max-height);background:var(--background);contain:strict}:host-context([dir=rtl]) .menu-inner,[dir=rtl] .menu-inner{left:unset;right:unset;left:auto;right:0;-webkit-transform:translate3d(calc(-1 * -9999px),0,0);transform:translate3d(calc(-1 * -9999px),0,0)}:host(.menu-side-start) .menu-inner{--ion-safe-area-right:0px;right:auto;left:0}:host(.menu-side-end) .menu-inner{--ion-safe-area-left:0px;right:0;left:auto}ion-backdrop{display:none;opacity:.01;z-index:-1}\@media (max-width:340px){.menu-inner{--width:264px}}:host(.menu-type-reveal){z-index:0}:host(.menu-type-reveal.show-menu) .menu-inner{-webkit-transform:translateZ(0);transform:translateZ(0)}:host(.menu-type-overlay){z-index:1000}:host(.menu-type-overlay) .show-backdrop{display:block;cursor:pointer}:host(.menu-pane-visible){width:var(--width);min-width:var(--min-width);max-width:var(--max-width)}:host(.menu-pane-visible) .menu-inner{left:0;right:0;width:auto;-webkit-transform:none!important;transform:none!important;-webkit-box-shadow:none!important;box-shadow:none!important}:host(.menu-pane-visible) ion-backdrop{display:hidden!important}:host(.menu-type-push){z-index:1000}:host(.menu-type-push) .show-backdrop{display:block}";
+        }
+      }]);
+
+      return Menu;
+    }();
+
+    var computeDelta = function computeDelta(deltaX, isOpen, isEndSide) {
+      return Math.max(0, isOpen !== isEndSide ? -deltaX : deltaX);
     };
-    SkeletonText.prototype.render = function () {
-        var _a;
-        var animated = this.animated && _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_2__["b"].getBoolean('animated', true);
-        var inMedia = Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["h"])('ion-avatar', this.el) || Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["h"])('ion-thumbnail', this.el);
-        var mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["d"])(this);
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["H"], Object.assign({ class: (_a = {},
-                _a[mode] = true,
-                _a['skeleton-text-animated'] = animated,
-                _a['in-media'] = inMedia,
-                _a) }, this.calculateWidth()), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["h"])("span", null, "\u00A0")));
+
+    var checkEdgeSide = function checkEdgeSide(win, posX, isEndSide, maxEdgeStart) {
+      if (isEndSide) {
+        return posX >= win.innerWidth - maxEdgeStart;
+      } else {
+        return posX <= maxEdgeStart;
+      }
     };
-    Object.defineProperty(SkeletonText.prototype, "el", {
-        get: function () { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_1__["e"])(this); },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(SkeletonText, "style", {
-        get: function () { return ":host{--background:rgba(var(--background-rgb,var(--ion-text-color-rgb,0,0,0)),0.065);border-radius:var(--border-radius,inherit);display:block;width:100%;height:inherit;margin-top:4px;margin-bottom:4px;background:var(--background);line-height:10px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none}span{display:inline-block}:host(.in-media){margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;height:100%}:host(.skeleton-text-animated){position:relative;background:-webkit-gradient(linear,left top,right top,color-stop(8%,rgba(var(--background-rgb,var(--ion-text-color-rgb,0,0,0)),.065)),color-stop(18%,rgba(var(--background-rgb,var(--ion-text-color-rgb,0,0,0)),.135)),color-stop(33%,rgba(var(--background-rgb,var(--ion-text-color-rgb,0,0,0)),.065)));background:linear-gradient(90deg,rgba(var(--background-rgb,var(--ion-text-color-rgb,0,0,0)),.065) 8%,rgba(var(--background-rgb,var(--ion-text-color-rgb,0,0,0)),.135) 18%,rgba(var(--background-rgb,var(--ion-text-color-rgb,0,0,0)),.065) 33%);background-size:800px 104px;-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-name:shimmer;animation-name:shimmer;-webkit-animation-timing-function:linear;animation-timing-function:linear}\@-webkit-keyframes shimmer{0%{background-position:-468px 0}to{background-position:468px 0}}\@keyframes shimmer{0%{background-position:-468px 0}to{background-position:468px 0}}"; },
-        enumerable: true,
-        configurable: true
-    });
-    return SkeletonText;
-}());
 
+    var SHOW_MENU = 'show-menu';
+    var SHOW_BACKDROP = 'show-backdrop';
+    var MENU_CONTENT_OPEN = 'menu-content-open'; // Given a menu, return whether or not the menu toggle should be visible
 
+    var updateVisibility = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(menu) {
+        var menuEl;
+        return regeneratorRuntime.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.next = 2;
+                return _index_c58c7441_js__WEBPACK_IMPORTED_MODULE_7__["m"].get(menu);
 
-/***/ })
+              case 2:
+                menuEl = _context6.sent;
+                _context6.t0 = menuEl;
 
+                if (!_context6.t0) {
+                  _context6.next = 8;
+                  break;
+                }
+
+                _context6.next = 7;
+                return menuEl.isActive();
+
+              case 7:
+                _context6.t0 = _context6.sent;
+
+              case 8:
+                return _context6.abrupt("return", !!_context6.t0);
+
+              case 9:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
+      }));
+
+      return function updateVisibility(_x4) {
+        return _ref.apply(this, arguments);
+      };
+    }();
+
+    var MenuButton = /*#__PURE__*/function () {
+      function MenuButton(hostRef) {
+        var _this4 = this;
+
+        _classCallCheck(this, MenuButton);
+
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.visible = false;
+        /**
+         * If `true`, the user cannot interact with the menu button.
+         */
+
+        this.disabled = false;
+        /**
+         * Automatically hides the menu button when the corresponding menu is not active
+         */
+
+        this.autoHide = true;
+        /**
+         * The type of the button.
+         */
+
+        this.type = 'button';
+        this.onClick = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7() {
+          return regeneratorRuntime.wrap(function _callee7$(_context7) {
+            while (1) {
+              switch (_context7.prev = _context7.next) {
+                case 0:
+                  return _context7.abrupt("return", _index_c58c7441_js__WEBPACK_IMPORTED_MODULE_7__["m"].toggle(_this4.menu));
+
+                case 1:
+                case "end":
+                  return _context7.stop();
+              }
+            }
+          }, _callee7);
+        }));
+      }
+
+      _createClass(MenuButton, [{
+        key: "componentDidLoad",
+        value: function componentDidLoad() {
+          this.visibilityChanged();
+        }
+      }, {
+        key: "visibilityChanged",
+        value: function () {
+          var _visibilityChanged = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8() {
+            return regeneratorRuntime.wrap(function _callee8$(_context8) {
+              while (1) {
+                switch (_context8.prev = _context8.next) {
+                  case 0:
+                    _context8.next = 2;
+                    return updateVisibility(this.menu);
+
+                  case 2:
+                    this.visible = _context8.sent;
+
+                  case 3:
+                  case "end":
+                    return _context8.stop();
+                }
+              }
+            }, _callee8, this);
+          }));
+
+          function visibilityChanged() {
+            return _visibilityChanged.apply(this, arguments);
+          }
+
+          return visibilityChanged;
+        }()
+      }, {
+        key: "render",
+        value: function render() {
+          var color = this.color,
+              disabled = this.disabled;
+          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+
+          var menuIcon = _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].get('menuIcon', mode === 'ios' ? 'menu-outline' : 'menu-sharp');
+
+          var hidden = this.autoHide && !this.visible;
+          var attrs = {
+            type: this.type
+          };
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            onClick: this.onClick,
+            "aria-disabled": disabled ? 'true' : null,
+            "aria-hidden": hidden ? 'true' : null,
+            class: Object.assign(Object.assign(_defineProperty({}, mode, true), Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_8__["c"])(color)), {
+              'button': true,
+              'menu-button-hidden': hidden,
+              'menu-button-disabled': disabled,
+              'in-toolbar': Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_8__["h"])('ion-toolbar', this.el),
+              'in-toolbar-color': Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_8__["h"])('ion-toolbar[color]', this.el),
+              'ion-activatable': true,
+              'ion-focusable': true
+            })
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", Object.assign({}, attrs, {
+            disabled: disabled,
+            class: "button-native"
+          }), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("span", {
+            class: "button-inner"
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-icon", {
+            icon: menuIcon,
+            mode: mode,
+            lazy: false
+          }))), mode === 'md' && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-ripple-effect", {
+            type: "unbounded"
+          })));
+        }
+      }, {
+        key: "el",
+        get: function get() {
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+        }
+      }], [{
+        key: "style",
+        get: function get() {
+          return ":host{--background:transparent;--color-focused:currentColor;--border-radius:initial;--padding-top:0;--padding-bottom:0;color:var(--color);text-align:center;text-decoration:none;text-overflow:ellipsis;text-transform:none;white-space:nowrap;-webkit-font-kerning:none;font-kerning:none}.button-native{border-radius:var(--border-radius);font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;text-decoration:inherit;text-indent:inherit;text-overflow:inherit;text-transform:inherit;text-align:inherit;white-space:inherit;color:inherit;margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:var(--padding-start);padding-right:var(--padding-end);padding-top:var(--padding-top);padding-bottom:var(--padding-bottom);-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:-ms-flexbox;display:flex;position:relative;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-ms-flex-negative:0;flex-shrink:0;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;width:100%;height:100%;border:0;outline:none;background:var(--background);line-height:1;cursor:pointer;overflow:hidden;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:0;-webkit-appearance:none;-moz-appearance:none;appearance:none}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.button-native{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--padding-start);padding-inline-start:var(--padding-start);-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}.button-inner{display:-ms-flexbox;display:flex;position:relative;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-ms-flex-negative:0;flex-shrink:0;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;width:100%;height:100%;z-index:1}ion-icon{margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;pointer-events:none}:host(.menu-button-hidden){display:none}:host(.menu-button-disabled){cursor:default;opacity:.5;pointer-events:none}:host(.ion-focused) .button-native{color:var(--color-focused)}:host(.ion-focused) .button-native:after{background:var(--background-focused);opacity:var(--background-focused-opacity)}.button-native:after{left:0;right:0;top:0;bottom:0;position:absolute;content:\"\";opacity:0}\@media (any-hover:hover){:host(:hover) .button-native{color:var(--color-hover)}:host(:hover) .button-native:after{background:var(--background-hover);opacity:var(--background-hover-opacity,0)}}:host(.ion-color) .button-native{color:var(--ion-color-base)}:host(.in-toolbar:not(.in-toolbar-color)){color:var(--ion-toolbar-color,var(--color))}:host{--background-focused:currentColor;--background-focused-opacity:.1;--border-radius:4px;--color:var(--ion-color-primary,#3880ff);--padding-start:5px;--padding-end:5px;height:32px;font-size:31px}:host(.ion-activated){opacity:.4}\@media (any-hover:hover){:host(:hover){opacity:.6}}";
+        }
+      }]);
+
+      return MenuButton;
+    }();
+
+    var MenuToggle = /*#__PURE__*/function () {
+      function MenuToggle(hostRef) {
+        var _this5 = this;
+
+        _classCallCheck(this, MenuToggle);
+
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.visible = false;
+        /**
+         * Automatically hides the content when the corresponding menu is not active.
+         *
+         * By default, it's `true`. Change it to `false` in order to
+         * keep `ion-menu-toggle` always visible regardless the state of the menu.
+         */
+
+        this.autoHide = true;
+
+        this.onClick = function () {
+          return _index_c58c7441_js__WEBPACK_IMPORTED_MODULE_7__["m"].toggle(_this5.menu);
+        };
+      }
+
+      _createClass(MenuToggle, [{
+        key: "connectedCallback",
+        value: function connectedCallback() {
+          this.visibilityChanged();
+        }
+      }, {
+        key: "visibilityChanged",
+        value: function () {
+          var _visibilityChanged2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9() {
+            return regeneratorRuntime.wrap(function _callee9$(_context9) {
+              while (1) {
+                switch (_context9.prev = _context9.next) {
+                  case 0:
+                    _context9.next = 2;
+                    return updateVisibility(this.menu);
+
+                  case 2:
+                    this.visible = _context9.sent;
+
+                  case 3:
+                  case "end":
+                    return _context9.stop();
+                }
+              }
+            }, _callee9, this);
+          }));
+
+          function visibilityChanged() {
+            return _visibilityChanged2.apply(this, arguments);
+          }
+
+          return visibilityChanged;
+        }()
+      }, {
+        key: "render",
+        value: function render() {
+          var _class2;
+
+          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+          var hidden = this.autoHide && !this.visible;
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            onClick: this.onClick,
+            "aria-hidden": hidden ? 'true' : null,
+            class: (_class2 = {}, _defineProperty(_class2, mode, true), _defineProperty(_class2, 'menu-toggle-hidden', hidden), _class2)
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null));
+        }
+      }], [{
+        key: "style",
+        get: function get() {
+          return ":host(.menu-toggle-hidden){display:none}";
+        }
+      }]);
+
+      return MenuToggle;
+    }();
+    /***/
+
+  }
 }]);
 //# sourceMappingURL=36-es5.js.map

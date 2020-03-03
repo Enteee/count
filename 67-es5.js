@@ -1,179 +1,277 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[67],{
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-/***/ "./node_modules/@ionic/core/dist/esm-es5/ion-split-pane-ios.entry.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm-es5/ion-split-pane-ios.entry.js ***!
-  \***************************************************************************/
-/*! exports provided: ion_split_pane */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_split_pane", function() { return SplitPane; });
-/* harmony import */ var _core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-ca0488fc.js */ "./node_modules/@ionic/core/dist/esm-es5/core-ca0488fc.js");
-/* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm-es5/config-3c7f3790.js");
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[67], {
+  /***/
+  "./node_modules/@ionic/core/dist/esm/ion-tab-bar_2-md.entry.js":
+  /*!*********************************************************************!*\
+    !*** ./node_modules/@ionic/core/dist/esm/ion-tab-bar_2-md.entry.js ***!
+    \*********************************************************************/
+
+  /*! exports provided: ion_tab_bar, ion_tab_button */
+
+  /***/
+  function node_modulesIonicCoreDistEsmIonTabBar_2MdEntryJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
 
 
-var SPLIT_PANE_MAIN = 'split-pane-main';
-var SPLIT_PANE_SIDE = 'split-pane-side';
-var QUERY = {
-    'xs': '(min-width: 0px)',
-    'sm': '(min-width: 576px)',
-    'md': '(min-width: 768px)',
-    'lg': '(min-width: 992px)',
-    'xl': '(min-width: 1200px)',
-    'never': ''
-};
-var SplitPane = /** @class */ (function () {
-    function SplitPane(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.visible = false;
+    __webpack_require__.d(__webpack_exports__, "ion_tab_bar", function () {
+      return TabBar;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ion_tab_button", function () {
+      return TabButton;
+    });
+    /* harmony import */
+
+
+    var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./core-0a8d4d2e.js */
+    "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
+    /* harmony import */
+
+
+    var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./config-3c7f3790.js */
+    "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
+    /* harmony import */
+
+
+    var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./theme-18cbe2cc.js */
+    "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
+
+    var TabBar = /*#__PURE__*/function () {
+      function TabBar(hostRef) {
+        _classCallCheck(this, TabBar);
+
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.keyboardVisible = false;
         /**
-         * If `true`, the split pane will be hidden.
+         * If `true`, the tab bar will be translucent.
+         * Only applies when the mode is `"ios"` and the device supports
+         * [`backdrop-filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter#Browser_compatibility).
          */
+
+        this.translucent = false;
+        this.ionTabBarChanged = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionTabBarChanged", 7);
+      }
+
+      _createClass(TabBar, [{
+        key: "selectedTabChanged",
+        value: function selectedTabChanged() {
+          if (this.selectedTab !== undefined) {
+            this.ionTabBarChanged.emit({
+              tab: this.selectedTab
+            });
+          }
+        }
+      }, {
+        key: "onKeyboardWillHide",
+        value: function onKeyboardWillHide() {
+          var _this = this;
+
+          setTimeout(function () {
+            return _this.keyboardVisible = false;
+          }, 50);
+        }
+      }, {
+        key: "onKeyboardWillShow",
+        value: function onKeyboardWillShow() {
+          if (this.el.getAttribute('slot') !== 'top') {
+            this.keyboardVisible = true;
+          }
+        }
+      }, {
+        key: "componentWillLoad",
+        value: function componentWillLoad() {
+          this.selectedTabChanged();
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          var _Object$assign;
+
+          var color = this.color,
+              translucent = this.translucent,
+              keyboardVisible = this.keyboardVisible;
+          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            role: "tablist",
+            "aria-hidden": keyboardVisible ? 'true' : null,
+            class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_2__["c"])(color)), (_Object$assign = {}, _defineProperty(_Object$assign, mode, true), _defineProperty(_Object$assign, 'tab-bar-translucent', translucent), _defineProperty(_Object$assign, 'tab-bar-hidden', keyboardVisible), _Object$assign))
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null));
+        }
+      }, {
+        key: "el",
+        get: function get() {
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+        }
+      }], [{
+        key: "watchers",
+        get: function get() {
+          return {
+            "selectedTab": ["selectedTabChanged"]
+          };
+        }
+      }, {
+        key: "style",
+        get: function get() {
+          return ":host{padding-left:var(--ion-safe-area-left);padding-right:var(--ion-safe-area-right);display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;width:auto;padding-bottom:var(--ion-safe-area-bottom,0);border-top:var(--border);background:var(--background);color:var(--color);text-align:center;contain:strict;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:10;-webkit-box-sizing:content-box!important;box-sizing:content-box!important}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--ion-safe-area-left);padding-inline-start:var(--ion-safe-area-left);-webkit-padding-end:var(--ion-safe-area-right);padding-inline-end:var(--ion-safe-area-right)}}:host(.ion-color) ::slotted(ion-tab-button){--background-focused:var(--ion-color-shade);--color-selected:var(--ion-color-contrast)}:host(.ion-color) ::slotted(.tab-selected){color:var(--ion-color-contrast)}:host(.ion-color),:host(.ion-color) ::slotted(ion-tab-button){color:rgba(var(--ion-color-contrast-rgb),.7);background:var(--ion-color-base)}:host(.ion-color) ::slotted(ion-tab-button.ion-focused),:host(.tab-bar-translucent) ::slotted(ion-tab-button.ion-focused){background:var(--background-focused)}:host(.tab-bar-translucent) ::slotted(ion-tab-button){background:transparent}:host([slot=top]){padding-bottom:0;border-top:0;border-bottom:var(--border)}:host(.tab-bar-hidden){display:none!important}:host{--background:var(--ion-tab-bar-background,var(--ion-background-color,#fff));--background-focused:var(--ion-tab-bar-background-focused,#e0e0e0);--border:1px solid var(--ion-tab-bar-border-color,var(--ion-border-color,var(--ion-color-step-150,rgba(0,0,0,0.07))));--color:var(--ion-tab-bar-color,var(--ion-color-step-600,#666));--color-selected:var(--ion-tab-bar-color-selected,var(--ion-color-primary,#3880ff));height:56px}";
+        }
+      }]);
+
+      return TabBar;
+    }();
+
+    var TabButton = /*#__PURE__*/function () {
+      function TabButton(hostRef) {
+        var _this2 = this;
+
+        _classCallCheck(this, TabButton);
+
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        /**
+         * If `true`, the user cannot interact with the tab button.
+         */
+
         this.disabled = false;
         /**
-         * When the split-pane should be shown.
-         * Can be a CSS media query expression, or a shortcut expression.
-         * Can also be a boolean expression.
+         * The selected tab component
          */
-        this.when = QUERY['lg'];
-        this.ionSplitPaneVisible = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionSplitPaneVisible", 7);
-    }
-    SplitPane.prototype.visibleChanged = function (visible) {
-        var detail = { visible: visible, isPane: this.isPane.bind(this) };
-        this.ionSplitPaneVisible.emit(detail);
-    };
-    SplitPane.prototype.connectedCallback = function () {
-        this.styleChildren();
-        this.updateState();
-    };
-    SplitPane.prototype.disconnectedCallback = function () {
-        if (this.rmL) {
-            this.rmL();
-            this.rmL = undefined;
+
+        this.selected = false;
+
+        this.onKeyUp = function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            _this2.selectTab(ev);
+          }
+        };
+
+        this.onClick = function (ev) {
+          _this2.selectTab(ev);
+        };
+
+        this.ionTabButtonClick = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionTabButtonClick", 7);
+      }
+
+      _createClass(TabButton, [{
+        key: "onTabBarChanged",
+        value: function onTabBarChanged(ev) {
+          this.selected = this.tab === ev.detail.tab;
         }
-    };
-    SplitPane.prototype.componentWillLoad = function () {
-        if (this.contentId === undefined) {
-            console.warn("[DEPRECATED][ion-split-pane] Using the [main] attribute is deprecated, please use the \"contentId\" property instead:\nBEFORE:\n  <ion-split-pane>\n    ...\n    <div main>...</div>\n  </ion-split-pane>\n\nAFTER:\n  <ion-split-pane contentId=\"main-content\">\n    ...\n    <div id=\"main-content\">...</div>\n  </ion-split-pane>\n");
+      }, {
+        key: "componentWillLoad",
+        value: function componentWillLoad() {
+          if (this.layout === undefined) {
+            this.layout = _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].get('tabButtonLayout', 'icon-top');
+          }
         }
-    };
-    SplitPane.prototype.updateState = function () {
-        var _this = this;
-        if (this.rmL) {
-            this.rmL();
-            this.rmL = undefined;
-        }
-        // Check if the split-pane is disabled
-        if (this.disabled) {
-            this.visible = false;
-            return;
-        }
-        // When query is a boolean
-        var query = this.when;
-        if (typeof query === 'boolean') {
-            this.visible = query;
-            return;
-        }
-        // When query is a string, let's find first if it is a shortcut
-        var mediaQuery = QUERY[query] || query;
-        // Media query is empty or null, we hide it
-        if (mediaQuery.length === 0) {
-            this.visible = false;
-            return;
-        }
-        if (window.matchMedia) {
-            // Listen on media query
-            var callback_1 = function (q) {
-                _this.visible = q.matches;
-            };
-            var mediaList_1 = window.matchMedia(mediaQuery);
-            mediaList_1.addListener(callback_1);
-            this.rmL = function () { return mediaList_1.removeListener(callback_1); };
-            this.visible = mediaList_1.matches;
-        }
-    };
-    SplitPane.prototype.isPane = function (element) {
-        if (!this.visible) {
-            return false;
-        }
-        return element.parentElement === this.el
-            && element.classList.contains(SPLIT_PANE_SIDE);
-    };
-    SplitPane.prototype.styleChildren = function () {
-        var contentId = this.contentId;
-        var children = this.el.children;
-        var nu = this.el.childElementCount;
-        var foundMain = false;
-        for (var i = 0; i < nu; i++) {
-            var child = children[i];
-            var isMain = contentId !== undefined ? child.id === contentId : child.hasAttribute('main');
-            if (isMain) {
-                if (foundMain) {
-                    console.warn('split pane cannot have more than one main node');
-                    return;
-                }
-                foundMain = true;
+      }, {
+        key: "selectTab",
+        value: function selectTab(ev) {
+          if (this.tab !== undefined) {
+            if (!this.disabled) {
+              this.ionTabButtonClick.emit({
+                tab: this.tab,
+                href: this.href,
+                selected: this.selected
+              });
             }
-            setPaneClass(child, isMain);
+
+            ev.preventDefault();
+          }
         }
-        if (!foundMain) {
-            console.warn('split pane does not have a specified main node');
+      }, {
+        key: "render",
+        value: function render() {
+          var _class;
+
+          var disabled = this.disabled,
+              hasIcon = this.hasIcon,
+              hasLabel = this.hasLabel,
+              tabIndex = this.tabIndex,
+              href = this.href,
+              rel = this.rel,
+              target = this.target,
+              layout = this.layout,
+              selected = this.selected,
+              tab = this.tab;
+          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+          var attrs = {
+            download: this.download,
+            href: href,
+            rel: rel,
+            target: target
+          };
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            onClick: this.onClick,
+            onKeyup: this.onKeyUp,
+            role: "tab",
+            tabindex: tabIndex,
+            "aria-selected": selected ? 'true' : null,
+            id: tab !== undefined ? "tab-button-".concat(tab) : null,
+            class: (_class = {}, _defineProperty(_class, mode, true), _defineProperty(_class, 'tab-selected', selected), _defineProperty(_class, 'tab-disabled', disabled), _defineProperty(_class, 'tab-has-label', hasLabel), _defineProperty(_class, 'tab-has-icon', hasIcon), _defineProperty(_class, 'tab-has-label-only', hasLabel && !hasIcon), _defineProperty(_class, 'tab-has-icon-only', hasIcon && !hasLabel), _defineProperty(_class, "tab-layout-".concat(layout), true), _defineProperty(_class, 'ion-activatable', true), _defineProperty(_class, 'ion-selectable', true), _defineProperty(_class, 'ion-focusable', true), _class)
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("a", Object.assign({}, attrs, {
+            tabIndex: -1,
+            class: "button-native"
+          }), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("span", {
+            class: "button-inner"
+          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null)), mode === 'md' && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-ripple-effect", {
+            type: "unbounded"
+          })));
         }
-    };
-    SplitPane.prototype.render = function () {
-        var _a;
-        var mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this);
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["H"], { class: (_a = {},
-                _a[mode] = true,
-                // Used internally for styling
-                _a["split-pane-" + mode] = true,
-                _a['split-pane-visible'] = this.visible,
-                _a) }));
-    };
-    Object.defineProperty(SplitPane.prototype, "el", {
-        get: function () { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(SplitPane, "watchers", {
-        get: function () {
-            return {
-                "visible": ["visibleChanged"],
-                "disabled": ["updateState"],
-                "when": ["updateState"]
-            };
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(SplitPane, "style", {
-        get: function () { return "ion-split-pane{left:0;right:0;top:0;bottom:0;display:-ms-flexbox;display:flex;position:absolute;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:nowrap;flex-wrap:nowrap;contain:strict}.split-pane-visible>.split-pane-main,.split-pane-visible>.split-pane-side{left:0;right:0;top:0;bottom:0;position:relative;-ms-flex:1;flex:1;-webkit-box-shadow:none!important;box-shadow:none!important;z-index:0}.split-pane-visible>.split-pane-side:not(ion-menu),.split-pane-visible>ion-menu.split-pane-side.menu-enabled{display:-ms-flexbox;display:flex;-ms-flex-negative:0;flex-shrink:0}.split-pane-side:not(ion-menu){display:none}.split-pane-visible>.split-pane-side{-ms-flex-order:-1;order:-1}.split-pane-visible>.split-pane-side[side=end]{-ms-flex-order:1;order:1}.split-pane-ios{--border:0.55px solid var(--ion-item-border-color,var(--ion-border-color,var(--ion-color-step-250,#c8c7cc)))}.split-pane-ios.split-pane-visible>.split-pane-side{min-width:270px;max-width:28%;border-right:var(--border);border-left:0}.split-pane-ios.split-pane-visible>.split-pane-side[side=end]{min-width:270px;max-width:28%;border-right:0;border-left:var(--border)}"; },
-        enumerable: true,
-        configurable: true
-    });
-    return SplitPane;
-}());
-var setPaneClass = function (el, isMain) {
-    var toAdd;
-    var toRemove;
-    if (isMain) {
-        toAdd = SPLIT_PANE_MAIN;
-        toRemove = SPLIT_PANE_SIDE;
-    }
-    else {
-        toAdd = SPLIT_PANE_SIDE;
-        toRemove = SPLIT_PANE_MAIN;
-    }
-    var classList = el.classList;
-    classList.add(toAdd);
-    classList.remove(toRemove);
-};
+      }, {
+        key: "hasLabel",
+        get: function get() {
+          return !!this.el.querySelector('ion-label');
+        }
+      }, {
+        key: "hasIcon",
+        get: function get() {
+          return !!this.el.querySelector('ion-icon');
+        }
+      }, {
+        key: "tabIndex",
+        get: function get() {
+          if (this.disabled) {
+            return -1;
+          }
 
+          var hasTabIndex = this.el.hasAttribute('tabindex');
 
+          if (hasTabIndex) {
+            return this.el.getAttribute('tabindex');
+          }
 
-/***/ })
+          return 0;
+        }
+      }, {
+        key: "el",
+        get: function get() {
+          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+        }
+      }], [{
+        key: "style",
+        get: function get() {
+          return ":host{--ripple-color:var(--color-selected);--background-focused-opacity:1;-ms-flex:1;flex:1;-ms-flex-direction:column;flex-direction:column;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;background:var(--background);color:var(--color)}.button-native,:host{height:100%;outline:none}.button-native{border-radius:inherit;margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:var(--padding-start);padding-right:var(--padding-end);padding-top:var(--padding-top);padding-bottom:var(--padding-bottom);font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;text-decoration:inherit;text-indent:inherit;text-overflow:inherit;text-transform:inherit;text-align:inherit;white-space:inherit;color:inherit;display:-ms-flexbox;display:flex;position:relative;-ms-flex-direction:inherit;flex-direction:inherit;-ms-flex-align:inherit;align-items:inherit;-ms-flex-pack:inherit;justify-content:inherit;width:100%;border:0;background:transparent;text-decoration:none;cursor:pointer;overflow:hidden;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-user-drag:none}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.button-native{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--padding-start);padding-inline-start:var(--padding-start);-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}.button-native:after{left:0;right:0;top:0;bottom:0;position:absolute;content:\"\";opacity:0}.button-inner{display:-ms-flexbox;display:flex;position:relative;-ms-flex-flow:inherit;flex-flow:inherit;-ms-flex-align:inherit;align-items:inherit;-ms-flex-pack:inherit;justify-content:inherit;width:100%;height:100%;z-index:1}:host(.ion-focused) .button-native{color:var(--color-focused)}:host(.ion-focused) .button-native:after{background:var(--background-focused);opacity:var(--background-focused-opacity)}\@media (any-hover:hover){a:hover{color:var(--color-selected)}}:host(.tab-selected){color:var(--color-selected)}:host(.tab-hidden){display:none!important}:host(.tab-disabled){pointer-events:none;opacity:.4}::slotted(ion-icon),::slotted(ion-label){display:block;-ms-flex-item-align:center;align-self:center;max-width:100%;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;-webkit-box-sizing:border-box;box-sizing:border-box}::slotted(ion-label){-ms-flex-order:0;order:0}::slotted(ion-icon){-ms-flex-order:-1;order:-1;height:1em}:host(.tab-has-label-only) ::slotted(ion-label){white-space:normal}::slotted(ion-badge){-webkit-box-sizing:border-box;box-sizing:border-box;position:absolute;z-index:1}:host(.tab-layout-icon-start){-ms-flex-direction:row;flex-direction:row}:host(.tab-layout-icon-end){-ms-flex-direction:row-reverse;flex-direction:row-reverse}:host(.tab-layout-icon-bottom){-ms-flex-direction:column-reverse;flex-direction:column-reverse}:host(.tab-layout-icon-hide) ::slotted(ion-icon),:host(.tab-layout-label-hide) ::slotted(ion-label){display:none}ion-ripple-effect{color:var(--ripple-color)}:host{--padding-top:0;--padding-end:12px;--padding-bottom:0;--padding-start:12px;max-width:168px;font-size:12px;font-weight:400;letter-spacing:.03em}::slotted(ion-label){margin-left:0;margin-right:0;margin-top:2px;margin-bottom:2px;text-transform:none}::slotted(ion-icon){margin-left:0;margin-right:0;margin-top:16px;margin-bottom:16px;-webkit-transform-origin:center center;transform-origin:center center;font-size:22px}:host-context([dir=rtl]) ::slotted(ion-icon),[dir=rtl] ::slotted(ion-icon){-webkit-transform-origin:calc(100% - center) center;transform-origin:calc(100% - center) center}::slotted(ion-badge){border-radius:8px;padding-left:2px;padding-right:2px;padding-top:3px;padding-bottom:2px;left:calc(50% + 6px);top:8px;min-width:12px;font-size:8px;font-weight:400}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){::slotted(ion-badge){padding-left:unset;padding-right:unset;-webkit-padding-start:2px;padding-inline-start:2px;-webkit-padding-end:2px;padding-inline-end:2px}}:host-context([dir=rtl]) ::slotted(ion-badge),[dir=rtl] ::slotted(ion-badge){left:unset;right:unset;right:calc(50% + 6px)}::slotted(ion-badge:empty){display:block;min-width:8px;height:8px}:host(.tab-layout-icon-top) ::slotted(ion-icon){margin-top:6px;margin-bottom:2px}:host(.tab-layout-icon-top) ::slotted(ion-label){margin-top:0;margin-bottom:6px}:host(.tab-layout-icon-bottom) ::slotted(ion-badge){left:70%;top:8px}:host-context([dir=rtl]).tab-layout-icon-bottom ::slotted(ion-badge),:host-context([dir=rtl]):host(.tab-layout-icon-bottom) ::slotted(ion-badge){left:unset;right:unset;right:70%}:host(.tab-layout-icon-bottom) ::slotted(ion-icon){margin-top:0;margin-bottom:6px}:host(.tab-layout-icon-bottom) ::slotted(ion-label){margin-top:6px;margin-bottom:0}:host(.tab-layout-icon-end) ::slotted(ion-badge),:host(.tab-layout-icon-start) ::slotted(ion-badge){left:80%;top:16px}:host-context([dir=rtl]).tab-layout-icon-end ::slotted(ion-badge),:host-context([dir=rtl]).tab-layout-icon-start ::slotted(ion-badge),:host-context([dir=rtl]):host(.tab-layout-icon-end) ::slotted(ion-badge),:host-context([dir=rtl]):host(.tab-layout-icon-start) ::slotted(ion-badge){left:unset;right:unset;right:80%}:host(.tab-layout-icon-start) ::slotted(ion-icon){margin-right:6px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host(.tab-layout-icon-start) ::slotted(ion-icon){margin-right:unset;-webkit-margin-end:6px;margin-inline-end:6px}}:host(.tab-layout-icon-end) ::slotted(ion-icon){margin-left:6px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host(.tab-layout-icon-end) ::slotted(ion-icon){margin-left:unset;-webkit-margin-start:6px;margin-inline-start:6px}}:host(.tab-has-label-only) ::slotted(ion-badge),:host(.tab-layout-icon-hide) ::slotted(ion-badge){left:70%;top:16px}:host-context([dir=rtl]).tab-has-label-only ::slotted(ion-badge),:host-context([dir=rtl]).tab-layout-icon-hide ::slotted(ion-badge),:host-context([dir=rtl]):host(.tab-has-label-only) ::slotted(ion-badge),:host-context([dir=rtl]):host(.tab-layout-icon-hide) ::slotted(ion-badge){left:unset;right:unset;right:70%}:host(.tab-has-label-only) ::slotted(ion-label),:host(.tab-layout-icon-hide) ::slotted(ion-label){margin-top:0;margin-bottom:0}:host(.tab-has-icon-only) ::slotted(ion-badge),:host(.tab-layout-label-hide) ::slotted(ion-badge){top:16px}:host(.tab-has-icon-only) ::slotted(ion-icon),:host(.tab-layout-label-hide) ::slotted(ion-icon){margin-top:0;margin-bottom:0;font-size:24px}";
+        }
+      }]);
 
+      return TabButton;
+    }();
+    /***/
+
+  }
 }]);
 //# sourceMappingURL=67-es5.js.map

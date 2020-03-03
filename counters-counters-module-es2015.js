@@ -1,38 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["counters-counters-module"],{
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/counters/counters-settings/counters-settings.component.html":
-/*!*******************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/counters/counters-settings/counters-settings.component.html ***!
-  \*******************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ion-list>\n\n  <ion-item\n    button\n    (click)=\"toggleReorder()\"\n  >\n    <ion-icon\n      slot=\"start\"\n      name=\"swap\"\n      class=\"rotate-90\"\n    ></ion-icon>\n\n    <ng-template\n      *ngIf=\"this.reorderGroup.disabled; then thenBlock else elseBlock\"\n    ></ng-template>\n    <ng-template #thenBlock>Change Order</ng-template>\n    <ng-template #elseBlock>Keep Order</ng-template>\n\n  </ion-item>\n\n  <ion-item\n    button\n    (click)=\"addCounter()\"\n  >\n    <ion-icon slot=\"start\" name=\"add-circle-outline\"></ion-icon>\n    Add New Counter\n  </ion-item>\n</ion-list>\n"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/counters/counters.page.html":
-/*!***********************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/counters/counters.page.html ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      <ion-icon src=\"assets/icon.svg\"></ion-icon>\n      Count\n    </ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"presentPopover($event)\">\n        <ion-icon name=\"options\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-reorder-group\n      (ionItemReorder)=\"reorder($event)\"\n    >\n      <div *ngFor=\"let counter of counters\">\n        <app-plus-minus-counter [counter]=\"counter\"></app-plus-minus-counter>\n      </div>\n    </ion-reorder-group>\n  </ion-list>\n</ion-content>\n"
-
-/***/ }),
-
-/***/ "./src/app/counters/counters-settings/counters-settings.component.scss":
-/*!*****************************************************************************!*\
-  !*** ./src/app/counters/counters-settings/counters-settings.component.scss ***!
-  \*****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ".rotate-90 {\n  display: inline-block;\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL2NvdW50L2NvdW50L3NyYy9hcHAvY291bnRlcnMvY291bnRlcnMtc2V0dGluZ3MvY291bnRlcnMtc2V0dGluZ3MuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvdW50ZXJzL2NvdW50ZXJzLXNldHRpbmdzL2NvdW50ZXJzLXNldHRpbmdzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UscUJBQUE7RUFDQSxnQ0FBQTtVQUFBLHdCQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC9jb3VudGVycy9jb3VudGVycy1zZXR0aW5ncy9jb3VudGVycy1zZXR0aW5ncy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yb3RhdGUtOTAge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7IFxuICB0cmFuc2Zvcm06IHJvdGF0ZSg5MGRlZyk7XG59XG4iLCIucm90YXRlLTkwIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB0cmFuc2Zvcm06IHJvdGF0ZSg5MGRlZyk7XG59Il19 */"
-
-/***/ }),
-
 /***/ "./src/app/counters/counters-settings/counters-settings.component.ts":
 /*!***************************************************************************!*\
   !*** ./src/app/counters/counters-settings/counters-settings.component.ts ***!
@@ -44,23 +11,39 @@ module.exports = ".rotate-90 {\n  display: inline-block;\n  -webkit-transform: r
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CountersSettingsComponent", function() { return CountersSettingsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 /* harmony import */ var _services_counter_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/counter.service */ "./src/app/services/counter.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
 
 
 
 
-let CountersSettingsComponent = class CountersSettingsComponent {
+
+
+
+
+
+function CountersSettingsComponent_3_ng_template_0_Template(rf, ctx) { }
+function CountersSettingsComponent_3_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](0, CountersSettingsComponent_3_ng_template_0_Template, 0, 0, "ng-template");
+} }
+function CountersSettingsComponent_ng_template_4_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](0, "Change Order");
+} }
+function CountersSettingsComponent_ng_template_6_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](0, "Keep Order");
+} }
+class CountersSettingsComponent {
     constructor(counterService, router) {
         this.counterService = counterService;
         this.router = router;
     }
     ngOnInit() { }
     addCounter() {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const newCounter = yield this.counterService.addCounter();
             yield Promise.all([
                 this.router.navigate([
@@ -76,34 +59,46 @@ let CountersSettingsComponent = class CountersSettingsComponent {
         });
     }
     toggleReorder() {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.reorderGroup.disabled = !this.reorderGroup.disabled;
             yield this.popoverController.dismiss();
         });
     }
-};
-CountersSettingsComponent.ctorParameters = () => [
-    { type: _services_counter_service__WEBPACK_IMPORTED_MODULE_4__["CounterService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
-];
-tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["PopoverController"])
-], CountersSettingsComponent.prototype, "popoverController", void 0);
-tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonReorderGroup"])
-], CountersSettingsComponent.prototype, "reorderGroup", void 0);
-CountersSettingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-counters-settings',
-        template: __webpack_require__(/*! raw-loader!./counters-settings.component.html */ "./node_modules/raw-loader/index.js!./src/app/counters/counters-settings/counters-settings.component.html"),
-        styles: [__webpack_require__(/*! ./counters-settings.component.scss */ "./src/app/counters/counters-settings/counters-settings.component.scss")]
-    }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_counter_service__WEBPACK_IMPORTED_MODULE_4__["CounterService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
-], CountersSettingsComponent);
-
+}
+CountersSettingsComponent.ɵfac = function CountersSettingsComponent_Factory(t) { return new (t || CountersSettingsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_counter_service__WEBPACK_IMPORTED_MODULE_4__["CounterService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"])); };
+CountersSettingsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: CountersSettingsComponent, selectors: [["app-counters-settings"]], inputs: { popoverController: "popoverController", reorderGroup: "reorderGroup" }, decls: 11, vars: 3, consts: [["button", "", 3, "click"], ["slot", "start", "name", "swap-vertical"], [4, "ngIf", "ngIfThen", "ngIfElse"], ["thenBlock", ""], ["elseBlock", ""], ["slot", "start", "name", "add-circle-outline"]], template: function CountersSettingsComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-list");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "ion-item", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function CountersSettingsComponent_Template_ion_item_click_1_listener() { return ctx.toggleReorder(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](2, "ion-icon", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](3, CountersSettingsComponent_3_Template, 1, 0, undefined, 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](4, CountersSettingsComponent_ng_template_4_Template, 1, 0, "ng-template", null, 3, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplateRefExtractor"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](6, CountersSettingsComponent_ng_template_6_Template, 1, 0, "ng-template", null, 4, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplateRefExtractor"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](8, "ion-item", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function CountersSettingsComponent_Template_ion_item_click_8_listener() { return ctx.addCounter(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](9, "ion-icon", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10, " Add New Counter ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        const _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵreference"](5);
+        const _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵreference"](7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.reorderGroup.disabled)("ngIfThen", _r9)("ngIfElse", _r11);
+    } }, directives: [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonList"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonItem"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonIcon"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvdW50ZXJzL2NvdW50ZXJzLXNldHRpbmdzL2NvdW50ZXJzLXNldHRpbmdzLmNvbXBvbmVudC5zY3NzIn0= */"] });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CountersSettingsComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
+        args: [{
+                selector: 'app-counters-settings',
+                templateUrl: './counters-settings.component.html',
+                styleUrls: ['./counters-settings.component.scss'],
+            }]
+    }], function () { return [{ type: _services_counter_service__WEBPACK_IMPORTED_MODULE_4__["CounterService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }]; }, { popoverController: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], reorderGroup: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }] }); })();
 
 
 /***/ }),
@@ -118,16 +113,15 @@ CountersSettingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CountersPageModule", function() { return CountersPageModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _counters_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./counters.page */ "./src/app/counters/counters.page.ts");
-/* harmony import */ var _counters_settings_counters_settings_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./counters-settings/counters-settings.component */ "./src/app/counters/counters-settings/counters-settings.component.ts");
-/* harmony import */ var _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../not-implemented/not-implemented.module */ "./src/app/not-implemented/not-implemented.module.ts");
-/* harmony import */ var _components_components_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/components.module */ "./src/app/components/components.module.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _counters_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./counters.page */ "./src/app/counters/counters.page.ts");
+/* harmony import */ var _counters_settings_counters_settings_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./counters-settings/counters-settings.component */ "./src/app/counters/counters-settings/counters-settings.component.ts");
+/* harmony import */ var _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../not-implemented/not-implemented.module */ "./src/app/not-implemented/not-implemented.module.ts");
+/* harmony import */ var _components_components_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/components.module */ "./src/app/components/components.module.ts");
 
 
 
@@ -138,46 +132,56 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let CountersPageModule = class CountersPageModule {
-};
-CountersPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [
-            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
-            _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_8__["NotImplementedModule"],
-            _components_components_module__WEBPACK_IMPORTED_MODULE_9__["ComponentsModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forChild([
+
+class CountersPageModule {
+}
+CountersPageModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: CountersPageModule });
+CountersPageModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function CountersPageModule_Factory(t) { return new (t || CountersPageModule)(); }, providers: [], imports: [[
+            _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonicModule"],
+            _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_7__["NotImplementedModule"],
+            _components_components_module__WEBPACK_IMPORTED_MODULE_8__["ComponentsModule"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild([
                 {
                     path: '',
-                    component: _counters_page__WEBPACK_IMPORTED_MODULE_6__["CountersPage"]
+                    component: _counters_page__WEBPACK_IMPORTED_MODULE_5__["CountersPage"]
                 }
             ])
-        ],
-        declarations: [
-            _counters_page__WEBPACK_IMPORTED_MODULE_6__["CountersPage"],
-            _counters_settings_counters_settings_component__WEBPACK_IMPORTED_MODULE_7__["CountersSettingsComponent"],
-        ],
-        providers: [],
-        entryComponents: [
-            _counters_settings_counters_settings_component__WEBPACK_IMPORTED_MODULE_7__["CountersSettingsComponent"]
-        ]
-    })
-], CountersPageModule);
+        ]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](CountersPageModule, { declarations: [_counters_page__WEBPACK_IMPORTED_MODULE_5__["CountersPage"],
+        _counters_settings_counters_settings_component__WEBPACK_IMPORTED_MODULE_6__["CountersSettingsComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonicModule"],
+        _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_7__["NotImplementedModule"],
+        _components_components_module__WEBPACK_IMPORTED_MODULE_8__["ComponentsModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"]] }); })();
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CountersPageModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{
+                imports: [
+                    _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+                    _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonicModule"],
+                    _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_7__["NotImplementedModule"],
+                    _components_components_module__WEBPACK_IMPORTED_MODULE_8__["ComponentsModule"],
+                    _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild([
+                        {
+                            path: '',
+                            component: _counters_page__WEBPACK_IMPORTED_MODULE_5__["CountersPage"]
+                        }
+                    ])
+                ],
+                declarations: [
+                    _counters_page__WEBPACK_IMPORTED_MODULE_5__["CountersPage"],
+                    _counters_settings_counters_settings_component__WEBPACK_IMPORTED_MODULE_6__["CountersSettingsComponent"],
+                ],
+                providers: [],
+                entryComponents: [
+                    _counters_settings_counters_settings_component__WEBPACK_IMPORTED_MODULE_6__["CountersSettingsComponent"]
+                ]
+            }]
+    }], null, null); })();
 
-
-
-/***/ }),
-
-/***/ "./src/app/counters/counters.page.scss":
-/*!*********************************************!*\
-  !*** ./src/app/counters/counters.page.scss ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvdW50ZXJzL2NvdW50ZXJzLnBhZ2Uuc2NzcyJ9 */"
 
 /***/ }),
 
@@ -192,16 +196,32 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CountersPage", function() { return CountersPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 /* harmony import */ var _services_counter_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/counter.service */ "./src/app/services/counter.service.ts");
 /* harmony import */ var _counters_settings_counters_settings_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./counters-settings/counters-settings.component */ "./src/app/counters/counters-settings/counters-settings.component.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _components_plus_minus_counter_plus_minus_counter_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/plus-minus-counter/plus-minus-counter.component */ "./src/app/components/plus-minus-counter/plus-minus-counter.component.ts");
 
 
 
 
 
-let CountersPage = class CountersPage {
+
+
+
+
+
+function CountersPage_div_13_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "app-plus-minus-counter", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const counter_r15 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("counter", counter_r15);
+} }
+class CountersPage {
     constructor(counterService, popoverController) {
         this.counterService = counterService;
         this.popoverController = popoverController;
@@ -212,7 +232,7 @@ let CountersPage = class CountersPage {
         return this.counterService.allSortBySortOrder;
     }
     presentPopover(ev) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const popover = yield this.popoverController.create({
                 component: _counters_settings_counters_settings_component__WEBPACK_IMPORTED_MODULE_4__["CountersSettingsComponent"],
                 event: ev,
@@ -226,30 +246,59 @@ let CountersPage = class CountersPage {
         });
     }
     reorder(ev) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             yield this.counterService.reorder(ev.detail.from, ev.detail.to);
             ev.detail.complete();
         });
     }
-};
-CountersPage.ctorParameters = () => [
-    { type: _services_counter_service__WEBPACK_IMPORTED_MODULE_3__["CounterService"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"] }
-];
-tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonReorderGroup"], { static: false }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonReorderGroup"])
-], CountersPage.prototype, "reorderGroup", void 0);
-CountersPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-counters',
-        template: __webpack_require__(/*! raw-loader!./counters.page.html */ "./node_modules/raw-loader/index.js!./src/app/counters/counters.page.html"),
-        styles: [__webpack_require__(/*! ./counters.page.scss */ "./src/app/counters/counters.page.scss")]
-    }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_counter_service__WEBPACK_IMPORTED_MODULE_3__["CounterService"],
-        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"]])
-], CountersPage);
-
+}
+CountersPage.ɵfac = function CountersPage_Factory(t) { return new (t || CountersPage)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_counter_service__WEBPACK_IMPORTED_MODULE_3__["CounterService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"])); };
+CountersPage.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: CountersPage, selectors: [["app-counters"]], viewQuery: function CountersPage_Query(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵviewQuery"](_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonReorderGroup"], true);
+    } if (rf & 2) {
+        var _t;
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.reorderGroup = _t.first);
+    } }, decls: 14, vars: 1, consts: [["slot", "start"], ["src", "assets/icon.svg"], ["slot", "end"], [3, "click"], ["name", "options"], [3, "ionItemReorder"], [4, "ngFor", "ngForOf"], [3, "counter"]], template: function CountersPage_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-header");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "ion-toolbar");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "ion-buttons", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](3, "ion-menu-button");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "ion-title");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](5, "ion-icon", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](6, " Count ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "ion-buttons", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](8, "ion-button", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function CountersPage_Template_ion_button_click_8_listener($event) { return ctx.presentPopover($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](9, "ion-icon", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](10, "ion-content");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "ion-list");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](12, "ion-reorder-group", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ionItemReorder", function CountersPage_Template_ion_reorder_group_ionItemReorder_12_listener($event) { return ctx.reorder($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](13, CountersPage_div_13_Template, 2, 1, "div", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.counters);
+    } }, directives: [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonHeader"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonToolbar"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonButtons"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonMenuButton"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonTitle"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonIcon"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonButton"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonContent"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonList"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonReorderGroup"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"], _components_plus_minus_counter_plus_minus_counter_component__WEBPACK_IMPORTED_MODULE_6__["PlusMinusCounterComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvdW50ZXJzL2NvdW50ZXJzLnBhZ2Uuc2NzcyJ9 */"] });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CountersPage, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
+        args: [{
+                selector: 'app-counters',
+                templateUrl: 'counters.page.html',
+                styleUrls: ['counters.page.scss']
+            }]
+    }], function () { return [{ type: _services_counter_service__WEBPACK_IMPORTED_MODULE_3__["CounterService"] }, { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"] }]; }, { reorderGroup: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+            args: [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonReorderGroup"]]
+        }] }); })();
 
 
 /***/ })

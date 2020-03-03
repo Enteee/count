@@ -1,113 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["common"],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/cubic-bezier-2812fda3.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/cubic-bezier-2812fda3.js ***!
-  \********************************************************************/
-/*! exports provided: P, g */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "P", function() { return Point; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return getTimeGivenProgression; });
-/**
- * Based on:
- * https://stackoverflow.com/questions/7348009/y-coordinate-for-a-given-x-cubic-bezier
- * https://math.stackexchange.com/questions/26846/is-there-an-explicit-form-for-cubic-b%C3%A9zier-curves
- * TODO: Reduce rounding error
- */
-class Point {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-    }
-}
-/**
- * Given a cubic-bezier curve, get the x value (time) given
- * the y value (progression).
- * Ex: cubic-bezier(0.32, 0.72, 0, 1);
- * P0: (0, 0)
- * P1: (0.32, 0.72)
- * P2: (0, 1)
- * P3: (1, 1)
- *
- * If you give a cubic bezier curve that never reaches the
- * provided progression, this function will return NaN.
- */
-const getTimeGivenProgression = (p0, p1, p2, p3, progression) => {
-    const tValues = solveCubicBezier(p0.y, p1.y, p2.y, p3.y, progression);
-    return solveCubicParametricEquation(p0.x, p1.x, p2.x, p3.x, tValues[0]); // TODO: Add better strategy for dealing with multiple solutions
-};
-/**
- * Solve a cubic equation in one dimension (time)
- */
-const solveCubicParametricEquation = (p0, p1, p2, p3, t) => {
-    const partA = (3 * p1) * Math.pow(t - 1, 2);
-    const partB = (-3 * p2 * t) + (3 * p2) + (p3 * t);
-    const partC = p0 * Math.pow(t - 1, 3);
-    return t * (partA + (t * partB)) - partC;
-};
-/**
- * Find the `t` value for a cubic bezier using Cardano's formula
- */
-const solveCubicBezier = (p0, p1, p2, p3, refPoint) => {
-    p0 -= refPoint;
-    p1 -= refPoint;
-    p2 -= refPoint;
-    p3 -= refPoint;
-    const roots = solveCubicEquation(p3 - 3 * p2 + 3 * p1 - p0, 3 * p2 - 6 * p1 + 3 * p0, 3 * p1 - 3 * p0, p0);
-    return roots.filter(root => root >= 0 && root <= 1);
-};
-const solveQuadraticEquation = (a, b, c) => {
-    const discriminant = b * b - 4 * a * c;
-    if (discriminant < 0) {
-        return [];
-    }
-    else {
-        return [
-            (-b + Math.sqrt(discriminant)) / (2 * a),
-            (-b - Math.sqrt(discriminant)) / (2 * a)
-        ];
-    }
-};
-const solveCubicEquation = (a, b, c, d) => {
-    if (a === 0) {
-        return solveQuadraticEquation(b, c, d);
-    }
-    b /= a;
-    c /= a;
-    d /= a;
-    const p = (3 * c - b * b) / 3;
-    const q = (2 * b * b * b - 9 * b * c + 27 * d) / 27;
-    if (p === 0) {
-        return [Math.pow(-q, 1 / 3)];
-    }
-    else if (q === 0) {
-        return [Math.sqrt(-p), -Math.sqrt(-p)];
-    }
-    const discriminant = Math.pow(q / 2, 2) + Math.pow(p / 3, 3);
-    if (discriminant === 0) {
-        return [Math.pow(q / 2, 1 / 2) - b / 3];
-    }
-    else if (discriminant > 0) {
-        return [Math.pow(-(q / 2) + Math.sqrt(discriminant), 1 / 3) - Math.pow((q / 2) + Math.sqrt(discriminant), 1 / 3) - b / 3];
-    }
-    const r = Math.sqrt(Math.pow(-(p / 3), 3));
-    const phi = Math.acos(-(q / (2 * Math.sqrt(Math.pow(-(p / 3), 3)))));
-    const s = 2 * Math.pow(r, 1 / 3);
-    return [
-        s * Math.cos(phi / 3) - b / 3,
-        s * Math.cos((phi + 2 * Math.PI) / 3) - b / 3,
-        s * Math.cos((phi + 4 * Math.PI) / 3) - b / 3
-    ];
-};
-
-
-
-
-/***/ }),
-
 /***/ "./node_modules/@ionic/core/dist/esm/framework-delegate-c2e2e1f4.js":
 /*!**************************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/framework-delegate-c2e2e1f4.js ***!
@@ -344,9 +236,9 @@ const blockedTags = ['script', 'style', 'iframe', 'meta', 'link', 'object', 'emb
 
 /***/ }),
 
-/***/ "./node_modules/@ionic/core/dist/esm/index-6826f2f6.js":
+/***/ "./node_modules/@ionic/core/dist/esm/index-4e2fa3c6.js":
 /*!*************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/index-6826f2f6.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/index-4e2fa3c6.js ***!
   \*************************************************************/
 /*! exports provided: d, g, l, s, t */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -358,16 +250,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return lifecycle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return setPageHidden; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return transition; });
-/* harmony import */ var _core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-ca0488fc.js */ "./node_modules/@ionic/core/dist/esm/core-ca0488fc.js");
+/* harmony import */ var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-0a8d4d2e.js */ "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
 /* harmony import */ var _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants-3c3e1099.js */ "./node_modules/@ionic/core/dist/esm/constants-3c3e1099.js");
 
 
 
-const iosTransitionAnimation = () => __webpack_require__.e(/*! import() | ios-transition-071bd421-js */ "ios-transition-071bd421-js").then(__webpack_require__.bind(null, /*! ./ios.transition-071bd421.js */ "./node_modules/@ionic/core/dist/esm/ios.transition-071bd421.js"));
-const mdTransitionAnimation = () => __webpack_require__.e(/*! import() | md-transition-15a81b08-js */ "md-transition-15a81b08-js").then(__webpack_require__.bind(null, /*! ./md.transition-15a81b08.js */ "./node_modules/@ionic/core/dist/esm/md.transition-15a81b08.js"));
+const iosTransitionAnimation = () => __webpack_require__.e(/*! import() | ios-transition-179652bb-js */ "ios-transition-179652bb-js").then(__webpack_require__.bind(null, /*! ./ios.transition-179652bb.js */ "./node_modules/@ionic/core/dist/esm/ios.transition-179652bb.js"));
+const mdTransitionAnimation = () => __webpack_require__.e(/*! import() | md-transition-91524c12-js */ "md-transition-91524c12-js").then(__webpack_require__.bind(null, /*! ./md.transition-91524c12.js */ "./node_modules/@ionic/core/dist/esm/md.transition-91524c12.js"));
 const transition = (opts) => {
     return new Promise((resolve, reject) => {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["w"])(() => {
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(() => {
             beforeTransition(opts);
             runTransition(opts).then(result => {
                 if (result.animation) {
@@ -426,14 +318,7 @@ const getAnimationBuilder = async (opts) => {
 };
 const animation = async (animationBuilder, opts) => {
     await waitForReady(opts, true);
-    let trans;
-    try {
-        const mod = await __webpack_require__.e(/*! import() | index-69c37885-js */ "index-69c37885-js").then(__webpack_require__.bind(null, /*! ./index-69c37885.js */ "./node_modules/@ionic/core/dist/esm/index-69c37885.js"));
-        trans = await mod.create(animationBuilder, opts.baseEl, opts);
-    }
-    catch (err) {
-        trans = animationBuilder(opts.baseEl, opts);
-    }
+    const trans = animationBuilder(opts.baseEl, opts);
     fireWillEvents(opts.enteringEl, opts.leavingEl);
     const didComplete = await playTransition(trans, opts);
     if (opts.progressCallback) {
@@ -476,16 +361,8 @@ const notifyViewReady = async (viewIsReady, enteringEl) => {
 };
 const playTransition = (trans, opts) => {
     const progressCallback = opts.progressCallback;
-    // TODO: Remove AnimationBuilder
     const promise = new Promise(resolve => {
-        trans.onFinish((currentStep) => {
-            if (typeof currentStep === 'number') {
-                resolve(currentStep === 1);
-            }
-            else if (trans.hasCompleted !== undefined) {
-                resolve(trans.hasCompleted);
-            }
-        });
+        trans.onFinish((currentStep) => resolve(currentStep === 1));
     });
     // cool, let's do this, start the transition
     if (progressCallback) {
@@ -576,6 +453,130 @@ const getIonPageElement = (element) => {
 
 /***/ }),
 
+/***/ "./node_modules/@ionic/core/dist/esm/spinner-configs-28520d80.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/spinner-configs-28520d80.js ***!
+  \***********************************************************************/
+/*! exports provided: S */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "S", function() { return SPINNERS; });
+const spinners = {
+    'bubbles': {
+        dur: 1000,
+        circles: 9,
+        fn: (dur, index, total) => {
+            const animationDelay = `${(dur * index / total) - dur}ms`;
+            const angle = 2 * Math.PI * index / total;
+            return {
+                r: 5,
+                style: {
+                    'top': `${9 * Math.sin(angle)}px`,
+                    'left': `${9 * Math.cos(angle)}px`,
+                    'animation-delay': animationDelay,
+                }
+            };
+        }
+    },
+    'circles': {
+        dur: 1000,
+        circles: 8,
+        fn: (dur, index, total) => {
+            const step = index / total;
+            const animationDelay = `${(dur * step) - dur}ms`;
+            const angle = 2 * Math.PI * step;
+            return {
+                r: 5,
+                style: {
+                    'top': `${9 * Math.sin(angle)}px`,
+                    'left': `${9 * Math.cos(angle)}px`,
+                    'animation-delay': animationDelay,
+                }
+            };
+        }
+    },
+    'circular': {
+        dur: 1400,
+        elmDuration: true,
+        circles: 1,
+        fn: () => {
+            return {
+                r: 20,
+                cx: 48,
+                cy: 48,
+                fill: 'none',
+                viewBox: '24 24 48 48',
+                transform: 'translate(0,0)',
+                style: {}
+            };
+        }
+    },
+    'crescent': {
+        dur: 750,
+        circles: 1,
+        fn: () => {
+            return {
+                r: 26,
+                style: {}
+            };
+        }
+    },
+    'dots': {
+        dur: 750,
+        circles: 3,
+        fn: (_, index) => {
+            const animationDelay = -(110 * index) + 'ms';
+            return {
+                r: 6,
+                style: {
+                    'left': `${9 - (9 * index)}px`,
+                    'animation-delay': animationDelay,
+                }
+            };
+        }
+    },
+    'lines': {
+        dur: 1000,
+        lines: 12,
+        fn: (dur, index, total) => {
+            const transform = `rotate(${30 * index + (index < 6 ? 180 : -180)}deg)`;
+            const animationDelay = `${(dur * index / total) - dur}ms`;
+            return {
+                y1: 17,
+                y2: 29,
+                style: {
+                    'transform': transform,
+                    'animation-delay': animationDelay,
+                }
+            };
+        }
+    },
+    'lines-small': {
+        dur: 1000,
+        lines: 12,
+        fn: (dur, index, total) => {
+            const transform = `rotate(${30 * index + (index < 6 ? 180 : -180)}deg)`;
+            const animationDelay = `${(dur * index / total) - dur}ms`;
+            return {
+                y1: 12,
+                y2: 20,
+                style: {
+                    'transform': transform,
+                    'animation-delay': animationDelay,
+                }
+            };
+        }
+    }
+};
+const SPINNERS = spinners;
+
+
+
+
+/***/ }),
+
 /***/ "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js":
 /*!*************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js ***!
@@ -635,52 +636,6 @@ const openURL = async (url, ev, direction) => {
 
 /***/ }),
 
-/***/ "./node_modules/@ionic/core/dist/esm/watch-options-2af96011.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/watch-options-2af96011.js ***!
-  \*********************************************************************/
-/*! exports provided: f, w */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return findCheckedOption; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return watchForOptions; });
-const watchForOptions = (containerEl, tagName, onChange) => {
-    const mutation = new MutationObserver(mutationList => {
-        onChange(getSelectedOption(mutationList, tagName));
-    });
-    mutation.observe(containerEl, {
-        childList: true,
-        subtree: true
-    });
-    return mutation;
-};
-const getSelectedOption = (mutationList, tagName) => {
-    let newOption;
-    mutationList.forEach(mut => {
-        // tslint:disable-next-line: prefer-for-of
-        for (let i = 0; i < mut.addedNodes.length; i++) {
-            newOption = findCheckedOption(mut.addedNodes[i], tagName) || newOption;
-        }
-    });
-    return newOption;
-};
-const findCheckedOption = (el, tagName) => {
-    if (el.nodeType !== 1) {
-        return undefined;
-    }
-    const options = (el.tagName === tagName.toUpperCase())
-        ? [el]
-        : Array.from(el.querySelectorAll(tagName));
-    return options.find((o) => o.checked === true);
-};
-
-
-
-
-/***/ }),
-
 /***/ "./src/app/contributors.ts":
 /*!*********************************!*\
   !*** ./src/app/contributors.ts ***!
@@ -714,28 +669,29 @@ const contributors = [
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContributorService", function() { return ContributorService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _contributors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../contributors */ "./src/app/contributors.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _contributors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../contributors */ "./src/app/contributors.ts");
 
 
 
-let ContributorService = class ContributorService {
-    constructor() { }
+class ContributorService {
+    constructor() {
+    }
     get all() {
-        return _contributors__WEBPACK_IMPORTED_MODULE_2__["contributors"];
+        return _contributors__WEBPACK_IMPORTED_MODULE_1__["contributors"];
     }
     getDonatable() {
-        return _contributors__WEBPACK_IMPORTED_MODULE_2__["contributors"].filter(c => c.donateUrl);
+        return _contributors__WEBPACK_IMPORTED_MODULE_1__["contributors"].filter(c => c.donateUrl);
     }
-};
-ContributorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-], ContributorService);
-
+}
+ContributorService.ɵfac = function ContributorService_Factory(t) { return new (t || ContributorService)(); };
+ContributorService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: ContributorService, factory: ContributorService.ɵfac, providedIn: 'root' });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ContributorService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+                providedIn: 'root'
+            }]
+    }], function () { return []; }, null); })();
 
 
 /***/ })

@@ -1,163 +1,554 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[76],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/ion-toggle-md.entry.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/ion-toggle-md.entry.js ***!
-  \******************************************************************/
-/*! exports provided: ion_toggle */
+/***/ "./node_modules/@ionic/core/dist/esm/ion-virtual-scroll.entry.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/ion-virtual-scroll.entry.js ***!
+  \***********************************************************************/
+/*! exports provided: ion_virtual_scroll */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_toggle", function() { return Toggle; });
-/* harmony import */ var _core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-ca0488fc.js */ "./node_modules/@ionic/core/dist/esm/core-ca0488fc.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_virtual_scroll", function() { return VirtualScroll; });
+/* harmony import */ var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-0a8d4d2e.js */ "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
 /* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
-/* harmony import */ var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-46f4a262.js */ "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
-/* harmony import */ var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme-18cbe2cc.js */ "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
-/* harmony import */ var _haptic_c8f1473e_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./haptic-c8f1473e.js */ "./node_modules/@ionic/core/dist/esm/haptic-c8f1473e.js");
 
 
 
+const CELL_TYPE_ITEM = 'item';
+const CELL_TYPE_HEADER = 'header';
+const CELL_TYPE_FOOTER = 'footer';
+const NODE_CHANGE_NONE = 0;
+const NODE_CHANGE_POSITION = 1;
+const NODE_CHANGE_CELL = 2;
 
-
-
-const Toggle = class {
-    constructor(hostRef) {
-        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.inputId = `ion-tg-${toggleIds++}`;
-        this.lastDrag = 0;
-        this.activated = false;
-        /**
-         * The name of the control, which is submitted with the form data.
-         */
-        this.name = this.inputId;
-        /**
-         * If `true`, the toggle is selected.
-         */
-        this.checked = false;
-        /**
-         * If `true`, the user cannot interact with the toggle.
-         */
-        this.disabled = false;
-        /**
-         * The value of the toggle does not mean if it's checked or not, use the `checked`
-         * property for that.
-         *
-         * The value of a toggle is analogous to the value of a `<input type="checkbox">`,
-         * it's only used when the toggle participates in a native `<form>`.
-         */
-        this.value = 'on';
-        this.onClick = () => {
-            if (this.lastDrag + 300 < Date.now()) {
-                this.checked = !this.checked;
+const MIN_READS = 2;
+const updateVDom = (dom, heightIndex, cells, range) => {
+    // reset dom
+    for (const node of dom) {
+        node.change = NODE_CHANGE_NONE;
+        node.d = true;
+    }
+    // try to match into exisiting dom
+    const toMutate = [];
+    const end = range.offset + range.length;
+    for (let i = range.offset; i < end; i++) {
+        const cell = cells[i];
+        const node = dom.find(n => n.d && n.cell === cell);
+        if (node) {
+            const top = heightIndex[i];
+            if (top !== node.top) {
+                node.top = top;
+                node.change = NODE_CHANGE_POSITION;
             }
-        };
-        this.onFocus = () => {
-            this.ionFocus.emit();
-        };
-        this.onBlur = () => {
-            this.ionBlur.emit();
-        };
-        this.ionChange = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionChange", 7);
-        this.ionFocus = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionFocus", 7);
-        this.ionBlur = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionBlur", 7);
-        this.ionStyle = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionStyle", 7);
-    }
-    checkedChanged(isChecked) {
-        this.ionChange.emit({
-            checked: isChecked,
-            value: this.value
-        });
-    }
-    disabledChanged() {
-        this.emitStyle();
-        if (this.gesture) {
-            this.gesture.setDisabled(this.disabled);
+            node.d = false;
         }
+        else {
+            toMutate.push(cell);
+        }
+    }
+    // needs to append
+    const pool = dom.filter(n => n.d);
+    for (const cell of toMutate) {
+        const node = pool.find(n => n.d && n.cell.type === cell.type);
+        const index = cell.i;
+        if (node) {
+            node.d = false;
+            node.change = NODE_CHANGE_CELL;
+            node.cell = cell;
+            node.top = heightIndex[index];
+        }
+        else {
+            dom.push({
+                d: false,
+                cell,
+                visible: true,
+                change: NODE_CHANGE_CELL,
+                top: heightIndex[index],
+            });
+        }
+    }
+    dom
+        .filter(n => n.d && n.top !== -9999)
+        .forEach(n => {
+        n.change = NODE_CHANGE_POSITION;
+        n.top = -9999;
+    });
+};
+const doRender = (el, nodeRender, dom, updateCellHeight) => {
+    const children = Array.from(el.children).filter(n => n.tagName !== 'TEMPLATE');
+    const childrenNu = children.length;
+    let child;
+    for (let i = 0; i < dom.length; i++) {
+        const node = dom[i];
+        const cell = node.cell;
+        // the cell change, the content must be updated
+        if (node.change === NODE_CHANGE_CELL) {
+            if (i < childrenNu) {
+                child = children[i];
+                nodeRender(child, cell, i);
+            }
+            else {
+                const newChild = createNode(el, cell.type);
+                child = nodeRender(newChild, cell, i) || newChild;
+                child.classList.add('virtual-item');
+                el.appendChild(child);
+            }
+            child['$ionCell'] = cell;
+        }
+        else {
+            child = children[i];
+        }
+        // only update position when it changes
+        if (node.change !== NODE_CHANGE_NONE) {
+            child.style.transform = `translate3d(0,${node.top}px,0)`;
+        }
+        // update visibility
+        const visible = cell.visible;
+        if (node.visible !== visible) {
+            if (visible) {
+                child.classList.remove('virtual-loading');
+            }
+            else {
+                child.classList.add('virtual-loading');
+            }
+            node.visible = visible;
+        }
+        // dynamic height
+        if (cell.reads > 0) {
+            updateCellHeight(cell, child);
+            cell.reads--;
+        }
+    }
+};
+const createNode = (el, type) => {
+    const template = getTemplate(el, type);
+    if (template && el.ownerDocument) {
+        return el.ownerDocument.importNode(template.content, true).children[0];
+    }
+    return null;
+};
+const getTemplate = (el, type) => {
+    switch (type) {
+        case CELL_TYPE_ITEM: return el.querySelector('template:not([name])');
+        case CELL_TYPE_HEADER: return el.querySelector('template[name=header]');
+        case CELL_TYPE_FOOTER: return el.querySelector('template[name=footer]');
+    }
+};
+const getViewport = (scrollTop, vierportHeight, margin) => {
+    return {
+        top: Math.max(scrollTop - margin, 0),
+        bottom: scrollTop + vierportHeight + margin
+    };
+};
+const getRange = (heightIndex, viewport, buffer) => {
+    const topPos = viewport.top;
+    const bottomPos = viewport.bottom;
+    // find top index
+    let i = 0;
+    for (; i < heightIndex.length; i++) {
+        if (heightIndex[i] > topPos) {
+            break;
+        }
+    }
+    const offset = Math.max(i - buffer - 1, 0);
+    // find bottom index
+    for (; i < heightIndex.length; i++) {
+        if (heightIndex[i] >= bottomPos) {
+            break;
+        }
+    }
+    const end = Math.min(i + buffer, heightIndex.length);
+    const length = end - offset;
+    return { offset, length };
+};
+const getShouldUpdate = (dirtyIndex, currentRange, range) => {
+    const end = range.offset + range.length;
+    return (dirtyIndex <= end ||
+        currentRange.offset !== range.offset ||
+        currentRange.length !== range.length);
+};
+const findCellIndex = (cells, index) => {
+    const max = cells.length > 0 ? cells[cells.length - 1].index : 0;
+    if (index === 0) {
+        return 0;
+    }
+    else if (index === max + 1) {
+        return cells.length;
+    }
+    else {
+        return cells.findIndex(c => c.index === index);
+    }
+};
+const inplaceUpdate = (dst, src, offset) => {
+    if (offset === 0 && src.length >= dst.length) {
+        return src;
+    }
+    for (let i = 0; i < src.length; i++) {
+        dst[i + offset] = src[i];
+    }
+    return dst;
+};
+const calcCells = (items, itemHeight, headerHeight, footerHeight, headerFn, footerFn, approxHeaderHeight, approxFooterHeight, approxItemHeight, j, offset, len) => {
+    const cells = [];
+    const end = len + offset;
+    for (let i = offset; i < end; i++) {
+        const item = items[i];
+        if (headerFn) {
+            const value = headerFn(item, i, items);
+            if (value != null) {
+                cells.push({
+                    i: j++,
+                    type: CELL_TYPE_HEADER,
+                    value,
+                    index: i,
+                    height: headerHeight ? headerHeight(value, i) : approxHeaderHeight,
+                    reads: headerHeight ? 0 : MIN_READS,
+                    visible: !!headerHeight,
+                });
+            }
+        }
+        cells.push({
+            i: j++,
+            type: CELL_TYPE_ITEM,
+            value: item,
+            index: i,
+            height: itemHeight ? itemHeight(item, i) : approxItemHeight,
+            reads: itemHeight ? 0 : MIN_READS,
+            visible: !!itemHeight,
+        });
+        if (footerFn) {
+            const value = footerFn(item, i, items);
+            if (value != null) {
+                cells.push({
+                    i: j++,
+                    type: CELL_TYPE_FOOTER,
+                    value,
+                    index: i,
+                    height: footerHeight ? footerHeight(value, i) : approxFooterHeight,
+                    reads: footerHeight ? 0 : MIN_READS,
+                    visible: !!footerHeight,
+                });
+            }
+        }
+    }
+    return cells;
+};
+const calcHeightIndex = (buf, cells, index) => {
+    let acum = buf[index];
+    for (let i = index; i < buf.length; i++) {
+        buf[i] = acum;
+        acum += cells[i].height;
+    }
+    return acum;
+};
+const resizeBuffer = (buf, len) => {
+    if (!buf) {
+        return new Uint32Array(len);
+    }
+    if (buf.length === len) {
+        return buf;
+    }
+    else if (len > buf.length) {
+        const newBuf = new Uint32Array(len);
+        newBuf.set(buf);
+        return newBuf;
+    }
+    else {
+        return buf.subarray(0, len);
+    }
+};
+const positionForIndex = (index, cells, heightIndex) => {
+    const cell = cells.find(c => c.type === CELL_TYPE_ITEM && c.index === index);
+    if (cell) {
+        return heightIndex[cell.i];
+    }
+    return -1;
+};
+
+const VirtualScroll = class {
+    constructor(hostRef) {
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.range = { offset: 0, length: 0 };
+        this.viewportHeight = 0;
+        this.cells = [];
+        this.virtualDom = [];
+        this.isEnabled = false;
+        this.viewportOffset = 0;
+        this.currentScrollTop = 0;
+        this.indexDirty = 0;
+        this.lastItemLen = 0;
+        this.totalHeight = 0;
+        /**
+         * It is important to provide this
+         * if virtual item height will be significantly larger than the default
+         * The approximate height of each virtual item template's cell.
+         * This dimension is used to help determine how many cells should
+         * be created when initialized, and to help calculate the height of
+         * the scrollable area. This height value can only use `px` units.
+         * Note that the actual rendered size of each cell comes from the
+         * app's CSS, whereas this approximation is used to help calculate
+         * initial dimensions before the item has been rendered.
+         */
+        this.approxItemHeight = 45;
+        /**
+         * The approximate height of each header template's cell.
+         * This dimension is used to help determine how many cells should
+         * be created when initialized, and to help calculate the height of
+         * the scrollable area. This height value can only use `px` units.
+         * Note that the actual rendered size of each cell comes from the
+         * app's CSS, whereas this approximation is used to help calculate
+         * initial dimensions before the item has been rendered.
+         */
+        this.approxHeaderHeight = 30;
+        /**
+         * The approximate width of each footer template's cell.
+         * This dimension is used to help determine how many cells should
+         * be created when initialized, and to help calculate the height of
+         * the scrollable area. This height value can only use `px` units.
+         * Note that the actual rendered size of each cell comes from the
+         * app's CSS, whereas this approximation is used to help calculate
+         * initial dimensions before the item has been rendered.
+         */
+        this.approxFooterHeight = 30;
+        this.onScroll = () => {
+            this.updateVirtualScroll();
+        };
+    }
+    itemsChanged() {
+        this.calcCells();
+        this.updateVirtualScroll();
     }
     async connectedCallback() {
-        this.gesture = (await Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-624eea58.js */ "./node_modules/@ionic/core/dist/esm/index-624eea58.js"))).createGesture({
-            el: this.el,
-            gestureName: 'toggle',
-            gesturePriority: 100,
-            threshold: 5,
-            passive: false,
-            onStart: () => this.onStart(),
-            onMove: ev => this.onMove(ev),
-            onEnd: ev => this.onEnd(ev),
-        });
-        this.disabledChanged();
+        const contentEl = this.el.closest('ion-content');
+        if (!contentEl) {
+            console.error('<ion-virtual-scroll> must be used inside an <ion-content>');
+            return;
+        }
+        this.scrollEl = await contentEl.getScrollElement();
+        this.contentEl = contentEl;
+        this.calcCells();
+        this.updateState();
+    }
+    componentDidUpdate() {
+        this.updateState();
     }
     disconnectedCallback() {
-        if (this.gesture) {
-            this.gesture.destroy();
-            this.gesture = undefined;
+        this.scrollEl = undefined;
+    }
+    onResize() {
+        this.calcCells();
+        this.updateVirtualScroll();
+    }
+    /**
+     * Returns the position of the virtual item at the given index.
+     */
+    positionForItem(index) {
+        return Promise.resolve(positionForIndex(index, this.cells, this.getHeightIndex()));
+    }
+    /**
+     * This method marks a subset of items as dirty, so they can be re-rendered. Items should be marked as
+     * dirty any time the content or their style changes.
+     *
+     * The subset of items to be updated can are specifing by an offset and a length.
+     */
+    async checkRange(offset, len = -1) {
+        // TODO: kind of hacky how we do in-place updated of the cells
+        // array. this part needs a complete refactor
+        if (!this.items) {
+            return;
+        }
+        const length = (len === -1)
+            ? this.items.length - offset
+            : len;
+        const cellIndex = findCellIndex(this.cells, offset);
+        const cells = calcCells(this.items, this.itemHeight, this.headerHeight, this.footerHeight, this.headerFn, this.footerFn, this.approxHeaderHeight, this.approxFooterHeight, this.approxItemHeight, cellIndex, offset, length);
+        this.cells = inplaceUpdate(this.cells, cells, cellIndex);
+        this.lastItemLen = this.items.length;
+        this.indexDirty = Math.max(offset - 1, 0);
+        this.scheduleUpdate();
+    }
+    /**
+     * This method marks the tail the items array as dirty, so they can be re-rendered.
+     *
+     * It's equivalent to calling:
+     *
+     * ```js
+     * virtualScroll.checkRange(lastItemLen);
+     * ```
+     */
+    async checkEnd() {
+        if (this.items) {
+            this.checkRange(this.lastItemLen);
         }
     }
-    componentWillLoad() {
-        this.emitStyle();
+    updateVirtualScroll() {
+        // do nothing if virtual-scroll is disabled
+        if (!this.isEnabled || !this.scrollEl) {
+            return;
+        }
+        // unschedule future updates
+        if (this.timerUpdate) {
+            clearTimeout(this.timerUpdate);
+            this.timerUpdate = undefined;
+        }
+        // schedule DOM operations into the stencil queue
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["f"])(this.readVS.bind(this));
+        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(this.writeVS.bind(this));
     }
-    emitStyle() {
-        this.ionStyle.emit({
-            'interactive-disabled': this.disabled,
-        });
-    }
-    onStart() {
-        this.activated = true;
-        // touch-action does not work in iOS
-        this.setFocus();
-    }
-    onMove(detail) {
-        if (shouldToggle(document, this.checked, detail.deltaX, -10)) {
-            this.checked = !this.checked;
-            Object(_haptic_c8f1473e_js__WEBPACK_IMPORTED_MODULE_4__["h"])();
+    readVS() {
+        const { contentEl, scrollEl, el } = this;
+        let topOffset = 0;
+        let node = el;
+        while (node && node !== contentEl) {
+            topOffset += node.offsetTop;
+            node = node.parentElement;
+        }
+        this.viewportOffset = topOffset;
+        if (scrollEl) {
+            this.viewportHeight = scrollEl.offsetHeight;
+            this.currentScrollTop = scrollEl.scrollTop;
         }
     }
-    onEnd(ev) {
-        this.activated = false;
-        this.lastDrag = Date.now();
-        ev.event.preventDefault();
-        ev.event.stopImmediatePropagation();
+    writeVS() {
+        const dirtyIndex = this.indexDirty;
+        // get visible viewport
+        const scrollTop = this.currentScrollTop - this.viewportOffset;
+        const viewport = getViewport(scrollTop, this.viewportHeight, 100);
+        // compute lazily the height index
+        const heightIndex = this.getHeightIndex();
+        // get array bounds of visible cells base in the viewport
+        const range = getRange(heightIndex, viewport, 2);
+        // fast path, do nothing
+        const shouldUpdate = getShouldUpdate(dirtyIndex, this.range, range);
+        if (!shouldUpdate) {
+            return;
+        }
+        this.range = range;
+        // in place mutation of the virtual DOM
+        updateVDom(this.virtualDom, heightIndex, this.cells, range);
+        // Write DOM
+        // Different code paths taken depending of the render API used
+        if (this.nodeRender) {
+            doRender(this.el, this.nodeRender, this.virtualDom, this.updateCellHeight.bind(this));
+        }
+        else if (this.domRender) {
+            this.domRender(this.virtualDom);
+        }
+        else if (this.renderItem) {
+            this.el.forceUpdate();
+        }
     }
-    getValue() {
-        return this.value || '';
+    updateCellHeight(cell, node) {
+        const update = () => {
+            if (node['$ionCell'] === cell) {
+                const style = window.getComputedStyle(node);
+                const height = node.offsetHeight + parseFloat(style.getPropertyValue('margin-bottom'));
+                this.setCellHeight(cell, height);
+            }
+        };
+        if (node && node.componentOnReady) {
+            node.componentOnReady().then(update);
+        }
+        else {
+            update();
+        }
     }
-    setFocus() {
-        if (this.buttonEl) {
-            this.buttonEl.focus();
+    setCellHeight(cell, height) {
+        const index = cell.i;
+        // the cell might changed since the height update was scheduled
+        if (cell !== this.cells[index]) {
+            return;
+        }
+        if (cell.height !== height || cell.visible !== true) {
+            cell.visible = true;
+            cell.height = height;
+            this.indexDirty = Math.min(this.indexDirty, index);
+            this.scheduleUpdate();
+        }
+    }
+    scheduleUpdate() {
+        clearTimeout(this.timerUpdate);
+        this.timerUpdate = setTimeout(() => this.updateVirtualScroll(), 100);
+    }
+    updateState() {
+        const shouldEnable = !!(this.scrollEl &&
+            this.cells);
+        if (shouldEnable !== this.isEnabled) {
+            this.enableScrollEvents(shouldEnable);
+            if (shouldEnable) {
+                this.updateVirtualScroll();
+            }
+        }
+    }
+    calcCells() {
+        if (!this.items) {
+            return;
+        }
+        this.lastItemLen = this.items.length;
+        this.cells = calcCells(this.items, this.itemHeight, this.headerHeight, this.footerHeight, this.headerFn, this.footerFn, this.approxHeaderHeight, this.approxFooterHeight, this.approxItemHeight, 0, 0, this.lastItemLen);
+        this.indexDirty = 0;
+    }
+    getHeightIndex() {
+        if (this.indexDirty !== Infinity) {
+            this.calcHeightIndex(this.indexDirty);
+        }
+        return this.heightIndex;
+    }
+    calcHeightIndex(index = 0) {
+        // TODO: optimize, we don't need to calculate all the cells
+        this.heightIndex = resizeBuffer(this.heightIndex, this.cells.length);
+        this.totalHeight = calcHeightIndex(this.heightIndex, this.cells, index);
+        this.indexDirty = Infinity;
+    }
+    enableScrollEvents(shouldListen) {
+        if (this.rmEvent) {
+            this.rmEvent();
+            this.rmEvent = undefined;
+        }
+        const scrollEl = this.scrollEl;
+        if (scrollEl) {
+            this.isEnabled = shouldListen;
+            scrollEl.addEventListener('scroll', this.onScroll);
+            this.rmEvent = () => {
+                scrollEl.removeEventListener('scroll', this.onScroll);
+            };
+        }
+    }
+    renderVirtualNode(node) {
+        const { type, value, index } = node.cell;
+        switch (type) {
+            case CELL_TYPE_ITEM: return this.renderItem(value, index);
+            case CELL_TYPE_HEADER: return this.renderHeader(value, index);
+            case CELL_TYPE_FOOTER: return this.renderFooter(value, index);
         }
     }
     render() {
-        const { inputId, disabled, checked, activated, color, el } = this;
-        const mode = Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this);
-        const labelId = inputId + '-lbl';
-        const label = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["f"])(el);
-        const value = this.getValue();
-        if (label) {
-            label.id = labelId;
-        }
-        Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["a"])(true, el, this.name, (checked ? value : ''), disabled);
-        return (Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.onClick, role: "checkbox", "aria-disabled": disabled ? 'true' : null, "aria-checked": `${checked}`, "aria-labelledby": labelId, class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["c"])(color)), { [mode]: true, 'in-item': Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["h"])('ion-item', el), 'toggle-activated': activated, 'toggle-checked': checked, 'toggle-disabled': disabled, 'interactive': true }) }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "toggle-icon" }, Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "toggle-inner" })), Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", { type: "button", onFocus: this.onFocus, onBlur: this.onBlur, disabled: disabled, ref: btnEl => this.buttonEl = btnEl })));
+        return (Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], { style: {
+                height: `${this.totalHeight}px`
+            } }, this.renderItem && (Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(VirtualProxy, { dom: this.virtualDom }, this.virtualDom.map(node => this.renderVirtualNode(node))))));
     }
-    get el() { return Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
+    get el() { return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
     static get watchers() { return {
-        "checked": ["checkedChanged"],
-        "disabled": ["disabledChanged"]
+        "itemHeight": ["itemsChanged"],
+        "headerHeight": ["itemsChanged"],
+        "footerHeight": ["itemsChanged"],
+        "items": ["itemsChanged"]
     }; }
-    static get style() { return ":host{-webkit-box-sizing:content-box!important;box-sizing:content-box!important;display:inline-block;outline:none;contain:content;cursor:pointer;-ms-touch-action:none;touch-action:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:2}:host(.ion-focused) input{border:2px solid #5e9ed6}:host(.toggle-disabled){pointer-events:none}button{left:0;top:0;margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;position:absolute;width:100%;height:100%;border:0;background:transparent;cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;outline:none}:host-context([dir=rtl]) button,[dir=rtl] button{left:unset;right:unset;right:0}button::-moz-focus-inner{border:0}:host{--background:rgba(var(--ion-text-color-rgb,0,0,0),0.3);--background-checked:rgba(var(--ion-color-primary-rgb,56,128,255),0.5);--handle-background:#fff;--handle-background-checked:var(--ion-color-primary,#3880ff);padding-left:12px;padding-right:12px;padding-top:12px;padding-bottom:12px;-webkit-box-sizing:content-box;box-sizing:content-box;position:relative;width:36px;height:14px;contain:strict}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host{padding-left:unset;padding-right:unset;-webkit-padding-start:12px;padding-inline-start:12px;-webkit-padding-end:12px;padding-inline-end:12px}}:host(.ion-color.toggle-checked) .toggle-icon{background:rgba(var(--ion-color-base-rgb),.5)}:host(.ion-color.toggle-checked) .toggle-inner{background:var(--ion-color-base)}.toggle-icon{border-radius:14px;display:block;position:relative;width:100%;height:100%;-webkit-transition:background-color .16s;transition:background-color .16s;background:var(--background);pointer-events:none}.toggle-inner{left:0;top:-3px;border-radius:50%;position:absolute;width:20px;height:20px;-webkit-transition-duration:.16s;transition-duration:.16s;-webkit-transition-property:background-color,-webkit-transform;transition-property:background-color,-webkit-transform;transition-property:transform,background-color;transition-property:transform,background-color,-webkit-transform;-webkit-transition-timing-function:cubic-bezier(.4,0,.2,1);transition-timing-function:cubic-bezier(.4,0,.2,1);background:var(--handle-background);-webkit-box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);will-change:transform,background-color;contain:strict}:host-context([dir=rtl]) .toggle-inner,[dir=rtl] .toggle-inner{left:unset;right:unset;right:0}:host(.toggle-checked) .toggle-icon{background:var(--background-checked)}:host(.toggle-checked) .toggle-inner{-webkit-transform:translate3d(16px,0,0);transform:translate3d(16px,0,0);background:var(--handle-background-checked)}:host-context([dir=rtl]).toggle-checked .toggle-inner,:host-context([dir=rtl]):host(.toggle-checked) .toggle-inner{-webkit-transform:translate3d(calc(-1 * 16px),0,0);transform:translate3d(calc(-1 * 16px),0,0)}:host(.toggle-disabled){opacity:.3}:host(.in-item[slot]){margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:16px;padding-right:0;padding-top:12px;padding-bottom:12px;cursor:pointer}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host(.in-item[slot]){padding-left:unset;padding-right:unset;-webkit-padding-start:16px;padding-inline-start:16px;-webkit-padding-end:0;padding-inline-end:0}}:host(.in-item[slot=start]){padding-left:2px;padding-right:18px;padding-top:12px;padding-bottom:12px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host(.in-item[slot=start]){padding-left:unset;padding-right:unset;-webkit-padding-start:2px;padding-inline-start:2px;-webkit-padding-end:18px;padding-inline-end:18px}}"; }
+    static get style() { return "ion-virtual-scroll{display:block;position:relative;width:100%;contain:strict;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}ion-virtual-scroll>.virtual-loading{opacity:0}ion-virtual-scroll>.virtual-item{position:absolute!important;top:0!important;right:0!important;left:0!important;-webkit-transition-duration:0ms;transition-duration:0ms;will-change:transform}"; }
 };
-const shouldToggle = (doc, checked, deltaX, margin) => {
-    const isRTL = doc.dir === 'rtl';
-    if (checked) {
-        return (!isRTL && (margin > deltaX)) ||
-            (isRTL && (-margin < deltaX));
-    }
-    else {
-        return (!isRTL && (-margin < deltaX)) ||
-            (isRTL && (margin > deltaX));
-    }
+const VirtualProxy = ({ dom }, children, utils) => {
+    return utils.map(children, (child, i) => {
+        const node = dom[i];
+        const vattrs = child.vattrs || {};
+        let classes = vattrs.class || '';
+        classes += 'virtual-item ';
+        if (!node.visible) {
+            classes += 'virtual-loading';
+        }
+        return Object.assign(Object.assign({}, child), { vattrs: Object.assign(Object.assign({}, vattrs), { class: classes, style: Object.assign(Object.assign({}, vattrs.style), { transform: `translate3d(0,${node.top}px,0)` }) }) });
+    });
 };
-let toggleIds = 0;
 
 
 
