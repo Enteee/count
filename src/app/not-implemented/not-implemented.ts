@@ -1,4 +1,4 @@
-import { Input, OnInit, DoCheck, Renderer2, ElementRef, Injectable } from '@angular/core';
+import { Input, OnInit, DoCheck, Renderer2, ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 import { AppState } from '../models/app-state';
@@ -6,7 +6,6 @@ import { AppStateRepositoryService } from '../models/app-state-repository.servic
 
 import { NotImplementedModalPage } from './not-implemented-modal.page';
 
-@Injectable()
 export class NotImplemented  implements OnInit, DoCheck {
 
   @Input() issueId: number;
@@ -32,11 +31,7 @@ export class NotImplemented  implements OnInit, DoCheck {
     this.renderer.listen(
       this.elementRef.nativeElement,
       this.on,
-      e => {
-        if (!this.appState.disableNotImplemented) {
-          this.presentModal();
-        }
-      }
+      (e) => this.onEvent(e),
     );
   }
 
@@ -48,7 +43,13 @@ export class NotImplemented  implements OnInit, DoCheck {
     }
   }
 
-  private async presentModal() {
+  onEvent(event: Event) {
+    if (!this.appState.disableNotImplemented) {
+      this.presentModal();
+    }
+  }
+
+  async presentModal() {
     this.modal = await this.modalController.create({
       component: NotImplementedModalPage,
       componentProps: {
