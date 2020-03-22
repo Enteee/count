@@ -27,7 +27,10 @@ describe('NotImplemented', () => {
       },
     } as any;
 
-    modalController = {} as any;
+    modalController = {
+      create: () => {},
+    } as any;
+    spyOn(modalController, 'create');
 
     appState = new AppState();
     appStateRepositoryService = new AppStateRepositoryService(
@@ -49,5 +52,23 @@ describe('NotImplemented', () => {
 
   it('should create an instance', () => {
     expect(instance).toBeTruthy();
+  });
+
+  it('should present modal on event if appState didn\'t disable not implemeneted', () => {
+    spyOn(instance, 'presentModal')
+    appState.disableNotImplemented = false;
+
+    instance.onEvent({} as any);
+
+    expect(instance.presentModal).toHaveBeenCalledTimes(1);
+  });
+
+  it('should not present modal on event if appState disable not implemeneted', () => {
+    spyOn(instance, 'presentModal')
+    appState.disableNotImplemented = true;
+
+    instance.onEvent({} as any);
+
+    expect(instance.presentModal).toHaveBeenCalledTimes(0);
   });
 });

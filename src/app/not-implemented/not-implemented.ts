@@ -31,11 +31,7 @@ export class NotImplemented  implements OnInit, DoCheck {
     this.renderer.listen(
       this.elementRef.nativeElement,
       this.on,
-      e => {
-        if (!this.appState.disableNotImplemented) {
-          this.presentModal();
-        }
-      }
+      (e) => this.onEvent(e),
     );
   }
 
@@ -47,7 +43,13 @@ export class NotImplemented  implements OnInit, DoCheck {
     }
   }
 
-  private async presentModal() {
+  onEvent(event: Event) {
+    if (!this.appState.disableNotImplemented) {
+      this.presentModal();
+    }
+  }
+
+  async presentModal() {
     this.modal = await this.modalController.create({
       component: NotImplementedModalPage,
       componentProps: {
