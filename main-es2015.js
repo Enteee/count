@@ -2023,7 +2023,7 @@ __webpack_require__.r(__webpack_exports__);
 const _c0 = ["*"];
 class NotImplementedComponent extends _not_implemented__WEBPACK_IMPORTED_MODULE_3__["NotImplemented"] {
     /**
-     * This contructo is here because the base class (NotImplemented)
+     * This contructor is here because the base class (NotImplemented)
      * does not have a @Directive / @Component annotation, which is required
      * for dependency injection as of angular 9.
      * For this reason we provide here our own dummy constructor which
@@ -2075,7 +2075,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class NotImplementedDirective extends _not_implemented__WEBPACK_IMPORTED_MODULE_3__["NotImplemented"] {
     /**
-     * This contructo is here because the base class (NotImplemented)
+     * This contructor is here because the base class (NotImplemented)
      * does not have a @Directive / @Component annotation, which is required
      * for dependency injection as of angular 9.
      * For this reason we provide here our own dummy constructor which
@@ -2187,11 +2187,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotImplemented", function() { return NotImplemented; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var _models_app_state_repository_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/app-state-repository.service */ "./src/app/models/app-state-repository.service.ts");
-/* harmony import */ var _not_implemented_modal_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./not-implemented-modal.page */ "./src/app/not-implemented/not-implemented-modal.page.ts");
-
-
+/* harmony import */ var _not_implemented_modal_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./not-implemented-modal.page */ "./src/app/not-implemented/not-implemented-modal.page.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _models_app_state_repository_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../models/app-state-repository.service */ "./src/app/models/app-state-repository.service.ts");
 
 
 
@@ -2210,11 +2208,7 @@ class NotImplemented {
         this.appState = this.appStateRepositoryService.state;
     }
     ngOnInit() {
-        this.renderer.listen(this.elementRef.nativeElement, this.on, e => {
-            if (!this.appState.disableNotImplemented) {
-                this.presentModal();
-            }
-        });
+        this.renderer.listen(this.elementRef.nativeElement, this.on, (e) => this.onEvent(e));
     }
     ngDoCheck() {
         // Hide this element if the user has chosen to hide not implemented features
@@ -2222,10 +2216,15 @@ class NotImplemented {
             this.elementRef.nativeElement.style.display = (this.appState.disableNotImplemented) ? 'none' : this.styleDisplay;
         }
     }
+    onEvent(event) {
+        if (!this.appState.disableNotImplemented) {
+            this.presentModal();
+        }
+    }
     presentModal() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.modal = yield this.modalController.create({
-                component: _not_implemented_modal_page__WEBPACK_IMPORTED_MODULE_4__["NotImplementedModalPage"],
+                component: _not_implemented_modal_page__WEBPACK_IMPORTED_MODULE_2__["NotImplementedModalPage"],
                 componentProps: {
                     issueId: this.issueId,
                     description: this.description,
@@ -2235,19 +2234,8 @@ class NotImplemented {
         });
     }
 }
-NotImplemented.ɵfac = function NotImplemented_Factory(t) { return new (t || NotImplemented)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_models_app_state_repository_service__WEBPACK_IMPORTED_MODULE_3__["AppStateRepositoryService"])); };
-NotImplemented.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: NotImplemented, factory: NotImplemented.ɵfac });
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](NotImplemented, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"]
-    }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }, { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] }, { type: _models_app_state_repository_service__WEBPACK_IMPORTED_MODULE_3__["AppStateRepositoryService"] }]; }, { issueId: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }], description: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }], on: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }], alwaysDisplay: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }] }); })();
+NotImplemented.ɵfac = function NotImplemented_Factory(t) { return new (t || NotImplemented)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_models_app_state_repository_service__WEBPACK_IMPORTED_MODULE_4__["AppStateRepositoryService"])); };
+NotImplemented.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({ type: NotImplemented, inputs: { issueId: "issueId", description: "description", on: "on", alwaysDisplay: "alwaysDisplay" } });
 
 
 /***/ }),
