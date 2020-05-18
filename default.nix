@@ -10,7 +10,7 @@ let
 
   androidComposition = androidenv.composeAndroidPackages {
     toolsVersion = "26.1.1";
-    platformToolsVersion = "28.0.1";
+    platformToolsVersion = "29.0.6";
     platformVersions = [
       "28"
     ];
