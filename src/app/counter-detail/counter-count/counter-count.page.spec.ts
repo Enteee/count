@@ -73,4 +73,15 @@ describe('CounterCountPage', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should reset', async(() => {
+    spyOn(counterService, 'reset');
+
+    component.reset();
+
+    fixture.whenStable().then(() => {
+      expect(counterService.reset).toHaveBeenCalledTimes(1);
+      expect(counterService.reset).toHaveBeenCalledWith(counter);
+    });
+  }));
+
 });

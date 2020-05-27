@@ -100,6 +100,19 @@ describe('PlusMinusCounterComponent', () => {
     });
   }));
 
+  it('should not count plus if counter is locked', async(() => {
+    const COUNT_AMOUNT = 10;
+
+    counter.plusCount = COUNT_AMOUNT;
+    counter.locked = true;
+
+    component.countPlus();
+
+    fixture.whenStable().then(() => {
+      expect(counterService.count).toHaveBeenCalledTimes(0);
+    });
+  }));
+
   it('should count minus', async(() => {
     const COUNT_AMOUNT = -10;
 
@@ -112,6 +125,19 @@ describe('PlusMinusCounterComponent', () => {
       expect(counterService.count).toHaveBeenCalledWith(
         counter, COUNT_AMOUNT
       );
+    });
+  }));
+
+  it('should not count minus if counter is locked', async(() => {
+    const COUNT_AMOUNT = 10;
+
+    counter.minusCount = COUNT_AMOUNT;
+    counter.locked = true;
+
+    component.countMinus();
+
+    fixture.whenStable().then(() => {
+      expect(counterService.count).toHaveBeenCalledTimes(0);
     });
   }));
 

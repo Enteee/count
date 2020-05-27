@@ -137,13 +137,6 @@ export class CounterSettingsPage implements OnInit, AfterViewInit, HasUnsavedCha
     return !this.counterSettingsForm.valid;
   }
 
-  async reset() {
-    await this.counterService.reset(this.counter);
-    this.router.navigate([
-      '/counters',
-    ]);
-  }
-
   check(
     formControlName: string,
   ) {

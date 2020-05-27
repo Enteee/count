@@ -98,6 +98,23 @@ describe('SettingsPage', () => {
     });
   }));
 
+  it('should change swipeCounting', async(() => {
+    spyOn(
+      appStateService,
+      'setSwipeCounting'
+    );
+
+    component.settingsForm.patchValue({
+      swipeCounting: true,
+    });
+    component.changeSwipeCounting();
+
+    fixture.whenStable().then(() => {
+      expect(appStateService.setSwipeCounting).toHaveBeenCalledTimes(1);
+      expect(appStateService.setSwipeCounting).toHaveBeenCalledWith(true);
+    });
+  }));
+
   it('should change vibrate', async(() => {
     spyOn(
       appStateService,

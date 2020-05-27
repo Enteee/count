@@ -55,6 +55,19 @@
       </app-not-implemented>
 
       <ion-item>
+        <ion-icon slot="start" name="code-outline"></ion-icon>
+        <ion-label>Swipe counting</ion-label>
+        <ion-checkbox
+          required
+          slot="end"
+          formControlName="swipeCounting"
+          [checked]="appState.swipeCounting"
+          (ionChange)="changeSwipeCounting()"
+        >
+        </ion-checkbox>
+      </ion-item>
+
+      <ion-item>
         <ion-icon slot="start" name="pulse"></ion-icon>
         <ion-label>Vibrate</ion-label>
         <ion-checkbox

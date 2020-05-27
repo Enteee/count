@@ -29,6 +29,11 @@ export class SettingsPage implements OnInit {
     this.appState = this.route.snapshot.data.appState as AppState;
 
     this.settingsForm = new FormGroup({
+      swipeCounting: new FormControl(
+        this.appState.swipeCounting,
+        [
+        ]
+      ),
       vibrate: new FormControl(
         this.appState.vibrate,
         [
@@ -50,6 +55,12 @@ export class SettingsPage implements OnInit {
         ]
       ),
     });
+  }
+
+  async changeSwipeCounting() {
+    await this.appStateService.setSwipeCounting(
+      this.settingsForm.value.swipeCounting
+    );
   }
 
   async changeVibrate() {

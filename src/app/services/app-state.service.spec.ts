@@ -66,6 +66,21 @@ describe('AppStateService', () => {
     expect(appStateRepositoryService.save).toHaveBeenCalledWith(appState);
   });
 
+  it('should enable swipeCounting', async () => {
+    appState.swipeCounting = false;
+
+    spyOn(
+      appStateRepositoryService,
+      'save'
+    );
+
+    await service.setSwipeCounting(true);
+    expect(appState.swipeCounting).toEqual(true);
+
+    expect(appStateRepositoryService.save).toHaveBeenCalledTimes(1);
+    expect(appStateRepositoryService.save).toHaveBeenCalledWith(appState);
+  });
+
   it('should enable vibrate', async () => {
     appState.vibrate = false;
 

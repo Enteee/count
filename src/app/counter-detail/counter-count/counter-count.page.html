@@ -1,5 +1,17 @@
 <ion-content>
   <ion-list>
+    <app-plus-minus-counter [minHeight]=60 [counter]="counter"></app-plus-minus-counter>
+
+    <ion-button
+      size="large"
+      expand="full"
+      color="warning"
+      (click)="reset()"
+    >
+      <ion-icon name="refresh"></ion-icon>
+      Reset
+    </ion-button>
+
     <ion-button
       size="large"
       expand="full"
@@ -9,5 +21,6 @@
       <ion-icon name="shuffle"></ion-icon>
       Random Count Event
     </ion-button>
+
   </ion-list>
 </ion-content>
