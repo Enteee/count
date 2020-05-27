@@ -154,36 +154,4 @@ describe('PlusMinusCounterComponent', () => {
     });
   }));
 
-  it('should open plus fullscreen counter', async(() => {
-    component.openFullScreenCounter(
-      FullScreenCounterType.plus,
-    );
-
-    fixture.detectChanges();
-    fixture.whenStable().then(() => {
-      expect(router.navigate).toHaveBeenCalledTimes(1);
-      expect(router.navigate).toHaveBeenCalledWith([
-        '/fullscreen-counter',
-        'plus',
-        counter.id
-      ]);
-    });
-  }));
-
-  it('should open minus fullscreen counter', async(() => {
-    component.openFullScreenCounter(
-      FullScreenCounterType.minus,
-    );
-
-    fixture.detectChanges();
-    fixture.whenStable().then(() => {
-      expect(router.navigate).toHaveBeenCalledTimes(1);
-      expect(router.navigate).toHaveBeenCalledWith([
-        '/fullscreen-counter',
-        'minus',
-        counter.id
-      ]);
-    });
-  }));
-
 });

@@ -35,7 +35,7 @@
     clickable
     [routerLink]="['/counter-detail', counter.id]"
   >
-    <h1>{{counter.title}}</h1>
+    <h1 *ngIf="!hideTitle">{{counter.title}}</h1>
     <h1>{{counter.count}}</h1>
   </ion-label>
 

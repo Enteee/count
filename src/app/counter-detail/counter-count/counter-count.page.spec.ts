@@ -84,4 +84,22 @@ describe('CounterCountPage', () => {
     });
   }));
 
+  it('can delete', async(() => {
+
+    spyOn(
+      counterService,
+      'delete',
+    );
+
+    component.deleteCounter();
+
+    fixture.whenStable().then(() => {
+      expect(counterService.delete).toHaveBeenCalledTimes(1);
+      expect(counterService.delete).toHaveBeenCalledWith(counter);
+
+      expect(router.navigate).toHaveBeenCalledWith(['/counters']);
+    });
+  }));
+
+
 });

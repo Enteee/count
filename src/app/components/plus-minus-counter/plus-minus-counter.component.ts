@@ -9,8 +9,6 @@ import { CounterService } from '../../services/counter.service';
 import { AppState } from '../../models/app-state';
 import { AppStateService } from '../../services/app-state.service';
 
-import { FullScreenCounterType } from '../../fullscreen-counter/fullscreen-counter.page';
-
 @Component({
   selector: 'app-plus-minus-counter',
   templateUrl: './plus-minus-counter.component.html',
@@ -19,7 +17,6 @@ import { FullScreenCounterType } from '../../fullscreen-counter/fullscreen-count
 export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
 
   readonly SWIPE_CLICK_WIDTH_RATIO = 0.3;
-  readonly FullScreenCounterType = FullScreenCounterType;
 
   @ViewChild('rootItem', {read: ElementRef}) rootItem: ElementRef;
   rootItemWidth: number;
@@ -33,6 +30,7 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
 
   @Input() counter: Counter;
   @Input() minHeight: number;
+  @Input() hideTitle = false;
 
   swipeClickGesture;
   swipeClickLeft = false;
@@ -185,13 +183,4 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
     }
   }
 
-  async openFullScreenCounter(
-    type: FullScreenCounterType,
-  ) {
-    this.router.navigate([
-      '/fullscreen-counter',
-      type,
-      this.counter.id,
-    ]);
-  }
 }

@@ -171,14 +171,5 @@ export class CounterSettingsPage implements OnInit, AfterViewInit, HasUnsavedCha
     }
   }
 
-  async deleteCounter() {
-    // We want to make give the user the impression that this
-    // operation is very quick, so we first navigate away.
-    this.router.navigate([
-      '/counters',
-    ]);
-    await this.counterService.delete(this.counter);
-  }
-
 }
 

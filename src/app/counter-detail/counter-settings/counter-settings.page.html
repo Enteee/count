@@ -153,58 +153,16 @@
             </ion-checkbox>
           </ion-item>
 
-          <ion-item-sliding>
-
-            <ion-item>
-              <ion-icon slot="start" name="trash"></ion-icon>
-              <ion-label>Delete</ion-label>
-              <ion-icon slot="end" name="arrow-back"></ion-icon>
-            </ion-item>
-            <ion-item-options side="end">
-              <ion-item-option
-                color="danger"
-                (click)="deleteCounter()"
-              >
-                <ion-icon slot="icon-only" name="trash"></ion-icon>
-              </ion-item-option>
-            </ion-item-options>
-
-          </ion-item-sliding>
-
       </ion-list>
 
-      <ion-grid>
-
-        <ion-row>
-          <ion-col>
-            <ion-button
-              size="large"
-              expand="full"
-              color="medium"
-              appNotImplemented description="Convert to binary counter" issueId="13" on="click"
-            >
-              <ion-icon name="sync"></ion-icon>
-              Make binary
-            </ion-button>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-
-            <ion-button
-              size="large"
-              expand="full"
-              appNotImplemented description="Add counter widget to home screen" issueId="2" on="click"
-            >
-              <ion-icon name="phone-portrait"></ion-icon>
-              To Home Screen
-            </ion-button>
-
-          </ion-col>
-        </ion-row>
-
-      </ion-grid>
+      <ion-button
+        size="large"
+        expand="full"
+        appNotImplemented description="Add counter widget to home screen" issueId="2" on="click"
+      >
+        <ion-icon name="phone-portrait"></ion-icon>
+        To Home Screen
+      </ion-button>
 
   </form>
 </ion-content>

@@ -33,5 +33,14 @@ export class CounterCountPage implements OnInit {
     await this.counterService.reset(this.counter);
   }
 
+  async deleteCounter() {
+    // We want to make the impression that this operation
+    // is very quick. So we first navigate away.
+    this.router.navigate([
+      '/counters',
+    ]);
+    await this.counterService.delete(this.counter);
+  }
+
 }
 
