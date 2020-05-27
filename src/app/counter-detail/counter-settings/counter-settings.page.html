@@ -141,7 +141,10 @@
           </ion-item>
 
           <ion-item>
-            <ion-icon slot="start" name="lock"></ion-icon>
+            <ion-icon
+              slot="start"
+              name="{{ (counter.locked) ? 'lock-closed-outline' : 'lock-open-outline' }}"
+            ></ion-icon>
             <ion-label>Locked</ion-label>
             <ion-checkbox
               slot="end"
