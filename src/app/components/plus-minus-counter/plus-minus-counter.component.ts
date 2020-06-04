@@ -21,6 +21,7 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
   @ViewChild('rootItem', {read: ElementRef}) rootItem: ElementRef;
   rootItemWidth: number;
 
+  @ViewChild('textCenter', {read: ElementRef}) textCenter: ElementRef;
   @ViewChild('clickIndicator', {read: ElementRef}) clickIndicator: ElementRef;
   @ViewChild('buttonRight', {read: ElementRef}) rightButton: ElementRef;
   rightButtonWidth: number;
@@ -66,6 +67,15 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
     this.leftButtonWidth = (this.leftButton) ? this.leftButton.nativeElement.offsetWidth : 0;
     this.swipeClickRight = false;
     this.swipeClickLeft = false;
+
+    // disable click events
+    if(this.rightButton){
+      this.rightButton.nativeElement.style.pointerEvents = 'none';
+    }
+    if(this.leftButton){
+      this.leftButton.nativeElement.style.pointerEvents = 'none';
+    }
+    this.textCenter.nativeElement.style.pointerEvents = 'none';
 
     requestAnimationFrame(() => {
       if (this.rightButton) {
@@ -136,6 +146,16 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
   }
 
   onEnd(event: any) {
+
+    // enable click events again
+    if(this.rightButton){
+      this.rightButton.nativeElement.style.pointerEvents = 'auto';
+    }
+    if(this.leftButton){
+      this.leftButton.nativeElement.style.pointerEvents = 'auto';
+    }
+    this.textCenter.nativeElement.style.pointerEvents = 'auto';
+
     requestAnimationFrame(() => {
       if(this.rightButton){
         this.rightButton.nativeElement.style.setProperty('transition', '0.2s all ease');
