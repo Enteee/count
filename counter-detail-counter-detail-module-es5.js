@@ -74,14 +74,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         path: '',
         children: [{
           path: '',
-          redirectTo: 'settings',
+          redirectTo: 'analytics',
           pathMatch: 'full'
+        }, {
+          path: 'analytics',
+          loadChildren: function loadChildren() {
+            return __webpack_require__.e(
+            /*! import() | counter-analytics-selection-counter-analytics-selection-module */
+            "counter-analytics-selection-counter-analytics-selection-module").then(__webpack_require__.bind(null,
+            /*! ./counter-analytics-selection/counter-analytics-selection.module */
+            "./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.module.ts")).then(function (m) {
+              return m.CounterAnalyticsSelectionPageModule;
+            });
+          }
         }, {
           path: 'count',
           loadChildren: function loadChildren() {
-            return __webpack_require__.e(
+            return Promise.all(
             /*! import() | counter-count-counter-count-module */
-            "counter-count-counter-count-module").then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~counter-analytics-counter-analytics-module~counter-count-counter-count-module~counters-count~b22d7877"), __webpack_require__.e("counter-count-counter-count-module")]).then(__webpack_require__.bind(null,
             /*! ./counter-count/counter-count.module */
             "./src/app/counter-detail/counter-count/counter-count.module.ts")).then(function (m) {
               return m.CounterCountPageModule;
@@ -96,17 +107,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             /*! ./counter-settings/counter-settings.module */
             "./src/app/counter-detail/counter-settings/counter-settings.module.ts")).then(function (m) {
               return m.CounterSettingsPageModule;
-            });
-          }
-        }, {
-          path: 'analytics',
-          loadChildren: function loadChildren() {
-            return __webpack_require__.e(
-            /*! import() | counter-analytics-selection-counter-analytics-selection-module */
-            "counter-analytics-selection-counter-analytics-selection-module").then(__webpack_require__.bind(null,
-            /*! ./counter-analytics-selection/counter-analytics-selection.module */
-            "./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.module.ts")).then(function (m) {
-              return m.CounterAnalyticsSelectionPageModule;
             });
           }
         }]
@@ -220,7 +220,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       selectors: [["app-counter-detail"]],
       decls: 25,
       vars: 1,
-      consts: [["slot", "start"], ["icon", "close", "defaultHref", "/counters"], ["slot", "bottom"], ["tab", "count"], ["name", "infinite"], ["tab", "settings"], ["name", "build"], ["tab", "analytics"], ["name", "analytics"], ["tab", "edit", "appNotImplemented", "", "description", "Edit count events", "issueId", "8"], ["name", "create"]],
+      consts: [["slot", "start"], ["icon", "close", "defaultHref", "/counters"], ["slot", "bottom"], ["tab", "analytics"], ["name", "analytics"], ["tab", "count"], ["name", "infinite"], ["tab", "settings"], ["name", "build"], ["tab", "edit", "appNotImplemented", "", "description", "Edit count events", "issueId", "8"], ["name", "create"]],
       template: function CounterDetailPage_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-header");
@@ -255,7 +255,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "ion-label");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Count");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Analytics");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -267,7 +267,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "ion-label");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Settings");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Count");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -279,7 +279,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "ion-label");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Analytics");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Settings");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 

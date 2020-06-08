@@ -34,18 +34,18 @@ const routes = [
             {
                 path: '',
                 children: [
-                    { path: '', redirectTo: 'settings', pathMatch: 'full', },
+                    { path: '', redirectTo: 'analytics', pathMatch: 'full', },
+                    {
+                        path: 'analytics',
+                        loadChildren: () => __webpack_require__.e(/*! import() | counter-analytics-selection-counter-analytics-selection-module */ "counter-analytics-selection-counter-analytics-selection-module").then(__webpack_require__.bind(null, /*! ./counter-analytics-selection/counter-analytics-selection.module */ "./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.module.ts")).then(m => m.CounterAnalyticsSelectionPageModule),
+                    },
                     {
                         path: 'count',
-                        loadChildren: () => __webpack_require__.e(/*! import() | counter-count-counter-count-module */ "counter-count-counter-count-module").then(__webpack_require__.bind(null, /*! ./counter-count/counter-count.module */ "./src/app/counter-detail/counter-count/counter-count.module.ts")).then(m => m.CounterCountPageModule),
+                        loadChildren: () => Promise.all(/*! import() | counter-count-counter-count-module */[__webpack_require__.e("default~counter-analytics-counter-analytics-module~counter-count-counter-count-module~counters-count~b22d7877"), __webpack_require__.e("counter-count-counter-count-module")]).then(__webpack_require__.bind(null, /*! ./counter-count/counter-count.module */ "./src/app/counter-detail/counter-count/counter-count.module.ts")).then(m => m.CounterCountPageModule),
                     },
                     {
                         path: 'settings',
                         loadChildren: () => __webpack_require__.e(/*! import() | counter-settings-counter-settings-module */ "counter-settings-counter-settings-module").then(__webpack_require__.bind(null, /*! ./counter-settings/counter-settings.module */ "./src/app/counter-detail/counter-settings/counter-settings.module.ts")).then(m => m.CounterSettingsPageModule),
-                    },
-                    {
-                        path: 'analytics',
-                        loadChildren: () => __webpack_require__.e(/*! import() | counter-analytics-selection-counter-analytics-selection-module */ "counter-analytics-selection-counter-analytics-selection-module").then(__webpack_require__.bind(null, /*! ./counter-analytics-selection/counter-analytics-selection.module */ "./src/app/counter-detail/counter-analytics-selection/counter-analytics-selection.module.ts")).then(m => m.CounterAnalyticsSelectionPageModule),
                     },
                 ],
             }
@@ -112,7 +112,7 @@ class CounterDetailPage {
     }
 }
 CounterDetailPage.ɵfac = function CounterDetailPage_Factory(t) { return new (t || CounterDetailPage)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"])); };
-CounterDetailPage.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: CounterDetailPage, selectors: [["app-counter-detail"]], decls: 25, vars: 1, consts: [["slot", "start"], ["icon", "close", "defaultHref", "/counters"], ["slot", "bottom"], ["tab", "count"], ["name", "infinite"], ["tab", "settings"], ["name", "build"], ["tab", "analytics"], ["name", "analytics"], ["tab", "edit", "appNotImplemented", "", "description", "Edit count events", "issueId", "8"], ["name", "create"]], template: function CounterDetailPage_Template(rf, ctx) { if (rf & 1) {
+CounterDetailPage.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: CounterDetailPage, selectors: [["app-counter-detail"]], decls: 25, vars: 1, consts: [["slot", "start"], ["icon", "close", "defaultHref", "/counters"], ["slot", "bottom"], ["tab", "analytics"], ["name", "analytics"], ["tab", "count"], ["name", "infinite"], ["tab", "settings"], ["name", "build"], ["tab", "edit", "appNotImplemented", "", "description", "Edit count events", "issueId", "8"], ["name", "create"]], template: function CounterDetailPage_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-header");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "ion-toolbar");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "ion-buttons", 0);
@@ -129,19 +129,19 @@ CounterDetailPage.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "ion-tab-button", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](10, "ion-icon", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "ion-label");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Count");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Analytics");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "ion-tab-button", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](14, "ion-icon", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "ion-label");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Settings");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Count");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "ion-tab-button", 7);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](18, "ion-icon", 8);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "ion-label");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Analytics");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Settings");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "ion-tab-button", 9);

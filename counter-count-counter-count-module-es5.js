@@ -63,13 +63,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _counter_count_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _components_components_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../../components/components.module */
+    "./src/app/components/components.module.ts");
+    /* harmony import */
+
+
+    var _counter_count_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ./counter-count.page */
     "./src/app/counter-detail/counter-count/counter-count.page.ts");
 
     var routes = [{
       path: '',
-      component: _counter_count_page__WEBPACK_IMPORTED_MODULE_6__["CounterCountPage"]
+      component: _counter_count_page__WEBPACK_IMPORTED_MODULE_7__["CounterCountPage"]
     }];
 
     var CounterCountPageModule = function CounterCountPageModule() {
@@ -83,13 +89,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       factory: function CounterCountPageModule_Factory(t) {
         return new (t || CounterCountPageModule)();
       },
-      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes), _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__["NotImplementedModule"]]]
+      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes), _components_components_module__WEBPACK_IMPORTED_MODULE_6__["ComponentsModule"], _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__["NotImplementedModule"]]]
     });
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](CounterCountPageModule, {
-        declarations: [_counter_count_page__WEBPACK_IMPORTED_MODULE_6__["CounterCountPage"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"], _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__["NotImplementedModule"]]
+        declarations: [_counter_count_page__WEBPACK_IMPORTED_MODULE_7__["CounterCountPage"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"], _components_components_module__WEBPACK_IMPORTED_MODULE_6__["ComponentsModule"], _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__["NotImplementedModule"]]
       });
     })();
     /*@__PURE__*/
@@ -99,8 +105,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CounterCountPageModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
-          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes), _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__["NotImplementedModule"]],
-          declarations: [_counter_count_page__WEBPACK_IMPORTED_MODULE_6__["CounterCountPage"]]
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes), _components_components_module__WEBPACK_IMPORTED_MODULE_6__["ComponentsModule"], _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__["NotImplementedModule"]],
+          declarations: [_counter_count_page__WEBPACK_IMPORTED_MODULE_7__["CounterCountPage"]]
         }]
       }], null, null);
     })();
@@ -130,27 +136,85 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
-    var _services_counter_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _services_counter_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../../services/counter.service */
     "./src/app/services/counter.service.ts");
     /* harmony import */
 
 
-    var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @ionic/angular */
     "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var _components_plus_minus_counter_plus_minus_counter_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../../components/plus-minus-counter/plus-minus-counter.component */
+    "./src/app/components/plus-minus-counter/plus-minus-counter.component.ts");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+    var _c0 = function _c0(a2) {
+      return ["/fullscreen-counter", "minus", a2];
+    };
+
+    function CounterCountPage_ion_button_10_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-button", 15);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "ion-icon", 16);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var ctx_r39 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](1, _c0, ctx_r39.counter.id));
+      }
+    }
+
+    var _c1 = function _c1(a2) {
+      return ["/fullscreen-counter", "plus", a2];
+    };
+
+    function CounterCountPage_ion_button_11_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-button", 17);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "ion-icon", 18);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var ctx_r40 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](1, _c1, ctx_r40.counter.id));
+      }
+    }
 
     var CounterCountPage = /*#__PURE__*/function () {
       function CounterCountPage(router, route, counterService) {
@@ -169,177 +233,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addRandomCountEvent",
         value: function addRandomCountEvent() {
-          this.counterService.addRandomCountEvent(this.counter);
-        }
-      }]);
-
-      return CounterCountPage;
-    }();
-
-    CounterCountPage.ɵfac = function CounterCountPage_Factory(t) {
-      return new (t || CounterCountPage)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_counter_service__WEBPACK_IMPORTED_MODULE_2__["CounterService"]));
-    };
-
-    CounterCountPage.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
-      type: CounterCountPage,
-      selectors: [["app-counter-count"]],
-      decls: 5,
-      vars: 0,
-      consts: [["size", "large", "expand", "full", "color", "dark", 3, "click"], ["name", "shuffle"]],
-      template: function CounterCountPage_Template(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-content");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "ion-list");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "ion-button", 0);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CounterCountPage_Template_ion_button_click_2_listener() {
-            return ctx.addRandomCountEvent();
-          });
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "ion-icon", 1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, " Random Count Event ");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        }
-      },
-      directives: [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonContent"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonList"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonButton"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonIcon"]],
-      styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvdW50ZXItZGV0YWlsL2NvdW50ZXItY291bnQvY291bnRlci1jb3VudC5wYWdlLnNjc3MifQ== */"]
-    });
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CounterCountPage, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-        args: [{
-          selector: 'app-counter-count',
-          templateUrl: './counter-count.page.html',
-          styleUrls: ['./counter-count.page.scss']
-        }]
-      }], function () {
-        return [{
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]
-        }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]
-        }, {
-          type: _services_counter_service__WEBPACK_IMPORTED_MODULE_2__["CounterService"]
-        }];
-      }, null);
-    })();
-    /***/
-
-  },
-
-  /***/
-  "./src/app/services/counter.service.ts":
-  /*!*********************************************!*\
-    !*** ./src/app/services/counter.service.ts ***!
-    \*********************************************/
-
-  /*! exports provided: CounterService */
-
-  /***/
-  function srcAppServicesCounterServiceTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "CounterService", function () {
-      return CounterService;
-    });
-    /* harmony import */
-
-
-    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _ionic_native_vibration_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @ionic-native/vibration/ngx */
-    "./node_modules/@ionic-native/vibration/__ivy_ngcc__/ngx/index.js");
-    /* harmony import */
-
-
-    var _models_counter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../models/counter */
-    "./src/app/models/counter.ts");
-    /* harmony import */
-
-
-    var _models_counter_repository_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../models/counter-repository.service */
-    "./src/app/models/counter-repository.service.ts");
-    /* harmony import */
-
-
-    var _models_count_event__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../models/count-event */
-    "./src/app/models/count-event.ts");
-    /* harmony import */
-
-
-    var _models_count_event_repository_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ../models/count-event-repository.service */
-    "./src/app/models/count-event-repository.service.ts");
-    /* harmony import */
-
-
-    var _position_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ./position.service */
-    "./src/app/services/position.service.ts");
-    /* harmony import */
-
-
-    var _app_state_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! ./app-state.service */
-    "./src/app/services/app-state.service.ts");
-
-    var CounterService = /*#__PURE__*/function () {
-      function CounterService(counterRepositoryService, countEventRepositoryService, positionService, appStateService, vibration) {
-        _classCallCheck(this, CounterService);
-
-        this.counterRepositoryService = counterRepositoryService;
-        this.countEventRepositoryService = countEventRepositoryService;
-        this.positionService = positionService;
-        this.appStateService = appStateService;
-        this.vibration = vibration;
-      }
-
-      _createClass(CounterService, [{
-        key: "addCounter",
-        value: function addCounter() {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-            var newCounter;
             return regeneratorRuntime.wrap(function _callee$(_context) {
               while (1) {
                 switch (_context.prev = _context.next) {
                   case 0:
-                    newCounter = new _models_counter__WEBPACK_IMPORTED_MODULE_3__["Counter"](); // add counter to bottom
+                    _context.next = 2;
+                    return this.counterService.addRandomCountEvent(this.counter);
 
-                    newCounter.sortOrder = this.counterRepositoryService.all.length + 1;
-                    _context.next = 4;
-                    return this.counterRepositoryService.save(newCounter);
-
-                  case 4:
-                    return _context.abrupt("return", newCounter);
-
-                  case 5:
+                  case 2:
                   case "end":
                     return _context.stop();
                 }
@@ -348,25 +250,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "delete",
-        value: function _delete(counter) {
+        key: "reset",
+        value: function reset() {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-            var _this = this;
-
             return regeneratorRuntime.wrap(function _callee2$(_context2) {
               while (1) {
                 switch (_context2.prev = _context2.next) {
                   case 0:
                     _context2.next = 2;
-                    return this.counterRepositoryService.delete(counter);
+                    return this.counterService.reset(this.counter);
 
                   case 2:
-                    _context2.next = 4;
-                    return Promise.all(this.countEventRepositoryService.getByCounter(counter).map(function (i) {
-                      return _this.countEventRepositoryService.delete(i);
-                    }));
-
-                  case 4:
                   case "end":
                     return _context2.stop();
                 }
@@ -375,211 +269,211 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "count",
-        value: function count(counter, delta) {
+        key: "deleteCounter",
+        value: function deleteCounter() {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-            var position;
             return regeneratorRuntime.wrap(function _callee3$(_context3) {
               while (1) {
                 switch (_context3.prev = _context3.next) {
                   case 0:
-                    counter.count += delta; // vibrate
+                    // We want to make the impression that this operation
+                    // is very quick. So we first navigate away.
+                    this.router.navigate(['/counters']);
+                    _context3.next = 3;
+                    return this.counterService.delete(this.counter);
 
-                    if (this.appStateService.appState.vibrate && counter.vibrate) {
-                      this.vibration.vibrate(delta > 0 ? CounterService.VIBRATION_PATTERN_POSITIVE : CounterService.VIBRATION_PATTERN_NEGATIVE);
-                    } // apply positive and negative wraparounds
-
-
-                    if (counter.positiveWrapAroundActive && counter.count > counter.positiveWrapAround) {
-                      counter.count = counter.count % counter.positiveWrapAround;
-                    }
-
-                    if (counter.negativeWrapAroundActive && counter.count < counter.negativeWrapAround) {
-                      counter.count = counter.count % counter.negativeWrapAround;
-                    }
-
-                    position = null;
-                    _context3.prev = 5;
-                    _context3.next = 8;
-                    return this.positionService.getPosition();
-
-                  case 8:
-                    position = _context3.sent;
-                    _context3.next = 15;
-                    break;
-
-                  case 11:
-                    _context3.prev = 11;
-                    _context3.t0 = _context3["catch"](5);
-                    _context3.next = 15;
-                    return this.appStateService.setRecordPosition(false);
-
-                  case 15:
-                    _context3.next = 17;
-                    return Promise.all([this.counterRepositoryService.save(counter), this.countEventRepositoryService.save(new _models_count_event__WEBPACK_IMPORTED_MODULE_5__["CountEvent"](counter.id, delta, position))]);
-
-                  case 17:
+                  case 3:
                   case "end":
                     return _context3.stop();
                 }
               }
-            }, _callee3, this, [[5, 11]]);
+            }, _callee3, this);
           }));
-        }
-      }, {
-        key: "reset",
-        value: function reset(counter) {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
-            return regeneratorRuntime.wrap(function _callee4$(_context4) {
-              while (1) {
-                switch (_context4.prev = _context4.next) {
-                  case 0:
-                    counter.count = 0;
-                    _context4.next = 3;
-                    return Promise.all([this.counterRepositoryService.save(counter), this.countEventRepositoryService.save(new _models_count_event__WEBPACK_IMPORTED_MODULE_5__["CountEvent"](counter.id, 0, {}, _models_count_event__WEBPACK_IMPORTED_MODULE_5__["CountEventType"].Reset))]);
-
-                  case 3:
-                  case "end":
-                    return _context4.stop();
-                }
-              }
-            }, _callee4, this);
-          }));
-        }
-      }, {
-        key: "setLocked",
-        value: function setLocked(counter, _setLocked) {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
-            return regeneratorRuntime.wrap(function _callee5$(_context5) {
-              while (1) {
-                switch (_context5.prev = _context5.next) {
-                  case 0:
-                    counter.locked = _setLocked;
-                    _context5.next = 3;
-                    return this.counterRepositoryService.save(counter);
-
-                  case 3:
-                  case "end":
-                    return _context5.stop();
-                }
-              }
-            }, _callee5, this);
-          }));
-        }
-      }, {
-        key: "reorder",
-        value: function reorder(from, to) {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee7() {
-            var _this2 = this;
-
-            var counters;
-            return regeneratorRuntime.wrap(function _callee7$(_context7) {
-              while (1) {
-                switch (_context7.prev = _context7.next) {
-                  case 0:
-                    counters = this.counterRepositoryService.allSortBySortOrder; // move element in array
-
-                    counters.splice(to, 0, counters.splice(from, 1)[0]); // save in new order
-
-                    _context7.next = 4;
-                    return Promise.all(counters.map(function (counter, i) {
-                      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this2, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
-                        return regeneratorRuntime.wrap(function _callee6$(_context6) {
-                          while (1) {
-                            switch (_context6.prev = _context6.next) {
-                              case 0:
-                                counter.sortOrder = i;
-                                _context6.next = 3;
-                                return this.counterRepositoryService.save(counter);
-
-                              case 3:
-                              case "end":
-                                return _context6.stop();
-                            }
-                          }
-                        }, _callee6, this);
-                      }));
-                    }));
-
-                  case 4:
-                  case "end":
-                    return _context7.stop();
-                }
-              }
-            }, _callee7, this);
-          }));
-        }
-        /**
-         * For development purposes only
-         */
-
-      }, {
-        key: "addRandomCountEvent",
-        value: function addRandomCountEvent(counter) {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee8() {
-            var delta, randomDate;
-            return regeneratorRuntime.wrap(function _callee8$(_context8) {
-              while (1) {
-                switch (_context8.prev = _context8.next) {
-                  case 0:
-                    randomDate = function _ref(start, end) {
-                      return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-                    };
-
-                    delta = Math.round(Math.random() * 10 % 10 - 5);
-                    counter.count += delta;
-                    _context8.next = 5;
-                    return Promise.all([this.counterRepositoryService.save(counter), this.countEventRepositoryService.save(new _models_count_event__WEBPACK_IMPORTED_MODULE_5__["CountEvent"](counter.id, delta, null, _models_count_event__WEBPACK_IMPORTED_MODULE_5__["CountEventType"].Change, randomDate(new Date(2012, 0, 1), new Date())))]);
-
-                  case 5:
-                  case "end":
-                    return _context8.stop();
-                }
-              }
-            }, _callee8, this);
-          }));
-        }
-      }, {
-        key: "allSortBySortOrder",
-        get: function get() {
-          return this.counterRepositoryService.allSortBySortOrder;
         }
       }]);
 
-      return CounterService;
+      return CounterCountPage;
     }();
 
-    CounterService.VIBRATION_PATTERN_POSITIVE = [30];
-    CounterService.VIBRATION_PATTERN_NEGATIVE = [30, 30, 30];
-
-    CounterService.ɵfac = function CounterService_Factory(t) {
-      return new (t || CounterService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_models_counter_repository_service__WEBPACK_IMPORTED_MODULE_4__["CounterRepositoryService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_models_count_event_repository_service__WEBPACK_IMPORTED_MODULE_6__["CountEventRepositoryService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_position_service__WEBPACK_IMPORTED_MODULE_7__["PositionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_app_state_service__WEBPACK_IMPORTED_MODULE_8__["AppStateService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_ionic_native_vibration_ngx__WEBPACK_IMPORTED_MODULE_2__["Vibration"]));
+    CounterCountPage.ɵfac = function CounterCountPage_Factory(t) {
+      return new (t || CounterCountPage)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_counter_service__WEBPACK_IMPORTED_MODULE_3__["CounterService"]));
     };
 
-    CounterService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
-      token: CounterService,
-      factory: CounterService.ɵfac,
-      providedIn: 'root'
+    CounterCountPage.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+      type: CounterCountPage,
+      selectors: [["app-counter-count"]],
+      decls: 39,
+      vars: 5,
+      consts: [[3, "minHeight", "hideTitle", "counter"], ["slot", "start", "name", "expand"], ["expand", "full", "color", "danger", 3, "routerLink", 4, "ngIf"], ["expand", "full", "color", "success", 3, "routerLink", 4, "ngIf"], ["slot", "start", "name", "refresh"], ["slot", "end", "name", "arrow-back"], ["side", "end"], ["color", "warning", 3, "click"], ["slot", "icon-only", "name", "refresh"], ["slot", "start", "name", "trash"], ["color", "danger", 3, "click"], ["slot", "icon-only", "name", "trash"], ["slot", "start", "name", "shuffle"], [3, "click"], ["slot", "icon-only", "name", "shuffle"], ["expand", "full", "color", "danger", 3, "routerLink"], ["name", "remove"], ["expand", "full", "color", "success", 3, "routerLink"], ["name", "add"]],
+      template: function CounterCountPage_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-content");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "ion-list");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](2, "app-plus-minus-counter", 0);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "ion-list-header");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "ion-label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](5, "Actions");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "ion-item");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](7, "ion-icon", 1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](8, "ion-label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](9, "Fullscreen");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](10, CounterCountPage_ion_button_10_Template, 2, 3, "ion-button", 2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](11, CounterCountPage_ion_button_11_Template, 2, 3, "ion-button", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](12, "ion-item-sliding");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "ion-item");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](14, "ion-icon", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](15, "ion-label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](16, "Reset");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](17, "ion-icon", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](18, "ion-item-options", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](19, "ion-item-option", 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function CounterCountPage_Template_ion_item_option_click_19_listener() {
+            return ctx.reset();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](20, "ion-icon", 8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](21, "ion-item-sliding");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](22, "ion-item");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](23, "ion-icon", 9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](24, "ion-label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](25, "Delete");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](26, "ion-icon", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](27, "ion-item-options", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](28, "ion-item-option", 10);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function CounterCountPage_Template_ion_item_option_click_28_listener() {
+            return ctx.deleteCounter();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](29, "ion-icon", 11);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](30, "ion-item-sliding");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](31, "ion-item");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](32, "ion-icon", 12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](33, "ion-label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](34, "Random Count Event");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](35, "ion-icon", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](36, "ion-item-options", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](37, "ion-item-option", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function CounterCountPage_Template_ion_item_option_click_37_listener() {
+            return ctx.addRandomCountEvent();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](38, "ion-icon", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("minHeight", 45)("hideTitle", true)("counter", ctx.counter);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.counter.minusCount < 0);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.counter.plusCount > 0);
+        }
+      },
+      directives: [_ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonContent"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonList"], _components_plus_minus_counter_plus_minus_counter_component__WEBPACK_IMPORTED_MODULE_5__["PlusMinusCounterComponent"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonListHeader"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonLabel"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonItem"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonIcon"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonItemSliding"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonItemOptions"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonItemOption"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonButton"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["RouterLinkDelegate"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLink"]],
+      styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvdW50ZXItZGV0YWlsL2NvdW50ZXItY291bnQvY291bnRlci1jb3VudC5wYWdlLnNjc3MifQ== */"]
     });
     /*@__PURE__*/
 
     (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CounterService, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CounterCountPage, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
         args: [{
-          providedIn: 'root'
+          selector: 'app-counter-count',
+          templateUrl: './counter-count.page.html',
+          styleUrls: ['./counter-count.page.scss']
         }]
       }], function () {
         return [{
-          type: _models_counter_repository_service__WEBPACK_IMPORTED_MODULE_4__["CounterRepositoryService"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }, {
-          type: _models_count_event_repository_service__WEBPACK_IMPORTED_MODULE_6__["CountEventRepositoryService"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
-          type: _position_service__WEBPACK_IMPORTED_MODULE_7__["PositionService"]
-        }, {
-          type: _app_state_service__WEBPACK_IMPORTED_MODULE_8__["AppStateService"]
-        }, {
-          type: _ionic_native_vibration_ngx__WEBPACK_IMPORTED_MODULE_2__["Vibration"]
+          type: _services_counter_service__WEBPACK_IMPORTED_MODULE_3__["CounterService"]
         }];
       }, null);
     })();

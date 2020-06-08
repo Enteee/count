@@ -317,28 +317,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return !this.counterSettingsForm.valid;
         }
       }, {
-        key: "reset",
-        value: function reset() {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
-            return regeneratorRuntime.wrap(function _callee4$(_context4) {
-              while (1) {
-                switch (_context4.prev = _context4.next) {
-                  case 0:
-                    _context4.next = 2;
-                    return this.counterService.reset(this.counter);
-
-                  case 2:
-                    this.router.navigate(['/counters']);
-
-                  case 3:
-                  case "end":
-                    return _context4.stop();
-                }
-              }
-            }, _callee4, this);
-          }));
-        }
-      }, {
         key: "check",
         value: function check(formControlName) {
           this.counterSettingsForm.patchValue(_defineProperty({}, formControlName, true));
@@ -365,28 +343,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.counterSettingsForm.patchValue(_defineProperty({}, formControlName, Math[clampFunction](clampValue, value)));
           }
         }
-      }, {
-        key: "deleteCounter",
-        value: function deleteCounter() {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
-            return regeneratorRuntime.wrap(function _callee5$(_context5) {
-              while (1) {
-                switch (_context5.prev = _context5.next) {
-                  case 0:
-                    // We want to make give the user the impression that this
-                    // operation is very quick, so we first navigate away.
-                    this.router.navigate(['/counters']);
-                    _context5.next = 3;
-                    return this.counterService.delete(this.counter);
-
-                  case 3:
-                  case "end":
-                    return _context5.stop();
-                }
-              }
-            }, _callee5, this);
-          }));
-        }
       }]);
 
       return CounterSettingsPage;
@@ -410,9 +366,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.titleElement = _t.first);
         }
       },
-      decls: 70,
+      decls: 48,
       vars: 3,
-      consts: [[3, "formGroup", "ngSubmit", "ionChange"], ["required", "", "formControlName", "title", "type", "text", "placeholder", "my Counter", 1, "title-input"], ["titleInput", ""], ["slot", "start", "name", "add", 3, "click"], ["required", "", "formControlName", "plusCount", "type", "number", "placeholder", "0", 3, "ionChange"], ["slot", "start", "name", "remove", 3, "click"], ["required", "", "formControlName", "minusCount", "type", "number", "placeholder", "0", 3, "ionChange"], ["required", "", "formControlName", "positiveWrapAround", "type", "number", "placeholder", "0", 3, "ionChange"], ["slot", "end", "formControlName", "positiveWrapAroundActive"], ["required", "", "formControlName", "negativeWrapAround", "type", "number", "placeholder", "0", 3, "ionChange"], ["slot", "end", "formControlName", "negativeWrapAroundActive"], [1, "vibrate-checkbox", 3, "hidden"], ["slot", "start", "name", "pulse"], ["slot", "end", "formControlName", "vibrate"], ["slot", "start", 3, "name"], ["slot", "end", "formControlName", "locked"], ["slot", "start", "name", "trash"], ["slot", "end", "name", "arrow-back"], ["side", "end"], ["color", "danger", 3, "click"], ["slot", "icon-only", "name", "trash"], ["size", "large", "expand", "full", "color", "medium", "appNotImplemented", "", "description", "Convert to binary counter", "issueId", "13", "on", "click"], ["name", "sync"], ["size", "large", "expand", "full", "appNotImplemented", "", "description", "Add counter widget to home screen", "issueId", "2", "on", "click"], ["name", "phone-portrait"], ["size", "large", "expand", "full", "color", "warning", 3, "click"], ["name", "refresh"]],
+      consts: [[3, "formGroup", "ngSubmit", "ionChange"], ["required", "", "formControlName", "title", "type", "text", "placeholder", "my Counter", 1, "title-input"], ["titleInput", ""], ["slot", "start", "name", "add", 3, "click"], ["required", "", "formControlName", "plusCount", "type", "number", "placeholder", "0", 3, "ionChange"], ["slot", "start", "name", "remove", 3, "click"], ["required", "", "formControlName", "minusCount", "type", "number", "placeholder", "0", 3, "ionChange"], ["required", "", "formControlName", "positiveWrapAround", "type", "number", "placeholder", "0", 3, "ionChange"], ["slot", "end", "formControlName", "positiveWrapAroundActive"], ["required", "", "formControlName", "negativeWrapAround", "type", "number", "placeholder", "0", 3, "ionChange"], ["slot", "end", "formControlName", "negativeWrapAroundActive"], [1, "vibrate-checkbox", 3, "hidden"], ["slot", "start", "name", "pulse"], ["slot", "end", "formControlName", "vibrate"], ["slot", "start", 3, "name"], ["slot", "end", "formControlName", "locked"], ["size", "large", "expand", "full", "appNotImplemented", "", "description", "Add counter widget to home screen", "issueId", "2", "on", "click"], ["name", "phone-portrait"]],
       template: function CounterSettingsPage_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-content");
@@ -597,93 +553,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](45, "ion-item-sliding");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](46, "ion-item");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](47, "ion-icon", 16);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](48, "ion-label");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](49, "Delete");
-
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](50, "ion-icon", 17);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](45, "ion-button", 16);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](46, "ion-icon", 17);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](51, "ion-item-options", 18);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](52, "ion-item-option", 19);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function CounterSettingsPage_Template_ion_item_option_click_52_listener() {
-            return ctx.deleteCounter();
-          });
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](53, "ion-icon", 20);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](54, "ion-grid");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](55, "ion-row");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](56, "ion-col");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](57, "ion-button", 21);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](58, "ion-icon", 22);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](59, " Make binary ");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](60, "ion-row");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](61, "ion-col");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](62, "ion-button", 23);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](63, "ion-icon", 24);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](64, " To Home Screen ");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](65, "ion-row");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](66, "ion-col");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](67, "ion-button", 25);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function CounterSettingsPage_Template_ion_button_click_67_listener() {
-            return ctx.reset();
-          });
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](68, "ion-icon", 26);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](69, " Reset ");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](47, " To Home Screen ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -706,7 +582,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpropertyInterpolate"]("name", ctx.counter.locked ? "lock-closed-outline" : "lock-open-outline");
         }
       },
-      directives: [_ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonContent"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroupDirective"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonList"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonListHeader"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonLabel"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonItem"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonInput"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["TextValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["RequiredValidator"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControlName"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonIcon"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["NumericValueAccessor"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonCheckbox"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["BooleanValueAccessor"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonItemSliding"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonItemOptions"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonItemOption"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonGrid"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonRow"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonCol"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonButton"], _not_implemented_not_implemented_directive__WEBPACK_IMPORTED_MODULE_8__["NotImplementedDirective"]],
+      directives: [_ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonContent"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroupDirective"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonList"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonListHeader"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonLabel"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonItem"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonInput"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["TextValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["RequiredValidator"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControlName"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonIcon"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["NumericValueAccessor"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonCheckbox"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["BooleanValueAccessor"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonButton"], _not_implemented_not_implemented_directive__WEBPACK_IMPORTED_MODULE_8__["NotImplementedDirective"]],
       styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvdW50ZXItZGV0YWlsL2NvdW50ZXItc2V0dGluZ3MvY291bnRlci1zZXR0aW5ncy5wYWdlLnNjc3MifQ== */"]
     });
     /*@__PURE__*/
@@ -792,31 +668,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(UnsavedChangesGuard, [{
         key: "canDeactivate",
         value: function canDeactivate(component, route, state) {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
-            return regeneratorRuntime.wrap(function _callee6$(_context6) {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+            return regeneratorRuntime.wrap(function _callee4$(_context4) {
               while (1) {
-                switch (_context6.prev = _context6.next) {
+                switch (_context4.prev = _context4.next) {
                   case 0:
                     if (component.hasUnsavedChanges()) {
-                      _context6.next = 2;
+                      _context4.next = 2;
                       break;
                     }
 
-                    return _context6.abrupt("return", true);
+                    return _context4.abrupt("return", true);
 
                   case 2:
-                    _context6.next = 4;
+                    _context4.next = 4;
                     return this.canDiscard();
 
                   case 4:
-                    return _context6.abrupt("return", _context6.sent);
+                    return _context4.abrupt("return", _context4.sent);
 
                   case 5:
                   case "end":
-                    return _context6.stop();
+                    return _context4.stop();
                 }
               }
-            }, _callee6, this);
+            }, _callee4, this);
           }));
         }
         /**
@@ -829,13 +705,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this2 = this;
 
           return new Promise(function (resolve, reject) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this2, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee7() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this2, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
               var alert;
-              return regeneratorRuntime.wrap(function _callee7$(_context7) {
+              return regeneratorRuntime.wrap(function _callee5$(_context5) {
                 while (1) {
-                  switch (_context7.prev = _context7.next) {
+                  switch (_context5.prev = _context5.next) {
                     case 0:
-                      _context7.next = 2;
+                      _context5.next = 2;
                       return this.alertController.create({
                         header: 'Unsaved Changes',
                         message: 'You are trying to leave a page which has unsaved changes',
@@ -853,16 +729,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       });
 
                     case 2:
-                      alert = _context7.sent;
-                      _context7.next = 5;
+                      alert = _context5.sent;
+                      _context5.next = 5;
                       return alert.present();
 
                     case 5:
                     case "end":
-                      return _context7.stop();
+                      return _context5.stop();
                   }
                 }
-              }, _callee7, this);
+              }, _callee5, this);
             }));
           });
         }
@@ -986,64 +862,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(CounterService, [{
         key: "addCounter",
         value: function addCounter() {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee8() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
             var newCounter;
-            return regeneratorRuntime.wrap(function _callee8$(_context8) {
+            return regeneratorRuntime.wrap(function _callee6$(_context6) {
               while (1) {
-                switch (_context8.prev = _context8.next) {
+                switch (_context6.prev = _context6.next) {
                   case 0:
                     newCounter = new _models_counter__WEBPACK_IMPORTED_MODULE_3__["Counter"](); // add counter to bottom
 
                     newCounter.sortOrder = this.counterRepositoryService.all.length + 1;
-                    _context8.next = 4;
+                    _context6.next = 4;
                     return this.counterRepositoryService.save(newCounter);
 
                   case 4:
-                    return _context8.abrupt("return", newCounter);
+                    return _context6.abrupt("return", newCounter);
 
                   case 5:
                   case "end":
-                    return _context8.stop();
+                    return _context6.stop();
                 }
               }
-            }, _callee8, this);
+            }, _callee6, this);
           }));
         }
       }, {
         key: "delete",
         value: function _delete(counter) {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee9() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee7() {
             var _this3 = this;
 
-            return regeneratorRuntime.wrap(function _callee9$(_context9) {
+            return regeneratorRuntime.wrap(function _callee7$(_context7) {
               while (1) {
-                switch (_context9.prev = _context9.next) {
+                switch (_context7.prev = _context7.next) {
                   case 0:
-                    _context9.next = 2;
+                    _context7.next = 2;
                     return this.counterRepositoryService.delete(counter);
 
                   case 2:
-                    _context9.next = 4;
+                    _context7.next = 4;
                     return Promise.all(this.countEventRepositoryService.getByCounter(counter).map(function (i) {
                       return _this3.countEventRepositoryService.delete(i);
                     }));
 
                   case 4:
                   case "end":
-                    return _context9.stop();
+                    return _context7.stop();
                 }
               }
-            }, _callee9, this);
+            }, _callee7, this);
           }));
         }
       }, {
         key: "count",
         value: function count(counter, delta) {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee10() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee8() {
             var position;
-            return regeneratorRuntime.wrap(function _callee10$(_context10) {
+            return regeneratorRuntime.wrap(function _callee8$(_context8) {
               while (1) {
-                switch (_context10.prev = _context10.next) {
+                switch (_context8.prev = _context8.next) {
                   case 0:
                     counter.count += delta; // vibrate
 
@@ -1061,114 +937,114 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     }
 
                     position = null;
-                    _context10.prev = 5;
-                    _context10.next = 8;
+                    _context8.prev = 5;
+                    _context8.next = 8;
                     return this.positionService.getPosition();
 
                   case 8:
-                    position = _context10.sent;
-                    _context10.next = 15;
+                    position = _context8.sent;
+                    _context8.next = 15;
                     break;
 
                   case 11:
-                    _context10.prev = 11;
-                    _context10.t0 = _context10["catch"](5);
-                    _context10.next = 15;
+                    _context8.prev = 11;
+                    _context8.t0 = _context8["catch"](5);
+                    _context8.next = 15;
                     return this.appStateService.setRecordPosition(false);
 
                   case 15:
-                    _context10.next = 17;
+                    _context8.next = 17;
                     return Promise.all([this.counterRepositoryService.save(counter), this.countEventRepositoryService.save(new _models_count_event__WEBPACK_IMPORTED_MODULE_5__["CountEvent"](counter.id, delta, position))]);
 
                   case 17:
                   case "end":
-                    return _context10.stop();
+                    return _context8.stop();
                 }
               }
-            }, _callee10, this, [[5, 11]]);
+            }, _callee8, this, [[5, 11]]);
           }));
         }
       }, {
         key: "reset",
         value: function reset(counter) {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee11() {
-            return regeneratorRuntime.wrap(function _callee11$(_context11) {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee9() {
+            return regeneratorRuntime.wrap(function _callee9$(_context9) {
               while (1) {
-                switch (_context11.prev = _context11.next) {
+                switch (_context9.prev = _context9.next) {
                   case 0:
                     counter.count = 0;
-                    _context11.next = 3;
+                    _context9.next = 3;
                     return Promise.all([this.counterRepositoryService.save(counter), this.countEventRepositoryService.save(new _models_count_event__WEBPACK_IMPORTED_MODULE_5__["CountEvent"](counter.id, 0, {}, _models_count_event__WEBPACK_IMPORTED_MODULE_5__["CountEventType"].Reset))]);
 
                   case 3:
                   case "end":
-                    return _context11.stop();
+                    return _context9.stop();
                 }
               }
-            }, _callee11, this);
+            }, _callee9, this);
           }));
         }
       }, {
         key: "setLocked",
         value: function setLocked(counter, _setLocked) {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee12() {
-            return regeneratorRuntime.wrap(function _callee12$(_context12) {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee10() {
+            return regeneratorRuntime.wrap(function _callee10$(_context10) {
               while (1) {
-                switch (_context12.prev = _context12.next) {
+                switch (_context10.prev = _context10.next) {
                   case 0:
                     counter.locked = _setLocked;
-                    _context12.next = 3;
+                    _context10.next = 3;
                     return this.counterRepositoryService.save(counter);
 
                   case 3:
                   case "end":
-                    return _context12.stop();
+                    return _context10.stop();
                 }
               }
-            }, _callee12, this);
+            }, _callee10, this);
           }));
         }
       }, {
         key: "reorder",
         value: function reorder(from, to) {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee14() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee12() {
             var _this4 = this;
 
             var counters;
-            return regeneratorRuntime.wrap(function _callee14$(_context14) {
+            return regeneratorRuntime.wrap(function _callee12$(_context12) {
               while (1) {
-                switch (_context14.prev = _context14.next) {
+                switch (_context12.prev = _context12.next) {
                   case 0:
                     counters = this.counterRepositoryService.allSortBySortOrder; // move element in array
 
                     counters.splice(to, 0, counters.splice(from, 1)[0]); // save in new order
 
-                    _context14.next = 4;
+                    _context12.next = 4;
                     return Promise.all(counters.map(function (counter, i) {
-                      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this4, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee13() {
-                        return regeneratorRuntime.wrap(function _callee13$(_context13) {
+                      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this4, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee11() {
+                        return regeneratorRuntime.wrap(function _callee11$(_context11) {
                           while (1) {
-                            switch (_context13.prev = _context13.next) {
+                            switch (_context11.prev = _context11.next) {
                               case 0:
                                 counter.sortOrder = i;
-                                _context13.next = 3;
+                                _context11.next = 3;
                                 return this.counterRepositoryService.save(counter);
 
                               case 3:
                               case "end":
-                                return _context13.stop();
+                                return _context11.stop();
                             }
                           }
-                        }, _callee13, this);
+                        }, _callee11, this);
                       }));
                     }));
 
                   case 4:
                   case "end":
-                    return _context14.stop();
+                    return _context12.stop();
                 }
               }
-            }, _callee14, this);
+            }, _callee12, this);
           }));
         }
         /**
@@ -1178,11 +1054,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addRandomCountEvent",
         value: function addRandomCountEvent(counter) {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee15() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee13() {
             var delta, randomDate;
-            return regeneratorRuntime.wrap(function _callee15$(_context15) {
+            return regeneratorRuntime.wrap(function _callee13$(_context13) {
               while (1) {
-                switch (_context15.prev = _context15.next) {
+                switch (_context13.prev = _context13.next) {
                   case 0:
                     randomDate = function _ref(start, end) {
                       return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
@@ -1190,15 +1066,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     delta = Math.round(Math.random() * 10 % 10 - 5);
                     counter.count += delta;
-                    _context15.next = 5;
+                    _context13.next = 5;
                     return Promise.all([this.counterRepositoryService.save(counter), this.countEventRepositoryService.save(new _models_count_event__WEBPACK_IMPORTED_MODULE_5__["CountEvent"](counter.id, delta, null, _models_count_event__WEBPACK_IMPORTED_MODULE_5__["CountEventType"].Change, randomDate(new Date(2012, 0, 1), new Date())))]);
 
                   case 5:
                   case "end":
-                    return _context15.stop();
+                    return _context13.stop();
                 }
               }
-            }, _callee15, this);
+            }, _callee13, this);
           }));
         }
       }, {

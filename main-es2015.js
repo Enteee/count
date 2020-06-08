@@ -459,7 +459,7 @@ const routes = [
     },
     {
         path: 'counters',
-        loadChildren: () => Promise.all(/*! import() | counters-counters-module */[__webpack_require__.e("default~counter-analytics-counter-analytics-module~counters-counters-module~fullscreen-counter-fulls~0502c3a9"), __webpack_require__.e("default~counter-analytics-counter-analytics-module~counters-counters-module"), __webpack_require__.e("counters-counters-module")]).then(__webpack_require__.bind(null, /*! ./counters/counters.module */ "./src/app/counters/counters.module.ts")).then(m => m.CountersPageModule)
+        loadChildren: () => Promise.all(/*! import() | counters-counters-module */[__webpack_require__.e("default~counter-analytics-counter-analytics-module~counter-count-counter-count-module~counters-count~b22d7877"), __webpack_require__.e("counters-counters-module")]).then(__webpack_require__.bind(null, /*! ./counters/counters.module */ "./src/app/counters/counters.module.ts")).then(m => m.CountersPageModule)
     },
     {
         path: 'counter-detail/:counter-id',
@@ -474,7 +474,7 @@ const routes = [
             analyticsItem: _models_analytics_item_repository_service__WEBPACK_IMPORTED_MODULE_4__["AnalyticsItemRepositoryService"],
             counter: _models_counter_repository_service__WEBPACK_IMPORTED_MODULE_3__["CounterRepositoryService"],
         },
-        loadChildren: () => Promise.all(/*! import() | counter-analytics-counter-analytics-module */[__webpack_require__.e("default~counter-analytics-counter-analytics-module~counters-counters-module~fullscreen-counter-fulls~0502c3a9"), __webpack_require__.e("default~counter-analytics-counter-analytics-module~counters-counters-module"), __webpack_require__.e("counter-analytics-counter-analytics-module")]).then(__webpack_require__.bind(null, /*! ./counter-analytics/counter-analytics.module */ "./src/app/counter-analytics/counter-analytics.module.ts")).then(m => m.CounterAnalyticsPageModule)
+        loadChildren: () => Promise.all(/*! import() | counter-analytics-counter-analytics-module */[__webpack_require__.e("default~counter-analytics-counter-analytics-module~counter-count-counter-count-module~counters-count~b22d7877"), __webpack_require__.e("counter-analytics-counter-analytics-module")]).then(__webpack_require__.bind(null, /*! ./counter-analytics/counter-analytics.module */ "./src/app/counter-analytics/counter-analytics.module.ts")).then(m => m.CounterAnalyticsPageModule)
     },
     {
         path: 'contribute',
@@ -493,7 +493,7 @@ const routes = [
     },
     {
         path: 'fullscreen-counter/:type/:counter-id',
-        loadChildren: () => Promise.all(/*! import() | fullscreen-counter-fullscreen-counter-module */[__webpack_require__.e("default~counter-analytics-counter-analytics-module~counters-counters-module~fullscreen-counter-fulls~0502c3a9"), __webpack_require__.e("fullscreen-counter-fullscreen-counter-module")]).then(__webpack_require__.bind(null, /*! ./fullscreen-counter/fullscreen-counter.module */ "./src/app/fullscreen-counter/fullscreen-counter.module.ts")).then(m => m.FullscreenCounterPageModule),
+        loadChildren: () => __webpack_require__.e(/*! import() | fullscreen-counter-fullscreen-counter-module */ "fullscreen-counter-fullscreen-counter-module").then(__webpack_require__.bind(null, /*! ./fullscreen-counter/fullscreen-counter.module */ "./src/app/fullscreen-counter/fullscreen-counter.module.ts")).then(m => m.FullscreenCounterPageModule),
         resolve: {
             counter: _models_counter_repository_service__WEBPACK_IMPORTED_MODULE_3__["CounterRepositoryService"],
         },
@@ -626,7 +626,7 @@ class AppComponent {
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_ionic_angular__WEBPACK_IMPORTED_MODULE_1__["Platform"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_2__["SplashScreen"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_3__["StatusBar"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_app_state_service__WEBPACK_IMPORTED_MODULE_4__["AppStateService"])); };
-AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 11, vars: 1, consts: [["contentId", "main"], ["contentId", "main", "type", "overlay"], ["auto-hide", "false", 4, "ngFor", "ngForOf"], ["id", "main"], ["auto-hide", "false"], [3, "routerDirection", "routerLink"], ["slot", "start", 3, "name", 4, "ngIf"], ["slot", "start", 3, "src", 4, "ngIf"], ["slot", "start", 3, "name"], ["slot", "start", 3, "src"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 11, vars: 1, consts: [["contentId", "main"], ["contentId", "main", "type", "overlay", "swipeGesture", "false"], ["auto-hide", "false", 4, "ngFor", "ngForOf"], ["id", "main"], ["auto-hide", "false"], [3, "routerDirection", "routerLink"], ["slot", "start", 3, "name", 4, "ngIf"], ["slot", "start", 3, "src", 4, "ngIf"], ["slot", "start", 3, "name"], ["slot", "start", 3, "src"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-app");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "ion-split-pane", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "ion-menu", 1);
@@ -1334,6 +1334,7 @@ let AppState = class AppState extends _model__WEBPACK_IMPORTED_MODULE_2__["Model
         super(...arguments);
         this.disableNotImplemented = false;
         this.updateChannel = UpdateChannel.Production;
+        this.swipeCounting = true;
         this.recordPosition = true;
         this.vibrate = true;
     }
@@ -1346,6 +1347,10 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"],
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
 ], AppState.prototype, "updateChannel", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AppState.prototype, "swipeCounting", void 0);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"],
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
@@ -2275,6 +2280,13 @@ class AppStateService {
     }
     get appState() {
         return this.appStateRepositoryService.state;
+    }
+    setSwipeCounting(v) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const appState = this.appStateRepositoryService.state;
+            appState.swipeCounting = v;
+            yield this.appStateRepositoryService.save(appState);
+        });
     }
     setVibrate(v) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {

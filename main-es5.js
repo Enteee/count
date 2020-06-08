@@ -223,7 +223,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | counters-counters-module */
-        [__webpack_require__.e("default~counter-analytics-counter-analytics-module~counters-counters-module~fullscreen-counter-fulls~0502c3a9"), __webpack_require__.e("default~counter-analytics-counter-analytics-module~counters-counters-module"), __webpack_require__.e("counters-counters-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~counter-analytics-counter-analytics-module~counter-count-counter-count-module~counters-count~b22d7877"), __webpack_require__.e("counters-counters-module")]).then(__webpack_require__.bind(null,
         /*! ./counters/counters.module */
         "./src/app/counters/counters.module.ts")).then(function (m) {
           return m.CountersPageModule;
@@ -252,7 +252,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | counter-analytics-counter-analytics-module */
-        [__webpack_require__.e("default~counter-analytics-counter-analytics-module~counters-counters-module~fullscreen-counter-fulls~0502c3a9"), __webpack_require__.e("default~counter-analytics-counter-analytics-module~counters-counters-module"), __webpack_require__.e("counter-analytics-counter-analytics-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~counter-analytics-counter-analytics-module~counter-count-counter-count-module~counters-count~b22d7877"), __webpack_require__.e("counter-analytics-counter-analytics-module")]).then(__webpack_require__.bind(null,
         /*! ./counter-analytics/counter-analytics.module */
         "./src/app/counter-analytics/counter-analytics.module.ts")).then(function (m) {
           return m.CounterAnalyticsPageModule;
@@ -297,9 +297,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       path: 'fullscreen-counter/:type/:counter-id',
       loadChildren: function loadChildren() {
-        return Promise.all(
+        return __webpack_require__.e(
         /*! import() | fullscreen-counter-fullscreen-counter-module */
-        [__webpack_require__.e("default~counter-analytics-counter-analytics-module~counters-counters-module~fullscreen-counter-fulls~0502c3a9"), __webpack_require__.e("fullscreen-counter-fullscreen-counter-module")]).then(__webpack_require__.bind(null,
+        "fullscreen-counter-fullscreen-counter-module").then(__webpack_require__.bind(null,
         /*! ./fullscreen-counter/fullscreen-counter.module */
         "./src/app/fullscreen-counter/fullscreen-counter.module.ts")).then(function (m) {
           return m.FullscreenCounterPageModule;
@@ -536,7 +536,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       selectors: [["app-root"]],
       decls: 11,
       vars: 1,
-      consts: [["contentId", "main"], ["contentId", "main", "type", "overlay"], ["auto-hide", "false", 4, "ngFor", "ngForOf"], ["id", "main"], ["auto-hide", "false"], [3, "routerDirection", "routerLink"], ["slot", "start", 3, "name", 4, "ngIf"], ["slot", "start", 3, "src", 4, "ngIf"], ["slot", "start", 3, "name"], ["slot", "start", 3, "src"]],
+      consts: [["contentId", "main"], ["contentId", "main", "type", "overlay", "swipeGesture", "false"], ["auto-hide", "false", 4, "ngFor", "ngForOf"], ["id", "main"], ["auto-hide", "false"], [3, "routerDirection", "routerLink"], ["slot", "start", 3, "name", 4, "ngIf"], ["slot", "start", 3, "src", 4, "ngIf"], ["slot", "start", 3, "name"], ["slot", "start", 3, "src"]],
       template: function AppComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-app");
@@ -1894,6 +1894,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _this6 = _possibleConstructorReturn(this, _getPrototypeOf(AppState).apply(this, arguments));
         _this6.disableNotImplemented = false;
         _this6.updateChannel = UpdateChannel.Production;
+        _this6.swipeCounting = true;
         _this6.recordPosition = true;
         _this6.vibrate = true;
         return _this6;
@@ -1904,6 +1905,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AppState.prototype, "disableNotImplemented", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AppState.prototype, "updateChannel", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AppState.prototype, "swipeCounting", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AppState.prototype, "recordPosition", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AppState.prototype, "vibrate", void 0);
     AppState = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(cerialize__WEBPACK_IMPORTED_MODULE_1__["inheritSerialization"])(_model__WEBPACK_IMPORTED_MODULE_2__["Model"])], AppState);
@@ -3762,8 +3764,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       _createClass(AppStateService, [{
-        key: "setVibrate",
-        value: function setVibrate(v) {
+        key: "setSwipeCounting",
+        value: function setSwipeCounting(v) {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee18() {
             var appState;
             return regeneratorRuntime.wrap(function _callee18$(_context18) {
@@ -3771,7 +3773,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context18.prev = _context18.next) {
                   case 0:
                     appState = this.appStateRepositoryService.state;
-                    appState.vibrate = v;
+                    appState.swipeCounting = v;
                     _context18.next = 4;
                     return this.appStateRepositoryService.save(appState);
 
@@ -3784,8 +3786,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "setRecordPosition",
-        value: function setRecordPosition(v) {
+        key: "setVibrate",
+        value: function setVibrate(v) {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee19() {
             var appState;
             return regeneratorRuntime.wrap(function _callee19$(_context19) {
@@ -3793,41 +3795,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context19.prev = _context19.next) {
                   case 0:
                     appState = this.appStateRepositoryService.state;
-                    appState.recordPosition = v; // get position once in order to trigger user notification:
-
-                    _context19.prev = 2;
-                    _context19.next = 5;
-                    return this.positionService.getPosition();
-
-                  case 5:
-                    _context19.next = 13;
-                    break;
-
-                  case 7:
-                    _context19.prev = 7;
-                    _context19.t0 = _context19["catch"](2);
-                    appState.recordPosition = false;
-                    _context19.next = 12;
+                    appState.vibrate = v;
+                    _context19.next = 4;
                     return this.appStateRepositoryService.save(appState);
 
-                  case 12:
-                    return _context19.abrupt("return", Promise.reject(_context19.t0));
-
-                  case 13:
-                    _context19.next = 15;
-                    return this.appStateRepositoryService.save(appState);
-
-                  case 15:
+                  case 4:
                   case "end":
                     return _context19.stop();
                 }
               }
-            }, _callee19, this, [[2, 7]]);
+            }, _callee19, this);
           }));
         }
       }, {
-        key: "setDisableNotImplemented",
-        value: function setDisableNotImplemented(v) {
+        key: "setRecordPosition",
+        value: function setRecordPosition(v) {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee20() {
             var appState;
             return regeneratorRuntime.wrap(function _callee20$(_context20) {
@@ -3835,21 +3817,41 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context20.prev = _context20.next) {
                   case 0:
                     appState = this.appStateRepositoryService.state;
-                    appState.disableNotImplemented = v;
-                    _context20.next = 4;
+                    appState.recordPosition = v; // get position once in order to trigger user notification:
+
+                    _context20.prev = 2;
+                    _context20.next = 5;
+                    return this.positionService.getPosition();
+
+                  case 5:
+                    _context20.next = 13;
+                    break;
+
+                  case 7:
+                    _context20.prev = 7;
+                    _context20.t0 = _context20["catch"](2);
+                    appState.recordPosition = false;
+                    _context20.next = 12;
                     return this.appStateRepositoryService.save(appState);
 
-                  case 4:
+                  case 12:
+                    return _context20.abrupt("return", Promise.reject(_context20.t0));
+
+                  case 13:
+                    _context20.next = 15;
+                    return this.appStateRepositoryService.save(appState);
+
+                  case 15:
                   case "end":
                     return _context20.stop();
                 }
               }
-            }, _callee20, this);
+            }, _callee20, this, [[2, 7]]);
           }));
         }
       }, {
-        key: "setUpdateChannel",
-        value: function setUpdateChannel(v) {
+        key: "setDisableNotImplemented",
+        value: function setDisableNotImplemented(v) {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee21() {
             var appState;
             return regeneratorRuntime.wrap(function _callee21$(_context21) {
@@ -3857,18 +3859,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context21.prev = _context21.next) {
                   case 0:
                     appState = this.appStateRepositoryService.state;
-                    appState.updateChannel = v;
+                    appState.disableNotImplemented = v;
                     _context21.next = 4;
                     return this.appStateRepositoryService.save(appState);
 
                   case 4:
-                    _context21.next = 6;
-                    return this.deploy.configure({
-                      updateMethod: appState.updateChannel === _models_app_state__WEBPACK_IMPORTED_MODULE_4__["UpdateChannel"].Disabled ? 'none' : 'background',
-                      channel: v
-                    });
-
-                  case 6:
                   case "end":
                     return _context21.stop();
                 }
@@ -3877,9 +3872,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "update",
-        value: function update() {
-          var updateMethod = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'background';
+        key: "setUpdateChannel",
+        value: function setUpdateChannel(v) {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee22() {
             var appState;
             return regeneratorRuntime.wrap(function _callee22$(_context22) {
@@ -3887,18 +3881,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context22.prev = _context22.next) {
                   case 0:
                     appState = this.appStateRepositoryService.state;
-                    _context22.next = 3;
-                    return this.setUpdateChannel(appState.updateChannel);
+                    appState.updateChannel = v;
+                    _context22.next = 4;
+                    return this.appStateRepositoryService.save(appState);
 
-                  case 3:
-                    if (!(appState.updateChannel !== _models_app_state__WEBPACK_IMPORTED_MODULE_4__["UpdateChannel"].Disabled)) {
-                      _context22.next = 6;
-                      break;
-                    }
-
+                  case 4:
                     _context22.next = 6;
-                    return this.deploy.sync({
-                      updateMethod: updateMethod
+                    return this.deploy.configure({
+                      updateMethod: appState.updateChannel === _models_app_state__WEBPACK_IMPORTED_MODULE_4__["UpdateChannel"].Disabled ? 'none' : 'background',
+                      channel: v
                     });
 
                   case 6:
@@ -3907,6 +3898,39 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
               }
             }, _callee22, this);
+          }));
+        }
+      }, {
+        key: "update",
+        value: function update() {
+          var updateMethod = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'background';
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee23() {
+            var appState;
+            return regeneratorRuntime.wrap(function _callee23$(_context23) {
+              while (1) {
+                switch (_context23.prev = _context23.next) {
+                  case 0:
+                    appState = this.appStateRepositoryService.state;
+                    _context23.next = 3;
+                    return this.setUpdateChannel(appState.updateChannel);
+
+                  case 3:
+                    if (!(appState.updateChannel !== _models_app_state__WEBPACK_IMPORTED_MODULE_4__["UpdateChannel"].Disabled)) {
+                      _context23.next = 6;
+                      break;
+                    }
+
+                    _context23.next = 6;
+                    return this.deploy.sync({
+                      updateMethod: updateMethod
+                    });
+
+                  case 6:
+                  case "end":
+                    return _context23.stop();
+                }
+              }
+            }, _callee23, this);
           }));
         }
       }, {
@@ -4208,34 +4232,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(PositionService, [{
         key: "getPosition",
         value: function getPosition() {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee23() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee24() {
             var position;
-            return regeneratorRuntime.wrap(function _callee23$(_context23) {
+            return regeneratorRuntime.wrap(function _callee24$(_context24) {
               while (1) {
-                switch (_context23.prev = _context23.next) {
+                switch (_context24.prev = _context24.next) {
                   case 0:
                     position = null;
 
                     if (!this.appStateRepositoryService.state.recordPosition) {
-                      _context23.next = 5;
+                      _context24.next = 5;
                       break;
                     }
 
-                    _context23.next = 4;
+                    _context24.next = 4;
                     return this.geolocation.getCurrentPosition();
 
                   case 4:
-                    position = _context23.sent;
+                    position = _context24.sent;
 
                   case 5:
-                    return _context23.abrupt("return", position);
+                    return _context24.abrupt("return", position);
 
                   case 6:
                   case "end":
-                    return _context23.stop();
+                    return _context24.stop();
                 }
               }
-            }, _callee23, this);
+            }, _callee24, this);
           }));
         }
       }]);

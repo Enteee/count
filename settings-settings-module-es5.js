@@ -184,9 +184,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
-    function SettingsPage_ion_select_option_60_Template(rf, ctx) {
+    function SettingsPage_ion_select_option_65_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-select-option", 35);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-select-option", 37);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
 
@@ -194,13 +194,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       if (rf & 2) {
-        var updateChannel_r44 = ctx.$implicit;
+        var updateChannel_r48 = ctx.$implicit;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("value", updateChannel_r44);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("value", updateChannel_r48);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", updateChannel_r44, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", updateChannel_r48, " ");
       }
     }
 
@@ -219,6 +219,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           this.appState = this.route.snapshot.data.appState;
           this.settingsForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormGroup"]({
+            swipeCounting: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](this.appState.swipeCounting, []),
             vibrate: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](this.appState.vibrate, []),
             recordPosition: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](this.appState.recordPosition, []),
             disableNotImplemented: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](this.appState.disableNotImplemented, []),
@@ -226,15 +227,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
         }
       }, {
-        key: "changeVibrate",
-        value: function changeVibrate() {
+        key: "changeSwipeCounting",
+        value: function changeSwipeCounting() {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
             return regeneratorRuntime.wrap(function _callee$(_context) {
               while (1) {
                 switch (_context.prev = _context.next) {
                   case 0:
                     _context.next = 2;
-                    return this.appStateService.setVibrate(this.settingsForm.value.vibrate);
+                    return this.appStateService.setSwipeCounting(this.settingsForm.value.swipeCounting);
 
                   case 2:
                   case "end":
@@ -245,84 +246,103 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "changeRecordPosition",
-        value: function changeRecordPosition() {
+        key: "changeVibrate",
+        value: function changeVibrate() {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-            var alert;
             return regeneratorRuntime.wrap(function _callee2$(_context2) {
               while (1) {
                 switch (_context2.prev = _context2.next) {
                   case 0:
-                    _context2.prev = 0;
-                    _context2.next = 3;
-                    return this.appStateService.setRecordPosition(this.settingsForm.value.recordPosition);
+                    _context2.next = 2;
+                    return this.appStateService.setVibrate(this.settingsForm.value.vibrate);
 
-                  case 3:
-                    _context2.next = 12;
-                    break;
-
-                  case 5:
-                    _context2.prev = 5;
-                    _context2.t0 = _context2["catch"](0);
-                    _context2.next = 9;
-                    return this.alertController.create({
-                      header: 'Failed to enable position recording',
-                      message: _context2.t0.message,
-                      buttons: ['OK']
-                    });
-
-                  case 9:
-                    alert = _context2.sent;
-                    _context2.next = 12;
-                    return alert.present();
-
-                  case 12:
+                  case 2:
                   case "end":
                     return _context2.stop();
                 }
               }
-            }, _callee2, this, [[0, 5]]);
+            }, _callee2, this);
+          }));
+        }
+      }, {
+        key: "changeRecordPosition",
+        value: function changeRecordPosition() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+            var alert;
+            return regeneratorRuntime.wrap(function _callee3$(_context3) {
+              while (1) {
+                switch (_context3.prev = _context3.next) {
+                  case 0:
+                    _context3.prev = 0;
+                    _context3.next = 3;
+                    return this.appStateService.setRecordPosition(this.settingsForm.value.recordPosition);
+
+                  case 3:
+                    _context3.next = 12;
+                    break;
+
+                  case 5:
+                    _context3.prev = 5;
+                    _context3.t0 = _context3["catch"](0);
+                    _context3.next = 9;
+                    return this.alertController.create({
+                      header: 'Failed to enable position recording',
+                      message: _context3.t0.message,
+                      buttons: ['OK']
+                    });
+
+                  case 9:
+                    alert = _context3.sent;
+                    _context3.next = 12;
+                    return alert.present();
+
+                  case 12:
+                  case "end":
+                    return _context3.stop();
+                }
+              }
+            }, _callee3, this, [[0, 5]]);
           }));
         }
       }, {
         key: "changeDisableNotImplemented",
         value: function changeDisableNotImplemented() {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-            return regeneratorRuntime.wrap(function _callee3$(_context3) {
-              while (1) {
-                switch (_context3.prev = _context3.next) {
-                  case 0:
-                    this.appStateService.setDisableNotImplemented(this.settingsForm.value.disableNotImplemented);
-
-                  case 1:
-                  case "end":
-                    return _context3.stop();
-                }
-              }
-            }, _callee3, this);
-          }));
-        }
-      }, {
-        key: "changeUpdateChannel",
-        value: function changeUpdateChannel() {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
             return regeneratorRuntime.wrap(function _callee4$(_context4) {
               while (1) {
                 switch (_context4.prev = _context4.next) {
                   case 0:
-                    _context4.next = 2;
-                    return this.appStateService.setUpdateChannel(this.settingsForm.value.updateChannel);
+                    this.appStateService.setDisableNotImplemented(this.settingsForm.value.disableNotImplemented);
 
-                  case 2:
-                    _context4.next = 4;
-                    return this.appStateService.update('auto');
-
-                  case 4:
+                  case 1:
                   case "end":
                     return _context4.stop();
                 }
               }
             }, _callee4, this);
+          }));
+        }
+      }, {
+        key: "changeUpdateChannel",
+        value: function changeUpdateChannel() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
+            return regeneratorRuntime.wrap(function _callee5$(_context5) {
+              while (1) {
+                switch (_context5.prev = _context5.next) {
+                  case 0:
+                    _context5.next = 2;
+                    return this.appStateService.setUpdateChannel(this.settingsForm.value.updateChannel);
+
+                  case 2:
+                    _context5.next = 4;
+                    return this.appStateService.update('auto');
+
+                  case 4:
+                  case "end":
+                    return _context5.stop();
+                }
+              }
+            }, _callee5, this);
           }));
         }
       }]);
@@ -337,9 +357,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     SettingsPage.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
       type: SettingsPage,
       selectors: [["app-settings"]],
-      decls: 80,
-      vars: 5,
-      consts: [["slot", "start"], ["name", "settings"], [3, "formGroup"], ["description", "Select language", "issueId", "12"], ["slot", "start", "name", "text"], ["slot", "end", "placeholder", "Select One"], ["value", "english"], ["value", "german"], ["value", "french"], ["description", "Toggle dark mode", "issueId", "10"], ["slot", "start", "name", "moon"], ["slot", "end"], ["description", "Switch to left-handed mode", "issueId", "14"], ["slot", "start", "name", "hand-left"], ["slot", "start", "name", "pulse"], ["required", "", "slot", "end", "formControlName", "vibrate", 3, "checked", "ionChange"], ["slot", "start", "name", "pin"], ["required", "", "slot", "end", "formControlName", "recordPosition", 3, "checked", "ionChange"], ["description", "Enable Advertisements / Disable Fuel", "issueId", "11"], ["slot", "start", "name", "cash"], ["slot", "start", "name", "construct"], ["required", "", "slot", "end", "formControlName", "disableNotImplemented", 3, "checked", "ionChange"], ["slot", "start", "name", "cloud-download"], ["formControlName", "updateChannel", "slot", "end", "placeholder", "Select One", 3, "ionChange"], [3, "value", 4, "ngFor", "ngForOf"], ["description", "Save and load backup", "issueId", "15"], ["slot", "start", "name", "download"], ["expand", "full", "color", "success"], ["expand", "full", "color", "danger"], ["description", "Trigger a factory reset", "issueId", "16"], ["slot", "start", "name", "trash"], ["slot", "end", "name", "arrow-back"], ["side", "end"], ["color", "danger"], ["slot", "icon-only", "name", "trash"], [3, "value"]],
+      decls: 85,
+      vars: 6,
+      consts: [["slot", "start"], ["name", "settings"], [3, "formGroup"], ["description", "Select language", "issueId", "12"], ["slot", "start", "name", "text"], ["slot", "end", "placeholder", "Select One"], ["value", "english"], ["value", "german"], ["value", "french"], ["description", "Toggle dark mode", "issueId", "10"], ["slot", "start", "name", "moon"], ["slot", "end"], ["description", "Switch to left-handed mode", "issueId", "14"], ["slot", "start", "name", "hand-left"], ["slot", "start", "name", "code-outline"], ["required", "", "slot", "end", "formControlName", "swipeCounting", 3, "checked", "ionChange"], ["slot", "start", "name", "pulse"], ["required", "", "slot", "end", "formControlName", "vibrate", 3, "checked", "ionChange"], ["slot", "start", "name", "pin"], ["required", "", "slot", "end", "formControlName", "recordPosition", 3, "checked", "ionChange"], ["description", "Enable Advertisements / Disable Fuel", "issueId", "11"], ["slot", "start", "name", "cash"], ["slot", "start", "name", "construct"], ["required", "", "slot", "end", "formControlName", "disableNotImplemented", 3, "checked", "ionChange"], ["slot", "start", "name", "cloud-download"], ["formControlName", "updateChannel", "slot", "end", "placeholder", "Select One", 3, "ionChange"], [3, "value", 4, "ngFor", "ngForOf"], ["description", "Save and load backup", "issueId", "15"], ["slot", "start", "name", "download"], ["expand", "full", "color", "success"], ["expand", "full", "color", "danger"], ["description", "Trigger a factory reset", "issueId", "16"], ["slot", "start", "name", "trash"], ["slot", "end", "name", "arrow-back"], ["side", "end"], ["color", "danger"], ["slot", "icon-only", "name", "trash"], [3, "value"]],
       template: function SettingsPage_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-header");
@@ -450,14 +470,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](36, "ion-label");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](37, "Vibrate");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](37, "Swipe counting");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](38, "ion-checkbox", 15);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ionChange", function SettingsPage_Template_ion_checkbox_ionChange_38_listener() {
-            return ctx.changeVibrate();
+            return ctx.changeSwipeCounting();
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -470,13 +490,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](41, "ion-label");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](42, "Record position");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](42, "Vibrate");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](43, "ion-checkbox", 17);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ionChange", function SettingsPage_Template_ion_checkbox_ionChange_43_listener() {
+            return ctx.changeVibrate();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](44, "ion-item");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](45, "ion-icon", 18);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](46, "ion-label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](47, "Record position");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](48, "ion-checkbox", 19);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ionChange", function SettingsPage_Template_ion_checkbox_ionChange_48_listener() {
             return ctx.changeRecordPosition();
           });
 
@@ -484,39 +524,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](44, "app-not-implemented", 18);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](45, "ion-item");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](46, "ion-icon", 19);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](47, "ion-label");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](48, "Enable Advertisements");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](49, "ion-checkbox", 11);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](49, "app-not-implemented", 20);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](50, "ion-item");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](51, "ion-icon", 20);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](51, "ion-icon", 21);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](52, "ion-label");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](53, "Disable not implemented");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](53, "Enable Advertisements");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](54, "ion-checkbox", 21);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ionChange", function SettingsPage_Template_ion_checkbox_ionChange_54_listener() {
-            return ctx.changeDisableNotImplemented();
-          });
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](54, "ion-checkbox", 11);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -528,43 +548,63 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](57, "ion-label");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](58, "Update");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](58, "Disable not implemented");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](59, "ion-select", 23);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](59, "ion-checkbox", 23);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ionChange", function SettingsPage_Template_ion_select_ionChange_59_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ionChange", function SettingsPage_Template_ion_checkbox_ionChange_59_listener() {
+            return ctx.changeDisableNotImplemented();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](60, "ion-item");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](61, "ion-icon", 24);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](62, "ion-label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](63, "Update");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](64, "ion-select", 25);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ionChange", function SettingsPage_Template_ion_select_ionChange_64_listener() {
             return ctx.changeUpdateChannel();
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](60, SettingsPage_ion_select_option_60_Template, 2, 2, "ion-select-option", 24);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](65, SettingsPage_ion_select_option_65_Template, 2, 2, "ion-select-option", 26);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](61, "app-not-implemented", 25);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](66, "app-not-implemented", 27);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](62, "ion-item");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](67, "ion-item");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](63, "ion-icon", 26);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](68, "ion-icon", 28);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](64, "ion-label");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](69, "ion-label");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](65, "Backup");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](66, "ion-button", 27);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](67, " Save ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](70, "Backup");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](68, "ion-button", 28);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](71, "ion-button", 29);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](69, " Restore ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](72, " Save ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](73, "ion-button", 30);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](74, " Restore ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -572,29 +612,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](70, "app-not-implemented", 29);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](75, "app-not-implemented", 31);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](71, "ion-item-sliding");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](76, "ion-item-sliding");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](72, "ion-item");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](77, "ion-item");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](73, "ion-icon", 30);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](78, "ion-icon", 32);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](74, "ion-label");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](79, "ion-label");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](75, "Factory reset");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](76, "ion-icon", 31);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](80, "Factory reset");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](77, "ion-item-options", 32);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](81, "ion-icon", 33);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](78, "ion-item-option", 33);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](79, "ion-icon", 34);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](82, "ion-item-options", 34);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](83, "ion-item-option", 35);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](84, "ion-icon", 36);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -617,6 +657,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("formGroup", ctx.settingsForm);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](30);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("checked", ctx.appState.swipeCounting);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("checked", ctx.appState.vibrate);
 
