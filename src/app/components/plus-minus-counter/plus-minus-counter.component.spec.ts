@@ -166,7 +166,7 @@ describe('PlusMinusCounterComponent', () => {
       'countMinus'
     );
 
-    counter.minusCount = 0;
+    counter.minusCount = -1;
     counter.plusCount = 1;
 
     fixture.detectChanges();
