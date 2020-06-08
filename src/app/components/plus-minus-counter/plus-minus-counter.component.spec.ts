@@ -154,7 +154,7 @@ describe('PlusMinusCounterComponent', () => {
     });
   }));
 
-  it('should swipe click', async(() => {
+  it('should swipe click on left swipe', async(() => {
 
     spyOn(
       component,
@@ -173,7 +173,7 @@ describe('PlusMinusCounterComponent', () => {
 
     component.onStart({} as any);
     component.onMoveHandler({
-      deltaX: component.rightButtonWidth - (component.rootItemWidth * component.SWIPE_CLICK_WIDTH_RATIO)
+      deltaX: component.rightButtonWidth - (component.rootItemWidth * component.SWIPE_CLICK_WIDTH_RATIO + 1)
     } as any);
     component.onEnd({} as any);
 
@@ -181,6 +181,36 @@ describe('PlusMinusCounterComponent', () => {
     fixture.whenStable().then(() => {
       expect(component.countPlus).toHaveBeenCalledTimes(1);
       expect(component.countMinus).toHaveBeenCalledTimes(0);
+    });
+  }));
+
+  it('should swipe click on right swipe', async(() => {
+
+    spyOn(
+      component,
+      'countPlus'
+    );
+
+    spyOn(
+      component,
+      'countMinus'
+    );
+
+    counter.minusCount = -1;
+    counter.plusCount = 1;
+
+    fixture.detectChanges();
+
+    component.onStart({} as any);
+    component.onMoveHandler({
+      deltaX: -(component.leftButtonWidth - (component.rootItemWidth * component.SWIPE_CLICK_WIDTH_RATIO + 1))
+    } as any);
+    component.onEnd({} as any);
+
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(component.countPlus).toHaveBeenCalledTimes(0);
+      expect(component.countMinus).toHaveBeenCalledTimes(1);
     });
   }));
 

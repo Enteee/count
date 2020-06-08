@@ -105,7 +105,8 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
       ) + 'px';
     }
 
-    if (this.rootItemWidth * this.SWIPE_CLICK_WIDTH_RATIO <= newRightButtonWidth) {
+    if (this.rootItemWidth * this.SWIPE_CLICK_WIDTH_RATIO < newRightButtonWidth) {
+      console.log('rightClick');
       if(this.rightButton){
         this.rightButton.nativeElement.style.width = '100%';
 
@@ -116,7 +117,8 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
         this.clickIndicator.nativeElement.style.display = 'none';
         this.swipeClickRight = true;
       }
-    } else if (this.rootItemWidth * this.SWIPE_CLICK_WIDTH_RATIO  <= newLeftButtonWidth) {
+    } else if (this.rootItemWidth * this.SWIPE_CLICK_WIDTH_RATIO  < newLeftButtonWidth) {
+      console.log('leftClick');
       if(this.leftButton){
         this.leftButton.nativeElement.style.width = '100%';
 
