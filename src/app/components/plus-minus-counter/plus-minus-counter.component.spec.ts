@@ -100,6 +100,19 @@ describe('PlusMinusCounterComponent', () => {
     });
   }));
 
+  it('should not count plus if counter is locked', async(() => {
+    const COUNT_AMOUNT = 10;
+
+    counter.plusCount = COUNT_AMOUNT;
+    counter.locked = true;
+
+    component.countPlus();
+
+    fixture.whenStable().then(() => {
+      expect(counterService.count).toHaveBeenCalledTimes(0);
+    });
+  }));
+
   it('should count minus', async(() => {
     const COUNT_AMOUNT = -10;
 
@@ -112,6 +125,19 @@ describe('PlusMinusCounterComponent', () => {
       expect(counterService.count).toHaveBeenCalledWith(
         counter, COUNT_AMOUNT
       );
+    });
+  }));
+
+  it('should not count minus if counter is locked', async(() => {
+    const COUNT_AMOUNT = 10;
+
+    counter.minusCount = COUNT_AMOUNT;
+    counter.locked = true;
+
+    component.countMinus();
+
+    fixture.whenStable().then(() => {
+      expect(counterService.count).toHaveBeenCalledTimes(0);
     });
   }));
 
@@ -128,35 +154,110 @@ describe('PlusMinusCounterComponent', () => {
     });
   }));
 
-  it('should open plus fullscreen counter', async(() => {
-    component.openFullScreenCounter(
-      FullScreenCounterType.plus,
+  it('should swipe click on left swipe', async(() => {
+
+    spyOn(
+      component,
+      'countPlus'
     );
+
+    spyOn(
+      component,
+      'countMinus'
+    );
+
+    counter.minusCount = -1;
+    counter.plusCount = 1;
+
+    fixture.detectChanges();
+
+    component.onStart({} as any);
+    component.onMoveHandler({
+      deltaX: component.rightButtonWidth - (component.rootItemWidth * component.SWIPE_CLICK_WIDTH_RATIO + 1)
+    } as any);
+    component.onEnd({} as any);
 
     fixture.detectChanges();
     fixture.whenStable().then(() => {
-      expect(router.navigate).toHaveBeenCalledTimes(1);
-      expect(router.navigate).toHaveBeenCalledWith([
-        '/fullscreen-counter',
-        'plus',
-        counter.id
-      ]);
+      expect(component.countPlus).toHaveBeenCalledTimes(1);
+      expect(component.countMinus).toHaveBeenCalledTimes(0);
     });
   }));
 
-  it('should open minus fullscreen counter', async(() => {
-    component.openFullScreenCounter(
-      FullScreenCounterType.minus,
+  it('should swipe click on right swipe', async(() => {
+
+    spyOn(
+      component,
+      'countPlus'
     );
+
+    spyOn(
+      component,
+      'countMinus'
+    );
+
+    counter.minusCount = -1;
+    counter.plusCount = 1;
+
+    fixture.detectChanges();
+
+    component.onStart({} as any);
+    component.onMoveHandler({
+      deltaX: -(component.leftButtonWidth - (component.rootItemWidth * component.SWIPE_CLICK_WIDTH_RATIO + 1))
+    } as any);
+    component.onEnd({} as any);
 
     fixture.detectChanges();
     fixture.whenStable().then(() => {
-      expect(router.navigate).toHaveBeenCalledTimes(1);
-      expect(router.navigate).toHaveBeenCalledWith([
-        '/fullscreen-counter',
-        'minus',
-        counter.id
-      ]);
+      expect(component.countPlus).toHaveBeenCalledTimes(0);
+      expect(component.countMinus).toHaveBeenCalledTimes(1);
+    });
+  }));
+
+  it('should not swipe click on count == 0', async(() => {
+
+    spyOn(
+      component,
+      'countPlus'
+    );
+
+    spyOn(
+      component,
+      'countMinus'
+    );
+
+    counter.minusCount = 0;
+    counter.plusCount = 0;
+
+    fixture.detectChanges();
+
+    component.onStart({} as any);
+    component.onMoveHandler({
+      deltaX: component.rightButtonWidth - (component.rootItemWidth * component.SWIPE_CLICK_WIDTH_RATIO)
+    } as any);
+    component.onEnd({} as any);
+
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(component.countPlus).toHaveBeenCalledTimes(0);
+      expect(component.countMinus).toHaveBeenCalledTimes(0);
+    });
+  }));
+
+  it('should disable click events during swipeClick', async(() => {
+
+    counter.minusCount = -1;
+    counter.plusCount = 1;
+
+    fixture.detectChanges();
+
+    component.onStart({} as any);
+
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(component.rightButton.nativeElement.style.pointerEvents).toEqual('none');
+      expect(component.leftButton.nativeElement.style.pointerEvents).toEqual('none');
+      expect(component.textCenter.nativeElement.style.pointerEvents).toEqual('none');
     });
   }));
 

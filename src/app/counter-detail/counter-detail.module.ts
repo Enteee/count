@@ -18,7 +18,15 @@ const routes: Routes = [
       {
         path: '',
         children: [
-          { path: '', redirectTo: 'settings', pathMatch: 'full', },
+          { path: '', redirectTo: 'analytics', pathMatch: 'full', },
+          {
+            path: 'analytics',
+            loadChildren: () => import(
+              './counter-analytics-selection/counter-analytics-selection.module'
+            ).then(
+              m => m.CounterAnalyticsSelectionPageModule
+            ),
+          },
           {
             path: 'count',
             loadChildren: () => import(
@@ -33,14 +41,6 @@ const routes: Routes = [
               './counter-settings/counter-settings.module'
             ).then(
               m => m.CounterSettingsPageModule
-            ),
-          },
-          {
-            path: 'analytics',
-            loadChildren: () => import(
-              './counter-analytics-selection/counter-analytics-selection.module'
-            ).then(
-              m => m.CounterAnalyticsSelectionPageModule
             ),
           },
         ],

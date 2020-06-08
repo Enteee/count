@@ -125,19 +125,6 @@ describe('CounterSettingsPage', () => {
     });
   }));
 
-  it('should reset', async(() => {
-    spyOn(counterService, 'reset');
-
-    component.reset();
-
-    fixture.whenStable().then(() => {
-      expect(counterService.reset).toHaveBeenCalledTimes(1);
-      expect(counterService.reset).toHaveBeenCalledWith(counter);
-
-      expect(router.navigate).toHaveBeenCalledWith(['/counters']);
-    });
-  }));
-
   it('should hide vibration option if vibration is disabled in appstate', async(() => {
     const vibrateCheckbox = fixture.debugElement.nativeElement.querySelector('.vibrate-checkbox');
     appState.vibrate = false;
@@ -303,23 +290,6 @@ describe('CounterSettingsPage', () => {
       expect(component.counterSettingsForm.get).toHaveBeenCalledWith('testFormControl');
 
       expect(component.counterSettingsForm.patchValue).toHaveBeenCalledTimes(0);
-    });
-  }));
-
-  it('can delete', async(() => {
-
-    spyOn(
-      counterService,
-      'delete',
-    );
-
-    component.deleteCounter();
-
-    fixture.whenStable().then(() => {
-      expect(counterService.delete).toHaveBeenCalledTimes(1);
-      expect(counterService.delete).toHaveBeenCalledWith(counter);
-
-      expect(router.navigate).toHaveBeenCalledWith(['/counters']);
     });
   }));
 

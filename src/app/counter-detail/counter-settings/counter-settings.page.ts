@@ -137,13 +137,6 @@ export class CounterSettingsPage implements OnInit, AfterViewInit, HasUnsavedCha
     return !this.counterSettingsForm.valid;
   }
 
-  async reset() {
-    await this.counterService.reset(this.counter);
-    this.router.navigate([
-      '/counters',
-    ]);
-  }
-
   check(
     formControlName: string,
   ) {
@@ -176,15 +169,6 @@ export class CounterSettingsPage implements OnInit, AfterViewInit, HasUnsavedCha
         [formControlName]: Math[clampFunction](clampValue, value)
       });
     }
-  }
-
-  async deleteCounter() {
-    // We want to make give the user the impression that this
-    // operation is very quick, so we first navigate away.
-    this.router.navigate([
-      '/counters',
-    ]);
-    await this.counterService.delete(this.counter);
   }
 
 }

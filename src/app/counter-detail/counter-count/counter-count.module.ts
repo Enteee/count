@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { NotImplementedModule } from '../../not-implemented/not-implemented.module';
+import { ComponentsModule } from '../../components/components.module';
 
 import { CounterCountPage } from './counter-count.page';
 
@@ -23,6 +24,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     IonicModule,
     RouterModule.forChild(routes),
+    ComponentsModule,
     NotImplementedModule,
   ],
   declarations: [CounterCountPage]

@@ -73,4 +73,33 @@ describe('CounterCountPage', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should reset', async(() => {
+    spyOn(counterService, 'reset');
+
+    component.reset();
+
+    fixture.whenStable().then(() => {
+      expect(counterService.reset).toHaveBeenCalledTimes(1);
+      expect(counterService.reset).toHaveBeenCalledWith(counter);
+    });
+  }));
+
+  it('can delete', async(() => {
+
+    spyOn(
+      counterService,
+      'delete',
+    );
+
+    component.deleteCounter();
+
+    fixture.whenStable().then(() => {
+      expect(counterService.delete).toHaveBeenCalledTimes(1);
+      expect(counterService.delete).toHaveBeenCalledWith(counter);
+
+      expect(router.navigate).toHaveBeenCalledWith(['/counters']);
+    });
+  }));
+
+
 });
