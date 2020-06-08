@@ -89,60 +89,56 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
 
   onMoveHandler(event: any) {
 
-    requestAnimationFrame(() => {
+    const newRightButtonWidth = this.rightButtonWidth - event.deltaX;
+    if(this.rightButton){
+      this.rightButton.nativeElement.style.width = Math.max(
+        (this.leftButton) ? 0 : this.rightButtonWidth,
+        newRightButtonWidth,
+      ) + 'px';
+    }
 
-      const newRightButtonWidth = this.rightButtonWidth - event.deltaX;
+    const newLeftButtonWidth = this.leftButtonWidth + event.deltaX;
+    if(this.leftButton){
+      this.leftButton.nativeElement.style.width = Math.max(
+        (this.rightButton) ? 0 : this.leftButtonWidth,
+        newLeftButtonWidth,
+      ) + 'px';
+    }
+
+    if (this.rootItemWidth * this.SWIPE_CLICK_WIDTH_RATIO <= newRightButtonWidth) {
       if(this.rightButton){
-        this.rightButton.nativeElement.style.width = Math.max(
-          (this.leftButton) ? 0 : this.rightButtonWidth,
-          newRightButtonWidth,
-        ) + 'px';
-      }
+        this.rightButton.nativeElement.style.width = '100%';
 
-      const newLeftButtonWidth = this.leftButtonWidth + event.deltaX;
+        if(this.leftButton){
+          this.leftButton.nativeElement.style.display = 'none';
+        }
+
+        this.clickIndicator.nativeElement.style.display = 'none';
+        this.swipeClickRight = true;
+      }
+    } else if (this.rootItemWidth * this.SWIPE_CLICK_WIDTH_RATIO  <= newLeftButtonWidth) {
       if(this.leftButton){
-        this.leftButton.nativeElement.style.width = Math.max(
-          (this.rightButton) ? 0 : this.leftButtonWidth,
-          newLeftButtonWidth,
-        ) + 'px';
-      }
+        this.leftButton.nativeElement.style.width = '100%';
 
-      if (this.rootItemWidth * this.SWIPE_CLICK_WIDTH_RATIO < newRightButtonWidth) {
         if(this.rightButton){
-          this.rightButton.nativeElement.style.width = '100%';
-
-          if(this.leftButton){
-            this.leftButton.nativeElement.style.display = 'none';
-          }
-
-          this.clickIndicator.nativeElement.style.display = 'none';
-          this.swipeClickRight = true;
+          this.rightButton.nativeElement.style.display = 'none';
         }
-      }else if (this.rootItemWidth * this.SWIPE_CLICK_WIDTH_RATIO  < newLeftButtonWidth) {
-        if(this.leftButton){
-          this.leftButton.nativeElement.style.width = '100%';
 
-          if(this.rightButton){
-            this.rightButton.nativeElement.style.display = 'none';
-          }
-
-          this.clickIndicator.nativeElement.style.display = 'none';
-          this.swipeClickLeft = true;
-        }
-      } else {
-        if(this.rightButton){
-          this.rightButton.nativeElement.style.display = 'block';
-        }
-        if(this.leftButton){
-          this.leftButton.nativeElement.style.display = 'block';
-        }
-        this.clickIndicator.nativeElement.style.display = 'block';
-
-        this.swipeClickRight = false;
-        this.swipeClickLeft = false;
+        this.clickIndicator.nativeElement.style.display = 'none';
+        this.swipeClickLeft = true;
       }
+    } else {
+      if(this.rightButton){
+        this.rightButton.nativeElement.style.display = 'block';
+      }
+      if(this.leftButton){
+        this.leftButton.nativeElement.style.display = 'block';
+      }
+      this.clickIndicator.nativeElement.style.display = 'block';
 
-    });
+      this.swipeClickRight = false;
+      this.swipeClickLeft = false;
+    }
   }
 
   onEnd(event: any) {

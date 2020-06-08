@@ -154,4 +154,81 @@ describe('PlusMinusCounterComponent', () => {
     });
   }));
 
+  it('should swipe click', async(() => {
+
+    spyOn(
+      component,
+      'countPlus'
+    );
+
+    spyOn(
+      component,
+      'countMinus'
+    );
+
+    counter.minusCount = 0;
+    counter.plusCount = 1;
+
+    fixture.detectChanges();
+
+    component.onStart({} as any);
+    component.onMoveHandler({
+      deltaX: component.rightButtonWidth - (component.rootItemWidth * component.SWIPE_CLICK_WIDTH_RATIO)
+    } as any);
+    component.onEnd({} as any);
+
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(component.countPlus).toHaveBeenCalledTimes(1);
+      expect(component.countMinus).toHaveBeenCalledTimes(0);
+    });
+  }));
+
+  it('should not swipe click on count == 0', async(() => {
+
+    spyOn(
+      component,
+      'countPlus'
+    );
+
+    spyOn(
+      component,
+      'countMinus'
+    );
+
+    counter.minusCount = 0;
+    counter.plusCount = 0;
+
+    fixture.detectChanges();
+
+    component.onStart({} as any);
+    component.onMoveHandler({
+      deltaX: component.rightButtonWidth - (component.rootItemWidth * component.SWIPE_CLICK_WIDTH_RATIO)
+    } as any);
+    component.onEnd({} as any);
+
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(component.countPlus).toHaveBeenCalledTimes(0);
+      expect(component.countMinus).toHaveBeenCalledTimes(0);
+    });
+  }));
+
+  it('should disable click events during swipeClick', async(() => {
+
+    counter.minusCount = -1;
+    counter.plusCount = 1;
+
+    fixture.detectChanges();
+
+    component.onStart({} as any);
+
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(component.rightButton.nativeElement.style.pointerEvents).toEqual('none');
+      expect(component.leftButton.nativeElement.style.pointerEvents).toEqual('none');
+      expect(component.textCenter.nativeElement.style.pointerEvents).toEqual('none');
+    });
+  }));
+
 });
