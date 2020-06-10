@@ -64,64 +64,64 @@
           </ion-item>
 
           <ion-list-header>
-            <ion-label>Positive Wraparound</ion-label>
+            <ion-label>Positive Limit</ion-label>
           </ion-list-header>
           <ion-item>
 
             <ion-icon
               slot="start"
               name="add"
-              (click)="increment('positiveWrapAround')"
+              (click)="increment('positiveLimit')"
             >
             </ion-icon>
 
             <ion-input
               required
-              formControlName="positiveWrapAround"
+              formControlName="positiveLimit"
               type="number"
               placeholder="0"
               (ionChange)="
-                clamp('positiveWrapAround', 1);
-                check('positiveWrapAroundActive');
+                clamp('positiveLimit', 1);
+                check('positiveLimitActive');
               "
             >
             </ion-input>
 
             <ion-checkbox
               slot="end"
-              formControlName="positiveWrapAroundActive"
+              formControlName="positiveLimitActive"
             >
             </ion-checkbox>
 
           </ion-item>
 
           <ion-list-header>
-            <ion-label>Negative Wraparound</ion-label>
+            <ion-label>Negative Limit</ion-label>
           </ion-list-header>
           <ion-item>
 
             <ion-icon
               slot="start"
               name="remove"
-              (click)="increment('negativeWrapAround')"
+              (click)="increment('negativeLimit')"
             >
             </ion-icon>
 
             <ion-input
               required
-              formControlName="negativeWrapAround"
+              formControlName="negativeLimit"
               type="number"
               placeholder="0"
               (ionChange)="
-                clamp('negativeWrapAround', 1);
-                check('negativeWrapAroundActive');
+                clamp('negativeLimit', 1);
+                check('negativeLimitActive');
               "
             >
             </ion-input>
 
             <ion-checkbox
               slot="end"
-              formControlName="negativeWrapAroundActive"
+              formControlName="negativeLimitActive"
             >
             </ion-checkbox>
 

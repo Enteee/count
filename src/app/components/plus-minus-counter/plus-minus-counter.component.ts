@@ -35,9 +35,9 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
   @Input() showDetailsOnClick = true;
 
   swipeClickGesture;
-  swipeClickGestureFirstRun: boolean = true;
-  swipeClickLeft: boolean = false;
-  swipeClickRight: boolean = false;
+  swipeClickGestureFirstRun = true;
+  swipeClickLeft = false;
+  swipeClickRight = false;
 
   constructor(
     private router: Router,
