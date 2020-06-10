@@ -1,6 +1,7 @@
 <ion-item #rootItem
   [style.--min-height.vh]="minHeight"
   class="ion-no-padding"
+  (window:resize)="recordWidths()"
 >
   <ng-template [ngIf]="counter.minusCount < 0">
     <ion-button

@@ -35,8 +35,9 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
   @Input() showDetailsOnClick = true;
 
   swipeClickGesture;
-  swipeClickLeft = false;
-  swipeClickRight = false;
+  swipeClickGestureFirstRun: boolean = true;
+  swipeClickLeft: boolean = false;
+  swipeClickRight: boolean = false;
 
   constructor(
     private router: Router,
@@ -62,10 +63,20 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onStart(event: any) {
+  recordWidths(){
     this.rootItemWidth = this.rootItem.nativeElement.offsetWidth;
     this.rightButtonWidth = (this.rightButton) ? this.rightButton.nativeElement.offsetWidth : 0;
     this.leftButtonWidth = (this.leftButton) ? this.leftButton.nativeElement.offsetWidth : 0;
+  }
+
+  onStart(event: any) {
+
+    // record widths of components on first run
+    if(this.swipeClickGestureFirstRun){
+      this.recordWidths();
+      this.swipeClickGestureFirstRun = false;
+    }
+
     this.swipeClickRight = false;
     this.swipeClickLeft = false;
 
@@ -107,7 +118,6 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
     }
 
     if (this.rootItemWidth * this.SWIPE_CLICK_WIDTH_RATIO < newRightButtonWidth) {
-      console.log('rightClick');
       if(this.rightButton){
         this.rightButton.nativeElement.style.width = '100%';
 
@@ -119,7 +129,6 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
         this.swipeClickRight = true;
       }
     } else if (this.rootItemWidth * this.SWIPE_CLICK_WIDTH_RATIO  < newLeftButtonWidth) {
-      console.log('leftClick');
       if(this.leftButton){
         this.leftButton.nativeElement.style.width = '100%';
 
