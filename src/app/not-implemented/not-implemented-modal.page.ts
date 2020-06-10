@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
+import { AppState } from '../models/app-state';
 import { AppStateService } from '../services/app-state.service';
 
 @Component({
@@ -19,12 +20,14 @@ export class NotImplementedModalPage {
   @Input() issueId: number;
   @Input() description: string;
 
+  appState: AppState;
+
   constructor(
     private modalController: ModalController,
     private iab: InAppBrowser,
     private appStateService: AppStateService,
   ) {
-
+    this.appState = this.appStateService.appState;
   }
 
   public async dismissModal() {
