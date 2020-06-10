@@ -172,12 +172,27 @@ describe('PlusMinusCounterComponent', () => {
     fixture.detectChanges();
 
     component.onStart({} as any);
+
+    /**
+     * fake element with following widths:
+     *
+     * | left | center | right |
+     * | 10px |  80px  |  10px |
+     *
+     * => rootItem = 100px;
+     */
+    component.rootItemWidth = 100;
+    component.rightButtonWidth = 10;
+    component.leftButtonWidth = 10;
+
+    // move to swipe click position
     component.onMoveHandler({
-      deltaX: component.rightButtonWidth - (component.rootItemWidth * component.SWIPE_CLICK_WIDTH_RATIO + 1)
+      deltaX: -(component.rootItemWidth * component.SWIPE_CLICK_WIDTH_RATIO + 1)
     } as any);
     component.onEnd({} as any);
 
     fixture.detectChanges();
+
     fixture.whenStable().then(() => {
       expect(component.countPlus).toHaveBeenCalledTimes(1);
       expect(component.countMinus).toHaveBeenCalledTimes(0);
@@ -202,15 +217,80 @@ describe('PlusMinusCounterComponent', () => {
     fixture.detectChanges();
 
     component.onStart({} as any);
+
+    /**
+     * fake element with following widths:
+     *
+     * | left | center | right |
+     * | 10px |  80px  |  10px |
+     *
+     * => rootItem = 100px;
+     */
+    component.rootItemWidth = 100;
+    component.rightButtonWidth = 10;
+    component.leftButtonWidth = 10;
+
+    // move to swipe click position
     component.onMoveHandler({
-      deltaX: -(component.leftButtonWidth - (component.rootItemWidth * component.SWIPE_CLICK_WIDTH_RATIO + 1))
+      deltaX: component.rootItemWidth * component.SWIPE_CLICK_WIDTH_RATIO + 1
     } as any);
+
     component.onEnd({} as any);
 
     fixture.detectChanges();
     fixture.whenStable().then(() => {
       expect(component.countPlus).toHaveBeenCalledTimes(0);
       expect(component.countMinus).toHaveBeenCalledTimes(1);
+    });
+  }));
+
+  it('should swipe click reset to normal', async(() => {
+
+    spyOn(
+      component,
+      'countPlus'
+    );
+
+    spyOn(
+      component,
+      'countMinus'
+    );
+
+    counter.minusCount = -1;
+    counter.plusCount = 1;
+
+    fixture.detectChanges();
+
+    component.onStart({} as any);
+
+    /**
+     * fake element with following widths:
+     *
+     * | left | center | right |
+     * | 10px |  80px  |  10px |
+     *
+     * => rootItem = 100px;
+     */
+    component.rootItemWidth = 100;
+    component.rightButtonWidth = 10;
+    component.leftButtonWidth = 10;
+
+    // move to swipe click position
+    component.onMoveHandler({
+      deltaX: component.rootItemWidth * component.SWIPE_CLICK_WIDTH_RATIO + 1
+    } as any);
+
+    // move away from swipe click position
+    component.onMoveHandler({
+      deltaX: -1
+    } as any);
+
+    component.onEnd({} as any);
+
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(component.countPlus).toHaveBeenCalledTimes(0);
+      expect(component.countMinus).toHaveBeenCalledTimes(0);
     });
   }));
 
@@ -232,9 +312,24 @@ describe('PlusMinusCounterComponent', () => {
     fixture.detectChanges();
 
     component.onStart({} as any);
+
+    /**
+     * fake element with following widths:
+     *
+     * | left | center | right |
+     * | 10px |  80px  |  10px |
+     *
+     * => rootItem = 100px;
+     */
+    component.rootItemWidth = 100;
+    component.rightButtonWidth = 10;
+    component.leftButtonWidth = 10;
+
+    // move to swipe click position
     component.onMoveHandler({
-      deltaX: component.rightButtonWidth - (component.rootItemWidth * component.SWIPE_CLICK_WIDTH_RATIO)
+      deltaX: component.rootItemWidth * component.SWIPE_CLICK_WIDTH_RATIO + 1
     } as any);
+
     component.onEnd({} as any);
 
     fixture.detectChanges();

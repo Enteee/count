@@ -1,6 +1,7 @@
 <ion-item #rootItem
   [style.--min-height.vh]="minHeight"
   class="ion-no-padding"
+  (window:resize)="recordWidths()"
 >
   <ng-template [ngIf]="counter.minusCount < 0">
     <ion-button
@@ -40,7 +41,12 @@
     <h1>{{counter.count}}</h1>
   </ion-label>
 
-  <ion-icon #clickIndicator name="chevron-forward-outline"></ion-icon>
+    <ng-template [ngIf]="showDetailsOnClick">
+      <ion-icon
+        #clickIndicator
+        name="chevron-forward-outline"
+      ></ion-icon>
+    </ng-template>
 
   <ng-template [ngIf]="counter.plusCount > 0">
     <ion-button

@@ -35,6 +35,7 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
   @Input() showDetailsOnClick = true;
 
   swipeClickGesture;
+  swipeClickGestureFirstRun = true;
   swipeClickLeft = false;
   swipeClickRight = false;
 
@@ -62,10 +63,20 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onStart(event: any) {
+  recordWidths(){
     this.rootItemWidth = this.rootItem.nativeElement.offsetWidth;
     this.rightButtonWidth = (this.rightButton) ? this.rightButton.nativeElement.offsetWidth : 0;
     this.leftButtonWidth = (this.leftButton) ? this.leftButton.nativeElement.offsetWidth : 0;
+  }
+
+  onStart(event: any) {
+
+    // record widths of components on first run
+    if(this.swipeClickGestureFirstRun){
+      this.recordWidths();
+      this.swipeClickGestureFirstRun = false;
+    }
+
     this.swipeClickRight = false;
     this.swipeClickLeft = false;
 
@@ -90,7 +101,10 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
 
   onMoveHandler(event: any) {
 
-    const newRightButtonWidth = this.rightButtonWidth - event.deltaX;
+    const newRightButtonWidth = Math.min(
+      this.rightButtonWidth - event.deltaX,
+      this.rootItemWidth
+    )
     if(this.rightButton){
       this.rightButton.nativeElement.style.width = Math.max(
         (this.leftButton) ? 0 : this.rightButtonWidth,
@@ -98,7 +112,10 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
       ) + 'px';
     }
 
-    const newLeftButtonWidth = this.leftButtonWidth + event.deltaX;
+    const newLeftButtonWidth = Math.min(
+      this.leftButtonWidth + event.deltaX,
+      this.rootItemWidth
+    );
     if(this.leftButton){
       this.leftButton.nativeElement.style.width = Math.max(
         (this.rightButton) ? 0 : this.leftButtonWidth,
@@ -107,7 +124,6 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
     }
 
     if (this.rootItemWidth * this.SWIPE_CLICK_WIDTH_RATIO < newRightButtonWidth) {
-      console.log('rightClick');
       if(this.rightButton){
         this.rightButton.nativeElement.style.width = '100%';
 
@@ -115,11 +131,12 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
           this.leftButton.nativeElement.style.display = 'none';
         }
 
-        this.clickIndicator.nativeElement.style.display = 'none';
+        if(this.clickIndicator){
+          this.clickIndicator.nativeElement.style.display = 'none';
+        }
         this.swipeClickRight = true;
       }
     } else if (this.rootItemWidth * this.SWIPE_CLICK_WIDTH_RATIO  < newLeftButtonWidth) {
-      console.log('leftClick');
       if(this.leftButton){
         this.leftButton.nativeElement.style.width = '100%';
 
@@ -127,7 +144,9 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
           this.rightButton.nativeElement.style.display = 'none';
         }
 
-        this.clickIndicator.nativeElement.style.display = 'none';
+        if(this.clickIndicator){
+          this.clickIndicator.nativeElement.style.display = 'none';
+        }
         this.swipeClickLeft = true;
       }
     } else {
@@ -137,7 +156,9 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
       if(this.leftButton){
         this.leftButton.nativeElement.style.display = 'block';
       }
-      this.clickIndicator.nativeElement.style.display = 'block';
+      if(this.clickIndicator){
+        this.clickIndicator.nativeElement.style.display = 'block';
+      }
 
       this.swipeClickRight = false;
       this.swipeClickLeft = false;
@@ -167,7 +188,9 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
         this.leftButton.nativeElement.style.width = this.leftButtonWidth + 'px';
       }
 
-      this.clickIndicator.nativeElement.style.display = 'block';
+      if(this.clickIndicator){
+        this.clickIndicator.nativeElement.style.display = 'block';
+      }
     });
 
 

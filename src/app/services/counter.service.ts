@@ -75,17 +75,17 @@ export class CounterService {
 
     // apply positive and negative wraparounds
     if (
-      counter.positiveWrapAroundActive
-      && counter.count > counter.positiveWrapAround
+      counter.positiveLimitActive
+      && counter.count > counter.positiveLimit
     ) {
-      counter.count = counter.count % counter.positiveWrapAround;
+      counter.count = counter.count % counter.positiveLimit;
     }
 
     if (
-      counter.negativeWrapAroundActive
-      && counter.count < counter.negativeWrapAround
+      counter.negativeLimitActive
+      && counter.count < counter.negativeLimit
     ) {
-      counter.count = counter.count % counter.negativeWrapAround;
+      counter.count = counter.count % counter.negativeLimit;
     }
 
     let position = null;
