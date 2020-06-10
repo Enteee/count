@@ -197,7 +197,6 @@ function PlusMinusCounterComponent_ng_template_10_Template(rf, ctx) { if (rf & 1
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngSwitchCase", 1);
 } }
-const _c5 = function (a1) { return ["/counter-detail", a1]; };
 class PlusMinusCounterComponent {
     constructor(router, counterService, appStateService, gestureCtrl) {
         this.router = router;
@@ -206,6 +205,7 @@ class PlusMinusCounterComponent {
         this.gestureCtrl = gestureCtrl;
         this.SWIPE_CLICK_WIDTH_RATIO = 0.3;
         this.hideTitle = false;
+        this.showDetailsOnClick = true;
         this.swipeClickLeft = false;
         this.swipeClickRight = false;
     }
@@ -337,6 +337,11 @@ class PlusMinusCounterComponent {
             }
         });
     }
+    showDetails() {
+        if (this.showDetailsOnClick) {
+            this.router.navigate(['/counter-detail', this.counter.id]);
+        }
+    }
 }
 PlusMinusCounterComponent.ɵfac = function PlusMinusCounterComponent_Factory(t) { return new (t || PlusMinusCounterComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_counter_service__WEBPACK_IMPORTED_MODULE_5__["CounterService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_app_state_service__WEBPACK_IMPORTED_MODULE_6__["AppStateService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["GestureController"])); };
 PlusMinusCounterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: PlusMinusCounterComponent, selectors: [["app-plus-minus-counter"]], viewQuery: function PlusMinusCounterComponent_Query(rf, ctx) { if (rf & 1) {
@@ -352,10 +357,11 @@ PlusMinusCounterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵ
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.clickIndicator = _t.first);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.rightButton = _t.first);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.leftButton = _t.first);
-    } }, inputs: { counter: "counter", minHeight: "minHeight", hideTitle: "hideTitle" }, decls: 12, vars: 9, consts: [[1, "ion-no-padding"], ["rootItem", ""], [3, "ngIf"], ["clickable", "", 1, "ion-text-center", 3, "routerLink"], ["textCenter", ""], [4, "ngIf"], ["name", "chevron-forward-outline"], ["clickIndicator", ""], ["slot", "end"], ["size", "large", "color", "danger", "expand", "full", 1, "ion-no-padding", 3, "disabled", "click"], ["buttonLeft", ""], [3, "ngSwitch"], [4, "ngSwitchCase"], [4, "ngSwitchDefault"], ["name", "remove"], ["size", "large", "color", "success", "expand", "full", 1, "ion-no-padding", 3, "disabled", "click"], ["buttonRight", ""], ["name", "add"]], template: function PlusMinusCounterComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { counter: "counter", minHeight: "minHeight", hideTitle: "hideTitle", showDetailsOnClick: "showDetailsOnClick" }, decls: 12, vars: 6, consts: [[1, "ion-no-padding"], ["rootItem", ""], [3, "ngIf"], ["clickable", "", 1, "ion-text-center", 3, "click"], ["textCenter", ""], [4, "ngIf"], ["name", "chevron-forward-outline"], ["clickIndicator", ""], ["slot", "end"], ["size", "large", "color", "danger", "expand", "full", 1, "ion-no-padding", 3, "disabled", "click"], ["buttonLeft", ""], [3, "ngSwitch"], [4, "ngSwitchCase"], [4, "ngSwitchDefault"], ["name", "remove"], ["size", "large", "color", "success", "expand", "full", 1, "ion-no-padding", 3, "disabled", "click"], ["buttonRight", ""], ["name", "add"]], template: function PlusMinusCounterComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-item", 0, 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, PlusMinusCounterComponent_ng_template_2_Template, 5, 3, "ng-template", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "ion-label", 3, 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function PlusMinusCounterComponent_Template_ion_label_click_3_listener() { return ctx.showDetails(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](5, PlusMinusCounterComponent_h1_5_Template, 2, 1, "h1", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "h1");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](7);
@@ -369,15 +375,13 @@ PlusMinusCounterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵ
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵstyleProp"]("--min-height", ctx.minHeight, "vh");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.counter.minusCount < 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](7, _c5, ctx.counter.id));
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !ctx.hideTitle);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](ctx.counter.count);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.counter.plusCount > 0);
-    } }, directives: [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonItem"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgIf"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonLabel"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLink"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["RouterLinkDelegate"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonIcon"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonReorder"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonButton"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgSwitch"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgSwitchCase"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgSwitchDefault"]], styles: ["ion-button[_ngcontent-%COMP%] {\n  width: 15%;\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL2NvdW50L2NvdW50L3NyYy9hcHAvY29tcG9uZW50cy9wbHVzLW1pbnVzLWNvdW50ZXIvcGx1cy1taW51cy1jb3VudGVyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRzL3BsdXMtbWludXMtY291bnRlci9wbHVzLW1pbnVzLWNvdW50ZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxVQUFBO0VBQ0EsWUFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9wbHVzLW1pbnVzLWNvdW50ZXIvcGx1cy1taW51cy1jb3VudGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWJ1dHRvbiB7XG4gIHdpZHRoOiAxNSU7XG4gIGhlaWdodDogMTAwJTtcbn1cbiIsImlvbi1idXR0b24ge1xuICB3aWR0aDogMTUlO1xuICBoZWlnaHQ6IDEwMCU7XG59Il19 */"] });
+    } }, directives: [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonItem"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgIf"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonLabel"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonIcon"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonReorder"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonButton"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgSwitch"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgSwitchCase"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgSwitchDefault"]], styles: ["ion-button[_ngcontent-%COMP%] {\n  width: 15%;\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL2NvdW50L2NvdW50L3NyYy9hcHAvY29tcG9uZW50cy9wbHVzLW1pbnVzLWNvdW50ZXIvcGx1cy1taW51cy1jb3VudGVyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRzL3BsdXMtbWludXMtY291bnRlci9wbHVzLW1pbnVzLWNvdW50ZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxVQUFBO0VBQ0EsWUFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9wbHVzLW1pbnVzLWNvdW50ZXIvcGx1cy1taW51cy1jb3VudGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWJ1dHRvbiB7XG4gIHdpZHRoOiAxNSU7XG4gIGhlaWdodDogMTAwJTtcbn1cbiIsImlvbi1idXR0b24ge1xuICB3aWR0aDogMTUlO1xuICBoZWlnaHQ6IDEwMCU7XG59Il19 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](PlusMinusCounterComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
         args: [{
@@ -405,6 +409,8 @@ PlusMinusCounterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵ
         }], minHeight: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
         }], hideTitle: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], showDetailsOnClick: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
         }] }); })();
 

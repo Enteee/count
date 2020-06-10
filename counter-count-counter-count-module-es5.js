@@ -303,8 +303,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       type: CounterCountPage,
       selectors: [["app-counter-count"]],
       decls: 39,
-      vars: 5,
-      consts: [[3, "minHeight", "hideTitle", "counter"], ["slot", "start", "name", "expand"], ["expand", "full", "color", "danger", 3, "routerLink", 4, "ngIf"], ["expand", "full", "color", "success", 3, "routerLink", 4, "ngIf"], ["slot", "start", "name", "refresh"], ["slot", "end", "name", "arrow-back"], ["side", "end"], ["color", "warning", 3, "click"], ["slot", "icon-only", "name", "refresh"], ["slot", "start", "name", "trash"], ["color", "danger", 3, "click"], ["slot", "icon-only", "name", "trash"], ["slot", "start", "name", "shuffle"], [3, "click"], ["slot", "icon-only", "name", "shuffle"], ["expand", "full", "color", "danger", 3, "routerLink"], ["name", "remove"], ["expand", "full", "color", "success", 3, "routerLink"], ["name", "add"]],
+      vars: 6,
+      consts: [[3, "minHeight", "hideTitle", "showDetailsOnClick", "counter"], ["slot", "start", "name", "expand"], ["expand", "full", "color", "danger", 3, "routerLink", 4, "ngIf"], ["expand", "full", "color", "success", 3, "routerLink", 4, "ngIf"], ["slot", "start", "name", "refresh"], ["slot", "end", "name", "arrow-back"], ["side", "end"], ["color", "warning", 3, "click"], ["slot", "icon-only", "name", "refresh"], ["slot", "start", "name", "trash"], ["color", "danger", 3, "click"], ["slot", "icon-only", "name", "trash"], ["slot", "start", "name", "shuffle"], [3, "click"], ["slot", "icon-only", "name", "shuffle"], ["expand", "full", "color", "danger", 3, "routerLink"], ["name", "remove"], ["expand", "full", "color", "success", 3, "routerLink"], ["name", "add"]],
       template: function CounterCountPage_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-content");
@@ -443,7 +443,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         if (rf & 2) {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("minHeight", 45)("hideTitle", true)("counter", ctx.counter);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("minHeight", 45)("hideTitle", true)("showDetailsOnClick", false)("counter", ctx.counter);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](8);
 
