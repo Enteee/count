@@ -101,7 +101,10 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
 
   onMoveHandler(event: any) {
 
-    const newRightButtonWidth = this.rightButtonWidth - event.deltaX;
+    const newRightButtonWidth = Math.min(
+      this.rightButtonWidth - event.deltaX,
+      this.rootItemWidth
+    )
     if(this.rightButton){
       this.rightButton.nativeElement.style.width = Math.max(
         (this.leftButton) ? 0 : this.rightButtonWidth,
@@ -109,7 +112,10 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
       ) + 'px';
     }
 
-    const newLeftButtonWidth = this.leftButtonWidth + event.deltaX;
+    const newLeftButtonWidth = Math.min(
+      this.leftButtonWidth + event.deltaX,
+      this.rootItemWidth
+    );
     if(this.leftButton){
       this.leftButton.nativeElement.style.width = Math.max(
         (this.rightButton) ? 0 : this.leftButtonWidth,
