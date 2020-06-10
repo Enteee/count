@@ -174,11 +174,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       if (rf & 2) {
-        var ctx_r54 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+        var ctx_r63 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" +", ctx_r54.counter.plusCount, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" +", ctx_r63.counter.plusCount, " ");
       }
     }
 
@@ -192,11 +192,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       if (rf & 2) {
-        var ctx_r55 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+        var ctx_r64 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx_r55.counter.minusCount, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx_r64.counter.minusCount, " ");
       }
     }
 
@@ -531,12 +531,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     } // apply positive and negative wraparounds
 
 
-                    if (counter.positiveWrapAroundActive && counter.count > counter.positiveWrapAround) {
-                      counter.count = counter.count % counter.positiveWrapAround;
+                    if (counter.positiveLimitActive && counter.count > counter.positiveLimit) {
+                      counter.count = counter.count % counter.positiveLimit;
                     }
 
-                    if (counter.negativeWrapAroundActive && counter.count < counter.negativeWrapAround) {
-                      counter.count = counter.count % counter.negativeWrapAround;
+                    if (counter.negativeLimitActive && counter.count < counter.negativeLimit) {
+                      counter.count = counter.count % counter.negativeLimit;
                     }
 
                     position = null;

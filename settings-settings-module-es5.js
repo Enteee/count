@@ -194,13 +194,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       if (rf & 2) {
-        var updateChannel_r48 = ctx.$implicit;
+        var updateChannel_r57 = ctx.$implicit;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("value", updateChannel_r48);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("value", updateChannel_r57);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", updateChannel_r48, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", updateChannel_r57, " ");
       }
     }
 

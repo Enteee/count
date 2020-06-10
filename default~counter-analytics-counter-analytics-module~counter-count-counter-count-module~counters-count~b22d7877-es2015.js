@@ -128,7 +128,7 @@ const _c3 = ["buttonRight"];
 const _c4 = ["buttonLeft"];
 function PlusMinusCounterComponent_ng_template_2_div_3_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "ion-icon", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "ion-icon", 12);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } }
 function PlusMinusCounterComponent_ng_template_2_div_4_Template(rf, ctx) { if (rf & 1) {
@@ -142,11 +142,11 @@ function PlusMinusCounterComponent_ng_template_2_div_4_Template(rf, ctx) { if (r
 } }
 function PlusMinusCounterComponent_ng_template_2_Template(rf, ctx) { if (rf & 1) {
     const _r31 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-button", 9, 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-button", 7, 8);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function PlusMinusCounterComponent_ng_template_2_Template_ion_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r31); const ctx_r30 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r30.countMinus(); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](3, PlusMinusCounterComponent_ng_template_2_div_3_Template, 2, 0, "div", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](4, PlusMinusCounterComponent_ng_template_2_div_4_Template, 2, 1, "div", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](3, PlusMinusCounterComponent_ng_template_2_div_3_Template, 2, 0, "div", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](4, PlusMinusCounterComponent_ng_template_2_div_4_Template, 2, 1, "div", 11);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -166,27 +166,30 @@ function PlusMinusCounterComponent_h1_5_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](ctx_r24.counter.title);
 } }
-function PlusMinusCounterComponent_ng_template_10_div_3_Template(rf, ctx) { if (rf & 1) {
+function PlusMinusCounterComponent_ng_template_8_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "ion-icon", 13, 14);
+} }
+function PlusMinusCounterComponent_ng_template_9_div_3_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "ion-icon", 17);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } }
-function PlusMinusCounterComponent_ng_template_10_div_4_Template(rf, ctx) { if (rf & 1) {
+function PlusMinusCounterComponent_ng_template_9_div_4_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const ctx_r34 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
+    const ctx_r35 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" +", ctx_r34.counter.plusCount, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" +", ctx_r35.counter.plusCount, " ");
 } }
-function PlusMinusCounterComponent_ng_template_10_Template(rf, ctx) { if (rf & 1) {
-    const _r36 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+function PlusMinusCounterComponent_ng_template_9_Template(rf, ctx) { if (rf & 1) {
+    const _r37 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-button", 15, 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function PlusMinusCounterComponent_ng_template_10_Template_ion_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r36); const ctx_r35 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r35.countPlus(); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](3, PlusMinusCounterComponent_ng_template_10_div_3_Template, 2, 0, "div", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](4, PlusMinusCounterComponent_ng_template_10_div_4_Template, 2, 1, "div", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function PlusMinusCounterComponent_ng_template_9_Template_ion_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r37); const ctx_r36 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r36.countPlus(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](3, PlusMinusCounterComponent_ng_template_9_div_3_Template, 2, 0, "div", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](4, PlusMinusCounterComponent_ng_template_9_div_4_Template, 2, 1, "div", 11);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -206,6 +209,7 @@ class PlusMinusCounterComponent {
         this.SWIPE_CLICK_WIDTH_RATIO = 0.3;
         this.hideTitle = false;
         this.showDetailsOnClick = true;
+        this.swipeClickGestureFirstRun = true;
         this.swipeClickLeft = false;
         this.swipeClickRight = false;
     }
@@ -224,10 +228,17 @@ class PlusMinusCounterComponent {
             this.swipeClickGesture.enable();
         }
     }
-    onStart(event) {
+    recordWidths() {
         this.rootItemWidth = this.rootItem.nativeElement.offsetWidth;
         this.rightButtonWidth = (this.rightButton) ? this.rightButton.nativeElement.offsetWidth : 0;
         this.leftButtonWidth = (this.leftButton) ? this.leftButton.nativeElement.offsetWidth : 0;
+    }
+    onStart(event) {
+        // record widths of components on first run
+        if (this.swipeClickGestureFirstRun) {
+            this.recordWidths();
+            this.swipeClickGestureFirstRun = false;
+        }
         this.swipeClickRight = false;
         this.swipeClickLeft = false;
         // disable click events
@@ -248,33 +259,35 @@ class PlusMinusCounterComponent {
         });
     }
     onMoveHandler(event) {
-        const newRightButtonWidth = this.rightButtonWidth - event.deltaX;
+        const newRightButtonWidth = Math.min(this.rightButtonWidth - event.deltaX, this.rootItemWidth);
         if (this.rightButton) {
             this.rightButton.nativeElement.style.width = Math.max((this.leftButton) ? 0 : this.rightButtonWidth, newRightButtonWidth) + 'px';
         }
-        const newLeftButtonWidth = this.leftButtonWidth + event.deltaX;
+        const newLeftButtonWidth = Math.min(this.leftButtonWidth + event.deltaX, this.rootItemWidth);
         if (this.leftButton) {
             this.leftButton.nativeElement.style.width = Math.max((this.rightButton) ? 0 : this.leftButtonWidth, newLeftButtonWidth) + 'px';
         }
         if (this.rootItemWidth * this.SWIPE_CLICK_WIDTH_RATIO < newRightButtonWidth) {
-            console.log('rightClick');
             if (this.rightButton) {
                 this.rightButton.nativeElement.style.width = '100%';
                 if (this.leftButton) {
                     this.leftButton.nativeElement.style.display = 'none';
                 }
-                this.clickIndicator.nativeElement.style.display = 'none';
+                if (this.clickIndicator) {
+                    this.clickIndicator.nativeElement.style.display = 'none';
+                }
                 this.swipeClickRight = true;
             }
         }
         else if (this.rootItemWidth * this.SWIPE_CLICK_WIDTH_RATIO < newLeftButtonWidth) {
-            console.log('leftClick');
             if (this.leftButton) {
                 this.leftButton.nativeElement.style.width = '100%';
                 if (this.rightButton) {
                     this.rightButton.nativeElement.style.display = 'none';
                 }
-                this.clickIndicator.nativeElement.style.display = 'none';
+                if (this.clickIndicator) {
+                    this.clickIndicator.nativeElement.style.display = 'none';
+                }
                 this.swipeClickLeft = true;
             }
         }
@@ -285,7 +298,9 @@ class PlusMinusCounterComponent {
             if (this.leftButton) {
                 this.leftButton.nativeElement.style.display = 'block';
             }
-            this.clickIndicator.nativeElement.style.display = 'block';
+            if (this.clickIndicator) {
+                this.clickIndicator.nativeElement.style.display = 'block';
+            }
             this.swipeClickRight = false;
             this.swipeClickLeft = false;
         }
@@ -310,7 +325,9 @@ class PlusMinusCounterComponent {
                 this.leftButton.nativeElement.style.display = 'block';
                 this.leftButton.nativeElement.style.width = this.leftButtonWidth + 'px';
             }
-            this.clickIndicator.nativeElement.style.display = 'block';
+            if (this.clickIndicator) {
+                this.clickIndicator.nativeElement.style.display = 'block';
+            }
         });
         if (this.swipeClickRight) {
             if (this.rightButton) {
@@ -357,8 +374,9 @@ PlusMinusCounterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵ
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.clickIndicator = _t.first);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.rightButton = _t.first);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.leftButton = _t.first);
-    } }, inputs: { counter: "counter", minHeight: "minHeight", hideTitle: "hideTitle", showDetailsOnClick: "showDetailsOnClick" }, decls: 12, vars: 6, consts: [[1, "ion-no-padding"], ["rootItem", ""], [3, "ngIf"], ["clickable", "", 1, "ion-text-center", 3, "click"], ["textCenter", ""], [4, "ngIf"], ["name", "chevron-forward-outline"], ["clickIndicator", ""], ["slot", "end"], ["size", "large", "color", "danger", "expand", "full", 1, "ion-no-padding", 3, "disabled", "click"], ["buttonLeft", ""], [3, "ngSwitch"], [4, "ngSwitchCase"], [4, "ngSwitchDefault"], ["name", "remove"], ["size", "large", "color", "success", "expand", "full", 1, "ion-no-padding", 3, "disabled", "click"], ["buttonRight", ""], ["name", "add"]], template: function PlusMinusCounterComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { counter: "counter", minHeight: "minHeight", hideTitle: "hideTitle", showDetailsOnClick: "showDetailsOnClick" }, decls: 11, vars: 7, consts: [[1, "ion-no-padding", 3, "resize"], ["rootItem", ""], [3, "ngIf"], ["clickable", "", 1, "ion-text-center", 3, "click"], ["textCenter", ""], [4, "ngIf"], ["slot", "end"], ["size", "large", "color", "danger", "expand", "full", 1, "ion-no-padding", 3, "disabled", "click"], ["buttonLeft", ""], [3, "ngSwitch"], [4, "ngSwitchCase"], [4, "ngSwitchDefault"], ["name", "remove"], ["name", "chevron-forward-outline"], ["clickIndicator", ""], ["size", "large", "color", "success", "expand", "full", 1, "ion-no-padding", 3, "disabled", "click"], ["buttonRight", ""], ["name", "add"]], template: function PlusMinusCounterComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-item", 0, 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("resize", function PlusMinusCounterComponent_Template_ion_item_resize_0_listener() { return ctx.recordWidths(); }, false, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵresolveWindow"]);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, PlusMinusCounterComponent_ng_template_2_Template, 5, 3, "ng-template", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "ion-label", 3, 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function PlusMinusCounterComponent_Template_ion_label_click_3_listener() { return ctx.showDetails(); });
@@ -367,9 +385,9 @@ PlusMinusCounterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵ
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](7);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](8, "ion-icon", 6, 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](10, PlusMinusCounterComponent_ng_template_10_Template, 5, 3, "ng-template", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](11, "ion-reorder", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](8, PlusMinusCounterComponent_ng_template_8_Template, 2, 0, "ng-template", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](9, PlusMinusCounterComponent_ng_template_9_Template, 5, 3, "ng-template", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](10, "ion-reorder", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵstyleProp"]("--min-height", ctx.minHeight, "vh");
@@ -379,9 +397,11 @@ PlusMinusCounterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵ
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !ctx.hideTitle);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](ctx.counter.count);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.showDetailsOnClick);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.counter.plusCount > 0);
-    } }, directives: [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonItem"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgIf"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonLabel"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonIcon"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonReorder"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonButton"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgSwitch"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgSwitchCase"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgSwitchDefault"]], styles: ["ion-button[_ngcontent-%COMP%] {\n  width: 15%;\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL2NvdW50L2NvdW50L3NyYy9hcHAvY29tcG9uZW50cy9wbHVzLW1pbnVzLWNvdW50ZXIvcGx1cy1taW51cy1jb3VudGVyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRzL3BsdXMtbWludXMtY291bnRlci9wbHVzLW1pbnVzLWNvdW50ZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxVQUFBO0VBQ0EsWUFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9wbHVzLW1pbnVzLWNvdW50ZXIvcGx1cy1taW51cy1jb3VudGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWJ1dHRvbiB7XG4gIHdpZHRoOiAxNSU7XG4gIGhlaWdodDogMTAwJTtcbn1cbiIsImlvbi1idXR0b24ge1xuICB3aWR0aDogMTUlO1xuICBoZWlnaHQ6IDEwMCU7XG59Il19 */"] });
+    } }, directives: [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonItem"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgIf"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonLabel"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonReorder"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonButton"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgSwitch"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgSwitchCase"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgSwitchDefault"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonIcon"]], styles: ["ion-item[_ngcontent-%COMP%] {\n  --inner-padding-end: 0px;\n}\n\nion-button[_ngcontent-%COMP%] {\n  width: 15%;\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL2NvdW50L2NvdW50L3NyYy9hcHAvY29tcG9uZW50cy9wbHVzLW1pbnVzLWNvdW50ZXIvcGx1cy1taW51cy1jb3VudGVyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRzL3BsdXMtbWludXMtY291bnRlci9wbHVzLW1pbnVzLWNvdW50ZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSx3QkFBQTtBQ0NGOztBREVBO0VBQ0UsVUFBQTtFQUNBLFlBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcGx1cy1taW51cy1jb3VudGVyL3BsdXMtbWludXMtY291bnRlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi1pdGVtIHtcbiAgLS1pbm5lci1wYWRkaW5nLWVuZDogMHB4O1xufVxuXG5pb24tYnV0dG9uIHtcbiAgd2lkdGg6IDE1JTtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuIiwiaW9uLWl0ZW0ge1xuICAtLWlubmVyLXBhZGRpbmctZW5kOiAwcHg7XG59XG5cbmlvbi1idXR0b24ge1xuICB3aWR0aDogMTUlO1xuICBoZWlnaHQ6IDEwMCU7XG59Il19 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](PlusMinusCounterComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
         args: [{
@@ -491,13 +511,13 @@ class CounterService {
                     CounterService.VIBRATION_PATTERN_NEGATIVE);
             }
             // apply positive and negative wraparounds
-            if (counter.positiveWrapAroundActive
-                && counter.count > counter.positiveWrapAround) {
-                counter.count = counter.count % counter.positiveWrapAround;
+            if (counter.positiveLimitActive
+                && counter.count > counter.positiveLimit) {
+                counter.count = counter.count % counter.positiveLimit;
             }
-            if (counter.negativeWrapAroundActive
-                && counter.count < counter.negativeWrapAround) {
-                counter.count = counter.count % counter.negativeWrapAround;
+            if (counter.negativeLimitActive
+                && counter.count < counter.negativeLimit) {
+                counter.count = counter.count % counter.negativeLimit;
             }
             let position = null;
             try {

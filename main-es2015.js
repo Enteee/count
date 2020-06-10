@@ -1524,10 +1524,10 @@ let Counter = class Counter extends _model__WEBPACK_IMPORTED_MODULE_2__["Model"]
         this.count = 0;
         this.plusCount = 1;
         this.minusCount = 0;
-        this.positiveWrapAround = 1;
-        this.positiveWrapAroundActive = false;
-        this.negativeWrapAround = -1;
-        this.negativeWrapAroundActive = false;
+        this.positiveLimit = 1;
+        this.positiveLimitActive = false;
+        this.negativeLimit = -1;
+        this.negativeLimitActive = false;
         this.locked = false;
         this.sortOrder = 0;
         this.vibrate = true;
@@ -1552,19 +1552,19 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"],
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
-], Counter.prototype, "positiveWrapAround", void 0);
+], Counter.prototype, "positiveLimit", void 0);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"],
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
-], Counter.prototype, "positiveWrapAroundActive", void 0);
+], Counter.prototype, "positiveLimitActive", void 0);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"],
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
-], Counter.prototype, "negativeWrapAround", void 0);
+], Counter.prototype, "negativeLimit", void 0);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"],
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
-], Counter.prototype, "negativeWrapAroundActive", void 0);
+], Counter.prototype, "negativeLimitActive", void 0);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"],
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
