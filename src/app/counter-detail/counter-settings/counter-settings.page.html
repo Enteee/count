@@ -63,69 +63,73 @@
             </ion-input>
           </ion-item>
 
-          <ion-list-header>
-            <ion-label>Positive Limit</ion-label>
-          </ion-list-header>
-          <ion-item>
+          <ng-template [ngIf]="this.counter.plusCount > 0">
+            <ion-list-header>
+              <ion-label>Positive Limit</ion-label>
+            </ion-list-header>
+            <ion-item>
 
-            <ion-icon
-              slot="start"
-              name="add"
-              (click)="increment('positiveLimit')"
-            >
-            </ion-icon>
+              <ion-icon
+                slot="start"
+                name="add"
+                (click)="increment('positiveLimit')"
+              >
+              </ion-icon>
 
-            <ion-input
-              required
-              formControlName="positiveLimit"
-              type="number"
-              placeholder="0"
-              (ionChange)="
-                clamp('positiveLimit', 1);
-                check('positiveLimitActive');
-              "
-            >
-            </ion-input>
+              <ion-input
+                required
+                formControlName="positiveLimit"
+                type="number"
+                placeholder="0"
+                (ionChange)="
+                  clamp('positiveLimit', 1);
+                  check('positiveLimitActive');
+                "
+              >
+              </ion-input>
 
-            <ion-checkbox
-              slot="end"
-              formControlName="positiveLimitActive"
-            >
-            </ion-checkbox>
+              <ion-checkbox
+                slot="end"
+                formControlName="positiveLimitActive"
+              >
+              </ion-checkbox>
 
-          </ion-item>
+            </ion-item>
+          </ng-template>
 
-          <ion-list-header>
-            <ion-label>Negative Limit</ion-label>
-          </ion-list-header>
-          <ion-item>
+          <ng-template [ngIf]="this.counter.minusCount < 0">
+            <ion-list-header>
+              <ion-label>Negative Limit</ion-label>
+            </ion-list-header>
+            <ion-item>
 
-            <ion-icon
-              slot="start"
-              name="remove"
-              (click)="increment('negativeLimit')"
-            >
-            </ion-icon>
+              <ion-icon
+                slot="start"
+                name="remove"
+                (click)="increment('negativeLimit')"
+              >
+              </ion-icon>
 
-            <ion-input
-              required
-              formControlName="negativeLimit"
-              type="number"
-              placeholder="0"
-              (ionChange)="
-                clamp('negativeLimit', 1);
-                check('negativeLimitActive');
-              "
-            >
-            </ion-input>
+              <ion-input
+                required
+                formControlName="negativeLimit"
+                type="number"
+                placeholder="0"
+                (ionChange)="
+                  clamp('negativeLimit', 1);
+                  check('negativeLimitActive');
+                "
+              >
+              </ion-input>
 
-            <ion-checkbox
-              slot="end"
-              formControlName="negativeLimitActive"
-            >
-            </ion-checkbox>
+              <ion-checkbox
+                slot="end"
+                formControlName="negativeLimitActive"
+              >
+              </ion-checkbox>
 
-          </ion-item>
+            </ion-item>
+          </ng-template>
 
           <ion-item
             [hidden]="!appState.vibrate"
