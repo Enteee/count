@@ -261,4 +261,26 @@ describe('PlusMinusCounterComponent', () => {
     });
   }));
 
+  it('should show details', async(() => {
+
+    component.showDetails();
+
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(router.navigate).toHaveBeenCalledTimes(1);
+      expect(router.navigate).toHaveBeenCalledWith(['/counter-detail', counter.id])
+    });
+  }));
+
+  it('should not show details if disabled', async(() => {
+
+    component.showDetailsOnClick = false;
+    component.showDetails();
+
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(router.navigate).toHaveBeenCalledTimes(0);
+    });
+  }));
+
 });

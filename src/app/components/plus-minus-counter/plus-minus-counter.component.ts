@@ -32,6 +32,7 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
   @Input() counter: Counter;
   @Input() minHeight: number;
   @Input() hideTitle = false;
+  @Input() showDetailsOnClick = true;
 
   swipeClickGesture;
   swipeClickLeft = false;
@@ -198,6 +199,12 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
         this.counter,
         this.counter.minusCount,
       );
+    }
+  }
+
+  showDetails() {
+    if(this.showDetailsOnClick){
+      this.router.navigate(['/counter-detail', this.counter.id]);
     }
   }
 
