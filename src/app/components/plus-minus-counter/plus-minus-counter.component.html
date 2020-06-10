@@ -41,7 +41,12 @@
     <h1>{{counter.count}}</h1>
   </ion-label>
 
-  <ion-icon #clickIndicator name="chevron-forward-outline"></ion-icon>
+    <ng-template [ngIf]="showDetailsOnClick">
+      <ion-icon
+        #clickIndicator
+        name="chevron-forward-outline"
+      ></ion-icon>
+    </ng-template>
 
   <ng-template [ngIf]="counter.plusCount > 0">
     <ion-button

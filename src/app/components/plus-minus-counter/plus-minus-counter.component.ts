@@ -125,7 +125,9 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
           this.leftButton.nativeElement.style.display = 'none';
         }
 
-        this.clickIndicator.nativeElement.style.display = 'none';
+        if(this.clickIndicator){
+          this.clickIndicator.nativeElement.style.display = 'none';
+        }
         this.swipeClickRight = true;
       }
     } else if (this.rootItemWidth * this.SWIPE_CLICK_WIDTH_RATIO  < newLeftButtonWidth) {
@@ -136,7 +138,9 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
           this.rightButton.nativeElement.style.display = 'none';
         }
 
-        this.clickIndicator.nativeElement.style.display = 'none';
+        if(this.clickIndicator){
+          this.clickIndicator.nativeElement.style.display = 'none';
+        }
         this.swipeClickLeft = true;
       }
     } else {
@@ -146,7 +150,9 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
       if(this.leftButton){
         this.leftButton.nativeElement.style.display = 'block';
       }
-      this.clickIndicator.nativeElement.style.display = 'block';
+      if(this.clickIndicator){
+        this.clickIndicator.nativeElement.style.display = 'block';
+      }
 
       this.swipeClickRight = false;
       this.swipeClickLeft = false;
@@ -176,7 +182,9 @@ export class PlusMinusCounterComponent implements OnInit, AfterViewInit {
         this.leftButton.nativeElement.style.width = this.leftButtonWidth + 'px';
       }
 
-      this.clickIndicator.nativeElement.style.display = 'block';
+      if(this.clickIndicator){
+        this.clickIndicator.nativeElement.style.display = 'block';
+      }
     });
 
 
