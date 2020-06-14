@@ -72,6 +72,7 @@ jobs:
       with:
         github-token: ${{ secrets.github_token }}
         parallel: true
+        flag-name: ${{ env.ARTIFACT_NAME }}
 
     - name: Use JDK ${{ matrix.java-version }}
       uses: actions/setup-java@v1
