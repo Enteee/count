@@ -19,6 +19,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: patch
+      run: |
+        if [ -f "${{ matrix.patch }}" ]; then
+          git apply "${{ matrix.patch }}"
+        fi
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -34,12 +40,6 @@ jobs:
           native-run@0.3.0 \
           cordova@9.0.0 \
           cordova-res@0.8.1
-
-    - name: patch
-      run: |
-        if [ -f "${{ matrix.patch }}" ]; then
-          git apply "${{ matrix.patch }}"
-        fi
 
     - name: npm lint
       run: npm run lint
