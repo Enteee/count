@@ -68,11 +68,12 @@ jobs:
       run: npm run test-headless
 
     - name: Coveralls Parallel
+      env:
+        COVERALLS_FLAG_NAME: "run-${{ env.ARTIFACT_NAME }}"
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.github_token }}
         parallel: true
-        flag-name: ${{ env.ARTIFACT_NAME }}
 
     - name: Use JDK ${{ matrix.java-version }}
       uses: actions/setup-java@v1
