@@ -61,6 +61,7 @@ in
       androidComposition.androidsdk
       nodejs
       gradle
+      openjdk
 
       peek # screen recorder
     ];
