@@ -71,11 +71,13 @@ jobs:
         CI: true
 
     - name: Sign APK
+      env:
+        STOREPASS: ${{ secrets.ACTIONS_KEYSTORE_PW }}
       run: |
         jarsigner \
           -verbose \
           -sigalg SHA1withRSA \
-          -storepass "${{ secrets.ACTIONS_KEYSTORE_PW }}" \
+          -storepass :env STOREPASS \
           -digestalg SHA1 \
           -keystore count-release-key.keystore \
           ./platforms/android/app/build/outputs/apk/release/*.apk \
