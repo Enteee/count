@@ -14,9 +14,22 @@ set -exuo pipefail
 APK="${1?Missing APK}"
 KEYSTORE="${KEYSTORE:-count-release-key.keystore}"
 KEY_ALIAS="${KEY_ALIAS:-count-release-key}"
+ZIPALIGN_BIN="$(find \
+  "${ANDROID_SDK_ROOT}" \
+  -executable \
+  -name \
+  "zipalign" \
+  -print \
+  -quit
+)"
 
 if [ ! -f "${APK}" ]; then
-  echo "${APK} is not a file" >&2
+  echo "'${APK}' is not a file" >&2
+  exit 1
+fi
+
+if [ ! -x "${ZIPALIGN_BIN}" ]; then
+  echo "Could not locate zipalign. Tried: '${ZIPALIGN_BIN}'" >&2
   exit 1
 fi
 
@@ -39,9 +52,9 @@ jarsigner \
     "${APK_TMP}" \
     "${KEY_ALIAS}"
 
-zipalign \
+"${ZIPALIGN_BIN}" \
   -v 4 \
-  "${APK_TMP}"
+  "${APK_TMP}" \
   "${APK_OUT}"
 
 # Remove original apk: if -unsigned
