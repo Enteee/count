@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# sign and zipalign all apk in platforms/
+# sign and zipalign .apk
 #
 # Arguments:
 #   $1: APK to sign / zipalign

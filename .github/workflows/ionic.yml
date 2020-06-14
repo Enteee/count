@@ -75,7 +75,7 @@ jobs:
         STOREPASS: ${{ secrets.ACTIONS_KEYSTORE_PW }}
       run: |
         find platforms/ -name '*.apk' -print0 \
-        | xargs -0 -n1 ./apk-finalize.sh
+        | xargs -0 -n1 ./apk_finalize.sh
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@master
