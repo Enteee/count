@@ -8,6 +8,7 @@
 #  - STOREPASS: (required) password for KEYSTORE
 #  - KEYSTORE: path to the keystore to use
 #  - KEY_ALIAS: alias of the signing key in the KEYSTORE
+#  - OUT_DIR: apk output directory
 
 set -exuo pipefail
 
@@ -22,6 +23,7 @@ ZIPALIGN_BIN="$(find \
   -print \
   -quit
 )"
+OUT_DIR="${OUT_DIR:-release/}"
 
 if [ ! -f "${APK}" ]; then
   echo "'${APK}' is not a file" >&2
@@ -33,7 +35,7 @@ if [ ! -x "${ZIPALIGN_BIN}" ]; then
   exit 1
 fi
 
-APK_OUT="${APK/-unsigned}"
+APK_OUT="$(basename "${APK/-unsigned}")"
 APK_TMP="$(mktemp)"
 
 function cleanup {
@@ -52,14 +54,11 @@ jarsigner \
     "${APK_TMP}" \
     "${KEY_ALIAS}"
 
+mkdir -p "${OUT_DIR}"
+
 "${ZIPALIGN_BIN}" \
   -f \
   -v \
   4 \
   "${APK_TMP}" \
-  "${APK_OUT}"
-
-# Remove original apk: if -unsigned
-if [ "${APK}" != "${APK_OUT}" ]; then
-  rm -rf "${APK}"
-fi
+  "${OUT_DIR}/${APK_OUT}"
