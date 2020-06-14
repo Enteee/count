@@ -95,19 +95,11 @@ jobs:
         find platforms/ -name '*.apk' -print0 \
         | xargs -0 -n1 ./apk_finalize.sh
 
-    - name: Create Release Artifact
-      run: |
-        find platforms/ -name '*.apk' \
-        | zip \
-          --junk-paths \
-          "${{ env.ARTIFACT_NAME }}.zip" \
-          -@
-
     - name: Upload Release Artifact
       uses: actions/upload-artifact@v2
       with:
         name: "${{ env.ARTIFACT_NAME }}"
-        path: "${{ env.ARTIFACT_NAME }}.zip"
+        path: "platforms/**/*.apk"
 
   finish:
     needs: build
@@ -141,6 +133,6 @@ jobs:
       uses: meeDamian/github-release@2.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        files: release/
+        name: Release ${{ github.ref }}
+        files: release-${{ github.ref }}:release/
         draft: true
-        prerelease: true
