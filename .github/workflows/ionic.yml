@@ -72,9 +72,18 @@ jobs:
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@master
-      #if: github.event == 'release'
+      #if: github.event == 'release' && matrix.patch == ''
+      if: matrix.patch == ''
       with:
-        name: "count-${{ matrix.node-version }}-${{ matrix.java-version }}-${{ matrix.build-args }}-${{ matrix.patch }}"
+        name: "count-node${{ matrix.node-version }}-jdk${{ matrix.java-version }}"
+        path: platforms/android/app/build/outputs
+
+    - name: Upload Artifacts for Store
+      uses: actions/upload-artifact@master
+      #if: github.event == 'release' && matrix.patch == 'patches/store-release.patch'
+      if: matrix.patch == 'patches/store-release.patch'
+      with:
+        name: "count4store-node${{ matrix.node-version }}-jdk${{ matrix.java-version }}"
         path: platforms/android/app/build/outputs
 
     - name: Coveralls Finished
