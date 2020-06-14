@@ -23,6 +23,7 @@ jobs:
       run: |
         if [ -f "${{ matrix.patch }}" ]; then
           git apply "${{ matrix.patch }}"
+          git diff
         fi
 
     - name: Use Node.js ${{ matrix.node-version }}
