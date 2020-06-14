@@ -70,18 +70,12 @@ jobs:
       env:
         CI: true
 
-    - name: Sign APK
+    - name: Finalize APK
       env:
         STOREPASS: ${{ secrets.ACTIONS_KEYSTORE_PW }}
       run: |
-        jarsigner \
-          -verbose \
-          -sigalg SHA1withRSA \
-          -storepass :env STOREPASS \
-          -digestalg SHA1 \
-          -keystore count-release-key.keystore \
-          ./platforms/android/app/build/outputs/apk/release/*.apk \
-          count-release-key
+        find platforms/ -name '*.apk' -print0 \
+        | xargs -0 -n1 ./apk-finalize.sh
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@master
