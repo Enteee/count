@@ -1,6 +1,6 @@
 name: Count CI
 
-on: [push, pull_request, release]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -102,6 +102,7 @@ jobs:
           --junk-paths \
           "${{ env.ARTIFACT_NAME }}" \
           -@
+        ls -l
 
     - name: Create Release
       id: create_release
@@ -122,7 +123,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: "${{ env.ARTIFACT_NAME }}.zip"
+        asset_path: "./${{ env.ARTIFACT_NAME }}.zip"
         asset_name: "${{ env.ARTIFACT_NAME }}"
         asset_content_type: application/zip
 
