@@ -69,7 +69,7 @@ jobs:
 
     - name: Coveralls Parallel
       env:
-        COVERALLS_FLAG_NAME: "run-${{ env.ARTIFACT_NAME }}"
+        COVERALLS_FLAG_NAME: ${{ env.ARTIFACT_NAME }}
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.github_token }}
