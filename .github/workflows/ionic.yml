@@ -70,6 +70,17 @@ jobs:
       env:
         CI: true
 
+    - name: Sign APK
+      run: |
+        jarsigner \
+          -verbose \
+          -sigalg SHA1withRSA \
+          -storepass "${{ secrets.ACTIONS_KEYSTORE_PW }}" \
+          -digestalg SHA1 \
+          -keystore count-release-key.keystore \
+          ./platforms/android/app/build/outputs/apk/release/*.apk \
+          count-release-key
+
     - name: Upload Artifacts
       uses: actions/upload-artifact@master
       #if: github.event == 'release' && matrix.patch == ''
