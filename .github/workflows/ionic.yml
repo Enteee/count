@@ -72,9 +72,9 @@ jobs:
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@master
-      if: github.event == 'release'
+      #if: github.event == 'release'
       with:
-        name: "count"
+        name: "count-${{ matrix.node-version }}-${{ matrix.java-version }}-${{ matrix.build-args }}-${{ matrix.patch }}"
         path: platforms/android/app/build/outputs
 
     - name: Coveralls Finished
