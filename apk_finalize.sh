@@ -53,6 +53,7 @@ jarsigner \
     "${KEY_ALIAS}"
 
 "${ZIPALIGN_BIN}" \
+  -f \
   -v 4 \
   "${APK_TMP}" \
   "${APK_OUT}"
