@@ -100,9 +100,8 @@ jobs:
         find platforms/ -name '*.apk' \
         | zip \
           --junk-paths \
-          "${{ env.ARTIFACT_NAME }}" \
+          "${{ env.ARTIFACT_NAME }}.zip" \
           -@
-        ls -l
 
     - name: Create Release
       id: create_release
