@@ -104,7 +104,7 @@ jobs:
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
-      if: startsWith(github.ref, 'ref/tags/v')
+      if: startsWith(github.ref, 'refs/tags/v')
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -115,7 +115,7 @@ jobs:
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
-      if: startsWith(github.ref, 'ref/tags/v')
+      if: startsWith(github.ref, 'refs/tags/v')
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -124,6 +124,7 @@ jobs:
         asset_name: "${{ env.ARTIFACT_NAME }}"
         asset_content_type: application/zip
 
+  finish:
     - name: Coveralls Finished
       uses: coverallsapp/github-action@master
       with:
