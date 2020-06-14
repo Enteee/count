@@ -40,7 +40,7 @@ jobs:
 
         export ARTIFACT_NAME="count-${build_args}-${patch}-node${{ matrix.node-version }}-jdk${{ matrix.java-version }}"
         echo "Building Artifact: ${ARTIFACT_NAME}"
-        echo "::set-env name=ARTIFACT_NAME=::$ARTIFACT_NAME"
+        echo "::set-env name=ARTIFACT_NAME::$ARTIFACT_NAME"
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
