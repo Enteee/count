@@ -26,6 +26,15 @@ jobs:
           git diff
         fi
 
+    - name: Define Artifact Name
+      run: |
+        patch="${{ matrix.patch }}"
+        patch="${patch:-nopatch}"
+        patch="${patch##*/}"
+        patch="${patch%.patch}"
+        export ARTIFACT_NAME="count-${patch}-node${{ matrix.node-version }}-jdk${{ matrix.java-version }}"
+        echo "::set-env name=ARTIFACT_NAME=::$ARTIFACT_NAME"
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -77,19 +86,36 @@ jobs:
         find platforms/ -name '*.apk' -print0 \
         | xargs -0 -n1 ./apk_finalize.sh
 
-    - name: Upload Artifacts
-      uses: actions/upload-artifact@master
-      if: github.event == 'release' && matrix.patch == ''
-      with:
-        name: "count-node${{ matrix.node-version }}-jdk${{ matrix.java-version }}"
-        path: platforms/android/app/build/outputs
+    - name: Create Release Artifact
+      run: |
+        find platforms/ -name '*.apk' \
+        | zip \
+          --junk-paths \
+          "${{ env.ARTIFACT_NAME }}" \
+          -@
 
-    - name: Upload Artifacts for Store
-      uses: actions/upload-artifact@master
-      if: github.event == 'release' && matrix.patch == 'patches/store-release.patch'
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      if: startsWith(github.ref, 'ref/tags/v')
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: "count4store-node${{ matrix.node-version }}-jdk${{ matrix.java-version }}"
-        path: platforms/android/app/build/outputs
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: true
+        prerelease: true
+
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      if: startsWith(github.ref, 'ref/tags/v')
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: "${{ env.ARTIFACT_NAME }}.zip"
+        asset_name: "${{ env.ARTIFACT_NAME }}"
+        asset_content_type: application/zip
 
     - name: Coveralls Finished
       uses: coverallsapp/github-action@master
