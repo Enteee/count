@@ -28,11 +28,17 @@ jobs:
 
     - name: Define Artifact Name
       run: |
+        build_args="${{ matrix.build-args }}"
+        build_args="${build_args:-noargs}"
+        build_args="${build_args//-}"
+        build_args="${build_args// /-}"
+
         patch="${{ matrix.patch }}"
         patch="${patch:-nopatch}"
         patch="${patch##*/}"
         patch="${patch%.patch}"
-        export ARTIFACT_NAME="count-${patch}-node${{ matrix.node-version }}-jdk${{ matrix.java-version }}"
+
+        export ARTIFACT_NAME="count-${build_args}-${patch}-node${{ matrix.node-version }}-jdk${{ matrix.java-version }}"
         echo "Building Artifact: ${ARTIFACT_NAME}"
         echo "::set-env name=ARTIFACT_NAME=::$ARTIFACT_NAME"
 
