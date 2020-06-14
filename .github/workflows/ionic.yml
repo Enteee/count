@@ -143,10 +143,17 @@ jobs:
       with:
         path: release/
 
+    - name: Make Checksums.txt
+      run: |
+        find release/ -type f -print0 \
+        | xargs -0 sha1sum > checksums.txt
+
     - name: Create Release
       uses: meeDamian/github-release@2.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         name: Release ${{ steps.branch_name.outputs.SOURCE_TAG }}
-        files: release-${{ steps.branch_name.outputs.SOURCE_TAG }}:release/
+        files: >
+          release-${{ steps.branch_name.outputs.SOURCE_TAG }}:release/
+          checksums.txt
         draft: true
