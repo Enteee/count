@@ -125,6 +125,13 @@ jobs:
         asset_content_type: application/zip
 
   finish:
+    needs: build
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+
     - name: Coveralls Finished
       uses: coverallsapp/github-action@master
       with:
