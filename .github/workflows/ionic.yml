@@ -27,6 +27,7 @@ jobs:
         fi
 
     - name: Define Artifact Name
+      id: artifact_name
       run: |
         build_args="${{ matrix.build-args }}"
         build_args="${build_args:-noargs}"
@@ -40,7 +41,7 @@ jobs:
 
         export ARTIFACT_NAME="count-${build_args}-${patch}-node${{ matrix.node-version }}-jdk${{ matrix.java-version }}"
         echo "Building Artifact: ${ARTIFACT_NAME}"
-        echo "::set-env name=ARTIFACT_NAME::$ARTIFACT_NAME"
+        echo ::set-output name=ARTIFACT_NAME::${ARTIFACT_NAME}
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -69,7 +70,7 @@ jobs:
 
     - name: Coveralls Parallel
       env:
-        COVERALLS_FLAG_NAME: ${{ env.ARTIFACT_NAME }}
+        COVERALLS_FLAG_NAME: ${{ steps.artifact_name.outputs.ARTIFACT_NAME }}
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -92,21 +93,20 @@ jobs:
       env:
         STOREPASS: ${{ secrets.ACTIONS_KEYSTORE_PW }}
       run: |
-        find platforms/ -name '*.apk' -print0 \
-        | xargs -0 -n1 ./apk_finalize.sh
-
-    - name: Finalize APK
-      env:
-        STOREPASS: ${{ secrets.ACTIONS_KEYSTORE_PW }}
-      run: |
-        find platforms/ -name '*.apk' -print0 \
-        | xargs -0 -n1 ./apk_finalize.sh
+        find \
+          platforms/ \
+          -name '*.apk' \
+          -print0 \
+        | xargs -0 -n1 -I{} \
+          ./apk_finalize.sh \
+            {} \
+            "${{ steps.artifact_name.outputs.ARTIFACT_NAME }}.apk"
 
     - name: Upload Release Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: "${{ env.ARTIFACT_NAME }}"
-        path: "release/*.apk"
+        name: "${{ steps.artifact_name.outputs.ARTIFACT_NAME }}.apk"
+        path: "${{ steps.artifact_name.outputs.ARTIFACT_NAME }}.apk"
 
   finish:
     needs: build
@@ -134,11 +134,6 @@ jobs:
       with:
         path: release/
 
-    - name: Make Checksums.txt
-      run: |
-        find release/ -type f -print0 \
-        | xargs -0 sha1sum > checksums.txt
-
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/v')
       uses: meeDamian/github-release@2.0
@@ -146,6 +141,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         name: Release ${{ steps.branch_name.outputs.SOURCE_TAG }}
         files: >
-          release-${{ steps.branch_name.outputs.SOURCE_TAG }}:release/
-          checksums.txt
+          count-${{ steps.branch_name.outputs.SOURCE_TAG }}.apk:release/count-prod-release-nopatch-node12.x-jdk1.8.apk
+          count-${{ steps.branch_name.outputs.SOURCE_TAG }}-playstore.apk:release/count-prod-release-store-release-node12.x-jdk1.8.apk
+          all-artifacts-${{ steps.branch_name.outputs.SOURCE_TAG }}:release/
         draft: true
