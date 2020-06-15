@@ -105,7 +105,7 @@ jobs:
     - name: Upload Release Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: "${{ steps.artifact_name.outputs.ARTIFACT_NAME }}.apk"
+        name: "${{ steps.artifact_name.outputs.ARTIFACT_NAME }}"
         path: "${{ steps.artifact_name.outputs.ARTIFACT_NAME }}.apk"
 
   finish:
@@ -140,6 +140,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         name: Release ${{ steps.branch_name.outputs.SOURCE_TAG }}
+        gzip: folders
         files: >
           count-${{ steps.branch_name.outputs.SOURCE_TAG }}.apk:release/count-prod-release-nopatch-node12.x-jdk1.8.apk
           count-${{ steps.branch_name.outputs.SOURCE_TAG }}-playstore.apk:release/count-prod-release-store-release-node12.x-jdk1.8.apk
