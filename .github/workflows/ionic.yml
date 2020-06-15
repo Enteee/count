@@ -142,7 +142,7 @@ jobs:
         name: Release ${{ steps.branch_name.outputs.SOURCE_TAG }}
         gzip: folders
         files: >
-          count-${{ steps.branch_name.outputs.SOURCE_TAG }}.apk:release/count-prod-release-nopatch-node12.x-jdk1.8.apk
-          count-${{ steps.branch_name.outputs.SOURCE_TAG }}-playstore.apk:release/count-prod-release-store-release-node12.x-jdk1.8.apk
+          count-${{ steps.branch_name.outputs.SOURCE_TAG }}.apk:release/count-prod-release-nopatch-node12.x-jdk1.8/count-prod-release-nopatch-node12.x-jdk1.8.apk
+          count-${{ steps.branch_name.outputs.SOURCE_TAG }}-playstore.apk:release/count-prod-release-store-release-node12.x-jdk1.8/count-prod-release-store-release-node12.x-jdk1.8.apk
           all-artifacts-${{ steps.branch_name.outputs.SOURCE_TAG }}:release/
         draft: true
