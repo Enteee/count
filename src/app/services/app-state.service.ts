@@ -78,4 +78,10 @@ export class AppStateService {
 
   }
 
+  async setDevelopmentMode(v: boolean) {
+    const appState = this.appStateRepositoryService.state;
+    appState.developmentMode = v;
+    await this.appStateRepositoryService.save(appState);
+  }
+
 }

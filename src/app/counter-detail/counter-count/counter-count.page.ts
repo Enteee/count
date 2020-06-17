@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { AppState } from '../../models/app-state';
 import { Counter } from '../../models/counter';
 import { CounterService } from '../../services/counter.service';
 
@@ -13,6 +14,7 @@ type ClampFunction = 'max' | 'min';
 })
 export class CounterCountPage implements OnInit {
 
+  appState: AppState;
   counter: Counter;
 
   constructor(
@@ -22,6 +24,7 @@ export class CounterCountPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.appState = this.route.snapshot.data.appState;
     this.counter = this.route.snapshot.data.counter;
   }
 

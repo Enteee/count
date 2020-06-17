@@ -196,4 +196,21 @@ describe('SettingsPage', () => {
       );
     });
   }));
+
+  it('should change development mode', async(() => {
+    spyOn(
+      appStateService,
+      'setDevelopmentMode'
+    );
+
+    component.settingsForm.patchValue({
+      developmentMode: true,
+    });
+    component.changeDevelopmentMode()
+
+    fixture.whenStable().then(() => {
+      expect(appStateService.setDevelopmentMode).toHaveBeenCalledTimes(1);
+      expect(appStateService.setDevelopmentMode).toHaveBeenCalledWith(true);
+    });
+  }));
 });
