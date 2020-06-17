@@ -32,15 +32,20 @@ This app was created using [Ionic Framework][Ionic] and runs on Android, iOS and
 * Contributors overview
 * Online help
 
-## Running the App
+## Running
 
 ```
 $ ionic cordova run browser -l
 ```
 
-## Developing the App
+## Contributing
+
+We encourage you to contribute to this project :wrench: :rocket: ! Please check out the [Contributing guide](/CONTRIBUTING.md) for guidelines about how to proceed. Join us!
+
+### Getting started
 
 Start without cordova (some features won't work):
+
 ```
 $ ionic serve
 ```
@@ -50,6 +55,23 @@ $ ionic serve
 ```
 $ ./icon_update.sh
 ```
+
+## Acknowledgment
+
+count was built using the following open source frameworks and libraries:
+
+* [Ionic](https://ionicframework.com/)
+* [Angular](https://angular.io/)
+* [apexcharts.js](https://apexcharts.com/)
+* [Apache Cordova](https://cordova.apache.org/)
+* [cerialize](https://github.com/weichx/cerialize)
+* [uuid](https://github.com/uuidjs/uuid)
+
+Thank you for your awesome work :heart:!
+
+## License
+
+count is licensed under [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). For commercial use a dual licensing scheme is available. Please get in touch via email: count@duckpond.ch
 
 [Ionic]:https://ionicframework.com/
 [count]:https://github.com/Enteee/count
