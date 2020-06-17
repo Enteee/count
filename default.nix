@@ -58,6 +58,7 @@ in
 
     buildInputs = [
       coreutils
+      git
       androidComposition.androidsdk
       nodejs
       gradle
