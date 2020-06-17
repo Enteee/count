@@ -67,7 +67,7 @@ count was built using the following open source frameworks and libraries:
 * [cerialize](https://github.com/weichx/cerialize)
 * [uuid](https://github.com/uuidjs/uuid)
 
-Thank you for your awesome work :heart:!
+Thank you :heart:
 
 ## License
 
