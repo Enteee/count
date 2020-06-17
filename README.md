@@ -13,13 +13,18 @@ This app was created using [Ionic Framework][Ionic] and runs on Android, iOS and
 **Features**
 
 * Visualizations:
-  * Day of the week histogram
+  * Plus Minus Totals Pie Chart
+  * Day of Week Histogram
+  * Day of Month Histogram
+  * Hour or Day Radar
+  * Year Heatmap
 * [Preview on GitHub Pages][GitHubPages]
+* Count using swipe gestures
 * Full screen counting
 * Count on multiple counters in parallel
 * Lock a counter
 * Vibrate on count
-* Automatic reset to 0 on configurable limit (wraparound)
+* Automatic reset to 0 on configurable limit
 * Optional position recording on count
 * Preview unimplemented features
 * Dynamic update channel selection (Beta, Production)
