@@ -17,6 +17,7 @@ OUT_SPLASH="resources/splash.png"
   convert \
     -density 384 \
     "${IN_ICON}" \
+    -trim \
     -define icon:auto-resize \
     "${OUT_FAVICON}"
 
