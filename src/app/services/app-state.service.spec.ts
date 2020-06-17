@@ -231,4 +231,19 @@ describe('AppStateService', () => {
 
     expect(appState.recordPosition).toEqual(false);
   });
+
+  it('should enable development mode', async () => {
+    appState.developmentMode = false;
+
+    spyOn(
+      appStateRepositoryService,
+      'save'
+    );
+
+    await service.setDevelopmentMode(true);
+    expect(appState.developmentMode).toEqual(true);
+
+    expect(appStateRepositoryService.save).toHaveBeenCalledTimes(1);
+    expect(appStateRepositoryService.save).toHaveBeenCalledWith(appState);
+  });
 });

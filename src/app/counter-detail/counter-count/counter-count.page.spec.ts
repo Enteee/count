@@ -7,6 +7,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { IonicModule } from '@ionic/angular';
 
+import { AppState } from '../../models/app-state';
+
 import { Counter } from '../../models/counter';
 import { CounterService } from '../../services/counter.service';
 
@@ -17,16 +19,19 @@ describe('CounterCountPage', () => {
   let fixture: ComponentFixture<CounterCountPage>;
   let router: Router;
 
+  let appState: AppState;
   let counter: Counter;
   let activatedRoute: ActivatedRoute;
   let counterService: CounterService;
 
   beforeEach(async(() => {
+    appState = new AppState();
     counter = new Counter();
 
     activatedRoute = {
       snapshot: {
         data: {
+          appState,
           counter,
         },
       },

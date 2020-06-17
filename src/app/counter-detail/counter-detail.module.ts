@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { NotImplementedModule } from '../not-implemented/not-implemented.module';
 
+import { AppStateRepositoryService } from '../models/app-state-repository.service';
 import { CounterRepositoryService } from '../models/counter-repository.service';
 import { CounterDetailPage } from './counter-detail.page';
 
@@ -34,6 +35,9 @@ const routes: Routes = [
             ).then(
               m => m.CounterCountPageModule
             ),
+            resolve: {
+              appState: AppStateRepositoryService,
+            },
           },
           {
             path: 'settings',

@@ -16,4 +16,5 @@ export class AppState extends Model {
   @autoserialize recordPosition = true;
   @autoserialize vibrate = true;
   @autoserialize directMonitization = true;
+  @autoserialize developmentMode = false;
 }

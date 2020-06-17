@@ -188,6 +188,19 @@
         </ion-item-sliding>
       </app-not-implemented>
 
+      <ion-item>
+        <ion-icon slot="start" name="bug-outline"></ion-icon>
+        <ion-label>Development Mode</ion-label>
+        <ion-checkbox
+          required
+          slot="end"
+          formControlName="developmentMode"
+          [checked]="appState.developmentMode"
+          (ionChange)="changeDevelopmentMode()"
+        >
+        </ion-checkbox>
+      </ion-item>
+
     </ion-list>
   </form>
 </ion-content>
