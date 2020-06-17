@@ -606,7 +606,7 @@ class AppComponent {
             },
             {
                 title: 'Help',
-                icon: 'help-circle-outline',
+                icon: 'help-circle',
                 url: '/help',
             },
             {
@@ -1338,6 +1338,7 @@ let AppState = class AppState extends _model__WEBPACK_IMPORTED_MODULE_2__["Model
         this.recordPosition = true;
         this.vibrate = true;
         this.directMonitization = true;
+        this.developmentMode = false;
     }
 };
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -1364,6 +1365,10 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"],
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
 ], AppState.prototype, "directMonitization", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AppState.prototype, "developmentMode", void 0);
 AppState = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(cerialize__WEBPACK_IMPORTED_MODULE_1__["inheritSerialization"])(_model__WEBPACK_IMPORTED_MODULE_2__["Model"])
 ], AppState);
@@ -1957,7 +1962,7 @@ NotImplementedModalPage.GITHUB_URL = 'https://github.com';
 NotImplementedModalPage.ISSUEHUNT_URL = 'https://issuehunt.io';
 NotImplementedModalPage.PROJECT_NAME = 'Enteee/count';
 NotImplementedModalPage.ɵfac = function NotImplementedModalPage_Factory(t) { return new (t || NotImplementedModalPage)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_3__["InAppBrowser"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_app_state_service__WEBPACK_IMPORTED_MODULE_4__["AppStateService"])); };
-NotImplementedModalPage.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: NotImplementedModalPage, selectors: [["app-not-implemented-modal"]], inputs: { issueId: "issueId", description: "description" }, decls: 23, vars: 2, consts: [["slot", "start"], [3, "click"], ["name", "arrow-back"], ["name", "construct"], [4, "ngIf"], ["slot", "start", "name", "construct"], ["slot", "end", 3, "ionChange"], ["position", "stacked"], ["button", "", 3, "click"], ["slot", "start", "name", "logo-github"], ["button", "", 3, "click", 4, "ngIf"], ["src", "./assets/issuehunt.png"]], template: function NotImplementedModalPage_Template(rf, ctx) { if (rf & 1) {
+NotImplementedModalPage.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: NotImplementedModalPage, selectors: [["app-not-implemented-modal"]], inputs: { issueId: "issueId", description: "description" }, decls: 23, vars: 2, consts: [["slot", "start"], [3, "click"], ["name", "arrow-back"], ["name", "construct-outline"], [4, "ngIf"], ["slot", "start", "name", "construct-outline"], ["slot", "end", 3, "ionChange"], ["position", "stacked"], ["button", "", 3, "click"], ["slot", "start", "name", "logo-github"], ["button", "", 3, "click", 4, "ngIf"], ["src", "./assets/issuehunt.png"]], template: function NotImplementedModalPage_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-header");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "ion-toolbar");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "ion-buttons", 0);
@@ -2354,6 +2359,13 @@ class AppStateService {
                     updateMethod
                 });
             }
+        });
+    }
+    setDevelopmentMode(v) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const appState = this.appStateRepositoryService.state;
+            appState.developmentMode = v;
+            yield this.appStateRepositoryService.save(appState);
         });
     }
 }

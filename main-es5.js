@@ -500,7 +500,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           url: '/contribute'
         }, {
           title: 'Help',
-          icon: 'help-circle-outline',
+          icon: 'help-circle',
           url: '/help'
         }, {
           title: 'Settings',
@@ -1898,6 +1898,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _this6.recordPosition = true;
         _this6.vibrate = true;
         _this6.directMonitization = true;
+        _this6.developmentMode = false;
         return _this6;
       }
 
@@ -1910,6 +1911,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AppState.prototype, "recordPosition", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AppState.prototype, "vibrate", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AppState.prototype, "directMonitization", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AppState.prototype, "developmentMode", void 0);
     AppState = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(cerialize__WEBPACK_IMPORTED_MODULE_1__["inheritSerialization"])(_model__WEBPACK_IMPORTED_MODULE_2__["Model"])], AppState);
     /***/
   },
@@ -3112,7 +3114,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       },
       decls: 23,
       vars: 2,
-      consts: [["slot", "start"], [3, "click"], ["name", "arrow-back"], ["name", "construct"], [4, "ngIf"], ["slot", "start", "name", "construct"], ["slot", "end", 3, "ionChange"], ["position", "stacked"], ["button", "", 3, "click"], ["slot", "start", "name", "logo-github"], ["button", "", 3, "click", 4, "ngIf"], ["src", "./assets/issuehunt.png"]],
+      consts: [["slot", "start"], [3, "click"], ["name", "arrow-back"], ["name", "construct-outline"], [4, "ngIf"], ["slot", "start", "name", "construct-outline"], ["slot", "end", 3, "ionChange"], ["position", "stacked"], ["button", "", 3, "click"], ["slot", "start", "name", "logo-github"], ["button", "", 3, "click", 4, "ngIf"], ["src", "./assets/issuehunt.png"]],
       template: function NotImplementedModalPage_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-header");
@@ -3955,6 +3957,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
+        key: "setDevelopmentMode",
+        value: function setDevelopmentMode(v) {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee24() {
+            var appState;
+            return regeneratorRuntime.wrap(function _callee24$(_context24) {
+              while (1) {
+                switch (_context24.prev = _context24.next) {
+                  case 0:
+                    appState = this.appStateRepositoryService.state;
+                    appState.developmentMode = v;
+                    _context24.next = 4;
+                    return this.appStateRepositoryService.save(appState);
+
+                  case 4:
+                  case "end":
+                    return _context24.stop();
+                }
+              }
+            }, _callee24, this);
+          }));
+        }
+      }, {
         key: "appState",
         get: function get() {
           return this.appStateRepositoryService.state;
@@ -4253,34 +4277,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(PositionService, [{
         key: "getPosition",
         value: function getPosition() {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee24() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee25() {
             var position;
-            return regeneratorRuntime.wrap(function _callee24$(_context24) {
+            return regeneratorRuntime.wrap(function _callee25$(_context25) {
               while (1) {
-                switch (_context24.prev = _context24.next) {
+                switch (_context25.prev = _context25.next) {
                   case 0:
                     position = null;
 
                     if (!this.appStateRepositoryService.state.recordPosition) {
-                      _context24.next = 5;
+                      _context25.next = 5;
                       break;
                     }
 
-                    _context24.next = 4;
+                    _context25.next = 4;
                     return this.geolocation.getCurrentPosition();
 
                   case 4:
-                    position = _context24.sent;
+                    position = _context25.sent;
 
                   case 5:
-                    return _context24.abrupt("return", position);
+                    return _context25.abrupt("return", position);
 
                   case 6:
                   case "end":
-                    return _context24.stop();
+                    return _context25.stop();
                 }
               }
-            }, _callee24, this);
+            }, _callee25, this);
           }));
         }
       }]);

@@ -4443,18 +4443,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     function ContributePage_ng_template_43_ion_item_4_Template(rf, ctx) {
       if (rf & 1) {
-        var _r58 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+        var _r61 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-item", 11);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function ContributePage_ng_template_43_ion_item_4_Template_ion_item_click_0_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r58);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r61);
 
-          var contributor_r56 = ctx.$implicit;
+          var contributor_r59 = ctx.$implicit;
 
-          var ctx_r57 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
+          var ctx_r60 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
 
-          return ctx_r57.openBrowser(contributor_r56.donateUrl);
+          return ctx_r60.openBrowser(contributor_r59.donateUrl);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "ion-avatar", 0);
@@ -4483,19 +4483,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       if (rf & 2) {
-        var contributor_r56 = ctx.$implicit;
+        var contributor_r59 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpropertyInterpolate"]("src", contributor_r56.avatar, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpropertyInterpolate"]("src", contributor_r59.avatar, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](contributor_r56.name);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](contributor_r59.name);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](contributor_r56.description);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](contributor_r59.description);
       }
     }
 
@@ -4517,11 +4517,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       if (rf & 2) {
-        var ctx_r54 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+        var ctx_r57 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx_r54.contributors);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx_r57.contributors);
       }
     }
 
@@ -4645,7 +4645,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       selectors: [["app-contribute"]],
       decls: 44,
       vars: 1,
-      consts: [["slot", "start"], ["name", "heart"], ["slot", "end"], ["name", "bug"], ["size", "large", "expand", "full", 3, "click"], ["name", "logo-github"], ["name", "mail"], ["name", "construct"], [3, "ngIf"], ["name", "cash"], ["button", "", 3, "click", 4, "ngFor", "ngForOf"], ["button", "", 3, "click"], [3, "src"], ["position", "fixed"]],
+      consts: [["slot", "start"], ["name", "heart"], ["slot", "end"], ["name", "bug"], ["size", "large", "expand", "full", 3, "click"], ["name", "logo-github"], ["name", "mail"], ["name", "construct-outline"], [3, "ngIf"], ["name", "cash"], ["button", "", 3, "click", 4, "ngFor", "ngForOf"], ["button", "", 3, "click"], [3, "src"], ["position", "fixed"]],
       template: function ContributePage_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-header");

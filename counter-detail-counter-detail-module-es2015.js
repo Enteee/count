@@ -16,7 +16,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 /* harmony import */ var _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../not-implemented/not-implemented.module */ "./src/app/not-implemented/not-implemented.module.ts");
-/* harmony import */ var _counter_detail_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./counter-detail.page */ "./src/app/counter-detail/counter-detail.page.ts");
+/* harmony import */ var _models_app_state_repository_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../models/app-state-repository.service */ "./src/app/models/app-state-repository.service.ts");
+/* harmony import */ var _counter_detail_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./counter-detail.page */ "./src/app/counter-detail/counter-detail.page.ts");
+
 
 
 
@@ -29,7 +31,7 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     {
         path: '',
-        component: _counter_detail_page__WEBPACK_IMPORTED_MODULE_6__["CounterDetailPage"],
+        component: _counter_detail_page__WEBPACK_IMPORTED_MODULE_7__["CounterDetailPage"],
         children: [
             {
                 path: '',
@@ -42,6 +44,9 @@ const routes = [
                     {
                         path: 'count',
                         loadChildren: () => Promise.all(/*! import() | counter-count-counter-count-module */[__webpack_require__.e("default~counter-analytics-counter-analytics-module~counter-count-counter-count-module~counters-count~b22d7877"), __webpack_require__.e("counter-count-counter-count-module")]).then(__webpack_require__.bind(null, /*! ./counter-count/counter-count.module */ "./src/app/counter-detail/counter-count/counter-count.module.ts")).then(m => m.CounterCountPageModule),
+                        resolve: {
+                            appState: _models_app_state_repository_service__WEBPACK_IMPORTED_MODULE_6__["AppStateRepositoryService"],
+                        },
                     },
                     {
                         path: 'settings',
@@ -62,7 +67,7 @@ CounterDetailPageModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes),
             _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__["NotImplementedModule"],
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](CounterDetailPageModule, { declarations: [_counter_detail_page__WEBPACK_IMPORTED_MODULE_6__["CounterDetailPage"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](CounterDetailPageModule, { declarations: [_counter_detail_page__WEBPACK_IMPORTED_MODULE_7__["CounterDetailPage"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"], _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__["NotImplementedModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CounterDetailPageModule, [{
@@ -75,7 +80,7 @@ CounterDetailPageModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
                     _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes),
                     _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__["NotImplementedModule"],
                 ],
-                declarations: [_counter_detail_page__WEBPACK_IMPORTED_MODULE_6__["CounterDetailPage"]]
+                declarations: [_counter_detail_page__WEBPACK_IMPORTED_MODULE_7__["CounterDetailPage"]]
             }]
     }], null, null); })();
 

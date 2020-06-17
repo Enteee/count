@@ -63,13 +63,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _counter_detail_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _models_app_state_repository_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../models/app-state-repository.service */
+    "./src/app/models/app-state-repository.service.ts");
+    /* harmony import */
+
+
+    var _counter_detail_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ./counter-detail.page */
     "./src/app/counter-detail/counter-detail.page.ts");
 
     var routes = [{
       path: '',
-      component: _counter_detail_page__WEBPACK_IMPORTED_MODULE_6__["CounterDetailPage"],
+      component: _counter_detail_page__WEBPACK_IMPORTED_MODULE_7__["CounterDetailPage"],
       children: [{
         path: '',
         children: [{
@@ -97,6 +103,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             "./src/app/counter-detail/counter-count/counter-count.module.ts")).then(function (m) {
               return m.CounterCountPageModule;
             });
+          },
+          resolve: {
+            appState: _models_app_state_repository_service__WEBPACK_IMPORTED_MODULE_6__["AppStateRepositoryService"]
           }
         }, {
           path: 'settings',
@@ -129,7 +138,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](CounterDetailPageModule, {
-        declarations: [_counter_detail_page__WEBPACK_IMPORTED_MODULE_6__["CounterDetailPage"]],
+        declarations: [_counter_detail_page__WEBPACK_IMPORTED_MODULE_7__["CounterDetailPage"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"], _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__["NotImplementedModule"]]
       });
     })();
@@ -141,7 +150,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
           imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes), _not_implemented_not_implemented_module__WEBPACK_IMPORTED_MODULE_5__["NotImplementedModule"]],
-          declarations: [_counter_detail_page__WEBPACK_IMPORTED_MODULE_6__["CounterDetailPage"]]
+          declarations: [_counter_detail_page__WEBPACK_IMPORTED_MODULE_7__["CounterDetailPage"]]
         }]
       }], null, null);
     })();
