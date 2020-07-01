@@ -138,7 +138,7 @@ jobs:
       #if: startsWith(github.ref, 'refs/tags/v')
       uses: r0adkll/upload-google-play@v1
       with:
-        serviceAccountJsonPlainText: ${{ secrets.ACTIONS_GOOGLE_PLAY_SERVICE_ACCOUNT }}
+        serviceAccountJson: ${{ secrets.ACTIONS_GOOGLE_PLAY_SERVICE_ACCOUNT }}
         packageName: ch.duckpond.count
         releaseFile: release/count-prod-release-store-release-node12.x-jdk1.8/count-prod-release-store-release-node12.x-jdk1.8.apk
         track: beta
