@@ -8,7 +8,7 @@
     </ion-buttons>
 
     <ion-title>
-     <ion-icon name="construct"></ion-icon>
+     <ion-icon name="construct-outline"></ion-icon>
       Not Implemented
     </ion-title>
 
@@ -26,51 +26,59 @@
     <p>{{description}}</p>
   </ion-item>
 
-  <ion-item *ngIf="issueId">
+  <ion-item-group *ngIf="issueId">
 
-    <ion-list>
+    <ion-item>
 
       <ion-label position="stacked">
-        Support <ion-icon name="heart"></ion-icon>
+        Support
       </ion-label>
 
       <p>You can help it grow by ... </p>
+    </ion-item>
 
-      <ion-item (click)="openIssueOnGithub()" button>
-        <ion-icon slot="start" name="logo-github">
-        </ion-icon>
-        <ion-label>
-          <h2>Github</h2>
-          <p>... voting on Github</p>
-        </ion-label>
-      </ion-item>
+    <ion-item (click)="openIssueOnGithub()" button>
+      <ion-icon slot="start" name="logo-github">
+      </ion-icon>
+      <ion-label>
+        <h2>Github</h2>
+        <p>... voting on Github</p>
+      </ion-label>
+    </ion-item>
 
-      <ion-item (click)="openIssueOnIssueHunt()" button>
-        <ion-avatar slot="start">
-          <img src="./assets/issuehunt.png">
-        </ion-avatar>
-        <ion-label>
-          <h2>IssueHunt</h2>
-          <p>... open a bounty on IssueHunt</p>
-        </ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-item>
-
-  <ion-item>
-    <p>
-      If you are not interested in previews, you can also disable
-      all not implemented feautres:
-    </p>
-  </ion-item>
-
-  <ion-item>
-    <ion-icon slot="start" name="construct"></ion-icon>
-    <ion-label>Disable not implemented</ion-label>
-    <ion-checkbox
-      slot="end"
-      (ionChange)="disableNotImplemented()"
+    <ion-item
+      *ngIf="appState.directMonitization"
+      (click)="openIssueOnIssueHunt()"
+      button
     >
-    </ion-checkbox>
-  </ion-item>
+      <ion-avatar slot="start">
+        <img src="./assets/issuehunt.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>IssueHunt</h2>
+        <p>... open a bounty on IssueHunt</p>
+      </ion-label>
+    </ion-item>
+
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item>
+      <p>
+        If you are not interested in previews, you can also disable
+        all not implemented feautres:
+      </p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="construct-outline"></ion-icon>
+      <ion-label>Disable not implemented</ion-label>
+      <ion-checkbox
+        slot="end"
+        (ionChange)="disableNotImplemented()"
+      >
+      </ion-checkbox>
+    </ion-item>
+  </ion-item-group>
+
 </ion-content>

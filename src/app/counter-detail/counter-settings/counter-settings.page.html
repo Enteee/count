@@ -5,11 +5,11 @@
     (ionChange)="submit()"
   >
       <ion-list>
+        <ion-item-group>
 
-          <ion-list-header>
-            <ion-label>Title</ion-label>
-          </ion-list-header>
           <ion-item>
+            <ion-label position="stacked">Title</ion-label>
+
             <ion-input
               required
               formControlName="title"
@@ -20,9 +20,56 @@
             ></ion-input>
           </ion-item>
 
-          <ion-list-header>
-            <ion-label>Plus Count</ion-label>
-          </ion-list-header>
+          <ion-item
+            [hidden]="!appState.vibrate"
+            class="vibrate-checkbox"
+          >
+            <ion-icon slot="start" name="pulse-outline"></ion-icon>
+            <ion-label>Vibrate</ion-label>
+            <ion-checkbox
+              slot="end"
+              formControlName="vibrate"
+            >
+            </ion-checkbox>
+          </ion-item>
+
+          <ion-item>
+            <ion-icon
+              slot="start"
+              name="{{ (counter.locked) ? 'lock-closed-outline' : 'lock-open-outline' }}"
+            ></ion-icon>
+            <ion-label>Locked</ion-label>
+            <ion-checkbox
+              slot="end"
+              formControlName="locked"
+            >
+            </ion-checkbox>
+          </ion-item>
+
+          <ion-item>
+            <ion-icon
+              slot="start"
+              name="phone-portrait-outline"
+            ></ion-icon>
+            <ion-label>Add to Home Screen</ion-label>
+            <ion-checkbox
+              slot="end"
+              appNotImplemented description="Add counter widget to home screen" issueId="2" on="click"
+            >
+            </ion-checkbox>
+          </ion-item>
+        </ion-item-group>
+
+        <ion-item-divider
+            color="success"
+        >
+          <ion-icon
+            name="add-circle-outline"
+          ></ion-icon>
+        </ion-item-divider>
+
+        <ion-item-group>
+
           <ion-item>
 
             <ion-icon
@@ -42,9 +89,60 @@
 
           </ion-item>
 
-          <ion-list-header>
-            <ion-label>Minus Count</ion-label>
-          </ion-list-header>
+          <ion-item>
+
+            <ion-icon
+              slot="start"
+              name="code-download-outline"
+              class="rotate-180"
+            ></ion-icon>
+
+            <ion-label>Limit</ion-label>
+
+            <ion-checkbox
+              slot="end"
+              formControlName="positiveLimitActive"
+            >
+            </ion-checkbox>
+
+          </ion-item>
+
+          <ng-template [ngIf]="this.counter.positiveLimitActive">
+              <ion-item>
+
+                <ion-icon
+                  slot="start"
+                  name="add"
+                  (click)="increment('positiveLimit')"
+                >
+                </ion-icon>
+
+                <ion-input
+                  required
+                  formControlName="positiveLimit"
+                  type="number"
+                  placeholder="0"
+                  (ionChange)="
+                    clamp('positiveLimit', 1);
+                    check('positiveLimitActive');
+                  "
+                >
+                </ion-input>
+
+              </ion-item>
+          </ng-template>
+        </ion-item-group>
+
+        <ion-item-divider
+            color="danger"
+        >
+          <ion-icon
+            name="remove-circle-outline"
+          ></ion-icon>
+        </ion-item-divider>
+
+        <ion-item-group>
+
           <ion-item>
 
             <ion-icon
@@ -63,159 +161,50 @@
             </ion-input>
           </ion-item>
 
-          <ion-list-header>
-            <ion-label>Positive Wraparound</ion-label>
-          </ion-list-header>
           <ion-item>
 
             <ion-icon
               slot="start"
-              name="add"
-              (click)="increment('positiveWrapAround')"
-            >
-            </ion-icon>
+              name="code-download-outline"
+            ></ion-icon>
 
-            <ion-input
-              required
-              formControlName="positiveWrapAround"
-              type="number"
-              placeholder="0"
-              (ionChange)="
-                clamp('positiveWrapAround', 1);
-                check('positiveWrapAroundActive');
-              "
-            >
-            </ion-input>
+            <ion-label>Limit</ion-label>
 
             <ion-checkbox
               slot="end"
-              formControlName="positiveWrapAroundActive"
+              formControlName="negativeLimitActive"
             >
             </ion-checkbox>
 
           </ion-item>
 
-          <ion-list-header>
-            <ion-label>Negative Wraparound</ion-label>
-          </ion-list-header>
-          <ion-item>
-
-            <ion-icon
-              slot="start"
-              name="remove"
-              (click)="increment('negativeWrapAround')"
-            >
-            </ion-icon>
-
-            <ion-input
-              required
-              formControlName="negativeWrapAround"
-              type="number"
-              placeholder="0"
-              (ionChange)="
-                clamp('negativeWrapAround', 1);
-                check('negativeWrapAroundActive');
-              "
-            >
-            </ion-input>
-
-            <ion-checkbox
-              slot="end"
-              formControlName="negativeWrapAroundActive"
-            >
-            </ion-checkbox>
-
-          </ion-item>
-
-          <ion-item
-            [hidden]="!appState.vibrate"
-            class="vibrate-checkbox"
-          >
-            <ion-icon slot="start" name="pulse"></ion-icon>
-            <ion-label>Vibrate</ion-label>
-            <ion-checkbox
-              slot="end"
-              formControlName="vibrate"
-            >
-            </ion-checkbox>
-          </ion-item>
-
-          <ion-item>
-            <ion-icon slot="start" name="lock"></ion-icon>
-            <ion-label>Locked</ion-label>
-            <ion-checkbox
-              slot="end"
-              formControlName="locked"
-            >
-            </ion-checkbox>
-          </ion-item>
-
-          <ion-item-sliding>
-
+          <ng-template [ngIf]="this.counter.negativeLimitActive">
             <ion-item>
-              <ion-icon slot="start" name="trash"></ion-icon>
-              <ion-label>Delete</ion-label>
-              <ion-icon slot="end" name="arrow-back"></ion-icon>
-            </ion-item>
-            <ion-item-options side="end">
-              <ion-item-option
-                color="danger"
-                (click)="deleteCounter()"
-              >
-                <ion-icon slot="icon-only" name="trash"></ion-icon>
-              </ion-item-option>
-            </ion-item-options>
 
-          </ion-item-sliding>
+              <ion-icon
+                slot="start"
+                name="remove"
+                (click)="increment('negativeLimit')"
+              >
+              </ion-icon>
+
+              <ion-input
+                required
+                formControlName="negativeLimit"
+                type="number"
+                placeholder="0"
+                (ionChange)="
+                  clamp('negativeLimit', 1);
+                  check('negativeLimitActive');
+                "
+              >
+              </ion-input>
+
+            </ion-item>
+          </ng-template>
+        </ion-item-group>
 
       </ion-list>
-
-      <ion-grid>
-
-        <ion-row>
-          <ion-col>
-            <ion-button
-              size="large"
-              expand="full"
-              color="medium"
-              appNotImplemented description="Convert to binary counter" issueId="13" on="click"
-            >
-              <ion-icon name="sync"></ion-icon>
-              Make binary
-            </ion-button>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-
-            <ion-button
-              size="large"
-              expand="full"
-              appNotImplemented description="Add counter widget to home screen" issueId="2" on="click"
-            >
-              <ion-icon name="phone-portrait"></ion-icon>
-              To Home Screen
-            </ion-button>
-
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <ion-button
-              size="large"
-              expand="full"
-              color="warning"
-              (click)="reset()"
-            >
-              <ion-icon name="refresh"></ion-icon>
-              Reset
-            </ion-button>
-          </ion-col>
-        </ion-row>
-
-      </ion-grid>
 
   </form>
 </ion-content>

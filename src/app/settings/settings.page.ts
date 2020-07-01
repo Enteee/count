@@ -26,9 +26,14 @@ export class SettingsPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.appState = this.route.snapshot.data.appState as AppState;
+    this.appState = this.route.snapshot.data.appState;
 
     this.settingsForm = new FormGroup({
+      swipeCounting: new FormControl(
+        this.appState.swipeCounting,
+        [
+        ]
+      ),
       vibrate: new FormControl(
         this.appState.vibrate,
         [
@@ -49,7 +54,18 @@ export class SettingsPage implements OnInit {
         [
         ]
       ),
+      developmentMode: new FormControl(
+        this.appState.developmentMode,
+        [
+        ]
+      ),
     });
+  }
+
+  async changeSwipeCounting() {
+    await this.appStateService.setSwipeCounting(
+      this.settingsForm.value.swipeCounting
+    );
   }
 
   async changeVibrate() {
@@ -84,5 +100,11 @@ export class SettingsPage implements OnInit {
       this.settingsForm.value.updateChannel
     );
     await this.appStateService.update('auto');
+  }
+
+  async changeDevelopmentMode() {
+    this.appStateService.setDevelopmentMode(
+      this.settingsForm.value.developmentMode
+    );
   }
 }

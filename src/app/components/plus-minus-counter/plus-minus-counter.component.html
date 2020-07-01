@@ -1,13 +1,21 @@
-<ion-item-sliding>
-  <ion-item>
+<ion-item #rootItem
+  [style.--min-height.vh]="minHeight"
+  class="ion-no-padding"
+  (window:resize)="recordWidths()"
+>
+  <ng-template [ngIf]="counter.minusCount < 0">
+    <ion-button
+      #buttonLeft
 
-    <ng-template [ngIf]="counter.minusCount < 0">
-      <ion-button
-        size="large"
-        color="danger"
-        [disabled]="counter.locked"
-        (click)="countMinus()"
-      >
+      class="ion-no-padding"
+
+      size="large"
+      color="danger"
+      expand="full"
+
+      [disabled]="counter.locked"
+      (click)="countMinus()"
+    >
       <div [ngSwitch]="counter.minusCount">
         <div *ngSwitchCase="-1">
           <ion-icon name="remove"></ion-icon>
@@ -18,26 +26,41 @@
         </div>
 
       </div>
-      </ion-button>
+    </ion-button>
+  </ng-template>
+
+
+  <ion-label
+    class="ion-text-center"
+    #textCenter
+
+    clickable
+    (click)="showDetails()"
+  >
+    <h1 *ngIf="!hideTitle">{{counter.title}}</h1>
+    <h1>{{counter.count}}</h1>
+  </ion-label>
+
+    <ng-template [ngIf]="showDetailsOnClick">
+      <ion-icon
+        #clickIndicator
+        name="chevron-forward-outline"
+      ></ion-icon>
     </ng-template>
 
-    <ion-label
-      class="ion-text-center"
+  <ng-template [ngIf]="counter.plusCount > 0">
+    <ion-button
+      #buttonRight
 
-      clickable
-      [routerLink]="['/counter-detail', counter.id]"
+      class="ion-no-padding"
+
+      size="large"
+      color="success"
+      expand="full"
+
+      [disabled]="counter.locked"
+      (click)="countPlus()"
     >
-      <h1>{{counter.title}}</h1>
-      <h1>{{counter.count}}</h1>
-    </ion-label>
-
-    <ng-template [ngIf]="counter.plusCount > 0">
-      <ion-button
-        size="large"
-        color="success"
-        [disabled]="counter.locked"
-        (click)="countPlus()"
-      >
       <div [ngSwitch]="counter.plusCount">
         <div *ngSwitchCase="1">
           <ion-icon name="add"></ion-icon>
@@ -48,34 +71,9 @@
         </div>
 
       </div>
-      </ion-button>
-    </ng-template>
+    </ion-button>
+  </ng-template>
 
-    <ion-reorder slot="end"></ion-reorder>
+  <ion-reorder slot="end"></ion-reorder>
 
-  </ion-item>
-
-  <ion-item-options
-    side="start"
-    *ngIf="counter.minusCount < 0"
-  >
-    <ion-item-option
-      color="danger"
-      [routerLink]="['/fullscreen-counter', 'minus', counter.id]"
-    >
-      <ion-icon slot="icon-only" name="expand"></ion-icon>
-    </ion-item-option>
-  </ion-item-options>
-
-  <ion-item-options
-    side="end"
-    *ngIf="counter.plusCount > 0"
-  >
-    <ion-item-option
-      color="success"
-      [routerLink]="['/fullscreen-counter', 'plus', counter.id]"
-    >
-      <ion-icon slot="icon-only" name="expand"></ion-icon>
-    </ion-item-option>
-  </ion-item-options>
-</ion-item-sliding>
+</ion-item>

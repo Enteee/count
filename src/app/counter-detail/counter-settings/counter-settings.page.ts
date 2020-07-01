@@ -39,25 +39,25 @@ export class CounterSettingsPage implements OnInit, AfterViewInit, HasUnsavedCha
 
     // enable disable input boxed based on checkbox
     // TODO: this should become a component
-    const positiveWrapAround = new FormControl(
-      this.counter.positiveWrapAround,
+    const positiveLimit = new FormControl(
+      this.counter.positiveLimit,
       [
         Validators.min(1)
       ]
     );
-    const positiveWrapAroundActive = new FormControl(
-      this.counter.positiveWrapAroundActive,
+    const positiveLimitActive = new FormControl(
+      this.counter.positiveLimitActive,
       [
       ]
     );
-    const negativeWrapAround = new FormControl(
-      -this.counter.negativeWrapAround,
+    const negativeLimit = new FormControl(
+      -this.counter.negativeLimit,
       [
         Validators.min(1)
       ]
     );
-    const negativeWrapAroundActive = new FormControl(
-      this.counter.negativeWrapAroundActive,
+    const negativeLimitActive = new FormControl(
+      this.counter.negativeLimitActive,
       [
       ]
     );
@@ -80,10 +80,10 @@ export class CounterSettingsPage implements OnInit, AfterViewInit, HasUnsavedCha
           Validators.min(0)
         ]
       ),
-      positiveWrapAround,
-      positiveWrapAroundActive,
-      negativeWrapAround,
-      negativeWrapAroundActive,
+      positiveLimit,
+      positiveLimitActive,
+      negativeLimit,
+      negativeLimitActive,
       vibrate : new FormControl(
         this.counter.vibrate,
       ),
@@ -123,7 +123,7 @@ export class CounterSettingsPage implements OnInit, AfterViewInit, HasUnsavedCha
     }
 
     this.counterSettingsForm.value.minusCount = -this.counterSettingsForm.value.minusCount;
-    this.counterSettingsForm.value.negativeWrapAround = -this.counterSettingsForm.value.negativeWrapAround;
+    this.counterSettingsForm.value.negativeLimit = -this.counterSettingsForm.value.negativeLimit;
 
     await this.counterRepositoryService.save(
       Object.assign(
@@ -135,13 +135,6 @@ export class CounterSettingsPage implements OnInit, AfterViewInit, HasUnsavedCha
 
   hasUnsavedChanges(): boolean {
     return !this.counterSettingsForm.valid;
-  }
-
-  async reset() {
-    await this.counterService.reset(this.counter);
-    this.router.navigate([
-      '/counters',
-    ]);
   }
 
   check(
@@ -176,15 +169,6 @@ export class CounterSettingsPage implements OnInit, AfterViewInit, HasUnsavedCha
         [formControlName]: Math[clampFunction](clampValue, value)
       });
     }
-  }
-
-  async deleteCounter() {
-    // We want to make give the user the impression that this
-    // operation is very quick, so we first navigate away.
-    this.router.navigate([
-      '/counters',
-    ]);
-    await this.counterService.delete(this.counter);
   }
 
 }

@@ -21,6 +21,12 @@ export class AppStateService {
     return this.appStateRepositoryService.state;
   }
 
+  async setSwipeCounting(v: boolean) {
+    const appState = this.appStateRepositoryService.state;
+    appState.swipeCounting = v;
+    await this.appStateRepositoryService.save(appState);
+  }
+
   async setVibrate(v: boolean) {
     const appState = this.appStateRepositoryService.state;
     appState.vibrate = v;
@@ -70,6 +76,12 @@ export class AppStateService {
       });
     }
 
+  }
+
+  async setDevelopmentMode(v: boolean) {
+    const appState = this.appStateRepositoryService.state;
+    appState.developmentMode = v;
+    await this.appStateRepositoryService.save(appState);
   }
 
 }

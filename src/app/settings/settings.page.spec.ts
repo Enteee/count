@@ -98,6 +98,23 @@ describe('SettingsPage', () => {
     });
   }));
 
+  it('should change swipeCounting', async(() => {
+    spyOn(
+      appStateService,
+      'setSwipeCounting'
+    );
+
+    component.settingsForm.patchValue({
+      swipeCounting: true,
+    });
+    component.changeSwipeCounting();
+
+    fixture.whenStable().then(() => {
+      expect(appStateService.setSwipeCounting).toHaveBeenCalledTimes(1);
+      expect(appStateService.setSwipeCounting).toHaveBeenCalledWith(true);
+    });
+  }));
+
   it('should change vibrate', async(() => {
     spyOn(
       appStateService,
@@ -177,6 +194,23 @@ describe('SettingsPage', () => {
       expect(appStateService.update).toHaveBeenCalledWith(
         'auto'
       );
+    });
+  }));
+
+  it('should change development mode', async(() => {
+    spyOn(
+      appStateService,
+      'setDevelopmentMode'
+    );
+
+    component.settingsForm.patchValue({
+      developmentMode: true,
+    });
+    component.changeDevelopmentMode()
+
+    fixture.whenStable().then(() => {
+      expect(appStateService.setDevelopmentMode).toHaveBeenCalledTimes(1);
+      expect(appStateService.setDevelopmentMode).toHaveBeenCalledWith(true);
     });
   }));
 });

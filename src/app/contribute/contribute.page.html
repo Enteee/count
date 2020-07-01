@@ -56,7 +56,7 @@
 
     <ion-list-header>
       <ion-label>
-        <ion-icon name="construct"></ion-icon>
+        <ion-icon name="construct-outline"></ion-icon>
         Request feature
       </ion-label>
     </ion-list-header>
@@ -83,26 +83,28 @@
 
     </ion-item>
 
-    <ion-list-header>
-      <ion-label>
-        <ion-icon name="cash"></ion-icon>
-        Make donation
-      </ion-label>
-    </ion-list-header>
+    <ng-template [ngIf]="appState.directMonitization">
+      <ion-list-header>
+        <ion-label>
+          <ion-icon name="cash"></ion-icon>
+          Make donation
+        </ion-label>
+      </ion-list-header>
 
-    <ion-item
-      *ngFor="let contributor of contributors"
-      (click)="openBrowser(contributor.donateUrl)"
-      button
-    >
-      <ion-avatar slot="start">
-        <img src="{{contributor.avatar}}">
-      </ion-avatar>
-      <ion-label position="fixed">
-        <h3>{{contributor.name}}</h3>
-        <p>{{contributor.description}}</p>
-      </ion-label>
-    </ion-item>
+      <ion-item
+        *ngFor="let contributor of contributors"
+        (click)="openBrowser(contributor.donateUrl)"
+        button
+      >
+        <ion-avatar slot="start">
+          <img src="{{contributor.avatar}}">
+        </ion-avatar>
+        <ion-label position="fixed">
+          <h3>{{contributor.name}}</h3>
+          <p>{{contributor.description}}</p>
+        </ion-label>
+      </ion-item>
+    </ng-template>
 
   </ion-list>
 </ion-content>

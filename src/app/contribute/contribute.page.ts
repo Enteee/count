@@ -4,8 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
+import { AppState } from '../models/app-state';
+import { AppStateService } from '../services/app-state.service';
+
 import { ContributorInfo } from '../contributors';
 import { ContributorService } from '../services/contributor.service';
+
 
 type TemplateType = 'bug' | 'feature';
 
@@ -26,16 +30,19 @@ export class ContributePage implements OnInit {
   static readonly TEMPLATE_BUG = 'bug_report.md';
   static readonly TEMPLATE_FEATURE = 'feature_request.md';
 
+  appState: AppState;
   contributors: Array<ContributorInfo>;
 
   constructor(
     private httpClient: HttpClient,
     private iab: InAppBrowser,
     private emailComposer: EmailComposer,
+    private appStateService: AppStateService,
     private contributorService: ContributorService,
   ) { }
 
   ngOnInit() {
+    this.appState = this.appStateService.appState;
     this.contributors = this.contributorService.getDonatable();
   }
 

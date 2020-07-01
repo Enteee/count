@@ -12,6 +12,9 @@ export enum UpdateChannel {
 export class AppState extends Model {
   @autoserialize disableNotImplemented = false;
   @autoserialize updateChannel = UpdateChannel.Production;
+  @autoserialize swipeCounting = true;
   @autoserialize recordPosition = true;
   @autoserialize vibrate = true;
+  @autoserialize directMonitization = true;
+  @autoserialize developmentMode = false;
 }

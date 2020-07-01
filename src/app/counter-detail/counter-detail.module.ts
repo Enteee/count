@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { NotImplementedModule } from '../not-implemented/not-implemented.module';
 
+import { AppStateRepositoryService } from '../models/app-state-repository.service';
 import { CounterRepositoryService } from '../models/counter-repository.service';
 import { CounterDetailPage } from './counter-detail.page';
 
@@ -18,7 +19,15 @@ const routes: Routes = [
       {
         path: '',
         children: [
-          { path: '', redirectTo: 'settings', pathMatch: 'full', },
+          { path: '', redirectTo: 'analytics', pathMatch: 'full', },
+          {
+            path: 'analytics',
+            loadChildren: () => import(
+              './counter-analytics-selection/counter-analytics-selection.module'
+            ).then(
+              m => m.CounterAnalyticsSelectionPageModule
+            ),
+          },
           {
             path: 'count',
             loadChildren: () => import(
@@ -26,6 +35,9 @@ const routes: Routes = [
             ).then(
               m => m.CounterCountPageModule
             ),
+            resolve: {
+              appState: AppStateRepositoryService,
+            },
           },
           {
             path: 'settings',
@@ -33,14 +45,6 @@ const routes: Routes = [
               './counter-settings/counter-settings.module'
             ).then(
               m => m.CounterSettingsPageModule
-            ),
-          },
-          {
-            path: 'analytics',
-            loadChildren: () => import(
-              './counter-analytics-selection/counter-analytics-selection.module'
-            ).then(
-              m => m.CounterAnalyticsSelectionPageModule
             ),
           },
         ],

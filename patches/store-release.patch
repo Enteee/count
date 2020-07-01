@@ -1,0 +1,12 @@
+diff --git a/src/app/models/app-state.ts b/src/app/models/app-state.ts
+index 31a117f..6bd64ac 100644
+--- a/src/app/models/app-state.ts
++++ b/src/app/models/app-state.ts
+@@ -15,6 +15,6 @@ export class AppState extends Model {
+   @autoserialize swipeCounting = true;
+   @autoserialize recordPosition = true;
+   @autoserialize vibrate = true;
+-  @autoserialize directMonitization = true;
++  @autoserialize directMonitization = false;
+   @autoserialize developmentMode = false;
+ }

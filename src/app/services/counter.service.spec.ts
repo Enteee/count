@@ -121,36 +121,24 @@ describe('CounterService', () => {
     expect(countEvent.position).toEqual(position);
   });
 
-  it('should do positive wrap around', async () => {
+  it('should wrap around on positive limit', async () => {
     const delta = 1;
 
     counter.count = 10;
-    counter.positiveWrapAroundActive = true;
-    counter.positiveWrapAround = 10;
+    counter.positiveLimitActive = true;
+    counter.positiveLimit = 10;
 
     await service.count(counter, delta);
 
     expect(counter.count).toEqual(1);
   });
 
-  it('should do negative wrap around', async () => {
+  it('should wrap around on negative limit', async () => {
     const delta = -1;
 
     counter.count = -10;
-    counter.negativeWrapAroundActive = true;
-    counter.negativeWrapAround = -10;
-
-    await service.count(counter, delta);
-
-    expect(counter.count).toEqual(-1);
-  });
-
-  it('should do negative wrap around', async () => {
-    const delta = -1;
-
-    counter.count = -10;
-    counter.negativeWrapAroundActive = true;
-    counter.negativeWrapAround = -10;
+    counter.negativeLimitActive = true;
+    counter.negativeLimit = -10;
 
     await service.count(counter, delta);
 
