@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 1024 500"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="feature-graphic.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   width="1024"
+   height="500">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1914"
+     inkscape:window-height="1050"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="0.65186405"
+     inkscape:cx="187.56628"
+     inkscape:cy="103.154"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg6"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="451.01429,84.373421"
+       orientation="0,1"
+       id="guide974"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <path
+     d="m 365.29785,167.8 -75.67124,115.7 c 5.90098,7.2 9.37214,16.3 9.37214,26.3 0,23 -18.65747,41.7 -41.65388,41.7 -22.99641,0 -41.65389,-18.7 -41.65389,-41.7 0,-2.6 0.26034,-5.2 0.69424,-7.7 L 166.40055,273 c -7.46298,7.2 -17.61611,11.7 -28.89737,11.7 -7.46299,0 -14.40531,-2 -20.47983,-5.4 l -53.195474,49.8 v 49.6 c 0,20.4 16.661552,37.1 37.054604,37.1 h 314.74714 c 20.39304,0 37.0546,-16.7 37.0546,-37.1 V 194.2 l -50.85245,-33.7 c -7.02909,5.4 -15.88055,8.7 -25.513,8.7 -3.81828,0 -7.54977,-0.5 -11.02092,-1.4 z"
+     id="path2"
+     style="fill-opacity:1;stroke-width:0.99999994"
+     inkscape:connector-curvature="0" />
+  <path
+     d="m 137.58995,201.3 c 22.99642,0 41.65389,18.7 41.65389,41.7 0,1.8 -0.17355,3.6 -0.34713,5.4 l 52.15414,29.1 c 7.20266,-5.9 16.31445,-9.3 26.38079,-9.3 3.12405,0 6.1613,0.3 9.02502,0.9 l 75.84477,-117.5 c -4.85961,-6.7 -7.72332,-15.1 -7.72332,-24.1 0,-23 18.65745,-41.7 41.65387,-41.7 22.99641,0 41.65388,18.7 41.65388,41.7 0,3.4 -0.43389,6.7 -1.12811,9.8 l 35.83969,24 V 91.7 c 0,-20.3 -16.66155,-37 -37.05461,-37 H 100.88248 c -20.393052,0 -37.054604,16.7 -37.054604,37 v 199 l 34.711572,-33.2 c -1.6488,-4.5 -2.60337,-9.4 -2.60337,-14.5 0,-23 18.657462,-41.7 41.653872,-41.7 z"
+     id="path4"
+     style="fill-opacity:1;stroke-width:0.99999994"
+     inkscape:connector-curvature="0" />
+  <rect
+     style="fill-opacity:1;stroke-width:0.99999994"
+     id="rect4530"
+     width="43.389465"
+     height="13.016838"
+     x="115.83986"
+     y="238" />
+  <rect
+     style="fill-opacity:1;stroke-width:0.99999994"
+     id="rect4530-3"
+     width="43.389465"
+     height="13.016838"
+     x="354.34412"
+     y="120" />
+  <rect
+     style="fill-opacity:1;stroke-width:0.99999994"
+     id="rect4530-3-6"
+     width="13.016838"
+     height="43.389465"
+     x="369.2583"
+     y="106" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+     x="580.388"
+     y="414.3905"
+     id="text972"><tspan
+       sodipodi:role="line"
+       id="tspan970"
+       x="580.388"
+       y="414.3905"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:96px;font-family:FreeSans;-inkscape-font-specification:FreeSans">count</tspan></text>
+</svg>
