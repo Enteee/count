@@ -6,18 +6,22 @@ TOPLEVEL="$(git -C "${DIR}" rev-parse --show-toplevel)"
 
 IN_ICON="${1:-src/assets/icon.svg}"
 IN_FEATURE_GRAPHIC="${2:-src/assets/feature-graphic.svg}"
-IN_SPLASH="${2:-src/assets/splash.svg}"
+IN_SPLASH="${3:-src/assets/splash.svg}"
 
 OUT_FAVICON="src/assets/favicon.ico"
 
 OUT_ICON="resources/icon.png"
 OUT_ICON_PLAYSTORE="resources/icon-playstore.png"
+
 OUT_SPLASH="resources/splash.png"
 
 OUT_FEATURE_GRAPHIC="resources/feature-graphic.png"
 
-COLOR_FILL="#8c8c8cff"
-COLOR_OPAQUE="#000000ff"
+COLOR_EXTENT="#8c8c8cff"
+EXTENT_COLOR_BACKGROUND=(
+  -gravity center
+  -background "${COLOR_EXTENT}"
+)
 
 (
   cd "${TOPLEVEL}"
@@ -36,24 +40,21 @@ COLOR_OPAQUE="#000000ff"
     # Icon
     convert \
       -density 1200 \
-      -fill "${COLOR_FILL}" -opaque "${COLOR_OPAQUE}" \
       "${IN_ICON}" \
-      -trim \
       -resize 1400x1400 \
       "${OUT_ICON}"
 
     convert \
       "${OUT_ICON}" \
       -resize 512x512\! \
-      "${OUT_ICON_PLAYSTORE}" \
-    ) &
+      "${OUT_ICON_PLAYSTORE}"
+  ) &
 
   (
     # Splash
     convert \
       "${IN_SPLASH}" \
-      -gravity center \
-      -background "${COLOR_FILL}" \
+      "${EXTENT_COLOR_BACKGROUND[@]}" \
       -extent 2732x2732 \
       "${OUT_SPLASH}"
   ) &
@@ -62,11 +63,10 @@ COLOR_OPAQUE="#000000ff"
     # Feature Graphic
     convert \
       -density 1200 \
-      -fill "${COLOR_FILL}" -opaque "${COLOR_OPAQUE}" \
       "${IN_FEATURE_GRAPHIC}" \
       -resize 1024x500 \
-      -background "${COLOR_FILL}" \
-      -gravity Center -extent 1024x500 \
+      "${EXTENT_COLOR_BACKGROUND[@]}" \
+      -extent 1024x500 \
       "${OUT_FEATURE_GRAPHIC}"
   ) &
 
