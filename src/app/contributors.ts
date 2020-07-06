@@ -14,4 +14,10 @@ export const contributors: ContributorInfo[] = [
     webUrl: 'https://duckpond.ch',
     donateUrl: 'https://github.com/sponsors/Enteee',
   },
+  {
+    name: 'JR',
+    description: 'Logo design',
+    avatar: 'assets/contributors/jek-ramos.jpeg',
+    webUrl: 'https://dribbble.com/jekramosdesign',
+  },
 ];
