@@ -596,7 +596,7 @@ class AppComponent {
         this.appPages = [
             {
                 title: 'Count',
-                src: 'assets/icon.svg',
+                icon: 'add-circle',
                 url: '/counters'
             },
             {
