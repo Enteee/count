@@ -18,6 +18,6 @@ export const contributors: ContributorInfo[] = [
     name: 'JR',
     description: 'Logo design',
     avatar: 'assets/contributors/jek-ramos.jpeg',
-    webUrl: 'https://dribbble.com/jekramosdesign',
+    webUrl: 'https://www.instagram.com/jekramosdesign/',
   },
 ];
