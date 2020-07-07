@@ -1127,7 +1127,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       name: 'JR',
       description: 'Logo design',
       avatar: 'assets/contributors/jek-ramos.jpeg',
-      webUrl: 'https://dribbble.com/jekramosdesign'
+      webUrl: 'https://www.instagram.com/jekramosdesign/'
     }];
     /***/
   },
