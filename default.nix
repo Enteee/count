@@ -65,6 +65,7 @@ in
       openjdk
 
       peek # screen recorder
+      unzip
     ];
 
     shellHook = ''
@@ -73,16 +74,21 @@ in
       ${nodejs}/bin/npm set prefix "''${NPM_CONFIG_PREFIX}/.npm-global"
 
       ${nodejs}/bin/npm install
-      ${nodejs}/bin/npm install -g --no-save \
-        @ionic/cli \
-        native-run \
-        cordova \
-        cordova-res \
-        @angular/cli \
-        npm-check-updates
+
+      ionic() { npx ionic "''$@"; }
+      export -f ionic
+
+      ng() { npx ng "''$@"; }
+      export -f ng
+
+      ncu() { npx ncu "''$@"; }
+      export -f ncu
 
       export ANDROID_SDK_ROOT="$PWD/.android-sdk"
       export ANDROID_HOME="$ANDROID_SDK_ROOT"
+
+      ncu
+
       exec ${fhsEnv}/bin/${drvName}-fhs-env
     '';
   }
