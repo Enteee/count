@@ -3,6 +3,39 @@ name: Count CI
 on: [push, pull_request]
 
 jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: npm install
+      run: npm install
+      env:
+        NODE_ENV: # don't set to production: also install devDependencies
+
+    - name: npm lint
+      run: npm run lint
+
+    - name: npm build
+      run: npm run build --if-present
+
+    - name: npm test
+      run: npm run test-headless
+
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+
   build:
 
     runs-on: ubuntu-latest
@@ -53,29 +86,12 @@ jobs:
       env:
         NODE_ENV: # don't set to production: also install devDependencies
 
-    - name: npm lint
-      run: npm run lint
-
-    - name: npm build
-      run: npm run build --if-present
-
-    - name: npm test
-      run: npm run test-headless
-
-    - name: Coveralls Parallel
-      env:
-        COVERALLS_FLAG_NAME: ${{ steps.artifact_name.outputs.ARTIFACT_NAME }}
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        parallel: true
-
     - name: Use JDK ${{ matrix.java-version }}
       uses: actions/setup-java@v1
       with:
         java-version: ${{ matrix.java-version }}
 
-    - name: ionic cordova build
+    - name: npx ionic cordova build
       run: |
         ionic \
           cordova build \
