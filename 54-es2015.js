@@ -13,18 +13,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_route_redirect", function() { return RouteRedirect; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_router", function() { return Router; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_router_link", function() { return RouterLink; });
-/* harmony import */ var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-0a8d4d2e.js */ "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
-/* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
-/* harmony import */ var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-46f4a262.js */ "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
-/* harmony import */ var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme-18cbe2cc.js */ "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
+/* harmony import */ var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index-29df6f59.js */ "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
+/* harmony import */ var _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ionic-global-08f4fb8a.js */ "./node_modules/@ionic/core/dist/esm/ionic-global-08f4fb8a.js");
+/* harmony import */ var _helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-5c745fbd.js */ "./node_modules/@ionic/core/dist/esm/helpers-5c745fbd.js");
+/* harmony import */ var _theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme-3f0b0c04.js */ "./node_modules/@ionic/core/dist/esm/theme-3f0b0c04.js");
 
 
 
 
 
-const Route = class {
+class Route {
     constructor(hostRef) {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         /**
          * Relative path that needs to match in order for this route to apply.
          *
@@ -32,7 +32,7 @@ const Route = class {
          * in the url /foo/:bar where bar would be available in incoming props.
          */
         this.url = '';
-        this.ionRouteDataChanged = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionRouteDataChanged", 7);
+        this.ionRouteDataChanged = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteDataChanged", 7);
     }
     onUpdate(newValue) {
         this.ionRouteDataChanged.emit(newValue);
@@ -62,12 +62,12 @@ const Route = class {
         "component": ["onUpdate"],
         "componentProps": ["onComponentProps"]
     }; }
-};
+}
 
-const RouteRedirect = class {
+class RouteRedirect {
     constructor(hostRef) {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.ionRouteRedirectChanged = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionRouteRedirectChanged", 7);
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.ionRouteRedirectChanged = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteRedirectChanged", 7);
     }
     propDidChange() {
         this.ionRouteRedirectChanged.emit();
@@ -79,7 +79,7 @@ const RouteRedirect = class {
         "from": ["propDidChange"],
         "to": ["propDidChange"]
     }; }
-};
+}
 
 const ROUTER_INTENT_NONE = 'root';
 const ROUTER_INTENT_FORWARD = 'forward';
@@ -109,13 +109,16 @@ const chainToPath = (chain) => {
     }
     return path;
 };
-const writePath = (history, root, useHash, path, direction, state) => {
+const writePath = (history, root, useHash, path, direction, state, queryString) => {
     let url = generatePath([
         ...parsePath(root),
         ...path
     ]);
     if (useHash) {
         url = '#' + url;
+    }
+    if (queryString !== undefined) {
+        url = url + '?' + queryString;
     }
     if (direction === ROUTER_INTENT_FORWARD) {
         history.pushState(state, '', url);
@@ -157,7 +160,8 @@ const parsePath = (path) => {
     if (path == null) {
         return [''];
     }
-    const segments = path.split('/')
+    const removeQueryString = path.split('?')[0];
+    const segments = removeQueryString.split('/')
         .map(s => s.trim())
         .filter(s => s.length > 0);
     if (segments.length === 0) {
@@ -188,7 +192,7 @@ const printRedirects = (redirects) => {
     console.groupEnd();
 };
 
-const writeNavState = async (root, chain, direction, index, changed = false) => {
+const writeNavState = async (root, chain, direction, index, changed = false, animation) => {
     try {
         // find next navigation outlet in the DOM
         const outlet = searchNavNode(root);
@@ -198,7 +202,7 @@ const writeNavState = async (root, chain, direction, index, changed = false) => 
         }
         await outlet.componentOnReady();
         const route = chain[index];
-        const result = await outlet.setRouteId(route.id, route.params, direction);
+        const result = await outlet.setRouteId(route.id, route.params, direction, animation);
         // if the outlet changed the page, reset navigation to neutral (no direction)
         // this means nested outlets will not animate
         if (result.changed) {
@@ -206,7 +210,7 @@ const writeNavState = async (root, chain, direction, index, changed = false) => 
             changed = true;
         }
         // recursively set nested outlets
-        changed = await writeNavState(result.element, chain, direction, index + 1, changed);
+        changed = await writeNavState(result.element, chain, direction, index + 1, changed, animation);
         // once all nested outlets are visible let's make the parent visible too,
         // using markVisible prevents flickering
         if (result.markVisible) {
@@ -475,9 +479,9 @@ const flattenNode = (chain, routes, node) => {
     }
 };
 
-const Router = class {
+class Router {
     constructor(hostRef) {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         this.previousPath = null;
         this.busy = false;
         this.state = 0;
@@ -503,8 +507,8 @@ const Router = class {
          * By default, this property is `true`, change to `false` to allow hash-less URLs.
          */
         this.useHash = true;
-        this.ionRouteWillChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionRouteWillChange", 7);
-        this.ionRouteDidChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionRouteDidChange", 7);
+        this.ionRouteWillChange = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteWillChange", 7);
+        this.ionRouteDidChange = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteDidChange", 7);
     }
     async componentWillLoad() {
         console.debug('[ion-router] router will load');
@@ -513,8 +517,8 @@ const Router = class {
         await this.onRoutesChanged();
     }
     componentDidLoad() {
-        window.addEventListener('ionRouteRedirectChanged', Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.onRedirectChanged.bind(this), 10));
-        window.addEventListener('ionRouteDataChanged', Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.onRoutesChanged.bind(this), 100));
+        window.addEventListener('ionRouteRedirectChanged', Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.onRedirectChanged.bind(this), 10));
+        window.addEventListener('ionRouteDataChanged', Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.onRoutesChanged.bind(this), 100));
     }
     onPopState() {
         const direction = this.historyDirection();
@@ -523,7 +527,10 @@ const Router = class {
         return this.writeNavStateRoot(path, direction);
     }
     onBackButton(ev) {
-        ev.detail.register(0, () => this.back());
+        ev.detail.register(0, processNextHandler => {
+            this.back();
+            processNextHandler();
+        });
     }
     /**
      * Navigate to the specified URL.
@@ -531,14 +538,15 @@ const Router = class {
      * @param url The url to navigate to.
      * @param direction The direction of the animation. Defaults to `"forward"`.
      */
-    push(url, direction = 'forward') {
+    push(url, direction = 'forward', animation) {
         if (url.startsWith('.')) {
             url = (new URL(url, window.location.href)).pathname;
         }
         console.debug('[ion-router] URL pushed -> updating nav', url, direction);
         const path = parsePath(url);
-        this.setPath(path, direction);
-        return this.writeNavStateRoot(path, direction);
+        const queryString = url.split('?')[1];
+        this.setPath(path, direction, queryString);
+        return this.writeNavStateRoot(path, direction, animation);
     }
     /**
      * Go back to previous page in the window.history.
@@ -595,7 +603,7 @@ const Router = class {
         const state = win.history.state;
         const lastState = this.lastState;
         this.lastState = state;
-        if (state > lastState) {
+        if (state > lastState || (state >= lastState && lastState > 0)) {
             return ROUTER_INTENT_FORWARD;
         }
         else if (state < lastState) {
@@ -605,7 +613,7 @@ const Router = class {
             return ROUTER_INTENT_NONE;
         }
     }
-    async writeNavStateRoot(path, direction) {
+    async writeNavStateRoot(path, direction, animation) {
         if (!path) {
             console.error('[ion-router] URL is not part of the routing set');
             return false;
@@ -627,13 +635,13 @@ const Router = class {
             return false;
         }
         // write DOM give
-        return this.safeWriteNavState(document.body, chain, direction, path, redirectFrom);
+        return this.safeWriteNavState(document.body, chain, direction, path, redirectFrom, 0, animation);
     }
-    async safeWriteNavState(node, chain, direction, path, redirectFrom, index = 0) {
+    async safeWriteNavState(node, chain, direction, path, redirectFrom, index = 0, animation) {
         const unlock = await this.lock();
         let changed = false;
         try {
-            changed = await this.writeNavState(node, chain, direction, path, redirectFrom, index);
+            changed = await this.writeNavState(node, chain, direction, path, redirectFrom, index, animation);
         }
         catch (e) {
             console.error(e);
@@ -650,7 +658,7 @@ const Router = class {
         }
         return resolve;
     }
-    async writeNavState(node, chain, direction, path, redirectFrom, index = 0) {
+    async writeNavState(node, chain, direction, path, redirectFrom, index = 0, animation) {
         if (this.busy) {
             console.warn('[ion-router] router is busy, transition was cancelled');
             return false;
@@ -661,7 +669,7 @@ const Router = class {
         if (routeEvent) {
             this.ionRouteWillChange.emit(routeEvent);
         }
-        const changed = await writeNavState(node, chain, direction, index);
+        const changed = await writeNavState(node, chain, direction, index, false, animation);
         this.busy = false;
         if (changed) {
             console.debug('[ion-router] route changed', path);
@@ -672,9 +680,9 @@ const Router = class {
         }
         return changed;
     }
-    setPath(path, direction) {
+    setPath(path, direction, queryString) {
         this.state++;
-        writePath(window.history, this.root, this.useHash, path, direction, this.state);
+        writePath(window.history, this.root, this.useHash, path, direction, this.state, queryString);
     }
     getPath() {
         return readPath(window.location, this.root, this.useHash);
@@ -693,32 +701,34 @@ const Router = class {
             to,
         };
     }
-    get el() { return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
-};
+    get el() { return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
+}
 
-const RouterLink = class {
+const routerLinkCss = ":host{--background:transparent;--color:var(--ion-color-primary, #3880ff);background:var(--background);color:var(--color)}:host(.ion-color){color:var(--ion-color-base)}a{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;text-decoration:inherit;text-indent:inherit;text-overflow:inherit;text-transform:inherit;text-align:inherit;white-space:inherit;color:inherit}";
+
+class RouterLink {
     constructor(hostRef) {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         /**
          * When using a router, it specifies the transition direction when navigating to
          * another page using `href`.
          */
         this.routerDirection = 'forward';
         this.onClick = (ev) => {
-            Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["o"])(this.href, ev, this.routerDirection);
+            Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_3__["o"])(this.href, ev, this.routerDirection, this.routerAnimation);
         };
     }
     render() {
-        const mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+        const mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
         const attrs = {
             href: this.href,
             rel: this.rel,
             target: this.target
         };
-        return (Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.onClick, class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), { [mode]: true, 'ion-activatable': true }) }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("a", Object.assign({}, attrs), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null))));
+        return (Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.onClick, class: Object.assign(Object.assign({}, Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), { [mode]: true, 'ion-activatable': true }) }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("a", Object.assign({}, attrs), Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null))));
     }
-    static get style() { return ":host{--background:transparent;--color:var(--ion-color-primary,#3880ff);background:var(--background);color:var(--color)}:host(.ion-color){color:var(--ion-color-base)}a{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;text-decoration:inherit;text-indent:inherit;text-overflow:inherit;text-transform:inherit;text-align:inherit;white-space:inherit;color:inherit}"; }
-};
+}
+RouterLink.style = routerLinkCss;
 
 
 

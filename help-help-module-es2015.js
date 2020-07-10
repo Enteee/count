@@ -15,8 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! cordova-plugin-ionic/dist/ngx */ "./node_modules/cordova-plugin-ionic/dist/ngx/index.js");
-/* harmony import */ var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! cordova-plugin-ionic/dist/ngx */ "./node_modules/cordova-plugin-ionic/__ivy_ngcc__/dist/ngx/ngx/index.js");
 /* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/__ivy_ngcc__/ngx/index.js");
 /* harmony import */ var _help_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./help.page */ "./src/app/help/help.page.ts");
 
@@ -83,8 +82,7 @@ HelpPageModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInj
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelpPage", function() { return HelpPage; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! cordova-plugin-ionic/dist/ngx */ "./node_modules/cordova-plugin-ionic/dist/ngx/index.js");
-/* harmony import */ var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! cordova-plugin-ionic/dist/ngx */ "./node_modules/cordova-plugin-ionic/__ivy_ngcc__/dist/ngx/ngx/index.js");
 /* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/__ivy_ngcc__/ngx/index.js");
 /* harmony import */ var _services_contributor_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/contributor.service */ "./src/app/services/contributor.service.ts");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");

@@ -639,7 +639,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       },
       directives: [_ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonContent"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroupDirective"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonList"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonItemGroup"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonItem"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonLabel"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonInput"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["TextValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["RequiredValidator"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControlName"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonIcon"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonCheckbox"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["BooleanValueAccessor"], _not_implemented_not_implemented_directive__WEBPACK_IMPORTED_MODULE_8__["NotImplementedDirective"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonItemDivider"], _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["NumericValueAccessor"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgIf"]],
-      styles: [".rotate-180[_ngcontent-%COMP%] {\n  display: inline-block;\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL2NvdW50L2NvdW50L3NyYy9hcHAvY291bnRlci1kZXRhaWwvY291bnRlci1zZXR0aW5ncy9jb3VudGVyLXNldHRpbmdzLnBhZ2Uuc2NzcyIsInNyYy9hcHAvY291bnRlci1kZXRhaWwvY291bnRlci1zZXR0aW5ncy9jb3VudGVyLXNldHRpbmdzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHFCQUFBO0VBQ0EsaUNBQUE7VUFBQSx5QkFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvY291bnRlci1kZXRhaWwvY291bnRlci1zZXR0aW5ncy9jb3VudGVyLXNldHRpbmdzLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yb3RhdGUtMTgwIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB0cmFuc2Zvcm06IHJvdGF0ZSgxODBkZWcpO1xufVxuIiwiLnJvdGF0ZS0xODAge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHRyYW5zZm9ybTogcm90YXRlKDE4MGRlZyk7XG59Il19 */"]
+      styles: [".rotate-180[_ngcontent-%COMP%] {\n  display: inline-block;\n  transform: rotate(180deg);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3JrL2NvdW50L2NvdW50L3NyYy9hcHAvY291bnRlci1kZXRhaWwvY291bnRlci1zZXR0aW5ncy9jb3VudGVyLXNldHRpbmdzLnBhZ2Uuc2NzcyIsInNyYy9hcHAvY291bnRlci1kZXRhaWwvY291bnRlci1zZXR0aW5ncy9jb3VudGVyLXNldHRpbmdzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHFCQUFBO0VBQ0EseUJBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2NvdW50ZXItZGV0YWlsL2NvdW50ZXItc2V0dGluZ3MvY291bnRlci1zZXR0aW5ncy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucm90YXRlLTE4MCB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgdHJhbnNmb3JtOiByb3RhdGUoMTgwZGVnKTtcbn1cbiIsIi5yb3RhdGUtMTgwIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB0cmFuc2Zvcm06IHJvdGF0ZSgxODBkZWcpO1xufSJdfQ== */"]
     });
     /*@__PURE__*/
 
@@ -667,7 +667,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         titleElement: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
           args: ['titleInput', {
-            static: true
+            "static": true
           }]
         }]
       });
@@ -952,12 +952,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context7.prev = _context7.next) {
                   case 0:
                     _context7.next = 2;
-                    return this.counterRepositoryService.delete(counter);
+                    return this.counterRepositoryService["delete"](counter);
 
                   case 2:
                     _context7.next = 4;
                     return Promise.all(this.countEventRepositoryService.getByCounter(counter).map(function (i) {
-                      return _this3.countEventRepositoryService.delete(i);
+                      return _this3.countEventRepositoryService["delete"](i);
                     }));
 
                   case 4:

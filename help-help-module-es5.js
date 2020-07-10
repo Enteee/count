@@ -59,11 +59,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! cordova-plugin-ionic/dist/ngx */
-    "./node_modules/cordova-plugin-ionic/dist/ngx/index.js");
-    /* harmony import */
-
-
-    var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_5__);
+    "./node_modules/cordova-plugin-ionic/__ivy_ngcc__/dist/ngx/ngx/index.js");
     /* harmony import */
 
 
@@ -150,11 +146,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! cordova-plugin-ionic/dist/ngx */
-    "./node_modules/cordova-plugin-ionic/dist/ngx/index.js");
-    /* harmony import */
-
-
-    var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_1__);
+    "./node_modules/cordova-plugin-ionic/__ivy_ngcc__/dist/ngx/ngx/index.js");
     /* harmony import */
 
 

@@ -1,16 +1,26 @@
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
 
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 function _possibleConstructorReturn(self, call) { if (call && (typeof call === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -86,8 +96,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       "./ion-fab_3-ios.entry.js": ["./node_modules/@ionic/core/dist/esm/ion-fab_3-ios.entry.js", "common", 23],
       "./ion-fab_3-md.entry.js": ["./node_modules/@ionic/core/dist/esm/ion-fab_3-md.entry.js", "common", 24],
       "./ion-img.entry.js": ["./node_modules/@ionic/core/dist/esm/ion-img.entry.js", 25],
-      "./ion-infinite-scroll_2-ios.entry.js": ["./node_modules/@ionic/core/dist/esm/ion-infinite-scroll_2-ios.entry.js", "common", 26],
-      "./ion-infinite-scroll_2-md.entry.js": ["./node_modules/@ionic/core/dist/esm/ion-infinite-scroll_2-md.entry.js", "common", 27],
+      "./ion-infinite-scroll_2-ios.entry.js": ["./node_modules/@ionic/core/dist/esm/ion-infinite-scroll_2-ios.entry.js", 26],
+      "./ion-infinite-scroll_2-md.entry.js": ["./node_modules/@ionic/core/dist/esm/ion-infinite-scroll_2-md.entry.js", 27],
       "./ion-input-ios.entry.js": ["./node_modules/@ionic/core/dist/esm/ion-input-ios.entry.js", "common", 28],
       "./ion-input-md.entry.js": ["./node_modules/@ionic/core/dist/esm/ion-input-md.entry.js", "common", 29],
       "./ion-item-option_3-ios.entry.js": ["./node_modules/@ionic/core/dist/esm/ion-item-option_3-ios.entry.js", "common", 30],
@@ -1528,10 +1538,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var AnalyticsItemRepositoryService = /*#__PURE__*/function (_model_repository_ser) {
       _inherits(AnalyticsItemRepositoryService, _model_repository_ser);
 
+      var _super2 = _createSuper(AnalyticsItemRepositoryService);
+
       function AnalyticsItemRepositoryService() {
         _classCallCheck(this, AnalyticsItemRepositoryService);
 
-        return _possibleConstructorReturn(this, _getPrototypeOf(AnalyticsItemRepositoryService).apply(this, arguments));
+        return _super2.apply(this, arguments);
       }
 
       _createClass(AnalyticsItemRepositoryService, [{
@@ -1641,12 +1653,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var AnalyticsItem = /*#__PURE__*/function (_model__WEBPACK_IMPOR) {
       _inherits(AnalyticsItem, _model__WEBPACK_IMPOR);
 
+      var _super3 = _createSuper(AnalyticsItem);
+
       function AnalyticsItem(component, info) {
         var _this3;
 
         _classCallCheck(this, AnalyticsItem);
 
-        _this3 = _possibleConstructorReturn(this, _getPrototypeOf(AnalyticsItem).call(this));
+        _this3 = _super3.call(this);
         _this3.component = component;
         _this3.info = info;
         _this3.id = _this3.info.url;
@@ -1706,10 +1720,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var AppStateRepositoryService = /*#__PURE__*/function (_model_repository_ser2) {
       _inherits(AppStateRepositoryService, _model_repository_ser2);
 
+      var _super4 = _createSuper(AppStateRepositoryService);
+
       function AppStateRepositoryService() {
         _classCallCheck(this, AppStateRepositoryService);
 
-        return _possibleConstructorReturn(this, _getPrototypeOf(AppStateRepositoryService).apply(this, arguments));
+        return _super4.apply(this, arguments);
       }
 
       _createClass(AppStateRepositoryService, [{
@@ -1886,12 +1902,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var AppState = /*#__PURE__*/function (_model__WEBPACK_IMPOR2) {
       _inherits(AppState, _model__WEBPACK_IMPOR2);
 
+      var _super5 = _createSuper(AppState);
+
       function AppState() {
         var _this6;
 
         _classCallCheck(this, AppState);
 
-        _this6 = _possibleConstructorReturn(this, _getPrototypeOf(AppState).apply(this, arguments));
+        _this6 = _super5.apply(this, arguments);
         _this6.disableNotImplemented = false;
         _this6.updateChannel = UpdateChannel.Production;
         _this6.swipeCounting = true;
@@ -1951,10 +1969,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var CountEventRepositoryService = /*#__PURE__*/function (_model_repository_ser3) {
       _inherits(CountEventRepositoryService, _model_repository_ser3);
 
+      var _super6 = _createSuper(CountEventRepositoryService);
+
       function CountEventRepositoryService() {
         _classCallCheck(this, CountEventRepositoryService);
 
-        return _possibleConstructorReturn(this, _getPrototypeOf(CountEventRepositoryService).apply(this, arguments));
+        return _super6.apply(this, arguments);
       }
 
       _createClass(CountEventRepositoryService, [{
@@ -2065,6 +2085,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var CountEvent = /*#__PURE__*/function (_model__WEBPACK_IMPOR3) {
       _inherits(CountEvent, _model__WEBPACK_IMPOR3);
 
+      var _super7 = _createSuper(CountEvent);
+
       function CountEvent(counterId, delta) {
         var _this7;
 
@@ -2074,7 +2096,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         _classCallCheck(this, CountEvent);
 
-        _this7 = _possibleConstructorReturn(this, _getPrototypeOf(CountEvent).call(this));
+        _this7 = _super7.call(this);
         _this7.counterId = counterId;
         _this7.delta = delta;
         _this7.position = position;
@@ -2130,10 +2152,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var CounterRepositoryService = /*#__PURE__*/function (_model_repository_ser4) {
       _inherits(CounterRepositoryService, _model_repository_ser4);
 
+      var _super8 = _createSuper(CounterRepositoryService);
+
       function CounterRepositoryService() {
         _classCallCheck(this, CounterRepositoryService);
 
-        return _possibleConstructorReturn(this, _getPrototypeOf(CounterRepositoryService).apply(this, arguments));
+        return _super8.apply(this, arguments);
       }
 
       _createClass(CounterRepositoryService, [{
@@ -2219,12 +2243,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var Counter = /*#__PURE__*/function (_model__WEBPACK_IMPOR4) {
       _inherits(Counter, _model__WEBPACK_IMPOR4);
 
+      var _super9 = _createSuper(Counter);
+
       function Counter() {
         var _this8;
 
         _classCallCheck(this, Counter);
 
-        _this8 = _possibleConstructorReturn(this, _getPrototypeOf(Counter).apply(this, arguments));
+        _this8 = _super9.apply(this, arguments);
         _this8.title = 'new Counter';
         _this8.count = 0;
         _this8.plusCount = 1;
@@ -2518,10 +2544,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var VolatileModelRepositoryService = /*#__PURE__*/function (_ModelRepositoryServi) {
       _inherits(VolatileModelRepositoryService, _ModelRepositoryServi);
 
+      var _super10 = _createSuper(VolatileModelRepositoryService);
+
       function VolatileModelRepositoryService() {
         _classCallCheck(this, VolatileModelRepositoryService);
 
-        return _possibleConstructorReturn(this, _getPrototypeOf(VolatileModelRepositoryService).apply(this, arguments));
+        return _super10.apply(this, arguments);
       }
 
       _createClass(VolatileModelRepositoryService, [{
@@ -3293,6 +3321,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var NotImplementedComponent = /*#__PURE__*/function (_not_implemented__WEB) {
       _inherits(NotImplementedComponent, _not_implemented__WEB);
 
+      var _super11 = _createSuper(NotImplementedComponent);
+
       /**
        * This contructor is here because the base class (NotImplemented)
        * does not have a @Directive / @Component annotation, which is required
@@ -3303,7 +3333,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function NotImplementedComponent(renderer, elementRef, modalController, appStateRepositoryService) {
         _classCallCheck(this, NotImplementedComponent);
 
-        return _possibleConstructorReturn(this, _getPrototypeOf(NotImplementedComponent).call(this, renderer, elementRef, modalController, appStateRepositoryService));
+        return _super11.call(this, renderer, elementRef, modalController, appStateRepositoryService);
       }
 
       return NotImplementedComponent;
@@ -3406,6 +3436,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var NotImplementedDirective = /*#__PURE__*/function (_not_implemented__WEB2) {
       _inherits(NotImplementedDirective, _not_implemented__WEB2);
 
+      var _super12 = _createSuper(NotImplementedDirective);
+
       /**
        * This contructor is here because the base class (NotImplemented)
        * does not have a @Directive / @Component annotation, which is required
@@ -3416,7 +3448,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function NotImplementedDirective(renderer, elementRef, modalController, appStateRepositoryService) {
         _classCallCheck(this, NotImplementedDirective);
 
-        return _possibleConstructorReturn(this, _getPrototypeOf(NotImplementedDirective).call(this, renderer, elementRef, modalController, appStateRepositoryService));
+        return _super12.call(this, renderer, elementRef, modalController, appStateRepositoryService);
       }
 
       return NotImplementedDirective;
@@ -3753,11 +3785,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! cordova-plugin-ionic/dist/ngx */
-    "./node_modules/cordova-plugin-ionic/dist/ngx/index.js");
-    /* harmony import */
-
-
-    var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_2__);
+    "./node_modules/cordova-plugin-ionic/__ivy_ngcc__/dist/ngx/ngx/index.js");
     /* harmony import */
 
 
@@ -4073,12 +4101,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             data.push(undefined);
           }
 
-          var _iteratorNormalCompletion = true;
-          var _didIteratorError = false;
-          var _iteratorError = undefined;
+          var _iterator = _createForOfIteratorHelper(countEvents),
+              _step;
 
           try {
-            for (var _iterator = countEvents[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
               var countEvent = _step.value;
 
               if (!countEventFilterCallback(countEvent)) {
@@ -4095,18 +4122,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             } // replace all undefined values
 
           } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
+            _iterator.e(err);
           } finally {
-            try {
-              if (!_iteratorNormalCompletion && _iterator.return != null) {
-                _iterator.return();
-              }
-            } finally {
-              if (_didIteratorError) {
-                throw _iteratorError;
-              }
-            }
+            _iterator.f();
           }
 
           for (var _i = 0; _i < data.length; ++_i) {
@@ -4138,12 +4156,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               neutral: 0
             }
           };
-          var _iteratorNormalCompletion2 = true;
-          var _didIteratorError2 = false;
-          var _iteratorError2 = undefined;
+
+          var _iterator2 = _createForOfIteratorHelper(countEvents),
+              _step2;
 
           try {
-            for (var _iterator2 = countEvents[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
               var countEvent = _step2.value;
 
               if (!countEventFilterCallback(countEvent)) {
@@ -4174,18 +4192,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
             }
           } catch (err) {
-            _didIteratorError2 = true;
-            _iteratorError2 = err;
+            _iterator2.e(err);
           } finally {
-            try {
-              if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
-                _iterator2.return();
-              }
-            } finally {
-              if (_didIteratorError2) {
-                throw _iteratorError2;
-              }
-            }
+            _iterator2.f();
           }
 
           return data;
@@ -4383,11 +4392,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! cordova-plugin-ionic/dist/ngx */
-    "./node_modules/cordova-plugin-ionic/dist/ngx/index.js");
-    /* harmony import */
-
-
-    var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_3__);
+    "./node_modules/cordova-plugin-ionic/__ivy_ngcc__/dist/ngx/ngx/index.js");
     /* harmony import */
 
 
@@ -4531,7 +4536,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["enableProdMode"])();
     }
 
-    _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["platformBrowser"]().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_3__["AppModule"]).catch(function (err) {
+    _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["platformBrowser"]().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_3__["AppModule"])["catch"](function (err) {
       return console.log(err);
     });
     /***/

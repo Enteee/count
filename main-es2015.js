@@ -159,12 +159,10 @@ var map = {
 	],
 	"./ion-infinite-scroll_2-ios.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/ion-infinite-scroll_2-ios.entry.js",
-		"common",
 		26
 	],
 	"./ion-infinite-scroll_2-md.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/ion-infinite-scroll_2-md.entry.js",
-		"common",
 		27
 	],
 	"./ion-input-ios.entry.js": [
@@ -2277,8 +2275,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppStateService", function() { return AppStateService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! cordova-plugin-ionic/dist/ngx */ "./node_modules/cordova-plugin-ionic/dist/ngx/index.js");
-/* harmony import */ var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! cordova-plugin-ionic/dist/ngx */ "./node_modules/cordova-plugin-ionic/__ivy_ngcc__/dist/ngx/ngx/index.js");
 /* harmony import */ var _position_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./position.service */ "./src/app/services/position.service.ts");
 /* harmony import */ var _models_app_state__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../models/app-state */ "./src/app/models/app-state.ts");
 /* harmony import */ var _models_app_state_repository_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../models/app-state-repository.service */ "./src/app/models/app-state-repository.service.ts");
@@ -2544,8 +2541,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/__ivy_ngcc__/ngx/index.js");
-/* harmony import */ var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! cordova-plugin-ionic/dist/ngx */ "./node_modules/cordova-plugin-ionic/dist/ngx/index.js");
-/* harmony import */ var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var cordova_plugin_ionic_dist_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! cordova-plugin-ionic/dist/ngx */ "./node_modules/cordova-plugin-ionic/__ivy_ngcc__/dist/ngx/ngx/index.js");
 /* harmony import */ var _ionic_native_vibration_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/vibration/ngx */ "./node_modules/@ionic-native/vibration/__ivy_ngcc__/ngx/index.js");
 
 

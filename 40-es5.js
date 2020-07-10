@@ -1,3 +1,9 @@
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -37,45 +43,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! ./core-0a8d4d2e.js */
-    "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
+    var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./index-29df6f59.js */
+    "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
     /* harmony import */
 
 
-    var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ./config-3c7f3790.js */
-    "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
+    var _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./ionic-global-08f4fb8a.js */
+    "./node_modules/@ionic/core/dist/esm/ionic-global-08f4fb8a.js");
     /* harmony import */
 
 
-    var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./helpers-46f4a262.js */
-    "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
+    var _helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./helpers-5c745fbd.js */
+    "./node_modules/@ionic/core/dist/esm/helpers-5c745fbd.js");
     /* harmony import */
 
 
-    var _cubic_bezier_1d592096_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./cubic-bezier-1d592096.js */
-    "./node_modules/@ionic/core/dist/esm/cubic-bezier-1d592096.js");
+    var _index_66edb21f_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./index-66edb21f.js */
+    "./node_modules/@ionic/core/dist/esm/index-66edb21f.js");
     /* harmony import */
 
 
-    var _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./constants-3c3e1099.js */
-    "./node_modules/@ionic/core/dist/esm/constants-3c3e1099.js");
+    var _cubic_bezier_685f606a_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./cubic-bezier-685f606a.js */
+    "./node_modules/@ionic/core/dist/esm/cubic-bezier-685f606a.js");
     /* harmony import */
 
 
-    var _framework_delegate_c2e2e1f4_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ./framework-delegate-c2e2e1f4.js */
-    "./node_modules/@ionic/core/dist/esm/framework-delegate-c2e2e1f4.js");
-    /* harmony import */
-
-
-    var _index_4e2fa3c6_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ./index-4e2fa3c6.js */
-    "./node_modules/@ionic/core/dist/esm/index-4e2fa3c6.js");
+    var _framework_delegate_d1eb6504_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ./framework-delegate-d1eb6504.js */
+    "./node_modules/@ionic/core/dist/esm/framework-delegate-d1eb6504.js");
 
     var VIEW_STATE_NEW = 1;
     var VIEW_STATE_ATTACHED = 2;
@@ -108,7 +108,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                     component = this.component;
                     _context.next = 5;
-                    return Object(_framework_delegate_c2e2e1f4_js__WEBPACK_IMPORTED_MODULE_5__["a"])(this.delegate, container, component, ['ion-page', 'ion-page-invisible'], this.params);
+                    return Object(_framework_delegate_d1eb6504_js__WEBPACK_IMPORTED_MODULE_5__["a"])(this.delegate, container, component, ['ion-page', 'ion-page-invisible'], this.params);
 
                   case 5:
                     this.element = _context.sent;
@@ -134,7 +134,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "_destroy",
         value: function _destroy() {
-          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(this.state !== VIEW_STATE_DESTROYED, 'view state must be ATTACHED');
+          Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["b"])(this.state !== VIEW_STATE_DESTROYED, 'view state must be ATTACHED');
           var element = this.element;
 
           if (element) {
@@ -223,11 +223,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       });
     };
 
+    var navCss = ":host{left:0;right:0;top:0;bottom:0;position:absolute;contain:layout size style;overflow:hidden;z-index:0}";
+
     var Nav = /*#__PURE__*/function () {
       function Nav(hostRef) {
         _classCallCheck(this, Nav);
 
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         this.transInstr = [];
         this.animationEnabled = true;
         this.useRouter = false;
@@ -239,9 +241,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
          */
 
         this.animated = true;
-        this.ionNavWillLoad = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionNavWillLoad", 7);
-        this.ionNavWillChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionNavWillChange", 3);
-        this.ionNavDidChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionNavDidChange", 3);
+        this.ionNavWillLoad = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionNavWillLoad", 7);
+        this.ionNavWillChange = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionNavWillChange", 3);
+        this.ionNavDidChange = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionNavDidChange", 3);
       }
 
       _createClass(Nav, [{
@@ -266,8 +268,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.useRouter = !!document.querySelector('ion-router') && !this.el.closest('[no-router]');
 
           if (this.swipeGesture === undefined) {
-            var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-            this.swipeGesture = _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].getBoolean('swipeBackEnabled', mode === 'ios');
+            var mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
+            this.swipeGesture = _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["c"].getBoolean('swipeBackEnabled', mode === 'ios');
           }
 
           this.ionNavWillLoad.emit();
@@ -283,21 +285,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     this.rootChanged();
                     _context2.next = 3;
                     return __webpack_require__.e(
-                    /*! import() | swipe-back-d2cdbf9a-js */
-                    "swipe-back-d2cdbf9a-js").then(__webpack_require__.bind(null,
-                    /*! ./swipe-back-d2cdbf9a.js */
-                    "./node_modules/@ionic/core/dist/esm/swipe-back-d2cdbf9a.js"));
+                    /*! import() | swipe-back-0a6a44c8-js */
+                    "swipe-back-0a6a44c8-js").then(__webpack_require__.bind(null,
+                    /*! ./swipe-back-0a6a44c8.js */
+                    "./node_modules/@ionic/core/dist/esm/swipe-back-0a6a44c8.js"));
 
                   case 3:
-                    _context2.t0 = this.el;
-                    _context2.t1 = this.canStart.bind(this);
-                    _context2.t2 = this.onStart.bind(this);
-                    _context2.t3 = this.onMove.bind(this);
-                    _context2.t4 = this.onEnd.bind(this);
-                    this.gesture = _context2.sent.createSwipeBackGesture(_context2.t0, _context2.t1, _context2.t2, _context2.t3, _context2.t4);
+                    this.gesture = _context2.sent.createSwipeBackGesture(this.el, this.canStart.bind(this), this.onStart.bind(this), this.onMove.bind(this), this.onEnd.bind(this));
                     this.swipeGestureChanged();
 
-                  case 10:
+                  case 5:
                   case "end":
                     return _context2.stop();
                 }
@@ -314,30 +311,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "componentDidUnload",
         value: function componentDidUnload() {
-          var _iteratorNormalCompletion = true;
-          var _didIteratorError = false;
-          var _iteratorError = undefined;
+          var _iterator = _createForOfIteratorHelper(this.views),
+              _step;
 
           try {
-            for (var _iterator = this.views[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
               var view = _step.value;
-              Object(_index_4e2fa3c6_js__WEBPACK_IMPORTED_MODULE_6__["l"])(view.element, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_4__["d"]);
+              Object(_index_66edb21f_js__WEBPACK_IMPORTED_MODULE_3__["l"])(view.element, _index_66edb21f_js__WEBPACK_IMPORTED_MODULE_3__["d"]);
 
               view._destroy();
             }
           } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
+            _iterator.e(err);
           } finally {
-            try {
-              if (!_iteratorNormalCompletion && _iterator.return != null) {
-                _iterator.return();
-              }
-            } finally {
-              if (_didIteratorError) {
-                throw _iteratorError;
-              }
-            }
+            _iterator.f();
           }
 
           if (this.gesture) {
@@ -547,7 +534,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
       }, {
         key: "setRouteId",
-        value: function setRouteId(id, params, direction) {
+        value: function setRouteId(id, params, direction, animation) {
           var active = this.getActiveSync();
 
           if (matches(active, id, params)) {
@@ -610,14 +597,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             if (viewController) {
               finish = this.popTo(viewController, Object.assign(Object.assign({}, commonOpts), {
-                direction: 'back'
+                direction: 'back',
+                animationBuilder: animation
               }));
             } else if (direction === 'forward') {
-              finish = this.push(id, params, commonOpts);
+              finish = this.push(id, params, Object.assign(Object.assign({}, commonOpts), {
+                animationBuilder: animation
+              }));
             } else if (direction === 'back') {
               finish = this.setRoot(id, params, Object.assign(Object.assign({}, commonOpts), {
                 direction: 'back',
-                animated: true
+                animated: true,
+                animationBuilder: animation
               }));
             }
           }
@@ -832,7 +823,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "runTransition",
         value: function () {
           var _runTransition = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(ti) {
-            var leavingView, enteringView, requiresTransition, result;
+            var leavingView, enteringView, requiresTransition, isBackDirection, result;
             return regeneratorRuntime.wrap(function _callee5$(_context5) {
               while (1) {
                 switch (_context5.prev = _context5.next) {
@@ -866,20 +857,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                     requiresTransition = (ti.enteringRequiresTransition || ti.leavingRequiresTransition) && enteringView !== leavingView;
 
+                    if (requiresTransition && ti.opts && leavingView) {
+                      isBackDirection = ti.opts.direction === 'back';
+                      /**
+                       * If heading back, use the entering page's animation
+                       * unless otherwise specified by the developer.
+                       */
+
+                      if (isBackDirection) {
+                        ti.opts.animationBuilder = ti.opts.animationBuilder || enteringView && enteringView.animationBuilder;
+                      }
+
+                      leavingView.animationBuilder = ti.opts.animationBuilder;
+                    }
+
                     if (!requiresTransition) {
-                      _context5.next = 19;
+                      _context5.next = 20;
                       break;
                     }
 
-                    _context5.next = 16;
+                    _context5.next = 17;
                     return this.transition(enteringView, leavingView, ti);
 
-                  case 16:
+                  case 17:
                     _context5.t0 = _context5.sent;
-                    _context5.next = 20;
+                    _context5.next = 21;
                     break;
 
-                  case 19:
+                  case 20:
                     _context5.t0 = {
                       // transition is not required, so we are already done!
                       // they're inserting/removing the views somewhere in the middle or
@@ -889,28 +894,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                       requiresTransition: false
                     };
 
-                  case 20:
+                  case 21:
                     result = _context5.t0;
                     this.success(result, ti);
                     this.ionNavDidChange.emit();
-                    _context5.next = 28;
+                    _context5.next = 29;
                     break;
 
-                  case 25:
-                    _context5.prev = 25;
+                  case 26:
+                    _context5.prev = 26;
                     _context5.t1 = _context5["catch"](0);
                     this.failed(_context5.t1, ti);
 
-                  case 28:
+                  case 29:
                     this.isTransitioning = false;
                     this.nextTrns();
 
-                  case 30:
+                  case 31:
                   case "end":
                     return _context5.stop();
                 }
               }
-            }, _callee5, this, [[0, 25]]);
+            }, _callee5, this, [[0, 26]]);
           }));
 
           function runTransition(_x2) {
@@ -930,8 +935,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           if (ti.removeView !== undefined) {
-            Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(ti.removeStart !== undefined, 'removeView needs removeStart');
-            Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(ti.removeCount !== undefined, 'removeView needs removeCount');
+            Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["b"])(ti.removeStart !== undefined, 'removeView needs removeStart');
+            Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["b"])(ti.removeCount !== undefined, 'removeView needs removeCount');
             var index = this.views.indexOf(ti.removeView);
 
             if (index < 0) {
@@ -969,7 +974,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             return;
           }
 
-          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(insertViews.length > 0, 'length can not be zero');
+          Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["b"])(insertViews.length > 0, 'length can not be zero');
           var viewControllers = convertToViews(insertViews);
 
           if (viewControllers.length === 0) {
@@ -977,12 +982,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } // Check all the inserted view are correct
 
 
-          var _iteratorNormalCompletion2 = true;
-          var _didIteratorError2 = false;
-          var _iteratorError2 = undefined;
+          var _iterator2 = _createForOfIteratorHelper(viewControllers),
+              _step2;
 
           try {
-            for (var _iterator2 = viewControllers[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
               var view = _step2.value;
               view.delegate = ti.opts.delegate;
               var nav = view.nav;
@@ -996,18 +1000,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
           } catch (err) {
-            _didIteratorError2 = true;
-            _iteratorError2 = err;
+            _iterator2.e(err);
           } finally {
-            try {
-              if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
-                _iterator2.return();
-              }
-            } finally {
-              if (_didIteratorError2) {
-                throw _iteratorError2;
-              }
-            }
+            _iterator2.f();
           }
 
           ti.insertViews = viewControllers;
@@ -1043,9 +1038,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "postViewInit",
         value: function postViewInit(enteringView, leavingView, ti) {
-          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(leavingView || enteringView, 'Both leavingView and enteringView are null');
-          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(ti.resolve, 'resolve must be valid');
-          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(ti.reject, 'reject must be valid');
+          Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["b"])(leavingView || enteringView, 'Both leavingView and enteringView are null');
+          Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["b"])(ti.resolve, 'resolve must be valid');
+          Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["b"])(ti.reject, 'reject must be valid');
           var opts = ti.opts;
           var insertViews = ti.insertViews;
           var removeStart = ti.removeStart;
@@ -1053,8 +1048,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var destroyQueue; // there are views to remove
 
           if (removeStart !== undefined && removeCount !== undefined) {
-            Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(removeStart >= 0, 'removeStart can not be negative');
-            Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(removeCount >= 0, 'removeCount can not be negative');
+            Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["b"])(removeStart >= 0, 'removeStart can not be negative');
+            Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["b"])(removeCount >= 0, 'removeCount can not be negative');
             destroyQueue = [];
 
             for (var i = 0; i < removeCount; i++) {
@@ -1070,7 +1065,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           var finalBalance = this.views.length + (insertViews !== undefined ? insertViews.length : 0) - (removeCount !== undefined ? removeCount : 0);
-          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(finalBalance >= 0, 'final balance can not be negative');
+          Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["b"])(finalBalance >= 0, 'final balance can not be negative');
 
           if (finalBalance === 0) {
             console.warn("You can't remove all the pages in the navigation stack. nav.pop() is probably called too many times.", this, this.el);
@@ -1082,29 +1077,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (insertViews) {
             // add the views to the
             var insertIndex = ti.insertStart;
-            var _iteratorNormalCompletion3 = true;
-            var _didIteratorError3 = false;
-            var _iteratorError3 = undefined;
+
+            var _iterator3 = _createForOfIteratorHelper(insertViews),
+                _step3;
 
             try {
-              for (var _iterator3 = insertViews[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+              for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
                 var _view = _step3.value;
                 this.insertViewAt(_view, insertIndex);
                 insertIndex++;
               }
             } catch (err) {
-              _didIteratorError3 = true;
-              _iteratorError3 = err;
+              _iterator3.e(err);
             } finally {
-              try {
-                if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
-                  _iterator3.return();
-                }
-              } finally {
-                if (_didIteratorError3) {
-                  throw _iteratorError3;
-                }
-              }
+              _iterator3.f();
             }
 
             if (ti.enteringRequiresTransition) {
@@ -1119,55 +1105,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
           if (destroyQueue && destroyQueue.length > 0) {
-            var _iteratorNormalCompletion4 = true;
-            var _didIteratorError4 = false;
-            var _iteratorError4 = undefined;
+            var _iterator4 = _createForOfIteratorHelper(destroyQueue),
+                _step4;
 
             try {
-              for (var _iterator4 = destroyQueue[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+              for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
                 var _view2 = _step4.value;
-                Object(_index_4e2fa3c6_js__WEBPACK_IMPORTED_MODULE_6__["l"])(_view2.element, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_4__["b"]);
-                Object(_index_4e2fa3c6_js__WEBPACK_IMPORTED_MODULE_6__["l"])(_view2.element, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_4__["c"]);
-                Object(_index_4e2fa3c6_js__WEBPACK_IMPORTED_MODULE_6__["l"])(_view2.element, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_4__["d"]);
+                Object(_index_66edb21f_js__WEBPACK_IMPORTED_MODULE_3__["l"])(_view2.element, _index_66edb21f_js__WEBPACK_IMPORTED_MODULE_3__["b"]);
+                Object(_index_66edb21f_js__WEBPACK_IMPORTED_MODULE_3__["l"])(_view2.element, _index_66edb21f_js__WEBPACK_IMPORTED_MODULE_3__["c"]);
+                Object(_index_66edb21f_js__WEBPACK_IMPORTED_MODULE_3__["l"])(_view2.element, _index_66edb21f_js__WEBPACK_IMPORTED_MODULE_3__["d"]);
               } // once all lifecycle events has been delivered, we can safely detroy the views
 
             } catch (err) {
-              _didIteratorError4 = true;
-              _iteratorError4 = err;
+              _iterator4.e(err);
             } finally {
-              try {
-                if (!_iteratorNormalCompletion4 && _iterator4.return != null) {
-                  _iterator4.return();
-                }
-              } finally {
-                if (_didIteratorError4) {
-                  throw _iteratorError4;
-                }
-              }
+              _iterator4.f();
             }
 
-            var _iteratorNormalCompletion5 = true;
-            var _didIteratorError5 = false;
-            var _iteratorError5 = undefined;
+            var _iterator5 = _createForOfIteratorHelper(destroyQueue),
+                _step5;
 
             try {
-              for (var _iterator5 = destroyQueue[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+              for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
                 var _view3 = _step5.value;
                 this.destroyView(_view3);
               }
             } catch (err) {
-              _didIteratorError5 = true;
-              _iteratorError5 = err;
+              _iterator5.e(err);
             } finally {
-              try {
-                if (!_iteratorNormalCompletion5 && _iterator5.return != null) {
-                  _iterator5.return();
-                }
-              } finally {
-                if (_didIteratorError5) {
-                  throw _iteratorError5;
-                }
-              }
+              _iterator5.f();
             }
           }
         }
@@ -1189,21 +1155,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     progressCallback = opts.progressAnimation ? function (ani) {
                       return _this.sbAni = ani;
                     } : undefined;
-                    mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+                    mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
                     enteringEl = enteringView.element;
                     leavingEl = leavingView && leavingView.element;
                     animationOpts = Object.assign({
                       mode: mode,
                       showGoBack: this.canGoBackSync(enteringView),
                       baseEl: this.el,
-                      animationBuilder: this.animation || opts.animationBuilder || _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].get('navAnimation'),
+                      animationBuilder: this.animation || opts.animationBuilder || _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["c"].get('navAnimation'),
                       progressCallback: progressCallback,
-                      animated: this.animated && _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].getBoolean('animated', true),
+                      animated: this.animated && _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["c"].getBoolean('animated', true),
                       enteringEl: enteringEl,
                       leavingEl: leavingEl
                     }, opts);
                     _context6.next = 8;
-                    return Object(_index_4e2fa3c6_js__WEBPACK_IMPORTED_MODULE_6__["t"])(animationOpts);
+                    return Object(_index_66edb21f_js__WEBPACK_IMPORTED_MODULE_3__["t"])(animationOpts);
 
                   case 8:
                     _ref = _context6.sent;
@@ -1250,10 +1216,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (existingIndex > -1) {
             // this view is already in the stack!!
             // move it to its new location
-            Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(view.nav === this, 'view is not part of the nav');
+            Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["b"])(view.nav === this, 'view is not part of the nav');
             views.splice(index, 0, views.splice(existingIndex, 1)[0]);
           } else {
-            Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(!view.nav, 'nav is used'); // this is a new view to add to the stack
+            Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["b"])(!view.nav, 'nav is used'); // this is a new view to add to the stack
             // create the new entering view
 
             view.nav = this; // insert the entering view into the correct index in the stack
@@ -1264,10 +1230,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "removeView",
         value: function removeView(view) {
-          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(view.state === VIEW_STATE_ATTACHED || view.state === VIEW_STATE_DESTROYED, 'view state should be loaded or destroyed');
+          Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["b"])(view.state === VIEW_STATE_ATTACHED || view.state === VIEW_STATE_DESTROYED, 'view state should be loaded or destroyed');
           var views = this.views;
           var index = views.indexOf(view);
-          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["b"])(index > -1, 'view must be part of the stack');
+          Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["b"])(index > -1, 'view must be part of the stack');
 
           if (index >= 0) {
             views.splice(index, 1);
@@ -1304,12 +1270,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (i > activeViewIndex) {
               // this view comes after the active view
               // let's unload it
-              Object(_index_4e2fa3c6_js__WEBPACK_IMPORTED_MODULE_6__["l"])(element, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_4__["d"]);
+              Object(_index_66edb21f_js__WEBPACK_IMPORTED_MODULE_3__["l"])(element, _index_66edb21f_js__WEBPACK_IMPORTED_MODULE_3__["d"]);
               this.destroyView(view);
             } else if (i < activeViewIndex) {
               // this view comes before the active view
               // and it is not a portal then ensure it is hidden
-              Object(_index_4e2fa3c6_js__WEBPACK_IMPORTED_MODULE_6__["s"])(element, true);
+              Object(_index_66edb21f_js__WEBPACK_IMPORTED_MODULE_3__["s"])(element, true);
             }
           }
         }
@@ -1362,9 +1328,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             if (!shouldComplete) {
               this.sbAni.easing('cubic-bezier(1, 0, 0.68, 0.28)');
-              newStepValue += Object(_cubic_bezier_1d592096_js__WEBPACK_IMPORTED_MODULE_3__["g"])([0, 0], [1, 0], [0.68, 0.28], [1, 1], stepValue)[0];
+              newStepValue += Object(_cubic_bezier_685f606a_js__WEBPACK_IMPORTED_MODULE_4__["g"])([0, 0], [1, 0], [0.68, 0.28], [1, 1], stepValue)[0];
             } else {
-              newStepValue += Object(_cubic_bezier_1d592096_js__WEBPACK_IMPORTED_MODULE_3__["g"])([0, 0], [0.32, 0.72], [0, 1], [1, 1], stepValue)[0];
+              newStepValue += Object(_cubic_bezier_685f606a_js__WEBPACK_IMPORTED_MODULE_4__["g"])([0, 0], [0.32, 0.72], [0, 1], [1, 1], stepValue)[0];
             }
 
             this.sbAni.progressEnd(shouldComplete ? 1 : 0, newStepValue, dur);
@@ -1373,12 +1339,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "render",
         value: function render() {
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null);
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null);
         }
       }, {
         key: "el",
         get: function get() {
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
         }
       }], [{
         key: "watchers",
@@ -1388,35 +1354,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "root": ["rootChanged"]
           };
         }
-      }, {
-        key: "style",
-        get: function get() {
-          return ":host{left:0;right:0;top:0;bottom:0;position:absolute;contain:layout size style;overflow:hidden;z-index:0}";
-        }
       }]);
 
       return Nav;
     }();
 
-    var navLink = function navLink(el, routerDirection, component, componentProps) {
+    Nav.style = navCss;
+
+    var navLink = function navLink(el, routerDirection, component, componentProps, routerAnimation) {
       var nav = el.closest('ion-nav');
 
       if (nav) {
         if (routerDirection === 'forward') {
           if (component !== undefined) {
             return nav.push(component, componentProps, {
-              skipIfBusy: true
+              skipIfBusy: true,
+              animationBuilder: routerAnimation
             });
           }
         } else if (routerDirection === 'root') {
           if (component !== undefined) {
             return nav.setRoot(component, componentProps, {
-              skipIfBusy: true
+              skipIfBusy: true,
+              animationBuilder: routerAnimation
             });
           }
         } else if (routerDirection === 'back') {
           return nav.pop({
-            skipIfBusy: true
+            skipIfBusy: true,
+            animationBuilder: routerAnimation
           });
         }
       }
@@ -1430,7 +1396,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _classCallCheck(this, NavLink);
 
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         /**
          * The transition direction when navigating to another page.
          */
@@ -1438,21 +1404,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.routerDirection = 'forward';
 
         this.onClick = function () {
-          return navLink(_this3.el, _this3.routerDirection, _this3.component, _this3.componentProps);
+          return navLink(_this3.el, _this3.routerDirection, _this3.component, _this3.componentProps, _this3.routerAnimation);
         };
       }
 
       _createClass(NavLink, [{
         key: "render",
         value: function render() {
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
             onClick: this.onClick
           });
         }
       }, {
         key: "el",
         get: function get() {
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
         }
       }]);
 

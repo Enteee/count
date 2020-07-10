@@ -499,12 +499,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context4.prev = _context4.next) {
                   case 0:
                     _context4.next = 2;
-                    return this.counterRepositoryService.delete(counter);
+                    return this.counterRepositoryService["delete"](counter);
 
                   case 2:
                     _context4.next = 4;
                     return Promise.all(this.countEventRepositoryService.getByCounter(counter).map(function (i) {
-                      return _this.countEventRepositoryService.delete(i);
+                      return _this.countEventRepositoryService["delete"](i);
                     }));
 
                   case 4:

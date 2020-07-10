@@ -1,8 +1,89 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["common"],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/framework-delegate-c2e2e1f4.js":
+/***/ "./node_modules/@ionic/core/dist/esm/button-active-4b76b5c3.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/button-active-4b76b5c3.js ***!
+  \*********************************************************************/
+/*! exports provided: c */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return createButtonActiveGesture; });
+/* harmony import */ var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index-29df6f59.js */ "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
+/* harmony import */ var _index_eea61379_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index-eea61379.js */ "./node_modules/@ionic/core/dist/esm/index-eea61379.js");
+/* harmony import */ var _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./haptic-7b8ba70a.js */ "./node_modules/@ionic/core/dist/esm/haptic-7b8ba70a.js");
+
+
+
+
+const createButtonActiveGesture = (el, isButton) => {
+    let currentTouchedButton;
+    let initialTouchedButton;
+    const activateButtonAtPoint = (x, y, hapticFeedbackFn) => {
+        if (typeof document === 'undefined') {
+            return;
+        }
+        const target = document.elementFromPoint(x, y);
+        if (!target || !isButton(target)) {
+            clearActiveButton();
+            return;
+        }
+        if (target !== currentTouchedButton) {
+            clearActiveButton();
+            setActiveButton(target, hapticFeedbackFn);
+        }
+    };
+    const setActiveButton = (button, hapticFeedbackFn) => {
+        currentTouchedButton = button;
+        if (!initialTouchedButton) {
+            initialTouchedButton = currentTouchedButton;
+        }
+        const buttonToModify = currentTouchedButton;
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["w"])(() => buttonToModify.classList.add('ion-activated'));
+        hapticFeedbackFn();
+    };
+    const clearActiveButton = (dispatchClick = false) => {
+        if (!currentTouchedButton) {
+            return;
+        }
+        const buttonToModify = currentTouchedButton;
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["w"])(() => buttonToModify.classList.remove('ion-activated'));
+        /**
+         * Clicking on one button, but releasing on another button
+         * does not dispatch a click event in browsers, so we
+         * need to do it manually here. Some browsers will
+         * dispatch a click if clicking on one button, dragging over
+         * another button, and releasing on the original button. In that
+         * case, we need to make sure we do not cause a double click there.
+         */
+        if (dispatchClick && initialTouchedButton !== currentTouchedButton) {
+            currentTouchedButton.click();
+        }
+        currentTouchedButton = undefined;
+    };
+    return Object(_index_eea61379_js__WEBPACK_IMPORTED_MODULE_1__["createGesture"])({
+        el,
+        gestureName: 'buttonActiveDrag',
+        threshold: 0,
+        onStart: ev => activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["a"]),
+        onMove: ev => activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["b"]),
+        onEnd: () => {
+            clearActiveButton(true);
+            Object(_haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["h"])();
+            initialTouchedButton = undefined;
+        }
+    });
+};
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@ionic/core/dist/esm/framework-delegate-d1eb6504.js":
 /*!**************************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/framework-delegate-c2e2e1f4.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/framework-delegate-d1eb6504.js ***!
   \**************************************************************************/
 /*! exports provided: a, d */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -49,60 +130,123 @@ const detachComponent = (delegate, element) => {
 
 /***/ }),
 
-/***/ "./node_modules/@ionic/core/dist/esm/haptic-c8f1473e.js":
+/***/ "./node_modules/@ionic/core/dist/esm/haptic-7b8ba70a.js":
 /*!**************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/haptic-c8f1473e.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/haptic-7b8ba70a.js ***!
   \**************************************************************/
-/*! exports provided: a, b, c, h */
+/*! exports provided: a, b, c, d, h */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return hapticSelectionStart; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return hapticSelectionChanged; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return hapticSelectionEnd; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return hapticSelection; });
-/**
- * Check to see if the Haptic Plugin is available
- * @return Returns `true` or false if the plugin is available
- */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return hapticSelection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return hapticImpact; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return hapticSelectionEnd; });
+const HapticEngine = {
+    getEngine() {
+        const win = window;
+        return (win.TapticEngine) || (win.Capacitor && win.Capacitor.isPluginAvailable('Haptics') && win.Capacitor.Plugins.Haptics);
+    },
+    available() {
+        return !!this.getEngine();
+    },
+    isCordova() {
+        return !!window.TapticEngine;
+    },
+    isCapacitor() {
+        const win = window;
+        return !!win.Capacitor;
+    },
+    impact(options) {
+        const engine = this.getEngine();
+        if (!engine) {
+            return;
+        }
+        const style = this.isCapacitor() ? options.style.toUpperCase() : options.style;
+        engine.impact({ style });
+    },
+    notification(options) {
+        const engine = this.getEngine();
+        if (!engine) {
+            return;
+        }
+        const style = this.isCapacitor() ? options.style.toUpperCase() : options.style;
+        engine.notification({ style });
+    },
+    selection() {
+        this.impact({ style: 'light' });
+    },
+    selectionStart() {
+        const engine = this.getEngine();
+        if (!engine) {
+            return;
+        }
+        if (this.isCapacitor()) {
+            engine.selectionStart();
+        }
+        else {
+            engine.gestureSelectionStart();
+        }
+    },
+    selectionChanged() {
+        const engine = this.getEngine();
+        if (!engine) {
+            return;
+        }
+        if (this.isCapacitor()) {
+            engine.selectionChanged();
+        }
+        else {
+            engine.gestureSelectionChanged();
+        }
+    },
+    selectionEnd() {
+        const engine = this.getEngine();
+        if (!engine) {
+            return;
+        }
+        if (this.isCapacitor()) {
+            engine.selectionEnd();
+        }
+        else {
+            engine.gestureSelectionEnd();
+        }
+    }
+};
 /**
  * Trigger a selection changed haptic event. Good for one-time events
  * (not for gestures)
  */
 const hapticSelection = () => {
-    const engine = window.TapticEngine;
-    if (engine) {
-        engine.selection();
-    }
+    HapticEngine.selection();
 };
 /**
  * Tell the haptic engine that a gesture for a selection change is starting.
  */
 const hapticSelectionStart = () => {
-    const engine = window.TapticEngine;
-    if (engine) {
-        engine.gestureSelectionStart();
-    }
+    HapticEngine.selectionStart();
 };
 /**
  * Tell the haptic engine that a selection changed during a gesture.
  */
 const hapticSelectionChanged = () => {
-    const engine = window.TapticEngine;
-    if (engine) {
-        engine.gestureSelectionChanged();
-    }
+    HapticEngine.selectionChanged();
 };
 /**
  * Tell the haptic engine we are done with a gesture. This needs to be
  * called lest resources are not properly recycled.
  */
 const hapticSelectionEnd = () => {
-    const engine = window.TapticEngine;
-    if (engine) {
-        engine.gestureSelectionEnd();
-    }
+    HapticEngine.selectionEnd();
+};
+/**
+ * Use this to indicate success/failure/warning to the user.
+ * options should be of the type `{ style: 'light' }` (or `medium`/`heavy`)
+ */
+const hapticImpact = (options) => {
+    HapticEngine.impact(options);
 };
 
 
@@ -110,352 +254,9 @@ const hapticSelectionEnd = () => {
 
 /***/ }),
 
-/***/ "./node_modules/@ionic/core/dist/esm/index-3476b023.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/index-3476b023.js ***!
-  \*************************************************************/
-/*! exports provided: s */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return sanitizeDOMString; });
-/**
- * Does a simple sanitization of all elements
- * in an untrusted string
- */
-const sanitizeDOMString = (untrustedString) => {
-    try {
-        if (typeof untrustedString !== 'string' || untrustedString === '') {
-            return untrustedString;
-        }
-        /**
-         * Create a document fragment
-         * separate from the main DOM,
-         * create a div to do our work in
-         */
-        const documentFragment = document.createDocumentFragment();
-        const workingDiv = document.createElement('div');
-        documentFragment.appendChild(workingDiv);
-        workingDiv.innerHTML = untrustedString;
-        /**
-         * Remove any elements
-         * that are blocked
-         */
-        blockedTags.forEach(blockedTag => {
-            const getElementsToRemove = documentFragment.querySelectorAll(blockedTag);
-            for (let elementIndex = getElementsToRemove.length - 1; elementIndex >= 0; elementIndex--) {
-                const element = getElementsToRemove[elementIndex];
-                if (element.parentNode) {
-                    element.parentNode.removeChild(element);
-                }
-                else {
-                    documentFragment.removeChild(element);
-                }
-                /**
-                 * We still need to sanitize
-                 * the children of this element
-                 * as they are left behind
-                 */
-                const childElements = getElementChildren(element);
-                /* tslint:disable-next-line */
-                for (let childIndex = 0; childIndex < childElements.length; childIndex++) {
-                    sanitizeElement(childElements[childIndex]);
-                }
-            }
-        });
-        /**
-         * Go through remaining elements and remove
-         * non-allowed attribs
-         */
-        // IE does not support .children on document fragments, only .childNodes
-        const dfChildren = getElementChildren(documentFragment);
-        /* tslint:disable-next-line */
-        for (let childIndex = 0; childIndex < dfChildren.length; childIndex++) {
-            sanitizeElement(dfChildren[childIndex]);
-        }
-        // Append document fragment to div
-        const fragmentDiv = document.createElement('div');
-        fragmentDiv.appendChild(documentFragment);
-        // First child is always the div we did our work in
-        const getInnerDiv = fragmentDiv.querySelector('div');
-        return (getInnerDiv !== null) ? getInnerDiv.innerHTML : fragmentDiv.innerHTML;
-    }
-    catch (err) {
-        console.error(err);
-        return '';
-    }
-};
-/**
- * Clean up current element based on allowed attributes
- * and then recursively dig down into any child elements to
- * clean those up as well
- */
-const sanitizeElement = (element) => {
-    // IE uses childNodes, so ignore nodes that are not elements
-    if (element.nodeType && element.nodeType !== 1) {
-        return;
-    }
-    for (let i = element.attributes.length - 1; i >= 0; i--) {
-        const attribute = element.attributes.item(i);
-        const attributeName = attribute.name;
-        // remove non-allowed attribs
-        if (!allowedAttributes.includes(attributeName.toLowerCase())) {
-            element.removeAttribute(attributeName);
-            continue;
-        }
-        // clean up any allowed attribs
-        // that attempt to do any JS funny-business
-        const attributeValue = attribute.value;
-        /* tslint:disable-next-line */
-        if (attributeValue != null && attributeValue.toLowerCase().includes('javascript:')) {
-            element.removeAttribute(attributeName);
-        }
-    }
-    /**
-     * Sanitize any nested children
-     */
-    const childElements = getElementChildren(element);
-    /* tslint:disable-next-line */
-    for (let i = 0; i < childElements.length; i++) {
-        sanitizeElement(childElements[i]);
-    }
-};
-/**
- * IE doesn't always support .children
- * so we revert to .childNodes instead
- */
-const getElementChildren = (el) => {
-    return (el.children != null) ? el.children : el.childNodes;
-};
-const allowedAttributes = ['class', 'id', 'href', 'src', 'name', 'slot'];
-const blockedTags = ['script', 'style', 'iframe', 'meta', 'link', 'object', 'embed'];
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/@ionic/core/dist/esm/index-4e2fa3c6.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/index-4e2fa3c6.js ***!
-  \*************************************************************/
-/*! exports provided: d, g, l, s, t */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return deepReady; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return getIonPageElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return lifecycle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return setPageHidden; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return transition; });
-/* harmony import */ var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-0a8d4d2e.js */ "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
-/* harmony import */ var _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants-3c3e1099.js */ "./node_modules/@ionic/core/dist/esm/constants-3c3e1099.js");
-
-
-
-const iosTransitionAnimation = () => __webpack_require__.e(/*! import() | ios-transition-179652bb-js */ "ios-transition-179652bb-js").then(__webpack_require__.bind(null, /*! ./ios.transition-179652bb.js */ "./node_modules/@ionic/core/dist/esm/ios.transition-179652bb.js"));
-const mdTransitionAnimation = () => __webpack_require__.e(/*! import() | md-transition-91524c12-js */ "md-transition-91524c12-js").then(__webpack_require__.bind(null, /*! ./md.transition-91524c12.js */ "./node_modules/@ionic/core/dist/esm/md.transition-91524c12.js"));
-const transition = (opts) => {
-    return new Promise((resolve, reject) => {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(() => {
-            beforeTransition(opts);
-            runTransition(opts).then(result => {
-                if (result.animation) {
-                    result.animation.destroy();
-                }
-                afterTransition(opts);
-                resolve(result);
-            }, error => {
-                afterTransition(opts);
-                reject(error);
-            });
-        });
-    });
-};
-const beforeTransition = (opts) => {
-    const enteringEl = opts.enteringEl;
-    const leavingEl = opts.leavingEl;
-    setZIndex(enteringEl, leavingEl, opts.direction);
-    if (opts.showGoBack) {
-        enteringEl.classList.add('can-go-back');
-    }
-    else {
-        enteringEl.classList.remove('can-go-back');
-    }
-    setPageHidden(enteringEl, false);
-    if (leavingEl) {
-        setPageHidden(leavingEl, false);
-    }
-};
-const runTransition = async (opts) => {
-    const animationBuilder = await getAnimationBuilder(opts);
-    const ani = (animationBuilder)
-        ? animation(animationBuilder, opts)
-        : noAnimation(opts); // fast path for no animation
-    return ani;
-};
-const afterTransition = (opts) => {
-    const enteringEl = opts.enteringEl;
-    const leavingEl = opts.leavingEl;
-    enteringEl.classList.remove('ion-page-invisible');
-    if (leavingEl !== undefined) {
-        leavingEl.classList.remove('ion-page-invisible');
-    }
-};
-const getAnimationBuilder = async (opts) => {
-    if (!opts.leavingEl || !opts.animated || opts.duration === 0) {
-        return undefined;
-    }
-    if (opts.animationBuilder) {
-        return opts.animationBuilder;
-    }
-    const getAnimation = (opts.mode === 'ios')
-        ? (await iosTransitionAnimation()).iosTransitionAnimation
-        : (await mdTransitionAnimation()).mdTransitionAnimation;
-    return getAnimation;
-};
-const animation = async (animationBuilder, opts) => {
-    await waitForReady(opts, true);
-    const trans = animationBuilder(opts.baseEl, opts);
-    fireWillEvents(opts.enteringEl, opts.leavingEl);
-    const didComplete = await playTransition(trans, opts);
-    if (opts.progressCallback) {
-        opts.progressCallback(undefined);
-    }
-    if (didComplete) {
-        fireDidEvents(opts.enteringEl, opts.leavingEl);
-    }
-    return {
-        hasCompleted: didComplete,
-        animation: trans
-    };
-};
-const noAnimation = async (opts) => {
-    const enteringEl = opts.enteringEl;
-    const leavingEl = opts.leavingEl;
-    await waitForReady(opts, false);
-    fireWillEvents(enteringEl, leavingEl);
-    fireDidEvents(enteringEl, leavingEl);
-    return {
-        hasCompleted: true
-    };
-};
-const waitForReady = async (opts, defaultDeep) => {
-    const deep = opts.deepWait !== undefined ? opts.deepWait : defaultDeep;
-    const promises = deep ? [
-        deepReady(opts.enteringEl),
-        deepReady(opts.leavingEl),
-    ] : [
-        shallowReady(opts.enteringEl),
-        shallowReady(opts.leavingEl),
-    ];
-    await Promise.all(promises);
-    await notifyViewReady(opts.viewIsReady, opts.enteringEl);
-};
-const notifyViewReady = async (viewIsReady, enteringEl) => {
-    if (viewIsReady) {
-        await viewIsReady(enteringEl);
-    }
-};
-const playTransition = (trans, opts) => {
-    const progressCallback = opts.progressCallback;
-    const promise = new Promise(resolve => {
-        trans.onFinish((currentStep) => resolve(currentStep === 1));
-    });
-    // cool, let's do this, start the transition
-    if (progressCallback) {
-        // this is a swipe to go back, just get the transition progress ready
-        // kick off the swipe animation start
-        trans.progressStart(true);
-        progressCallback(trans);
-    }
-    else {
-        // only the top level transition should actually start "play"
-        // kick it off and let it play through
-        // ******** DOM WRITE ****************
-        trans.play();
-    }
-    // create a callback for when the animation is done
-    return promise;
-};
-const fireWillEvents = (enteringEl, leavingEl) => {
-    lifecycle(leavingEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["b"]);
-    lifecycle(enteringEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["L"]);
-};
-const fireDidEvents = (enteringEl, leavingEl) => {
-    lifecycle(enteringEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["a"]);
-    lifecycle(leavingEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["c"]);
-};
-const lifecycle = (el, eventName) => {
-    if (el) {
-        const ev = new CustomEvent(eventName, {
-            bubbles: false,
-            cancelable: false,
-        });
-        el.dispatchEvent(ev);
-    }
-};
-const shallowReady = (el) => {
-    if (el && el.componentOnReady) {
-        return el.componentOnReady();
-    }
-    return Promise.resolve();
-};
-const deepReady = async (el) => {
-    const element = el;
-    if (element) {
-        if (element.componentOnReady != null) {
-            const stencilEl = await element.componentOnReady();
-            if (stencilEl != null) {
-                return;
-            }
-        }
-        await Promise.all(Array.from(element.children).map(deepReady));
-    }
-};
-const setPageHidden = (el, hidden) => {
-    if (hidden) {
-        el.setAttribute('aria-hidden', 'true');
-        el.classList.add('ion-page-hidden');
-    }
-    else {
-        el.hidden = false;
-        el.removeAttribute('aria-hidden');
-        el.classList.remove('ion-page-hidden');
-    }
-};
-const setZIndex = (enteringEl, leavingEl, direction) => {
-    if (enteringEl !== undefined) {
-        enteringEl.style.zIndex = (direction === 'back')
-            ? '99'
-            : '101';
-    }
-    if (leavingEl !== undefined) {
-        leavingEl.style.zIndex = '100';
-    }
-};
-const getIonPageElement = (element) => {
-    if (element.classList.contains('ion-page')) {
-        return element;
-    }
-    const ionPage = element.querySelector(':scope > .ion-page, :scope > ion-nav, :scope > ion-tabs');
-    if (ionPage) {
-        return ionPage;
-    }
-    // idk, return the original element so at least something animates and we don't have a null pointer
-    return element;
-};
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/@ionic/core/dist/esm/spinner-configs-28520d80.js":
+/***/ "./node_modules/@ionic/core/dist/esm/spinner-configs-c78e170e.js":
 /*!***********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/spinner-configs-28520d80.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/spinner-configs-c78e170e.js ***!
   \***********************************************************************/
 /*! exports provided: S */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -577,9 +378,9 @@ const SPINNERS = spinners;
 
 /***/ }),
 
-/***/ "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js":
+/***/ "./node_modules/@ionic/core/dist/esm/theme-3f0b0c04.js":
 /*!*************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/theme-3f0b0c04.js ***!
   \*************************************************************/
 /*! exports provided: c, g, h, o */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -618,14 +419,14 @@ const getClassMap = (classes) => {
     return map;
 };
 const SCHEME = /^[a-z][a-z0-9+\-.]*:/;
-const openURL = async (url, ev, direction) => {
+const openURL = async (url, ev, direction, animation) => {
     if (url != null && url[0] !== '#' && !SCHEME.test(url)) {
         const router = document.querySelector('ion-router');
         if (router) {
             if (ev != null) {
                 ev.preventDefault();
             }
-            return router.push(url, direction);
+            return router.push(url, direction, animation);
         }
     }
     return false;

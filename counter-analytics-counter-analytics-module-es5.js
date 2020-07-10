@@ -338,7 +338,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         counterAnalyticsHost: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
           args: [_counter_analytics_directive__WEBPACK_IMPORTED_MODULE_2__["CounterAnalyticsDirective"], {
-            static: true
+            "static": true
           }]
         }]
       });

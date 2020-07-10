@@ -8,11 +8,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
- * @license Angular v0.10.2
- * (c) 2010-2019 Google LLC. https://angular.io/
- * License: MIT
- */
-
+* @license Angular v9.1.0-next.4+61.sha-e552591.with-local-changes
+* (c) 2010-2020 Google LLC. https://angular.io/
+* License: MIT
+*/
 (function (factory) {
      true ? !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
@@ -20,7 +19,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 				__WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) :
     undefined;
-}(function () { 'use strict';
+}((function () { 'use strict';
 
     /**
      * @license
@@ -662,6 +661,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
         }
         const __symbol__ = api.symbol;
         const _uncaughtPromiseErrors = [];
+        const isDisableWrappingUncaughtPromiseRejection = global[__symbol__('DISABLE_WRAPPING_UNCAUGHT_PROMISE_REJECTION')] === true;
         const symbolPromise = __symbol__('Promise');
         const symbolThen = __symbol__('then');
         const creationTrace = '__creationTrace__';
@@ -678,14 +678,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
         };
         api.microtaskDrainDone = () => {
             while (_uncaughtPromiseErrors.length) {
-                while (_uncaughtPromiseErrors.length) {
-                    const uncaughtPromiseError = _uncaughtPromiseErrors.shift();
-                    try {
-                        uncaughtPromiseError.zone.runGuarded(() => { throw uncaughtPromiseError; });
-                    }
-                    catch (error) {
-                        handleUnhandledRejection(error);
-                    }
+                const uncaughtPromiseError = _uncaughtPromiseErrors.shift();
+                try {
+                    uncaughtPromiseError.zone.runGuarded(() => { throw uncaughtPromiseError; });
+                }
+                catch (error) {
+                    handleUnhandledRejection(error);
                 }
             }
         };
@@ -694,7 +692,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
             api.onUnhandledError(e);
             try {
                 const handler = Zone[UNHANDLED_PROMISE_REJECTION_HANDLER_SYMBOL];
-                if (handler && typeof handler === 'function') {
+                if (typeof handler === 'function') {
                     handler.call(this, e);
                 }
             }
@@ -801,20 +799,28 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                     }
                     if (queue.length == 0 && state == REJECTED) {
                         promise[symbolState] = REJECTED_NO_CATCH;
-                        try {
-                            // try to print more readable error log
-                            throw new Error('Uncaught (in promise): ' + readableObjectToString(value) +
-                                (value && value.stack ? '\n' + value.stack : ''));
+                        let uncaughtPromiseError = value;
+                        if (!isDisableWrappingUncaughtPromiseRejection) {
+                            // If disable wrapping uncaught promise reject
+                            // and the rejected value is an Error object,
+                            // use the value instead of wrapping it.
+                            try {
+                                // Here we throws a new Error to print more readable error log
+                                // and if the value is not an error, zone.js builds an `Error`
+                                // Object here to attach the stack information.
+                                throw new Error('Uncaught (in promise): ' + readableObjectToString(value) +
+                                    (value && value.stack ? '\n' + value.stack : ''));
+                            }
+                            catch (err) {
+                                uncaughtPromiseError = err;
+                            }
                         }
-                        catch (err) {
-                            const error = err;
-                            error.rejection = value;
-                            error.promise = promise;
-                            error.zone = Zone.current;
-                            error.task = Zone.currentTask;
-                            _uncaughtPromiseErrors.push(error);
-                            api.scheduleMicroTask(); // to make sure that it is running
-                        }
+                        uncaughtPromiseError.rejection = value;
+                        uncaughtPromiseError.promise = promise;
+                        uncaughtPromiseError.zone = Zone.current;
+                        uncaughtPromiseError.task = Zone.currentTask;
+                        _uncaughtPromiseErrors.push(uncaughtPromiseError);
+                        api.scheduleMicroTask(); // to make sure that it is running
                     }
                 }
             }
@@ -873,21 +879,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
             }, chainPromise);
         }
         const ZONE_AWARE_PROMISE_TO_STRING = 'function ZoneAwarePromise() { [native code] }';
+        const noop = function () { };
         class ZoneAwarePromise {
-            constructor(executor) {
-                const promise = this;
-                if (!(promise instanceof ZoneAwarePromise)) {
-                    throw new Error('Must be an instanceof Promise.');
-                }
-                promise[symbolState] = UNRESOLVED;
-                promise[symbolValue] = []; // queue;
-                try {
-                    executor && executor(makeResolver(promise, RESOLVED), makeResolver(promise, REJECTED));
-                }
-                catch (error) {
-                    resolvePromise(promise, false, error);
-                }
-            }
             static toString() { return ZONE_AWARE_PROMISE_TO_STRING; }
             static resolve(value) {
                 return resolvePromise(new this(null), RESOLVED, value);
@@ -969,9 +962,28 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 }
                 return promise;
             }
+            constructor(executor) {
+                const promise = this;
+                if (!(promise instanceof ZoneAwarePromise)) {
+                    throw new Error('Must be an instanceof Promise.');
+                }
+                promise[symbolState] = UNRESOLVED;
+                promise[symbolValue] = []; // queue;
+                try {
+                    executor && executor(makeResolver(promise, RESOLVED), makeResolver(promise, REJECTED));
+                }
+                catch (error) {
+                    resolvePromise(promise, false, error);
+                }
+            }
             get [Symbol.toStringTag]() { return 'Promise'; }
+            get [Symbol.species]() { return ZoneAwarePromise; }
             then(onFulfilled, onRejected) {
-                const chainPromise = new this.constructor(null);
+                let C = this.constructor[Symbol.species];
+                if (!C || typeof C !== 'function') {
+                    C = this.constructor || ZoneAwarePromise;
+                }
+                const chainPromise = new C(noop);
                 const zone = Zone.current;
                 if (this[symbolState] == UNRESOLVED) {
                     this[symbolValue].push(zone, chainPromise, onFulfilled, onRejected);
@@ -985,7 +997,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 return this.then(null, onRejected);
             }
             finally(onFinally) {
-                const chainPromise = new this.constructor(null);
+                let C = this.constructor[Symbol.species];
+                if (!C || typeof C !== 'function') {
+                    C = ZoneAwarePromise;
+                }
+                const chainPromise = new C(noop);
                 chainPromise[symbolFinally] = symbolFinally;
                 const zone = Zone.current;
                 if (this[symbolState] == UNRESOLVED) {
@@ -1584,6 +1600,15 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     const globalSources = {};
     const EVENT_NAME_SYMBOL_REGX = new RegExp('^' + ZONE_SYMBOL_PREFIX + '(\\w+)(true|false)$');
     const IMMEDIATE_PROPAGATION_SYMBOL = zoneSymbol('propagationStopped');
+    function prepareEventNames(eventName, eventNameToString) {
+        const falseEventName = (eventNameToString ? eventNameToString(eventName) : eventName) + FALSE_STR;
+        const trueEventName = (eventNameToString ? eventNameToString(eventName) : eventName) + TRUE_STR;
+        const symbol = ZONE_SYMBOL_PREFIX + falseEventName;
+        const symbolCapture = ZONE_SYMBOL_PREFIX + trueEventName;
+        zoneSymbolEventNames$1[eventName] = {};
+        zoneSymbolEventNames$1[eventName][FALSE_STR] = symbol;
+        zoneSymbolEventNames$1[eventName][TRUE_STR] = symbolCapture;
+    }
     function patchEventTarget(_global, apis, patchOptions) {
         const ADD_EVENT_LISTENER = (patchOptions && patchOptions.add) || ADD_EVENT_LISTENER_STR;
         const REMOVE_EVENT_LISTENER = (patchOptions && patchOptions.rm) || REMOVE_EVENT_LISTENER_STR;
@@ -1727,16 +1752,30 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 nativePrependEventListener = proto[zoneSymbol(patchOptions.prepend)] =
                     proto[patchOptions.prepend];
             }
-            function checkIsPassive(task) {
-                if (!passiveSupported && typeof taskData.options !== 'boolean' &&
-                    typeof taskData.options !== 'undefined' && taskData.options !== null) {
-                    // options is a non-null non-undefined object
-                    // passive is not supported
-                    // don't pass options as object
-                    // just pass capture as a boolean
-                    task.options = !!taskData.options.capture;
-                    taskData.options = task.options;
+            /**
+             * This util function will build an option object with passive option
+             * to handle all possible input from the user.
+             */
+            function buildEventListenerOptions(options, passive) {
+                if (!passiveSupported && typeof options === 'object' && options) {
+                    // doesn't support passive but user want to pass an object as options.
+                    // this will not work on some old browser, so we just pass a boolean
+                    // as useCapture parameter
+                    return !!options.capture;
                 }
+                if (!passiveSupported || !passive) {
+                    return options;
+                }
+                if (typeof options === 'boolean') {
+                    return { capture: options, passive: true };
+                }
+                if (!options) {
+                    return { passive: true };
+                }
+                if (typeof options === 'object' && options.passive !== false) {
+                    return Object.assign(Object.assign({}, options), { passive: true });
+                }
+                return options;
             }
             const customScheduleGlobal = function (task) {
                 // if there is already a task for the eventName + capture,
@@ -1744,7 +1783,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 if (taskData.isExisting) {
                     return;
                 }
-                checkIsPassive(task);
                 return nativeAddEventListener.call(taskData.target, taskData.eventName, taskData.capture ? globalZoneAwareCaptureCallback : globalZoneAwareCallback, taskData.options);
             };
             const customCancelGlobal = function (task) {
@@ -1785,7 +1823,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 return nativeRemoveEventListener.call(task.target, task.eventName, task.capture ? globalZoneAwareCaptureCallback : globalZoneAwareCallback, task.options);
             };
             const customScheduleNonGlobal = function (task) {
-                checkIsPassive(task);
                 return nativeAddEventListener.call(taskData.target, taskData.eventName, task.invoke, taskData.options);
             };
             const customSchedulePrepend = function (task) {
@@ -1803,6 +1840,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
             };
             const compare = (patchOptions && patchOptions.diff) ? patchOptions.diff : compareTaskCallbackVsDelegate;
             const blackListedEvents = Zone[zoneSymbol('BLACK_LISTED_EVENTS')];
+            const passiveEvents = _global[zoneSymbol('PASSIVE_EVENTS')];
             const makeAddListener = function (nativeListener, addSource, customScheduleFn, customCancelFn, returnTarget = false, prepend = false) {
                 return function () {
                     const target = this || _global;
@@ -1831,47 +1869,30 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                     if (validateHandler && !validateHandler(nativeListener, delegate, target, arguments)) {
                         return;
                     }
-                    const options = arguments[2];
+                    const passive = passiveSupported && !!passiveEvents && passiveEvents.indexOf(eventName) !== -1;
+                    const options = buildEventListenerOptions(arguments[2], passive);
                     if (blackListedEvents) {
                         // check black list
                         for (let i = 0; i < blackListedEvents.length; i++) {
                             if (eventName === blackListedEvents[i]) {
-                                return nativeListener.apply(this, arguments);
+                                if (passive) {
+                                    return nativeListener.call(target, eventName, delegate, options);
+                                }
+                                else {
+                                    return nativeListener.apply(this, arguments);
+                                }
                             }
                         }
                     }
-                    let capture;
-                    let once = false;
-                    if (options === undefined) {
-                        capture = false;
-                    }
-                    else if (options === true) {
-                        capture = true;
-                    }
-                    else if (options === false) {
-                        capture = false;
-                    }
-                    else {
-                        capture = options ? !!options.capture : false;
-                        once = options ? !!options.once : false;
-                    }
+                    const capture = !options ? false : typeof options === 'boolean' ? true : options.capture;
+                    const once = options && typeof options === 'object' ? options.once : false;
                     const zone = Zone.current;
-                    const symbolEventNames = zoneSymbolEventNames$1[eventName];
-                    let symbolEventName;
+                    let symbolEventNames = zoneSymbolEventNames$1[eventName];
                     if (!symbolEventNames) {
-                        // the code is duplicate, but I just want to get some better performance
-                        const falseEventName = (eventNameToString ? eventNameToString(eventName) : eventName) + FALSE_STR;
-                        const trueEventName = (eventNameToString ? eventNameToString(eventName) : eventName) + TRUE_STR;
-                        const symbol = ZONE_SYMBOL_PREFIX + falseEventName;
-                        const symbolCapture = ZONE_SYMBOL_PREFIX + trueEventName;
-                        zoneSymbolEventNames$1[eventName] = {};
-                        zoneSymbolEventNames$1[eventName][FALSE_STR] = symbol;
-                        zoneSymbolEventNames$1[eventName][TRUE_STR] = symbolCapture;
-                        symbolEventName = capture ? symbolCapture : symbol;
+                        prepareEventNames(eventName, eventNameToString);
+                        symbolEventNames = zoneSymbolEventNames$1[eventName];
                     }
-                    else {
-                        symbolEventName = symbolEventNames[capture ? TRUE_STR : FALSE_STR];
-                    }
+                    const symbolEventName = symbolEventNames[capture ? TRUE_STR : FALSE_STR];
                     let existingTasks = target[symbolEventName];
                     let isExisting = false;
                     if (existingTasks) {
@@ -1964,19 +1985,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                     eventName = patchOptions.transferEventName(eventName);
                 }
                 const options = arguments[2];
-                let capture;
-                if (options === undefined) {
-                    capture = false;
-                }
-                else if (options === true) {
-                    capture = true;
-                }
-                else if (options === false) {
-                    capture = false;
-                }
-                else {
-                    capture = options ? !!options.capture : false;
-                }
+                const capture = !options ? false : typeof options === 'boolean' ? true : options.capture;
                 const delegate = arguments[1];
                 if (!delegate) {
                     return nativeRemoveEventListener.apply(this, arguments);
@@ -2110,20 +2119,36 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
         return results;
     }
     function findEventTasks(target, eventName) {
-        const foundTasks = [];
-        for (let prop in target) {
-            const match = EVENT_NAME_SYMBOL_REGX.exec(prop);
-            let evtName = match && match[1];
-            if (evtName && (!eventName || evtName === eventName)) {
-                const tasks = target[prop];
-                if (tasks) {
-                    for (let i = 0; i < tasks.length; i++) {
-                        foundTasks.push(tasks[i]);
+        if (!eventName) {
+            const foundTasks = [];
+            for (let prop in target) {
+                const match = EVENT_NAME_SYMBOL_REGX.exec(prop);
+                let evtName = match && match[1];
+                if (evtName && (!eventName || evtName === eventName)) {
+                    const tasks = target[prop];
+                    if (tasks) {
+                        for (let i = 0; i < tasks.length; i++) {
+                            foundTasks.push(tasks[i]);
+                        }
                     }
                 }
             }
+            return foundTasks;
         }
-        return foundTasks;
+        let symbolEventName = zoneSymbolEventNames$1[eventName];
+        if (!symbolEventName) {
+            prepareEventNames(eventName);
+            symbolEventName = zoneSymbolEventNames$1[eventName];
+        }
+        const captureFalseTasks = target[symbolEventName[FALSE_STR]];
+        const captureTrueTasks = target[symbolEventName[TRUE_STR]];
+        if (!captureFalseTasks) {
+            return captureTrueTasks ? captureTrueTasks.slice() : [];
+        }
+        else {
+            return captureTrueTasks ? captureFalseTasks.concat(captureTrueTasks) :
+                captureFalseTasks.slice();
+        }
     }
     function patchEventPrototype(global, api) {
         const Event = global['Event'];
@@ -2315,7 +2340,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
         'unhandledrejection',
         'unload',
         'userproximity',
-        'vrdisplyconnected',
+        'vrdisplayconnected',
         'vrdisplaydisconnected',
         'vrdisplaypresentchange'
     ];
@@ -2518,14 +2543,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
         api.getGlobalObjects = () => ({ globalSources, zoneSymbolEventNames: zoneSymbolEventNames$1, eventNames, isBrowser, isMix, isNode, TRUE_STR,
             FALSE_STR, ZONE_SYMBOL_PREFIX, ADD_EVENT_LISTENER_STR, REMOVE_EVENT_LISTENER_STR });
     });
-
-    /**
-     * @license
-     * Copyright Google Inc. All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
 
     /**
      * @license
@@ -2933,15 +2950,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
         }
     });
 
-    /**
-     * @license
-     * Copyright Google Inc. All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-
-}));
+})));
 
 
 /***/ }),

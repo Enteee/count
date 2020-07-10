@@ -29,35 +29,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! ./core-0a8d4d2e.js */
-    "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
+    var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./index-29df6f59.js */
+    "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
     /* harmony import */
 
 
-    var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ./config-3c7f3790.js */
-    "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
+    var _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./ionic-global-08f4fb8a.js */
+    "./node_modules/@ionic/core/dist/esm/ionic-global-08f4fb8a.js");
     /* harmony import */
 
 
-    var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./helpers-46f4a262.js */
-    "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
-    /* harmony import */
+    var _gesture_controller_89173521_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./gesture-controller-89173521.js */
+    "./node_modules/@ionic/core/dist/esm/gesture-controller-89173521.js");
 
-
-    var _index_c38df685_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./index-c38df685.js */
-    "./node_modules/@ionic/core/dist/esm/index-c38df685.js");
+    var backdropIosCss = ":host{left:0;right:0;top:0;bottom:0;display:block;position:absolute;-webkit-transform:translateZ(0);transform:translateZ(0);contain:strict;cursor:pointer;opacity:0.01;-ms-touch-action:none;touch-action:none;z-index:2}:host(.backdrop-hide){background:transparent}:host(.backdrop-no-tappable){cursor:auto}:host{background-color:var(--ion-backdrop-color, #000)}";
+    var backdropMdCss = ":host{left:0;right:0;top:0;bottom:0;display:block;position:absolute;-webkit-transform:translateZ(0);transform:translateZ(0);contain:strict;cursor:pointer;opacity:0.01;-ms-touch-action:none;touch-action:none;z-index:2}:host(.backdrop-hide){background:transparent}:host(.backdrop-no-tappable){cursor:auto}:host{background-color:var(--ion-backdrop-color, #000)}";
 
     var Backdrop = /*#__PURE__*/function () {
       function Backdrop(hostRef) {
         _classCallCheck(this, Backdrop);
 
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.lastClick = -10000;
-        this.blocker = _index_c38df685_js__WEBPACK_IMPORTED_MODULE_3__["GESTURE_CONTROLLER"].createBlocker({
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.blocker = _gesture_controller_89173521_js__WEBPACK_IMPORTED_MODULE_2__["G"].createBlocker({
           disableScroll: true
         });
         /**
@@ -75,7 +71,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
          */
 
         this.stopPropagation = true;
-        this.ionBackdropTap = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionBackdropTap", 7);
+        this.ionBackdropTap = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionBackdropTap", 7);
       }
 
       _createClass(Backdrop, [{
@@ -91,17 +87,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.blocker.unblock();
         }
       }, {
-        key: "onTouchStart",
-        value: function onTouchStart(ev) {
-          this.lastClick = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["n"])(ev);
-          this.emitTap(ev);
-        }
-      }, {
         key: "onMouseDown",
         value: function onMouseDown(ev) {
-          if (this.lastClick < Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["n"])(ev) - 2500) {
-            this.emitTap(ev);
-          }
+          this.emitTap(ev);
         }
       }, {
         key: "emitTap",
@@ -120,23 +108,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function render() {
           var _class;
 
-          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+          var mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
             tabindex: "-1",
-            class: (_class = {}, _defineProperty(_class, mode, true), _defineProperty(_class, 'backdrop-hide', !this.visible), _defineProperty(_class, 'backdrop-no-tappable', !this.tappable), _class)
+            "class": (_class = {}, _defineProperty(_class, mode, true), _defineProperty(_class, 'backdrop-hide', !this.visible), _defineProperty(_class, 'backdrop-no-tappable', !this.tappable), _class)
           });
-        }
-      }], [{
-        key: "style",
-        get: function get() {
-          return ":host{left:0;right:0;top:0;bottom:0;display:block;position:absolute;-webkit-transform:translateZ(0);transform:translateZ(0);contain:strict;cursor:pointer;opacity:.01;-ms-touch-action:none;touch-action:none;z-index:2}:host(.backdrop-hide){background:transparent}:host(.backdrop-no-tappable){cursor:auto}:host{background-color:var(--ion-backdrop-color,#000)}";
         }
       }]);
 
       return Backdrop;
     }();
-    /***/
 
+    Backdrop.style = {
+      /*STENCIL:MODE:ios*/
+      ios: backdropIosCss,
+
+      /*STENCIL:MODE:md*/
+      md: backdropMdCss
+    };
+    /***/
   }
 }]);
 //# sourceMappingURL=11-es5.js.map

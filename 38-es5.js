@@ -33,75 +33,75 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! ./core-0a8d4d2e.js */
-    "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
+    var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./index-29df6f59.js */
+    "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
     /* harmony import */
 
 
-    var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ./config-3c7f3790.js */
-    "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
+    var _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./ionic-global-08f4fb8a.js */
+    "./node_modules/@ionic/core/dist/esm/ionic-global-08f4fb8a.js");
     /* harmony import */
 
 
-    var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./helpers-46f4a262.js */
-    "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
+    var _helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./helpers-5c745fbd.js */
+    "./node_modules/@ionic/core/dist/esm/helpers-5c745fbd.js");
     /* harmony import */
 
 
-    var _animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./animation-56279521.js */
-    "./node_modules/@ionic/core/dist/esm/animation-56279521.js");
+    var _animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./animation-a635a2fc.js */
+    "./node_modules/@ionic/core/dist/esm/animation-a635a2fc.js");
     /* harmony import */
 
 
-    var _cubic_bezier_1d592096_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./cubic-bezier-1d592096.js */
-    "./node_modules/@ionic/core/dist/esm/cubic-bezier-1d592096.js");
+    var _index_66edb21f_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./index-66edb21f.js */
+    "./node_modules/@ionic/core/dist/esm/index-66edb21f.js");
     /* harmony import */
 
 
-    var _index_c38df685_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ./index-c38df685.js */
-    "./node_modules/@ionic/core/dist/esm/index-c38df685.js");
+    var _cubic_bezier_685f606a_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ./cubic-bezier-685f606a.js */
+    "./node_modules/@ionic/core/dist/esm/cubic-bezier-685f606a.js");
     /* harmony import */
 
 
-    var _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ./constants-3c3e1099.js */
-    "./node_modules/@ionic/core/dist/esm/constants-3c3e1099.js");
+    var _gesture_controller_89173521_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./gesture-controller-89173521.js */
+    "./node_modules/@ionic/core/dist/esm/gesture-controller-89173521.js");
     /* harmony import */
 
 
-    var _hardware_back_button_1ed0083a_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ./hardware-back-button-1ed0083a.js */
-    "./node_modules/@ionic/core/dist/esm/hardware-back-button-1ed0083a.js");
+    var _index_eea61379_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ./index-eea61379.js */
+    "./node_modules/@ionic/core/dist/esm/index-eea61379.js");
     /* harmony import */
 
 
-    var _overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! ./overlays-e336664a.js */
-    "./node_modules/@ionic/core/dist/esm/overlays-e336664a.js");
+    var _hardware_back_button_7b6ede21_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ./hardware-back-button-7b6ede21.js */
+    "./node_modules/@ionic/core/dist/esm/hardware-back-button-7b6ede21.js");
     /* harmony import */
 
 
-    var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! ./theme-18cbe2cc.js */
-    "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
+    var _overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ./overlays-7369bfcc.js */
+    "./node_modules/@ionic/core/dist/esm/overlays-7369bfcc.js");
     /* harmony import */
 
 
-    var _framework_delegate_c2e2e1f4_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-    /*! ./framework-delegate-c2e2e1f4.js */
-    "./node_modules/@ionic/core/dist/esm/framework-delegate-c2e2e1f4.js");
+    var _theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ./theme-3f0b0c04.js */
+    "./node_modules/@ionic/core/dist/esm/theme-3f0b0c04.js");
     /* harmony import */
 
 
-    var _index_4e2fa3c6_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-    /*! ./index-4e2fa3c6.js */
-    "./node_modules/@ionic/core/dist/esm/index-4e2fa3c6.js"); // Defaults for the card swipe animation
+    var _framework_delegate_d1eb6504_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! ./framework-delegate-d1eb6504.js */
+    "./node_modules/@ionic/core/dist/esm/framework-delegate-d1eb6504.js"); // Defaults for the card swipe animation
 
 
     var SwipeToCloseDefaults = {
@@ -136,33 +136,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       };
 
       var onMove = function onMove(detail) {
-        var step = detail.deltaY / height;
-
-        if (step < 0) {
-          return;
-        }
-
+        var step = Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["c"])(0.0001, detail.deltaY / height, 0.9999);
         animation.progressStep(step);
       };
 
       var onEnd = function onEnd(detail) {
         var velocity = detail.velocityY;
-        var step = detail.deltaY / height;
-
-        if (step < 0) {
-          return;
-        }
-
+        var step = Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["c"])(0.0001, detail.deltaY / height, 0.9999);
         var threshold = (detail.deltaY + velocity * 1000) / height;
         var shouldComplete = threshold >= 0.5;
         var newStepValue = shouldComplete ? -0.001 : 0.001;
 
         if (!shouldComplete) {
           animation.easing('cubic-bezier(1, 0, 0.68, 0.28)');
-          newStepValue += Object(_cubic_bezier_1d592096_js__WEBPACK_IMPORTED_MODULE_4__["g"])([0, 0], [1, 0], [0.68, 0.28], [1, 1], step)[0];
+          newStepValue += Object(_cubic_bezier_685f606a_js__WEBPACK_IMPORTED_MODULE_5__["g"])([0, 0], [1, 0], [0.68, 0.28], [1, 1], step)[0];
         } else {
           animation.easing('cubic-bezier(0.32, 0.72, 0, 1)');
-          newStepValue += Object(_cubic_bezier_1d592096_js__WEBPACK_IMPORTED_MODULE_4__["g"])([0, 0], [0.32, 0.72], [0, 1], [1, 1], step)[0];
+          newStepValue += Object(_cubic_bezier_685f606a_js__WEBPACK_IMPORTED_MODULE_5__["g"])([0, 0], [0.32, 0.72], [0, 1], [1, 1], step)[0];
         }
 
         var duration = shouldComplete ? computeDuration(step * height, velocity) : computeDuration((1 - step) * height, velocity);
@@ -179,7 +169,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       };
 
-      var gesture = Object(_index_c38df685_js__WEBPACK_IMPORTED_MODULE_5__["createGesture"])({
+      var gesture = Object(_index_eea61379_js__WEBPACK_IMPORTED_MODULE_7__["createGesture"])({
         el: el,
         gestureName: 'modalSwipeToClose',
         gesturePriority: 40,
@@ -194,7 +184,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     };
 
     var computeDuration = function computeDuration(remaining, velocity) {
-      return Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["c"])(400, remaining / Math.abs(velocity * 1.1), 500);
+      return Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["c"])(400, remaining / Math.abs(velocity * 1.1), 500);
     };
     /**
      * iOS Modal Enter Animation for the Card presentation style
@@ -202,38 +192,87 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
     var iosEnterAnimation = function iosEnterAnimation(baseEl, presentingEl) {
-      // The top translate Y for the presenting element
-      var backdropAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)');
-      var wrapperAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(baseEl.querySelector('.modal-wrapper')).beforeStyles({
+      var backdropAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
+        'pointer-events': 'none'
+      }).afterClearStyles(['pointer-events']);
+      var wrapperAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(baseEl.querySelectorAll('.modal-wrapper, .modal-shadow')).beforeStyles({
         'opacity': 1
-      }).fromTo('transform', 'translateY(100%)', 'translateY(0%)');
-      var baseAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(baseEl).easing('cubic-bezier(0.32,0.72,0,1)').duration(500).beforeAddClass('show-modal').addAnimation([backdropAnimation, wrapperAnimation]);
+      }).fromTo('transform', 'translateY(100vh)', 'translateY(0vh)');
+      var baseAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(baseEl).easing('cubic-bezier(0.32,0.72,0,1)').duration(500).addAnimation(wrapperAnimation);
 
       if (presentingEl) {
-        var modalTransform = presentingEl.tagName === 'ION-MODAL' && presentingEl.presentingElement !== undefined ? '-10px' : 'max(30px, var(--ion-safe-area-top))';
-        var bodyEl = document.body;
-        var toPresentingScale = SwipeToCloseDefaults.MIN_PRESENTING_SCALE;
-        var finalTransform = "translateY(".concat(modalTransform, ") scale(").concat(toPresentingScale, ")");
-        var presentingAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().beforeStyles({
+        var isMobile = window.innerWidth < 768;
+        var hasCardModal = presentingEl.tagName === 'ION-MODAL' && presentingEl.presentingElement !== undefined;
+        var presentingAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])().beforeStyles({
           'transform': 'translateY(0)',
           'transform-origin': 'top center',
           'overflow': 'hidden'
-        }).afterStyles({
-          'transform': finalTransform
-        }).beforeAddWrite(function () {
-          return bodyEl.style.setProperty('background-color', 'black');
-        }).addElement(presentingEl).keyframes([{
-          offset: 0,
-          filter: 'contrast(1)',
-          transform: 'translateY(0px) scale(1)',
-          borderRadius: '0px'
-        }, {
-          offset: 1,
-          filter: 'contrast(0.85)',
-          transform: finalTransform,
-          borderRadius: '10px 10px 0 0'
-        }]);
-        baseAnimation.addAnimation(presentingAnimation);
+        });
+        var bodyEl = document.body;
+
+        if (isMobile) {
+          /**
+           * Fallback for browsers that does not support `max()` (ex: Firefox)
+           * No need to worry about statusbar padding since engines like Gecko
+           * are not used as the engine for standlone Cordova/Capacitor apps
+           */
+          var transformOffset = !CSS.supports('width', 'max(0px, 1px)') ? '30px' : 'max(30px, var(--ion-safe-area-top))';
+          var modalTransform = hasCardModal ? '-10px' : transformOffset;
+          var toPresentingScale = SwipeToCloseDefaults.MIN_PRESENTING_SCALE;
+          var finalTransform = "translateY(".concat(modalTransform, ") scale(").concat(toPresentingScale, ")");
+          presentingAnimation.afterStyles({
+            'transform': finalTransform
+          }).beforeAddWrite(function () {
+            return bodyEl.style.setProperty('background-color', 'black');
+          }).addElement(presentingEl).keyframes([{
+            offset: 0,
+            filter: 'contrast(1)',
+            transform: 'translateY(0px) scale(1)',
+            borderRadius: '0px'
+          }, {
+            offset: 1,
+            filter: 'contrast(0.85)',
+            transform: finalTransform,
+            borderRadius: '10px 10px 0 0'
+          }]);
+          baseAnimation.addAnimation(presentingAnimation);
+        } else {
+          baseAnimation.addAnimation(backdropAnimation);
+
+          if (!hasCardModal) {
+            wrapperAnimation.fromTo('opacity', '0', '1');
+          } else {
+            var _toPresentingScale = hasCardModal ? SwipeToCloseDefaults.MIN_PRESENTING_SCALE : 1;
+
+            var _finalTransform = "translateY(-10px) scale(".concat(_toPresentingScale, ")");
+
+            presentingAnimation.afterStyles({
+              'transform': _finalTransform
+            }).addElement(presentingEl.querySelector('.modal-wrapper')).keyframes([{
+              offset: 0,
+              filter: 'contrast(1)',
+              transform: 'translateY(0) scale(1)'
+            }, {
+              offset: 1,
+              filter: 'contrast(0.85)',
+              transform: _finalTransform
+            }]);
+            var shadowAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])().afterStyles({
+              'transform': _finalTransform
+            }).addElement(presentingEl.querySelector('.modal-shadow')).keyframes([{
+              offset: 0,
+              opacity: '1',
+              transform: 'translateY(0) scale(1)'
+            }, {
+              offset: 1,
+              opacity: '0',
+              transform: _finalTransform
+            }]);
+            baseAnimation.addAnimation([presentingAnimation, shadowAnimation]);
+          }
+        }
+      } else {
+        baseAnimation.addAnimation(backdropAnimation);
       }
 
       return baseAnimation;
@@ -245,17 +284,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var iosLeaveAnimation = function iosLeaveAnimation(baseEl, presentingEl) {
       var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 500;
-      var backdropAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0.0);
-      var wrapperAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(baseEl.querySelector('.modal-wrapper')).beforeStyles({
+      var backdropAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0.0);
+      var wrapperAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(baseEl.querySelectorAll('.modal-wrapper, .modal-shadow')).beforeStyles({
         'opacity': 1
-      }).fromTo('transform', 'translateY(0%)', 'translateY(100%)');
-      var baseAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(baseEl).easing('cubic-bezier(0.32,0.72,0,1)').duration(duration).addAnimation([backdropAnimation, wrapperAnimation]);
+      }).fromTo('transform', 'translateY(0vh)', 'translateY(100vh)');
+      var baseAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(baseEl).easing('cubic-bezier(0.32,0.72,0,1)').duration(duration).addAnimation(wrapperAnimation);
 
       if (presentingEl) {
-        var modalTransform = presentingEl.tagName === 'ION-MODAL' && presentingEl.presentingElement !== undefined ? '-10px' : 'max(30px, var(--ion-safe-area-top))';
-        var bodyEl = document.body;
-        var currentPresentingScale = SwipeToCloseDefaults.MIN_PRESENTING_SCALE;
-        var presentingAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(presentingEl).beforeClearStyles(['transform']).afterClearStyles(['transform']).onFinish(function (currentStep) {
+        var isMobile = window.innerWidth < 768;
+        var hasCardModal = presentingEl.tagName === 'ION-MODAL' && presentingEl.presentingElement !== undefined;
+        var presentingAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])().beforeClearStyles(['transform']).afterClearStyles(['transform']).onFinish(function (currentStep) {
           // only reset background color if this is the last card-style modal
           if (currentStep !== 1) {
             return;
@@ -269,18 +307,63 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (numModals <= 1) {
             bodyEl.style.setProperty('background-color', '');
           }
-        }).keyframes([{
-          offset: 0,
-          filter: 'contrast(0.85)',
-          transform: "translateY(".concat(modalTransform, ") scale(").concat(currentPresentingScale, ")"),
-          borderRadius: '10px 10px 0 0'
-        }, {
-          offset: 1,
-          filter: 'contrast(1)',
-          transform: 'translateY(0px) scale(1)',
-          borderRadius: '0px'
-        }]);
-        baseAnimation.addAnimation(presentingAnimation);
+        });
+        var bodyEl = document.body;
+
+        if (isMobile) {
+          var transformOffset = !CSS.supports('width', 'max(0px, 1px)') ? '30px' : 'max(30px, var(--ion-safe-area-top))';
+          var modalTransform = hasCardModal ? '-10px' : transformOffset;
+          var toPresentingScale = SwipeToCloseDefaults.MIN_PRESENTING_SCALE;
+          var finalTransform = "translateY(".concat(modalTransform, ") scale(").concat(toPresentingScale, ")");
+          presentingAnimation.addElement(presentingEl).keyframes([{
+            offset: 0,
+            filter: 'contrast(0.85)',
+            transform: finalTransform,
+            borderRadius: '10px 10px 0 0'
+          }, {
+            offset: 1,
+            filter: 'contrast(1)',
+            transform: 'translateY(0px) scale(1)',
+            borderRadius: '0px'
+          }]);
+          baseAnimation.addAnimation(presentingAnimation);
+        } else {
+          baseAnimation.addAnimation(backdropAnimation);
+
+          if (!hasCardModal) {
+            wrapperAnimation.fromTo('opacity', '1', '0');
+          } else {
+            var _toPresentingScale2 = hasCardModal ? SwipeToCloseDefaults.MIN_PRESENTING_SCALE : 1;
+
+            var _finalTransform2 = "translateY(-10px) scale(".concat(_toPresentingScale2, ")");
+
+            presentingAnimation.addElement(presentingEl.querySelector('.modal-wrapper')).afterStyles({
+              'transform': 'translate3d(0, 0, 0)'
+            }).keyframes([{
+              offset: 0,
+              filter: 'contrast(0.85)',
+              transform: _finalTransform2
+            }, {
+              offset: 1,
+              filter: 'contrast(1)',
+              transform: 'translateY(0) scale(1)'
+            }]);
+            var shadowAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])().addElement(presentingEl.querySelector('.modal-shadow')).afterStyles({
+              'transform': 'translateY(0) scale(1)'
+            }).keyframes([{
+              offset: 0,
+              opacity: '0',
+              transform: _finalTransform2
+            }, {
+              offset: 1,
+              opacity: '1',
+              transform: 'translateY(0) scale(1)'
+            }]);
+            baseAnimation.addAnimation([presentingAnimation, shadowAnimation]);
+          }
+        }
+      } else {
+        baseAnimation.addAnimation(backdropAnimation);
       }
 
       return baseAnimation;
@@ -291,10 +374,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
     var mdEnterAnimation = function mdEnterAnimation(baseEl) {
-      var baseAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-      var backdropAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-      var wrapperAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-      backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)');
+      var baseAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var backdropAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var wrapperAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
+        'pointer-events': 'none'
+      }).afterClearStyles(['pointer-events']);
       wrapperAnimation.addElement(baseEl.querySelector('.modal-wrapper')).keyframes([{
         offset: 0,
         opacity: 0.01,
@@ -304,7 +389,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         opacity: 1,
         transform: 'translateY(0px)'
       }]);
-      return baseAnimation.addElement(baseEl).easing('cubic-bezier(0.36,0.66,0.04,1)').duration(280).beforeAddClass('show-modal').addAnimation([backdropAnimation, wrapperAnimation]);
+      return baseAnimation.addElement(baseEl).easing('cubic-bezier(0.36,0.66,0.04,1)').duration(280).addAnimation([backdropAnimation, wrapperAnimation]);
     };
     /**
      * Md Modal Leave Animation
@@ -312,9 +397,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
     var mdLeaveAnimation = function mdLeaveAnimation(baseEl) {
-      var baseAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-      var backdropAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-      var wrapperAnimation = Object(_animation_56279521_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var baseAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var backdropAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var wrapperAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
       var wrapperEl = baseEl.querySelector('.modal-wrapper');
       backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0.0);
       wrapperAnimation.addElement(wrapperEl).keyframes([{
@@ -329,17 +414,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return baseAnimation.addElement(baseEl).easing('cubic-bezier(0.47,0,0.745,0.715)').duration(200).addAnimation([backdropAnimation, wrapperAnimation]);
     };
 
+    var modalIosCss = ".sc-ion-modal-ios-h{--width:100%;--min-width:auto;--max-width:auto;--height:100%;--min-height:auto;--max-height:auto;--overflow:hidden;--border-radius:0;--border-width:0;--border-style:none;--border-color:transparent;--background:var(--ion-background-color, #fff);--box-shadow:none;--backdrop-opacity:0;left:0;right:0;top:0;bottom:0;display:-ms-flexbox;display:flex;position:absolute;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;outline:none;contain:strict}.overlay-hidden.sc-ion-modal-ios-h{display:none}.modal-wrapper.sc-ion-modal-ios,.modal-shadow.sc-ion-modal-ios{border-radius:var(--border-radius);width:var(--width);min-width:var(--min-width);max-width:var(--max-width);height:var(--height);min-height:var(--min-height);max-height:var(--max-height);border-width:var(--border-width);border-style:var(--border-style);border-color:var(--border-color);background:var(--background);-webkit-box-shadow:var(--box-shadow);box-shadow:var(--box-shadow);overflow:var(--overflow);z-index:10}.modal-shadow.sc-ion-modal-ios{position:absolute;background:transparent}@media only screen and (min-width: 768px) and (min-height: 600px){.sc-ion-modal-ios-h{--width:600px;--height:500px;--ion-safe-area-top:0px;--ion-safe-area-bottom:0px;--ion-safe-area-right:0px;--ion-safe-area-left:0px}}@media only screen and (min-width: 768px) and (min-height: 768px){.sc-ion-modal-ios-h{--width:600px;--height:600px}}.sc-ion-modal-ios-h:first-of-type{--backdrop-opacity:var(--ion-backdrop-opacity, 0.4)}@media only screen and (min-width: 768px) and (min-height: 600px){.sc-ion-modal-ios-h{--border-radius:10px}}.modal-wrapper.sc-ion-modal-ios{-webkit-transform:translate3d(0,  100%,  0);transform:translate3d(0,  100%,  0)}@media screen and (max-width: 767px){@supports (width: max(0px, 1px)){.modal-card.sc-ion-modal-ios-h{--height:calc(100% - max(30px, var(--ion-safe-area-top)) - 10px)}}@supports not (width: max(0px, 1px)){.modal-card.sc-ion-modal-ios-h{--height:calc(100% - 40px)}}.modal-card.sc-ion-modal-ios-h .modal-wrapper.sc-ion-modal-ios{border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:0;border-bottom-left-radius:0}[dir=rtl].sc-ion-modal-ios-h -no-combinator.modal-card.sc-ion-modal-ios-h .modal-wrapper.sc-ion-modal-ios,[dir=rtl] .sc-ion-modal-ios-h -no-combinator.modal-card.sc-ion-modal-ios-h .modal-wrapper.sc-ion-modal-ios,[dir=rtl].modal-card.sc-ion-modal-ios-h .modal-wrapper.sc-ion-modal-ios,[dir=rtl] .modal-card.sc-ion-modal-ios-h .modal-wrapper.sc-ion-modal-ios{border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:0;border-bottom-left-radius:0}.modal-card.sc-ion-modal-ios-h{--backdrop-opacity:0;--width:100%;-ms-flex-align:end;align-items:flex-end}.modal-card.sc-ion-modal-ios-h .modal-shadow.sc-ion-modal-ios{display:none}.modal-card.sc-ion-modal-ios-h ion-backdrop.sc-ion-modal-ios{pointer-events:none}}@media screen and (min-width: 768px){.modal-card.sc-ion-modal-ios-h{--width:calc(100% - 120px);--height:calc(100% - (120px + var(--ion-safe-area-top) + var(--ion-safe-area-bottom)));--max-width:720px;--max-height:1000px}.modal-card.sc-ion-modal-ios-h{--backdrop-opacity:0;-webkit-transition:all 0.5s ease-in-out;transition:all 0.5s ease-in-out}.modal-card.sc-ion-modal-ios-h:first-of-type{--backdrop-opacity:0.18}.modal-card.sc-ion-modal-ios-h .modal-shadow.sc-ion-modal-ios{-webkit-box-shadow:0px 0px 30px 10px rgba(0, 0, 0, 0.1);box-shadow:0px 0px 30px 10px rgba(0, 0, 0, 0.1)}}";
+    var modalMdCss = ".sc-ion-modal-md-h{--width:100%;--min-width:auto;--max-width:auto;--height:100%;--min-height:auto;--max-height:auto;--overflow:hidden;--border-radius:0;--border-width:0;--border-style:none;--border-color:transparent;--background:var(--ion-background-color, #fff);--box-shadow:none;--backdrop-opacity:0;left:0;right:0;top:0;bottom:0;display:-ms-flexbox;display:flex;position:absolute;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;outline:none;contain:strict}.overlay-hidden.sc-ion-modal-md-h{display:none}.modal-wrapper.sc-ion-modal-md,.modal-shadow.sc-ion-modal-md{border-radius:var(--border-radius);width:var(--width);min-width:var(--min-width);max-width:var(--max-width);height:var(--height);min-height:var(--min-height);max-height:var(--max-height);border-width:var(--border-width);border-style:var(--border-style);border-color:var(--border-color);background:var(--background);-webkit-box-shadow:var(--box-shadow);box-shadow:var(--box-shadow);overflow:var(--overflow);z-index:10}.modal-shadow.sc-ion-modal-md{position:absolute;background:transparent}@media only screen and (min-width: 768px) and (min-height: 600px){.sc-ion-modal-md-h{--width:600px;--height:500px;--ion-safe-area-top:0px;--ion-safe-area-bottom:0px;--ion-safe-area-right:0px;--ion-safe-area-left:0px}}@media only screen and (min-width: 768px) and (min-height: 768px){.sc-ion-modal-md-h{--width:600px;--height:600px}}.sc-ion-modal-md-h:first-of-type{--backdrop-opacity:var(--ion-backdrop-opacity, 0.32)}@media only screen and (min-width: 768px) and (min-height: 600px){.sc-ion-modal-md-h{--border-radius:2px}.sc-ion-modal-md-h:first-of-type{--box-shadow:0 28px 48px rgba(0, 0, 0, 0.4)}}.modal-wrapper.sc-ion-modal-md{-webkit-transform:translate3d(0,  40px,  0);transform:translate3d(0,  40px,  0);opacity:0.01}";
+    /**
+     * @virtualProp {"ios" | "md"} mode - The mode determines which platform styles to use.
+     */
+
     var Modal = /*#__PURE__*/function () {
       function Modal(hostRef) {
         var _this = this;
 
         _classCallCheck(this, Modal);
 
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef); // Whether or not modal is being dismissed via gesture
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef); // Whether or not modal is being dismissed via gesture
 
         this.gestureAnimationDismissing = false;
         this.presented = false;
-        this.mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
         /**
          * If `true`, the keyboard will be automatically dismissed when the overlay is presented.
          */
@@ -367,7 +457,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.swipeToClose = false;
 
         this.onBackdropTap = function () {
-          _this.dismiss(undefined, _overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_8__["B"]);
+          _this.dismiss(undefined, _overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_9__["B"]);
         };
 
         this.onDismiss = function (ev) {
@@ -391,40 +481,49 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         };
 
-        Object(_overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_8__["d"])(this.el);
-        this.didPresent = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionModalDidPresent", 7);
-        this.willPresent = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionModalWillPresent", 7);
-        this.willDismiss = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionModalWillDismiss", 7);
-        this.didDismiss = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionModalDidDismiss", 7);
+        Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_9__["d"])(this.el);
+        this.didPresent = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionModalDidPresent", 7);
+        this.willPresent = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionModalWillPresent", 7);
+        this.willDismiss = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionModalWillDismiss", 7);
+        this.didDismiss = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionModalDidDismiss", 7);
       }
-      /**
-       * Present the modal overlay after it has been created.
-       */
-
 
       _createClass(Modal, [{
+        key: "swipeToCloseChanged",
+        value: function swipeToCloseChanged(enable) {
+          if (this.gesture) {
+            this.gesture.enable(enable);
+          } else if (enable) {
+            this.initSwipeToClose();
+          }
+        }
+        /**
+         * Present the modal overlay after it has been created.
+         */
+
+      }, {
         key: "present",
         value: function () {
-          var _present = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+          var _present = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
             var _this2 = this;
 
-            var container, componentProps, mode, animationBuilder, ani;
-            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+            var container, componentProps;
+            return regeneratorRuntime.wrap(function _callee$(_context) {
               while (1) {
-                switch (_context2.prev = _context2.next) {
+                switch (_context.prev = _context.next) {
                   case 0:
                     if (!this.presented) {
-                      _context2.next = 2;
+                      _context.next = 2;
                       break;
                     }
 
-                    return _context2.abrupt("return");
+                    return _context.abrupt("return");
 
                   case 2:
                     container = this.el.querySelector(".modal-wrapper");
 
                     if (container) {
-                      _context2.next = 5;
+                      _context.next = 5;
                       break;
                     }
 
@@ -434,68 +533,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     componentProps = Object.assign(Object.assign({}, this.componentProps), {
                       modal: this.el
                     });
-                    _context2.next = 8;
-                    return Object(_framework_delegate_c2e2e1f4_js__WEBPACK_IMPORTED_MODULE_10__["a"])(this.delegate, container, this.component, ['ion-page'], componentProps);
+                    _context.next = 8;
+                    return Object(_framework_delegate_d1eb6504_js__WEBPACK_IMPORTED_MODULE_11__["a"])(this.delegate, container, this.component, ['ion-page'], componentProps);
 
                   case 8:
-                    this.usersElement = _context2.sent;
-                    _context2.next = 11;
-                    return Object(_index_4e2fa3c6_js__WEBPACK_IMPORTED_MODULE_11__["d"])(this.usersElement);
+                    this.usersElement = _context.sent;
+                    _context.next = 11;
+                    return Object(_index_66edb21f_js__WEBPACK_IMPORTED_MODULE_4__["e"])(this.usersElement);
 
                   case 11:
-                    _context2.next = 13;
-                    return Object(_overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_8__["e"])(this, 'modalEnter', iosEnterAnimation, mdEnterAnimation, this.presentingElement);
+                    Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
+                      return _this2.el.classList.add('show-modal');
+                    });
+                    _context.next = 14;
+                    return Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_9__["e"])(this, 'modalEnter', iosEnterAnimation, mdEnterAnimation, this.presentingElement);
 
-                  case 13:
-                    mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-
-                    if (this.swipeToClose && mode === 'ios') {
-                      // All of the elements needed for the swipe gesture
-                      // should be in the DOM and referenced by now, except
-                      // for the presenting el
-                      animationBuilder = this.leaveAnimation || _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].get('modalLeave', iosLeaveAnimation);
-                      ani = this.animation = animationBuilder(this.el, this.presentingElement);
-                      this.gesture = createSwipeToCloseGesture(this.el, ani, function () {
-                        /**
-                         * While the gesture animation is finishing
-                         * it is possible for a user to tap the backdrop.
-                         * This would result in the dismiss animation
-                         * being played again. Typically this is avoided
-                         * by setting `presented = false` on the overlay
-                         * component; however, we cannot do that here as
-                         * that would prevent the element from being
-                         * removed from the DOM.
-                         */
-                        _this2.gestureAnimationDismissing = true;
-
-                        _this2.animation.onFinish( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                          return regeneratorRuntime.wrap(function _callee$(_context) {
-                            while (1) {
-                              switch (_context.prev = _context.next) {
-                                case 0:
-                                  _context.next = 2;
-                                  return _this2.dismiss(undefined, 'gesture');
-
-                                case 2:
-                                  _this2.gestureAnimationDismissing = false;
-
-                                case 3:
-                                case "end":
-                                  return _context.stop();
-                              }
-                            }
-                          }, _callee);
-                        })));
-                      });
-                      this.gesture.enable(true);
+                  case 14:
+                    if (this.swipeToClose) {
+                      this.initSwipeToClose();
                     }
 
                   case 15:
                   case "end":
-                    return _context2.stop();
+                    return _context.stop();
                 }
               }
-            }, _callee2, this);
+            }, _callee, this);
           }));
 
           function present() {
@@ -504,6 +567,55 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           return present;
         }()
+      }, {
+        key: "initSwipeToClose",
+        value: function initSwipeToClose() {
+          var _this3 = this;
+
+          if (Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this) !== 'ios') {
+            return;
+          } // All of the elements needed for the swipe gesture
+          // should be in the DOM and referenced by now, except
+          // for the presenting el
+
+
+          var animationBuilder = this.leaveAnimation || _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["c"].get('modalLeave', iosLeaveAnimation);
+
+          var ani = this.animation = animationBuilder(this.el, this.presentingElement);
+          this.gesture = createSwipeToCloseGesture(this.el, ani, function () {
+            /**
+             * While the gesture animation is finishing
+             * it is possible for a user to tap the backdrop.
+             * This would result in the dismiss animation
+             * being played again. Typically this is avoided
+             * by setting `presented = false` on the overlay
+             * component; however, we cannot do that here as
+             * that would prevent the element from being
+             * removed from the DOM.
+             */
+            _this3.gestureAnimationDismissing = true;
+
+            _this3.animation.onFinish( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+              return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                while (1) {
+                  switch (_context2.prev = _context2.next) {
+                    case 0:
+                      _context2.next = 2;
+                      return _this3.dismiss(undefined, 'gesture');
+
+                    case 2:
+                      _this3.gestureAnimationDismissing = false;
+
+                    case 3:
+                    case "end":
+                      return _context2.stop();
+                  }
+                }
+              }, _callee2);
+            })));
+          });
+          this.gesture.enable(true);
+        }
         /**
          * Dismiss the modal overlay after it has been presented.
          *
@@ -528,9 +640,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     return _context3.abrupt("return", false);
 
                   case 2:
-                    enteringAnimation = _overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_8__["h"].get(this) || [];
+                    enteringAnimation = _overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_9__["h"].get(this) || [];
                     _context3.next = 5;
-                    return Object(_overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_8__["f"])(this, data, role, 'modalLeave', iosLeaveAnimation, mdLeaveAnimation, this.presentingElement);
+                    return Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_9__["f"])(this, data, role, 'modalLeave', iosLeaveAnimation, mdLeaveAnimation, this.presentingElement);
 
                   case 5:
                     dismissed = _context3.sent;
@@ -541,7 +653,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     }
 
                     _context3.next = 9;
-                    return Object(_framework_delegate_c2e2e1f4_js__WEBPACK_IMPORTED_MODULE_10__["d"])(this.delegate, this.usersElement);
+                    return Object(_framework_delegate_d1eb6504_js__WEBPACK_IMPORTED_MODULE_11__["d"])(this.delegate, this.usersElement);
 
                   case 9:
                     if (this.animation) {
@@ -577,7 +689,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onDidDismiss",
         value: function onDidDismiss() {
-          return Object(_overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_8__["g"])(this.el, 'ionModalDidDismiss');
+          return Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_9__["g"])(this.el, 'ionModalDidDismiss');
         }
         /**
          * Returns a promise that resolves when the modal will dismiss.
@@ -586,18 +698,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onWillDismiss",
         value: function onWillDismiss() {
-          return Object(_overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_8__["g"])(this.el, 'ionModalWillDismiss');
+          return Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_9__["g"])(this.el, 'ionModalWillDismiss');
         }
       }, {
         key: "render",
         value: function render() {
           var _Object$assign;
 
-          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+          var mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
             "no-router": true,
             "aria-modal": "true",
-            class: Object.assign((_Object$assign = {}, _defineProperty(_Object$assign, mode, true), _defineProperty(_Object$assign, "modal-card", this.presentingElement !== undefined && mode === 'ios'), _Object$assign), Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_9__["g"])(this.cssClass)),
+            tabindex: "-1",
+            "class": Object.assign((_Object$assign = {}, _defineProperty(_Object$assign, mode, true), _defineProperty(_Object$assign, "modal-card", this.presentingElement !== undefined && mode === 'ios'), _Object$assign), Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_10__["g"])(this.cssClass)),
             style: {
               zIndex: "".concat(20000 + this.overlayIndex)
             },
@@ -607,23 +720,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             onIonModalWillPresent: this.onLifecycle,
             onIonModalWillDismiss: this.onLifecycle,
             onIonModalDidDismiss: this.onLifecycle
-          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-backdrop", {
+          }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-backdrop", {
             visible: this.showBackdrop,
             tappable: this.backdropDismiss
-          }), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+          }), mode === 'ios' && Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            "class": "modal-shadow"
+          }), Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
             role: "dialog",
-            class: "modal-wrapper"
+            "class": "modal-wrapper"
           }));
         }
       }, {
         key: "el",
         get: function get() {
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
         }
       }], [{
-        key: "style",
+        key: "watchers",
         get: function get() {
-          return ".sc-ion-modal-ios-h{--width:100%;--min-width:auto;--max-width:auto;--height:100%;--min-height:auto;--max-height:auto;--overflow:hidden;--border-radius:0;--border-width:0;--border-style:none;--border-color:transparent;--background:var(--ion-background-color,#fff);--box-shadow:none;left:0;right:0;top:0;bottom:0;display:-ms-flexbox;display:flex;position:absolute;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;contain:strict}.overlay-hidden.sc-ion-modal-ios-h{display:none}.modal-wrapper.sc-ion-modal-ios{border-radius:var(--border-radius);width:var(--width);min-width:var(--min-width);max-width:var(--max-width);height:var(--height);min-height:var(--min-height);max-height:var(--max-height);border-width:var(--border-width);border-style:var(--border-style);border-color:var(--border-color);background:var(--background);-webkit-box-shadow:var(--box-shadow);box-shadow:var(--box-shadow);overflow:var(--overflow);z-index:10}\@media only screen and (min-width:768px) and (min-height:600px){.sc-ion-modal-ios-h{--width:600px;--height:500px;--ion-safe-area-top:0px;--ion-safe-area-bottom:0px;--ion-safe-area-right:0px;--ion-safe-area-left:0px}}\@media only screen and (min-width:768px) and (min-height:768px){.sc-ion-modal-ios-h{--width:600px;--height:600px}}.sc-ion-modal-ios-h{--backdrop-opacity:var(--ion-backdrop-opacity,0.4)}\@media only screen and (min-width:768px) and (min-height:600px){.sc-ion-modal-ios-h{--border-radius:10px}}.modal-wrapper.sc-ion-modal-ios{-webkit-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0)}.modal-card.sc-ion-modal-ios-h{--backdrop-opacity:0;--width:100%;-ms-flex-align:end;align-items:flex-end}.modal-card.sc-ion-modal-ios-h .modal-wrapper.sc-ion-modal-ios{height:calc(100% - max(30px, var(--ion-safe-area-top)) - 10px)}.modal-card.sc-ion-modal-ios-h .modal-wrapper.sc-ion-modal-ios, [dir=rtl].modal-card.sc-ion-modal-ios-h .modal-wrapper.sc-ion-modal-ios, [dir=rtl] .modal-card.sc-ion-modal-ios-h .modal-wrapper.sc-ion-modal-ios, [dir=rtl].sc-ion-modal-ios-h -no-combinator.modal-card.sc-ion-modal-ios-h .modal-wrapper.sc-ion-modal-ios, [dir=rtl] .sc-ion-modal-ios-h -no-combinator.modal-card.sc-ion-modal-ios-h .modal-wrapper.sc-ion-modal-ios{border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:0;border-bottom-left-radius:0}";
+          return {
+            "swipeToClose": ["swipeToCloseChanged"]
+          };
         }
       }]);
 
@@ -635,6 +752,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       'ionModalWillPresent': 'ionViewWillEnter',
       'ionModalWillDismiss': 'ionViewWillLeave',
       'ionModalDidDismiss': 'ionViewDidLeave'
+    };
+    Modal.style = {
+      /*STENCIL:MODE:ios*/
+      ios: modalIosCss,
+
+      /*STENCIL:MODE:md*/
+      md: modalMdCss
     };
     /***/
   }

@@ -4,13 +4,19 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
 
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -59,33 +65,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! ./core-0a8d4d2e.js */
-    "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
+    var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./index-29df6f59.js */
+    "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
     /* harmony import */
 
 
-    var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ./config-3c7f3790.js */
-    "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
+    var _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./ionic-global-08f4fb8a.js */
+    "./node_modules/@ionic/core/dist/esm/ionic-global-08f4fb8a.js");
     /* harmony import */
 
 
-    var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./helpers-46f4a262.js */
-    "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
+    var _helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./helpers-5c745fbd.js */
+    "./node_modules/@ionic/core/dist/esm/helpers-5c745fbd.js");
     /* harmony import */
 
 
-    var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./theme-18cbe2cc.js */
-    "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
+    var _theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./theme-3f0b0c04.js */
+    "./node_modules/@ionic/core/dist/esm/theme-3f0b0c04.js");
 
     var Route = /*#__PURE__*/function () {
       function Route(hostRef) {
         _classCallCheck(this, Route);
 
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         /**
          * Relative path that needs to match in order for this route to apply.
          *
@@ -94,7 +100,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
          */
 
         this.url = '';
-        this.ionRouteDataChanged = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionRouteDataChanged", 7);
+        this.ionRouteDataChanged = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteDataChanged", 7);
       }
 
       _createClass(Route, [{
@@ -117,12 +123,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             return;
           }
 
-          var _iteratorNormalCompletion = true;
-          var _didIteratorError = false;
-          var _iteratorError = undefined;
+          var _iterator = _createForOfIteratorHelper(keys1),
+              _step;
 
           try {
-            for (var _iterator = keys1[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
               var key = _step.value;
 
               if (newValue[key] !== oldValue[key]) {
@@ -131,18 +136,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
           } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
+            _iterator.e(err);
           } finally {
-            try {
-              if (!_iteratorNormalCompletion && _iterator.return != null) {
-                _iterator.return();
-              }
-            } finally {
-              if (_didIteratorError) {
-                throw _iteratorError;
-              }
-            }
+            _iterator.f();
           }
         }
       }, {
@@ -168,8 +164,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       function RouteRedirect(hostRef) {
         _classCallCheck(this, RouteRedirect);
 
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.ionRouteRedirectChanged = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionRouteRedirectChanged", 7);
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.ionRouteRedirectChanged = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteRedirectChanged", 7);
       }
 
       _createClass(RouteRedirect, [{
@@ -208,19 +204,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var chainToPath = function chainToPath(chain) {
       var path = [];
-      var _iteratorNormalCompletion2 = true;
-      var _didIteratorError2 = false;
-      var _iteratorError2 = undefined;
+
+      var _iterator2 = _createForOfIteratorHelper(chain),
+          _step2;
 
       try {
-        for (var _iterator2 = chain[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
           var route = _step2.value;
-          var _iteratorNormalCompletion3 = true;
-          var _didIteratorError3 = false;
-          var _iteratorError3 = undefined;
+
+          var _iterator3 = _createForOfIteratorHelper(route.path),
+              _step3;
 
           try {
-            for (var _iterator3 = route.path[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+            for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
               var segment = _step3.value;
 
               if (segment[0] === ':') {
@@ -236,43 +232,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
           } catch (err) {
-            _didIteratorError3 = true;
-            _iteratorError3 = err;
+            _iterator3.e(err);
           } finally {
-            try {
-              if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
-                _iterator3.return();
-              }
-            } finally {
-              if (_didIteratorError3) {
-                throw _iteratorError3;
-              }
-            }
+            _iterator3.f();
           }
         }
       } catch (err) {
-        _didIteratorError2 = true;
-        _iteratorError2 = err;
+        _iterator2.e(err);
       } finally {
-        try {
-          if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
-            _iterator2.return();
-          }
-        } finally {
-          if (_didIteratorError2) {
-            throw _iteratorError2;
-          }
-        }
+        _iterator2.f();
       }
 
       return path;
     };
 
-    var writePath = function writePath(history, root, useHash, path, direction, state) {
+    var writePath = function writePath(history, root, useHash, path, direction, state, queryString) {
       var url = generatePath([].concat(_toConsumableArray(parsePath(root)), _toConsumableArray(path)));
 
       if (useHash) {
         url = '#' + url;
+      }
+
+      if (queryString !== undefined) {
+        url = url + '?' + queryString;
       }
 
       if (direction === ROUTER_INTENT_FORWARD) {
@@ -322,7 +304,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         return [''];
       }
 
-      var segments = path.split('/').map(function (s) {
+      var removeQueryString = path.split('?')[0];
+      var segments = removeQueryString.split('/').map(function (s) {
         return s.trim();
       }).filter(function (s) {
         return s.length > 0;
@@ -337,9 +320,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var printRoutes = function printRoutes(routes) {
       console.group("[ion-core] ROUTES[".concat(routes.length, "]"));
-      var _iteratorNormalCompletion4 = true;
-      var _didIteratorError4 = false;
-      var _iteratorError4 = undefined;
+
+      var _iterator4 = _createForOfIteratorHelper(routes),
+          _step4;
 
       try {
         var _loop = function _loop() {
@@ -354,22 +337,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.debug("%c ".concat(generatePath(path)), 'font-weight: bold; padding-left: 20px', '=>\t', "(".concat(ids.join(', '), ")"));
         };
 
-        for (var _iterator4 = routes[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+        for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
           _loop();
         }
       } catch (err) {
-        _didIteratorError4 = true;
-        _iteratorError4 = err;
+        _iterator4.e(err);
       } finally {
-        try {
-          if (!_iteratorNormalCompletion4 && _iterator4.return != null) {
-            _iterator4.return();
-          }
-        } finally {
-          if (_didIteratorError4) {
-            throw _iteratorError4;
-          }
-        }
+        _iterator4.f();
       }
 
       console.groupEnd();
@@ -377,12 +351,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var printRedirects = function printRedirects(redirects) {
       console.group("[ion-core] REDIRECTS[".concat(redirects.length, "]"));
-      var _iteratorNormalCompletion5 = true;
-      var _didIteratorError5 = false;
-      var _iteratorError5 = undefined;
+
+      var _iterator5 = _createForOfIteratorHelper(redirects),
+          _step5;
 
       try {
-        for (var _iterator5 = redirects[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+        for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
           var redirect = _step5.value;
 
           if (redirect.to) {
@@ -390,18 +364,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       } catch (err) {
-        _didIteratorError5 = true;
-        _iteratorError5 = err;
+        _iterator5.e(err);
       } finally {
-        try {
-          if (!_iteratorNormalCompletion5 && _iterator5.return != null) {
-            _iterator5.return();
-          }
-        } finally {
-          if (_didIteratorError5) {
-            throw _iteratorError5;
-          }
-        }
+        _iterator5.f();
       }
 
       console.groupEnd();
@@ -410,6 +375,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _writeNavState = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(root, chain, direction, index) {
         var changed,
+            animation,
             outlet,
             route,
             result,
@@ -419,27 +385,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             switch (_context.prev = _context.next) {
               case 0:
                 changed = _args.length > 4 && _args[4] !== undefined ? _args[4] : false;
-                _context.prev = 1;
+                animation = _args.length > 5 ? _args[5] : undefined;
+                _context.prev = 2;
                 // find next navigation outlet in the DOM
                 outlet = searchNavNode(root); // make sure we can continue interacting the DOM, otherwise abort
 
                 if (!(index >= chain.length || !outlet)) {
-                  _context.next = 5;
+                  _context.next = 6;
                   break;
                 }
 
                 return _context.abrupt("return", changed);
 
-              case 5:
-                _context.next = 7;
+              case 6:
+                _context.next = 8;
                 return outlet.componentOnReady();
 
-              case 7:
+              case 8:
                 route = chain[index];
-                _context.next = 10;
-                return outlet.setRouteId(route.id, route.params, direction);
+                _context.next = 11;
+                return outlet.setRouteId(route.id, route.params, direction, animation);
 
-              case 10:
+              case 11:
                 result = _context.sent;
 
                 // if the outlet changed the page, reset navigation to neutral (no direction)
@@ -450,35 +417,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 } // recursively set nested outlets
 
 
-                _context.next = 14;
-                return _writeNavState(result.element, chain, direction, index + 1, changed);
+                _context.next = 15;
+                return _writeNavState(result.element, chain, direction, index + 1, changed, animation);
 
-              case 14:
+              case 15:
                 changed = _context.sent;
 
                 if (!result.markVisible) {
-                  _context.next = 18;
+                  _context.next = 19;
                   break;
                 }
 
-                _context.next = 18;
+                _context.next = 19;
                 return result.markVisible();
 
-              case 18:
+              case 19:
                 return _context.abrupt("return", changed);
 
-              case 21:
-                _context.prev = 21;
-                _context.t0 = _context["catch"](1);
+              case 22:
+                _context.prev = 22;
+                _context.t0 = _context["catch"](2);
                 console.error(_context.t0);
                 return _context.abrupt("return", false);
 
-              case 25:
+              case 26:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[1, 21]]);
+        }, _callee, null, [[2, 22]]);
       }));
 
       return function writeNavState(_x, _x2, _x3, _x4) {
@@ -643,12 +610,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         if (path[0] === '') {
           matchesDefault = true;
         } else {
-          var _iteratorNormalCompletion6 = true;
-          var _didIteratorError6 = false;
-          var _iteratorError6 = undefined;
+          var _iterator6 = _createForOfIteratorHelper(path),
+              _step6;
 
           try {
-            for (var _iterator6 = path[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+            for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
               var segment = _step6.value;
               var data = segments.next(); // data param
 
@@ -665,18 +631,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
           } catch (err) {
-            _didIteratorError6 = true;
-            _iteratorError6 = err;
+            _iterator6.e(err);
           } finally {
-            try {
-              if (!_iteratorNormalCompletion6 && _iterator6.return != null) {
-                _iterator6.return();
-              }
-            } finally {
-              if (_didIteratorError6) {
-                throw _iteratorError6;
-              }
-            }
+            _iterator6.f();
           }
 
           matchesDefault = false;
@@ -720,12 +677,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       var plainIDs = ids.map(function (i) {
         return i.id;
       });
-      var _iteratorNormalCompletion7 = true;
-      var _didIteratorError7 = false;
-      var _iteratorError7 = undefined;
+
+      var _iterator7 = _createForOfIteratorHelper(chains),
+          _step7;
 
       try {
-        for (var _iterator7 = chains[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+        for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
           var chain = _step7.value;
           var score = matchesIDs(plainIDs, chain);
 
@@ -735,18 +692,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       } catch (err) {
-        _didIteratorError7 = true;
-        _iteratorError7 = err;
+        _iterator7.e(err);
       } finally {
-        try {
-          if (!_iteratorNormalCompletion7 && _iterator7.return != null) {
-            _iterator7.return();
-          }
-        } finally {
-          if (_didIteratorError7) {
-            throw _iteratorError7;
-          }
-        }
+        _iterator7.f();
       }
 
       if (match) {
@@ -765,12 +713,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var routerPathToChain = function routerPathToChain(path, chains) {
       var match = null;
       var matches = 0;
-      var _iteratorNormalCompletion8 = true;
-      var _didIteratorError8 = false;
-      var _iteratorError8 = undefined;
+
+      var _iterator8 = _createForOfIteratorHelper(chains),
+          _step8;
 
       try {
-        for (var _iterator8 = chains[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+        for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
           var chain = _step8.value;
           var matchedChain = matchesPath(path, chain);
 
@@ -784,18 +732,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       } catch (err) {
-        _didIteratorError8 = true;
-        _iteratorError8 = err;
+        _iterator8.e(err);
       } finally {
-        try {
-          if (!_iteratorNormalCompletion8 && _iterator8.return != null) {
-            _iterator8.return();
-          }
-        } finally {
-          if (_didIteratorError8) {
-            throw _iteratorError8;
-          }
-        }
+        _iterator8.f();
       }
 
       return match;
@@ -804,19 +743,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var computePriority = function computePriority(chain) {
       var score = 1;
       var level = 1;
-      var _iteratorNormalCompletion9 = true;
-      var _didIteratorError9 = false;
-      var _iteratorError9 = undefined;
+
+      var _iterator9 = _createForOfIteratorHelper(chain),
+          _step9;
 
       try {
-        for (var _iterator9 = chain[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+        for (_iterator9.s(); !(_step9 = _iterator9.n()).done;) {
           var route = _step9.value;
-          var _iteratorNormalCompletion10 = true;
-          var _didIteratorError10 = false;
-          var _iteratorError10 = undefined;
+
+          var _iterator10 = _createForOfIteratorHelper(route.path),
+              _step10;
 
           try {
-            for (var _iterator10 = route.path[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+            for (_iterator10.s(); !(_step10 = _iterator10.n()).done;) {
               var path = _step10.value;
 
               if (path[0] === ':') {
@@ -828,33 +767,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               level++;
             }
           } catch (err) {
-            _didIteratorError10 = true;
-            _iteratorError10 = err;
+            _iterator10.e(err);
           } finally {
-            try {
-              if (!_iteratorNormalCompletion10 && _iterator10.return != null) {
-                _iterator10.return();
-              }
-            } finally {
-              if (_didIteratorError10) {
-                throw _iteratorError10;
-              }
-            }
+            _iterator10.f();
           }
         }
       } catch (err) {
-        _didIteratorError9 = true;
-        _iteratorError9 = err;
+        _iterator9.e(err);
       } finally {
-        try {
-          if (!_iteratorNormalCompletion9 && _iterator9.return != null) {
-            _iterator9.return();
-          }
-        } finally {
-          if (_didIteratorError9) {
-            throw _iteratorError9;
-          }
-        }
+        _iterator9.f();
       }
 
       return score;
@@ -931,28 +852,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var flattenRouterTree = function flattenRouterTree(nodes) {
       var routes = [];
-      var _iteratorNormalCompletion11 = true;
-      var _didIteratorError11 = false;
-      var _iteratorError11 = undefined;
+
+      var _iterator11 = _createForOfIteratorHelper(nodes),
+          _step11;
 
       try {
-        for (var _iterator11 = nodes[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
+        for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
           var node = _step11.value;
           flattenNode([], routes, node);
         }
       } catch (err) {
-        _didIteratorError11 = true;
-        _iteratorError11 = err;
+        _iterator11.e(err);
       } finally {
-        try {
-          if (!_iteratorNormalCompletion11 && _iterator11.return != null) {
-            _iterator11.return();
-          }
-        } finally {
-          if (_didIteratorError11) {
-            throw _iteratorError11;
-          }
-        }
+        _iterator11.f();
       }
 
       return routes;
@@ -971,28 +883,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         return;
       }
 
-      var _iteratorNormalCompletion12 = true;
-      var _didIteratorError12 = false;
-      var _iteratorError12 = undefined;
+      var _iterator12 = _createForOfIteratorHelper(node.children),
+          _step12;
 
       try {
-        for (var _iterator12 = node.children[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
+        for (_iterator12.s(); !(_step12 = _iterator12.n()).done;) {
           var sub = _step12.value;
           flattenNode(s, routes, sub);
         }
       } catch (err) {
-        _didIteratorError12 = true;
-        _iteratorError12 = err;
+        _iterator12.e(err);
       } finally {
-        try {
-          if (!_iteratorNormalCompletion12 && _iterator12.return != null) {
-            _iterator12.return();
-          }
-        } finally {
-          if (_didIteratorError12) {
-            throw _iteratorError12;
-          }
-        }
+        _iterator12.f();
       }
     };
 
@@ -1000,7 +902,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       function Router(hostRef) {
         _classCallCheck(this, Router);
 
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         this.previousPath = null;
         this.busy = false;
         this.state = 0;
@@ -1028,8 +930,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
          */
 
         this.useHash = true;
-        this.ionRouteWillChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionRouteWillChange", 7);
-        this.ionRouteDidChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionRouteDidChange", 7);
+        this.ionRouteWillChange = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteWillChange", 7);
+        this.ionRouteDidChange = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteDidChange", 7);
       }
 
       _createClass(Router, [{
@@ -1066,8 +968,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "componentDidLoad",
         value: function componentDidLoad() {
-          window.addEventListener('ionRouteRedirectChanged', Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.onRedirectChanged.bind(this), 10));
-          window.addEventListener('ionRouteDataChanged', Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.onRoutesChanged.bind(this), 100));
+          window.addEventListener('ionRouteRedirectChanged', Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.onRedirectChanged.bind(this), 10));
+          window.addEventListener('ionRouteDataChanged', Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.onRoutesChanged.bind(this), 100));
         }
       }, {
         key: "onPopState",
@@ -1082,8 +984,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function onBackButton(ev) {
           var _this = this;
 
-          ev.detail.register(0, function () {
-            return _this.back();
+          ev.detail.register(0, function (processNextHandler) {
+            _this.back();
+
+            processNextHandler();
           });
         }
         /**
@@ -1097,6 +1001,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "push",
         value: function push(url) {
           var direction = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'forward';
+          var animation = arguments.length > 2 ? arguments[2] : undefined;
 
           if (url.startsWith('.')) {
             url = new URL(url, window.location.href).pathname;
@@ -1104,8 +1009,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           console.debug('[ion-router] URL pushed -> updating nav', url, direction);
           var path = parsePath(url);
-          this.setPath(path, direction);
-          return this.writeNavStateRoot(path, direction);
+          var queryString = url.split('?')[1];
+          this.setPath(path, direction, queryString);
+          return this.writeNavStateRoot(path, direction, animation);
         }
         /**
          * Go back to previous page in the window.history.
@@ -1249,7 +1155,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var lastState = this.lastState;
           this.lastState = state;
 
-          if (state > lastState) {
+          if (state > lastState || state >= lastState && lastState > 0) {
             return ROUTER_INTENT_FORWARD;
           } else if (state < lastState) {
             return ROUTER_INTENT_BACK;
@@ -1260,7 +1166,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "writeNavStateRoot",
         value: function () {
-          var _writeNavStateRoot = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(path, direction) {
+          var _writeNavStateRoot = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(path, direction, animation) {
             var redirects, redirect, redirectFrom, routes, chain;
             return regeneratorRuntime.wrap(function _callee6$(_context6) {
               while (1) {
@@ -1299,7 +1205,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     return _context6.abrupt("return", false);
 
                   case 12:
-                    return _context6.abrupt("return", this.safeWriteNavState(document.body, chain, direction, path, redirectFrom));
+                    return _context6.abrupt("return", this.safeWriteNavState(document.body, chain, direction, path, redirectFrom, 0, animation));
 
                   case 13:
                   case "end":
@@ -1309,7 +1215,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }, _callee6, this);
           }));
 
-          function writeNavStateRoot(_x7, _x8) {
+          function writeNavStateRoot(_x7, _x8, _x9) {
             return _writeNavStateRoot.apply(this, arguments);
           }
 
@@ -1320,6 +1226,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function () {
           var _safeWriteNavState = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(node, chain, direction, path, redirectFrom) {
             var index,
+                animation,
                 unlock,
                 changed,
                 _args7 = arguments;
@@ -1328,39 +1235,40 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 switch (_context7.prev = _context7.next) {
                   case 0:
                     index = _args7.length > 5 && _args7[5] !== undefined ? _args7[5] : 0;
-                    _context7.next = 3;
+                    animation = _args7.length > 6 ? _args7[6] : undefined;
+                    _context7.next = 4;
                     return this.lock();
 
-                  case 3:
+                  case 4:
                     unlock = _context7.sent;
                     changed = false;
-                    _context7.prev = 5;
-                    _context7.next = 8;
-                    return this.writeNavState(node, chain, direction, path, redirectFrom, index);
+                    _context7.prev = 6;
+                    _context7.next = 9;
+                    return this.writeNavState(node, chain, direction, path, redirectFrom, index, animation);
 
-                  case 8:
+                  case 9:
                     changed = _context7.sent;
-                    _context7.next = 14;
+                    _context7.next = 15;
                     break;
 
-                  case 11:
-                    _context7.prev = 11;
-                    _context7.t0 = _context7["catch"](5);
+                  case 12:
+                    _context7.prev = 12;
+                    _context7.t0 = _context7["catch"](6);
                     console.error(_context7.t0);
 
-                  case 14:
+                  case 15:
                     unlock();
                     return _context7.abrupt("return", changed);
 
-                  case 16:
+                  case 17:
                   case "end":
                     return _context7.stop();
                 }
               }
-            }, _callee7, this, [[5, 11]]);
+            }, _callee7, this, [[6, 12]]);
           }));
 
-          function safeWriteNavState(_x9, _x10, _x11, _x12, _x13) {
+          function safeWriteNavState(_x10, _x11, _x12, _x13, _x14) {
             return _safeWriteNavState.apply(this, arguments);
           }
 
@@ -1410,6 +1318,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function () {
           var _writeNavState2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(node, chain, direction, path, redirectFrom) {
             var index,
+                animation,
                 routeEvent,
                 changed,
                 _args9 = arguments;
@@ -1418,16 +1327,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 switch (_context9.prev = _context9.next) {
                   case 0:
                     index = _args9.length > 5 && _args9[5] !== undefined ? _args9[5] : 0;
+                    animation = _args9.length > 6 ? _args9[6] : undefined;
 
                     if (!this.busy) {
-                      _context9.next = 4;
+                      _context9.next = 5;
                       break;
                     }
 
                     console.warn('[ion-router] router is busy, transition was cancelled');
                     return _context9.abrupt("return", false);
 
-                  case 4:
+                  case 5:
                     this.busy = true; // generate route event and emit will change
 
                     routeEvent = this.routeChangeEvent(path, redirectFrom);
@@ -1436,10 +1346,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                       this.ionRouteWillChange.emit(routeEvent);
                     }
 
-                    _context9.next = 9;
-                    return _writeNavState(node, chain, direction, index);
+                    _context9.next = 10;
+                    return _writeNavState(node, chain, direction, index, false, animation);
 
-                  case 9:
+                  case 10:
                     changed = _context9.sent;
                     this.busy = false;
 
@@ -1454,7 +1364,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                     return _context9.abrupt("return", changed);
 
-                  case 14:
+                  case 15:
                   case "end":
                     return _context9.stop();
                 }
@@ -1462,7 +1372,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }, _callee9, this);
           }));
 
-          function writeNavState(_x14, _x15, _x16, _x17, _x18) {
+          function writeNavState(_x15, _x16, _x17, _x18, _x19) {
             return _writeNavState2.apply(this, arguments);
           }
 
@@ -1470,9 +1380,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }()
       }, {
         key: "setPath",
-        value: function setPath(path, direction) {
+        value: function setPath(path, direction, queryString) {
           this.state++;
-          writePath(window.history, this.root, this.useHash, path, direction, this.state);
+          writePath(window.history, this.root, this.useHash, path, direction, this.state, queryString);
         }
       }, {
         key: "getPath",
@@ -1500,12 +1410,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "el",
         get: function get() {
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
         }
       }]);
 
       return Router;
     }();
+
+    var routerLinkCss = ":host{--background:transparent;--color:var(--ion-color-primary, #3880ff);background:var(--background);color:var(--color)}:host(.ion-color){color:var(--ion-color-base)}a{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;text-decoration:inherit;text-indent:inherit;text-overflow:inherit;text-transform:inherit;text-align:inherit;white-space:inherit;color:inherit}";
 
     var RouterLink = /*#__PURE__*/function () {
       function RouterLink(hostRef) {
@@ -1513,7 +1425,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _classCallCheck(this, RouterLink);
 
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         /**
          * When using a router, it specifies the transition direction when navigating to
          * another page using `href`.
@@ -1522,7 +1434,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.routerDirection = 'forward';
 
         this.onClick = function (ev) {
-          Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["o"])(_this2.href, ev, _this2.routerDirection);
+          Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_3__["o"])(_this2.href, ev, _this2.routerDirection, _this2.routerAnimation);
         };
       }
 
@@ -1531,28 +1443,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function render() {
           var _Object$assign;
 
-          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
+          var mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
           var attrs = {
             href: this.href,
             rel: this.rel,
             target: this.target
           };
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
             onClick: this.onClick,
-            class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), (_Object$assign = {}, _defineProperty(_Object$assign, mode, true), _defineProperty(_Object$assign, 'ion-activatable', true), _Object$assign))
-          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("a", Object.assign({}, attrs), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null)));
-        }
-      }], [{
-        key: "style",
-        get: function get() {
-          return ":host{--background:transparent;--color:var(--ion-color-primary,#3880ff);background:var(--background);color:var(--color)}:host(.ion-color){color:var(--ion-color-base)}a{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;text-decoration:inherit;text-indent:inherit;text-overflow:inherit;text-transform:inherit;text-align:inherit;white-space:inherit;color:inherit}";
+            "class": Object.assign(Object.assign({}, Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), (_Object$assign = {}, _defineProperty(_Object$assign, mode, true), _defineProperty(_Object$assign, 'ion-activatable', true), _Object$assign))
+          }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("a", Object.assign({}, attrs), Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null)));
         }
       }]);
 
       return RouterLink;
     }();
-    /***/
 
+    RouterLink.style = routerLinkCss;
+    /***/
   }
 }]);
 //# sourceMappingURL=54-es5.js.map

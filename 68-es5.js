@@ -37,27 +37,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! ./core-0a8d4d2e.js */
-    "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
+    var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./index-29df6f59.js */
+    "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
     /* harmony import */
 
 
-    var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ./config-3c7f3790.js */
-    "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
-    /* harmony import */
+    var _framework_delegate_d1eb6504_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./framework-delegate-d1eb6504.js */
+    "./node_modules/@ionic/core/dist/esm/framework-delegate-d1eb6504.js");
 
-
-    var _framework_delegate_c2e2e1f4_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./framework-delegate-c2e2e1f4.js */
-    "./node_modules/@ionic/core/dist/esm/framework-delegate-c2e2e1f4.js");
+    var tabCss = ":host(.tab-hidden){display:none !important}";
 
     var Tab = /*#__PURE__*/function () {
       function Tab(hostRef) {
         _classCallCheck(this, Tab);
 
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         this.loaded = false;
         /** @internal */
 
@@ -138,7 +134,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.loaded = true;
 
             try {
-              return Object(_framework_delegate_c2e2e1f4_js__WEBPACK_IMPORTED_MODULE_2__["a"])(this.delegate, this.el, this.component, ['ion-page']);
+              return Object(_framework_delegate_d1eb6504_js__WEBPACK_IMPORTED_MODULE_1__["a"])(this.delegate, this.el, this.component, ['ion-page']);
             } catch (e) {
               console.error(e);
             }
@@ -152,20 +148,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var tab = this.tab,
               active = this.active,
               component = this.component;
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
             role: "tabpanel",
             "aria-hidden": !active ? 'true' : null,
             "aria-labelledby": "tab-button-".concat(tab),
-            class: {
+            "class": {
               'ion-page': component === undefined,
               'tab-hidden': !active
             }
-          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null));
+          }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null));
         }
       }, {
         key: "el",
         get: function get() {
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
         }
       }], [{
         key: "watchers",
@@ -174,15 +170,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "active": ["changeActive"]
           };
         }
-      }, {
-        key: "style",
-        get: function get() {
-          return ":host(.tab-hidden){display:none!important}";
-        }
       }]);
 
       return Tab;
     }();
+
+    Tab.style = tabCss;
+    var tabsCss = ":host{left:0;right:0;top:0;bottom:0;display:-ms-flexbox;display:flex;position:absolute;-ms-flex-direction:column;flex-direction:column;width:100%;height:100%;contain:layout size style;z-index:0}.tabs-inner{position:relative;-ms-flex:1;flex:1;contain:layout size style}";
+    /**
+     * @slot - Content is placed between the named slots if provided without a slot.
+     * @slot top - Content is placed at the top of the screen.
+     * @slot bottom - Content is placed at the bottom of the screen.
+     */
 
     var Tabs = /*#__PURE__*/function () {
       function Tabs(hostRef) {
@@ -190,7 +189,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _classCallCheck(this, Tabs);
 
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         this.transitioning = false;
         /** @internal */
 
@@ -212,9 +211,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         };
 
-        this.ionNavWillLoad = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionNavWillLoad", 7);
-        this.ionTabsWillChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionTabsWillChange", 3);
-        this.ionTabsDidChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionTabsDidChange", 3);
+        this.ionNavWillLoad = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionNavWillLoad", 7);
+        this.ionTabsWillChange = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionTabsWillChange", 3);
+        this.ionTabsDidChange = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionTabsDidChange", 3);
       }
 
       _createClass(Tabs, [{
@@ -504,13 +503,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "render",
         value: function render() {
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
             onIonTabButtonClick: this.onTabClicked
-          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", {
+          }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", {
             name: "top"
-          }), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
-            class: "tabs-inner"
-          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null)), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", {
+          }), Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            "class": "tabs-inner"
+          }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null)), Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", {
             name: "bottom"
           }));
         }
@@ -522,12 +521,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "el",
         get: function get() {
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
-        }
-      }], [{
-        key: "style",
-        get: function get() {
-          return ":host{left:0;right:0;top:0;bottom:0;display:-ms-flexbox;display:flex;position:absolute;-ms-flex-direction:column;flex-direction:column;width:100%;height:100%;z-index:0}.tabs-inner,:host{contain:layout size style}.tabs-inner{position:relative;-ms-flex:1;flex:1}";
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
         }
       }]);
 
@@ -545,8 +539,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
       return tabEl;
     };
-    /***/
 
+    Tabs.style = tabsCss;
+    /***/
   }
 }]);
 //# sourceMappingURL=68-es5.js.map

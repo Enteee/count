@@ -323,7 +323,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     // is very quick. So we first navigate away.
                     this.router.navigate(['/counters']);
                     _context3.next = 3;
-                    return this.counterService.delete(this.counter);
+                    return this.counterService["delete"](this.counter);
 
                   case 3:
                   case "end":

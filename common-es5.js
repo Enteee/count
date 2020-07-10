@@ -12,15 +12,137 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["common"], {
   /***/
-  "./node_modules/@ionic/core/dist/esm/framework-delegate-c2e2e1f4.js":
+  "./node_modules/@ionic/core/dist/esm/button-active-4b76b5c3.js":
+  /*!*********************************************************************!*\
+    !*** ./node_modules/@ionic/core/dist/esm/button-active-4b76b5c3.js ***!
+    \*********************************************************************/
+
+  /*! exports provided: c */
+
+  /***/
+  function node_modulesIonicCoreDistEsmButtonActive4b76b5c3Js(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "c", function () {
+      return createButtonActiveGesture;
+    });
+    /* harmony import */
+
+
+    var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./index-29df6f59.js */
+    "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
+    /* harmony import */
+
+
+    var _index_eea61379_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./index-eea61379.js */
+    "./node_modules/@ionic/core/dist/esm/index-eea61379.js");
+    /* harmony import */
+
+
+    var _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./haptic-7b8ba70a.js */
+    "./node_modules/@ionic/core/dist/esm/haptic-7b8ba70a.js");
+
+    var createButtonActiveGesture = function createButtonActiveGesture(el, isButton) {
+      var currentTouchedButton;
+      var initialTouchedButton;
+
+      var activateButtonAtPoint = function activateButtonAtPoint(x, y, hapticFeedbackFn) {
+        if (typeof document === 'undefined') {
+          return;
+        }
+
+        var target = document.elementFromPoint(x, y);
+
+        if (!target || !isButton(target)) {
+          clearActiveButton();
+          return;
+        }
+
+        if (target !== currentTouchedButton) {
+          clearActiveButton();
+          setActiveButton(target, hapticFeedbackFn);
+        }
+      };
+
+      var setActiveButton = function setActiveButton(button, hapticFeedbackFn) {
+        currentTouchedButton = button;
+
+        if (!initialTouchedButton) {
+          initialTouchedButton = currentTouchedButton;
+        }
+
+        var buttonToModify = currentTouchedButton;
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
+          return buttonToModify.classList.add('ion-activated');
+        });
+        hapticFeedbackFn();
+      };
+
+      var clearActiveButton = function clearActiveButton() {
+        var dispatchClick = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+        if (!currentTouchedButton) {
+          return;
+        }
+
+        var buttonToModify = currentTouchedButton;
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
+          return buttonToModify.classList.remove('ion-activated');
+        });
+        /**
+         * Clicking on one button, but releasing on another button
+         * does not dispatch a click event in browsers, so we
+         * need to do it manually here. Some browsers will
+         * dispatch a click if clicking on one button, dragging over
+         * another button, and releasing on the original button. In that
+         * case, we need to make sure we do not cause a double click there.
+         */
+
+        if (dispatchClick && initialTouchedButton !== currentTouchedButton) {
+          currentTouchedButton.click();
+        }
+
+        currentTouchedButton = undefined;
+      };
+
+      return Object(_index_eea61379_js__WEBPACK_IMPORTED_MODULE_1__["createGesture"])({
+        el: el,
+        gestureName: 'buttonActiveDrag',
+        threshold: 0,
+        onStart: function onStart(ev) {
+          return activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["a"]);
+        },
+        onMove: function onMove(ev) {
+          return activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["b"]);
+        },
+        onEnd: function onEnd() {
+          clearActiveButton(true);
+          Object(_haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["h"])();
+          initialTouchedButton = undefined;
+        }
+      });
+    };
+    /***/
+
+  },
+
+  /***/
+  "./node_modules/@ionic/core/dist/esm/framework-delegate-d1eb6504.js":
   /*!**************************************************************************!*\
-    !*** ./node_modules/@ionic/core/dist/esm/framework-delegate-c2e2e1f4.js ***!
+    !*** ./node_modules/@ionic/core/dist/esm/framework-delegate-d1eb6504.js ***!
     \**************************************************************************/
 
   /*! exports provided: a, d */
 
   /***/
-  function node_modulesIonicCoreDistEsmFrameworkDelegateC2e2e1f4Js(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesIonicCoreDistEsmFrameworkDelegateD1eb6504Js(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -115,15 +237,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
 
   /***/
-  "./node_modules/@ionic/core/dist/esm/haptic-c8f1473e.js":
+  "./node_modules/@ionic/core/dist/esm/haptic-7b8ba70a.js":
   /*!**************************************************************!*\
-    !*** ./node_modules/@ionic/core/dist/esm/haptic-c8f1473e.js ***!
+    !*** ./node_modules/@ionic/core/dist/esm/haptic-7b8ba70a.js ***!
     \**************************************************************/
 
-  /*! exports provided: a, b, c, h */
+  /*! exports provided: a, b, c, d, h */
 
   /***/
-  function node_modulesIonicCoreDistEsmHapticC8f1473eJs(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesIonicCoreDistEsmHaptic7b8ba70aJs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -143,31 +265,112 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
     __webpack_require__.d(__webpack_exports__, "c", function () {
-      return hapticSelectionEnd;
+      return hapticSelection;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "d", function () {
+      return hapticImpact;
     });
     /* harmony export (binding) */
 
 
     __webpack_require__.d(__webpack_exports__, "h", function () {
-      return hapticSelection;
+      return hapticSelectionEnd;
     });
-    /**
-     * Check to see if the Haptic Plugin is available
-     * @return Returns `true` or false if the plugin is available
-     */
 
+    var HapticEngine = {
+      getEngine: function getEngine() {
+        var win = window;
+        return win.TapticEngine || win.Capacitor && win.Capacitor.isPluginAvailable('Haptics') && win.Capacitor.Plugins.Haptics;
+      },
+      available: function available() {
+        return !!this.getEngine();
+      },
+      isCordova: function isCordova() {
+        return !!window.TapticEngine;
+      },
+      isCapacitor: function isCapacitor() {
+        var win = window;
+        return !!win.Capacitor;
+      },
+      impact: function impact(options) {
+        var engine = this.getEngine();
+
+        if (!engine) {
+          return;
+        }
+
+        var style = this.isCapacitor() ? options.style.toUpperCase() : options.style;
+        engine.impact({
+          style: style
+        });
+      },
+      notification: function notification(options) {
+        var engine = this.getEngine();
+
+        if (!engine) {
+          return;
+        }
+
+        var style = this.isCapacitor() ? options.style.toUpperCase() : options.style;
+        engine.notification({
+          style: style
+        });
+      },
+      selection: function selection() {
+        this.impact({
+          style: 'light'
+        });
+      },
+      selectionStart: function selectionStart() {
+        var engine = this.getEngine();
+
+        if (!engine) {
+          return;
+        }
+
+        if (this.isCapacitor()) {
+          engine.selectionStart();
+        } else {
+          engine.gestureSelectionStart();
+        }
+      },
+      selectionChanged: function selectionChanged() {
+        var engine = this.getEngine();
+
+        if (!engine) {
+          return;
+        }
+
+        if (this.isCapacitor()) {
+          engine.selectionChanged();
+        } else {
+          engine.gestureSelectionChanged();
+        }
+      },
+      selectionEnd: function selectionEnd() {
+        var engine = this.getEngine();
+
+        if (!engine) {
+          return;
+        }
+
+        if (this.isCapacitor()) {
+          engine.selectionEnd();
+        } else {
+          engine.gestureSelectionEnd();
+        }
+      }
+    };
     /**
      * Trigger a selection changed haptic event. Good for one-time events
      * (not for gestures)
      */
 
-
     var hapticSelection = function hapticSelection() {
-      var engine = window.TapticEngine;
-
-      if (engine) {
-        engine.selection();
-      }
+      HapticEngine.selection();
     };
     /**
      * Tell the haptic engine that a gesture for a selection change is starting.
@@ -175,11 +378,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
     var hapticSelectionStart = function hapticSelectionStart() {
-      var engine = window.TapticEngine;
-
-      if (engine) {
-        engine.gestureSelectionStart();
-      }
+      HapticEngine.selectionStart();
     };
     /**
      * Tell the haptic engine that a selection changed during a gesture.
@@ -187,11 +386,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
     var hapticSelectionChanged = function hapticSelectionChanged() {
-      var engine = window.TapticEngine;
-
-      if (engine) {
-        engine.gestureSelectionChanged();
-      }
+      HapticEngine.selectionChanged();
     };
     /**
      * Tell the haptic engine we are done with a gesture. This needs to be
@@ -200,661 +395,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
     var hapticSelectionEnd = function hapticSelectionEnd() {
-      var engine = window.TapticEngine;
+      HapticEngine.selectionEnd();
+    };
+    /**
+     * Use this to indicate success/failure/warning to the user.
+     * options should be of the type `{ style: 'light' }` (or `medium`/`heavy`)
+     */
 
-      if (engine) {
-        engine.gestureSelectionEnd();
-      }
+
+    var hapticImpact = function hapticImpact(options) {
+      HapticEngine.impact(options);
     };
     /***/
 
   },
 
   /***/
-  "./node_modules/@ionic/core/dist/esm/index-3476b023.js":
-  /*!*************************************************************!*\
-    !*** ./node_modules/@ionic/core/dist/esm/index-3476b023.js ***!
-    \*************************************************************/
-
-  /*! exports provided: s */
-
-  /***/
-  function node_modulesIonicCoreDistEsmIndex3476b023Js(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "s", function () {
-      return sanitizeDOMString;
-    });
-    /**
-     * Does a simple sanitization of all elements
-     * in an untrusted string
-     */
-
-
-    var sanitizeDOMString = function sanitizeDOMString(untrustedString) {
-      try {
-        if (typeof untrustedString !== 'string' || untrustedString === '') {
-          return untrustedString;
-        }
-        /**
-         * Create a document fragment
-         * separate from the main DOM,
-         * create a div to do our work in
-         */
-
-
-        var documentFragment = document.createDocumentFragment();
-        var workingDiv = document.createElement('div');
-        documentFragment.appendChild(workingDiv);
-        workingDiv.innerHTML = untrustedString;
-        /**
-         * Remove any elements
-         * that are blocked
-         */
-
-        blockedTags.forEach(function (blockedTag) {
-          var getElementsToRemove = documentFragment.querySelectorAll(blockedTag);
-
-          for (var elementIndex = getElementsToRemove.length - 1; elementIndex >= 0; elementIndex--) {
-            var element = getElementsToRemove[elementIndex];
-
-            if (element.parentNode) {
-              element.parentNode.removeChild(element);
-            } else {
-              documentFragment.removeChild(element);
-            }
-            /**
-             * We still need to sanitize
-             * the children of this element
-             * as they are left behind
-             */
-
-
-            var childElements = getElementChildren(element);
-            /* tslint:disable-next-line */
-
-            for (var childIndex = 0; childIndex < childElements.length; childIndex++) {
-              sanitizeElement(childElements[childIndex]);
-            }
-          }
-        });
-        /**
-         * Go through remaining elements and remove
-         * non-allowed attribs
-         */
-        // IE does not support .children on document fragments, only .childNodes
-
-        var dfChildren = getElementChildren(documentFragment);
-        /* tslint:disable-next-line */
-
-        for (var childIndex = 0; childIndex < dfChildren.length; childIndex++) {
-          sanitizeElement(dfChildren[childIndex]);
-        } // Append document fragment to div
-
-
-        var fragmentDiv = document.createElement('div');
-        fragmentDiv.appendChild(documentFragment); // First child is always the div we did our work in
-
-        var getInnerDiv = fragmentDiv.querySelector('div');
-        return getInnerDiv !== null ? getInnerDiv.innerHTML : fragmentDiv.innerHTML;
-      } catch (err) {
-        console.error(err);
-        return '';
-      }
-    };
-    /**
-     * Clean up current element based on allowed attributes
-     * and then recursively dig down into any child elements to
-     * clean those up as well
-     */
-
-
-    var sanitizeElement = function sanitizeElement(element) {
-      // IE uses childNodes, so ignore nodes that are not elements
-      if (element.nodeType && element.nodeType !== 1) {
-        return;
-      }
-
-      for (var i = element.attributes.length - 1; i >= 0; i--) {
-        var attribute = element.attributes.item(i);
-        var attributeName = attribute.name; // remove non-allowed attribs
-
-        if (!allowedAttributes.includes(attributeName.toLowerCase())) {
-          element.removeAttribute(attributeName);
-          continue;
-        } // clean up any allowed attribs
-        // that attempt to do any JS funny-business
-
-
-        var attributeValue = attribute.value;
-        /* tslint:disable-next-line */
-
-        if (attributeValue != null && attributeValue.toLowerCase().includes('javascript:')) {
-          element.removeAttribute(attributeName);
-        }
-      }
-      /**
-       * Sanitize any nested children
-       */
-
-
-      var childElements = getElementChildren(element);
-      /* tslint:disable-next-line */
-
-      for (var _i = 0; _i < childElements.length; _i++) {
-        sanitizeElement(childElements[_i]);
-      }
-    };
-    /**
-     * IE doesn't always support .children
-     * so we revert to .childNodes instead
-     */
-
-
-    var getElementChildren = function getElementChildren(el) {
-      return el.children != null ? el.children : el.childNodes;
-    };
-
-    var allowedAttributes = ['class', 'id', 'href', 'src', 'name', 'slot'];
-    var blockedTags = ['script', 'style', 'iframe', 'meta', 'link', 'object', 'embed'];
-    /***/
-  },
-
-  /***/
-  "./node_modules/@ionic/core/dist/esm/index-4e2fa3c6.js":
-  /*!*************************************************************!*\
-    !*** ./node_modules/@ionic/core/dist/esm/index-4e2fa3c6.js ***!
-    \*************************************************************/
-
-  /*! exports provided: d, g, l, s, t */
-
-  /***/
-  function node_modulesIonicCoreDistEsmIndex4e2fa3c6Js(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "d", function () {
-      return deepReady;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "g", function () {
-      return getIonPageElement;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "l", function () {
-      return lifecycle;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "s", function () {
-      return setPageHidden;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "t", function () {
-      return transition;
-    });
-    /* harmony import */
-
-
-    var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! ./core-0a8d4d2e.js */
-    "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
-    /* harmony import */
-
-
-    var _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ./constants-3c3e1099.js */
-    "./node_modules/@ionic/core/dist/esm/constants-3c3e1099.js");
-
-    var iosTransitionAnimation = function iosTransitionAnimation() {
-      return __webpack_require__.e(
-      /*! import() | ios-transition-179652bb-js */
-      "ios-transition-179652bb-js").then(__webpack_require__.bind(null,
-      /*! ./ios.transition-179652bb.js */
-      "./node_modules/@ionic/core/dist/esm/ios.transition-179652bb.js"));
-    };
-
-    var mdTransitionAnimation = function mdTransitionAnimation() {
-      return __webpack_require__.e(
-      /*! import() | md-transition-91524c12-js */
-      "md-transition-91524c12-js").then(__webpack_require__.bind(null,
-      /*! ./md.transition-91524c12.js */
-      "./node_modules/@ionic/core/dist/esm/md.transition-91524c12.js"));
-    };
-
-    var transition = function transition(opts) {
-      return new Promise(function (resolve, reject) {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
-          beforeTransition(opts);
-          runTransition(opts).then(function (result) {
-            if (result.animation) {
-              result.animation.destroy();
-            }
-
-            afterTransition(opts);
-            resolve(result);
-          }, function (error) {
-            afterTransition(opts);
-            reject(error);
-          });
-        });
-      });
-    };
-
-    var beforeTransition = function beforeTransition(opts) {
-      var enteringEl = opts.enteringEl;
-      var leavingEl = opts.leavingEl;
-      setZIndex(enteringEl, leavingEl, opts.direction);
-
-      if (opts.showGoBack) {
-        enteringEl.classList.add('can-go-back');
-      } else {
-        enteringEl.classList.remove('can-go-back');
-      }
-
-      setPageHidden(enteringEl, false);
-
-      if (leavingEl) {
-        setPageHidden(leavingEl, false);
-      }
-    };
-
-    var runTransition = /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(opts) {
-        var animationBuilder, ani;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return getAnimationBuilder(opts);
-
-              case 2:
-                animationBuilder = _context2.sent;
-                ani = animationBuilder ? animation(animationBuilder, opts) : noAnimation(opts); // fast path for no animation
-
-                return _context2.abrupt("return", ani);
-
-              case 5:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }));
-
-      return function runTransition(_x6) {
-        return _ref2.apply(this, arguments);
-      };
-    }();
-
-    var afterTransition = function afterTransition(opts) {
-      var enteringEl = opts.enteringEl;
-      var leavingEl = opts.leavingEl;
-      enteringEl.classList.remove('ion-page-invisible');
-
-      if (leavingEl !== undefined) {
-        leavingEl.classList.remove('ion-page-invisible');
-      }
-    };
-
-    var getAnimationBuilder = /*#__PURE__*/function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(opts) {
-        var getAnimation;
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                if (!(!opts.leavingEl || !opts.animated || opts.duration === 0)) {
-                  _context3.next = 2;
-                  break;
-                }
-
-                return _context3.abrupt("return", undefined);
-
-              case 2:
-                if (!opts.animationBuilder) {
-                  _context3.next = 4;
-                  break;
-                }
-
-                return _context3.abrupt("return", opts.animationBuilder);
-
-              case 4:
-                if (!(opts.mode === 'ios')) {
-                  _context3.next = 10;
-                  break;
-                }
-
-                _context3.next = 7;
-                return iosTransitionAnimation();
-
-              case 7:
-                _context3.t0 = _context3.sent.iosTransitionAnimation;
-                _context3.next = 13;
-                break;
-
-              case 10:
-                _context3.next = 12;
-                return mdTransitionAnimation();
-
-              case 12:
-                _context3.t0 = _context3.sent.mdTransitionAnimation;
-
-              case 13:
-                getAnimation = _context3.t0;
-                return _context3.abrupt("return", getAnimation);
-
-              case 15:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3);
-      }));
-
-      return function getAnimationBuilder(_x7) {
-        return _ref3.apply(this, arguments);
-      };
-    }();
-
-    var animation = /*#__PURE__*/function () {
-      var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(animationBuilder, opts) {
-        var trans, didComplete;
-        return regeneratorRuntime.wrap(function _callee4$(_context4) {
-          while (1) {
-            switch (_context4.prev = _context4.next) {
-              case 0:
-                _context4.next = 2;
-                return waitForReady(opts, true);
-
-              case 2:
-                trans = animationBuilder(opts.baseEl, opts);
-                fireWillEvents(opts.enteringEl, opts.leavingEl);
-                _context4.next = 6;
-                return playTransition(trans, opts);
-
-              case 6:
-                didComplete = _context4.sent;
-
-                if (opts.progressCallback) {
-                  opts.progressCallback(undefined);
-                }
-
-                if (didComplete) {
-                  fireDidEvents(opts.enteringEl, opts.leavingEl);
-                }
-
-                return _context4.abrupt("return", {
-                  hasCompleted: didComplete,
-                  animation: trans
-                });
-
-              case 10:
-              case "end":
-                return _context4.stop();
-            }
-          }
-        }, _callee4);
-      }));
-
-      return function animation(_x8, _x9) {
-        return _ref4.apply(this, arguments);
-      };
-    }();
-
-    var noAnimation = /*#__PURE__*/function () {
-      var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(opts) {
-        var enteringEl, leavingEl;
-        return regeneratorRuntime.wrap(function _callee5$(_context5) {
-          while (1) {
-            switch (_context5.prev = _context5.next) {
-              case 0:
-                enteringEl = opts.enteringEl;
-                leavingEl = opts.leavingEl;
-                _context5.next = 4;
-                return waitForReady(opts, false);
-
-              case 4:
-                fireWillEvents(enteringEl, leavingEl);
-                fireDidEvents(enteringEl, leavingEl);
-                return _context5.abrupt("return", {
-                  hasCompleted: true
-                });
-
-              case 7:
-              case "end":
-                return _context5.stop();
-            }
-          }
-        }, _callee5);
-      }));
-
-      return function noAnimation(_x10) {
-        return _ref5.apply(this, arguments);
-      };
-    }();
-
-    var waitForReady = /*#__PURE__*/function () {
-      var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(opts, defaultDeep) {
-        var deep, promises;
-        return regeneratorRuntime.wrap(function _callee6$(_context6) {
-          while (1) {
-            switch (_context6.prev = _context6.next) {
-              case 0:
-                deep = opts.deepWait !== undefined ? opts.deepWait : defaultDeep;
-                promises = deep ? [deepReady(opts.enteringEl), deepReady(opts.leavingEl)] : [shallowReady(opts.enteringEl), shallowReady(opts.leavingEl)];
-                _context6.next = 4;
-                return Promise.all(promises);
-
-              case 4:
-                _context6.next = 6;
-                return notifyViewReady(opts.viewIsReady, opts.enteringEl);
-
-              case 6:
-              case "end":
-                return _context6.stop();
-            }
-          }
-        }, _callee6);
-      }));
-
-      return function waitForReady(_x11, _x12) {
-        return _ref6.apply(this, arguments);
-      };
-    }();
-
-    var notifyViewReady = /*#__PURE__*/function () {
-      var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(viewIsReady, enteringEl) {
-        return regeneratorRuntime.wrap(function _callee7$(_context7) {
-          while (1) {
-            switch (_context7.prev = _context7.next) {
-              case 0:
-                if (!viewIsReady) {
-                  _context7.next = 3;
-                  break;
-                }
-
-                _context7.next = 3;
-                return viewIsReady(enteringEl);
-
-              case 3:
-              case "end":
-                return _context7.stop();
-            }
-          }
-        }, _callee7);
-      }));
-
-      return function notifyViewReady(_x13, _x14) {
-        return _ref7.apply(this, arguments);
-      };
-    }();
-
-    var playTransition = function playTransition(trans, opts) {
-      var progressCallback = opts.progressCallback;
-      var promise = new Promise(function (resolve) {
-        trans.onFinish(function (currentStep) {
-          return resolve(currentStep === 1);
-        });
-      }); // cool, let's do this, start the transition
-
-      if (progressCallback) {
-        // this is a swipe to go back, just get the transition progress ready
-        // kick off the swipe animation start
-        trans.progressStart(true);
-        progressCallback(trans);
-      } else {
-        // only the top level transition should actually start "play"
-        // kick it off and let it play through
-        // ******** DOM WRITE ****************
-        trans.play();
-      } // create a callback for when the animation is done
-
-
-      return promise;
-    };
-
-    var fireWillEvents = function fireWillEvents(enteringEl, leavingEl) {
-      lifecycle(leavingEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["b"]);
-      lifecycle(enteringEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["L"]);
-    };
-
-    var fireDidEvents = function fireDidEvents(enteringEl, leavingEl) {
-      lifecycle(enteringEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["a"]);
-      lifecycle(leavingEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["c"]);
-    };
-
-    var lifecycle = function lifecycle(el, eventName) {
-      if (el) {
-        var ev = new CustomEvent(eventName, {
-          bubbles: false,
-          cancelable: false
-        });
-        el.dispatchEvent(ev);
-      }
-    };
-
-    var shallowReady = function shallowReady(el) {
-      if (el && el.componentOnReady) {
-        return el.componentOnReady();
-      }
-
-      return Promise.resolve();
-    };
-
-    var deepReady = /*#__PURE__*/function () {
-      var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8(el) {
-        var element, stencilEl;
-        return regeneratorRuntime.wrap(function _callee8$(_context8) {
-          while (1) {
-            switch (_context8.prev = _context8.next) {
-              case 0:
-                element = el;
-
-                if (!element) {
-                  _context8.next = 10;
-                  break;
-                }
-
-                if (!(element.componentOnReady != null)) {
-                  _context8.next = 8;
-                  break;
-                }
-
-                _context8.next = 5;
-                return element.componentOnReady();
-
-              case 5:
-                stencilEl = _context8.sent;
-
-                if (!(stencilEl != null)) {
-                  _context8.next = 8;
-                  break;
-                }
-
-                return _context8.abrupt("return");
-
-              case 8:
-                _context8.next = 10;
-                return Promise.all(Array.from(element.children).map(deepReady));
-
-              case 10:
-              case "end":
-                return _context8.stop();
-            }
-          }
-        }, _callee8);
-      }));
-
-      return function deepReady(_x15) {
-        return _ref8.apply(this, arguments);
-      };
-    }();
-
-    var setPageHidden = function setPageHidden(el, hidden) {
-      if (hidden) {
-        el.setAttribute('aria-hidden', 'true');
-        el.classList.add('ion-page-hidden');
-      } else {
-        el.hidden = false;
-        el.removeAttribute('aria-hidden');
-        el.classList.remove('ion-page-hidden');
-      }
-    };
-
-    var setZIndex = function setZIndex(enteringEl, leavingEl, direction) {
-      if (enteringEl !== undefined) {
-        enteringEl.style.zIndex = direction === 'back' ? '99' : '101';
-      }
-
-      if (leavingEl !== undefined) {
-        leavingEl.style.zIndex = '100';
-      }
-    };
-
-    var getIonPageElement = function getIonPageElement(element) {
-      if (element.classList.contains('ion-page')) {
-        return element;
-      }
-
-      var ionPage = element.querySelector(':scope > .ion-page, :scope > ion-nav, :scope > ion-tabs');
-
-      if (ionPage) {
-        return ionPage;
-      } // idk, return the original element so at least something animates and we don't have a null pointer
-
-
-      return element;
-    };
-    /***/
-
-  },
-
-  /***/
-  "./node_modules/@ionic/core/dist/esm/spinner-configs-28520d80.js":
+  "./node_modules/@ionic/core/dist/esm/spinner-configs-c78e170e.js":
   /*!***********************************************************************!*\
-    !*** ./node_modules/@ionic/core/dist/esm/spinner-configs-28520d80.js ***!
+    !*** ./node_modules/@ionic/core/dist/esm/spinner-configs-c78e170e.js ***!
     \***********************************************************************/
 
   /*! exports provided: S */
 
   /***/
-  function node_modulesIonicCoreDistEsmSpinnerConfigs28520d80Js(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesIonicCoreDistEsmSpinnerConfigsC78e170eJs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -977,15 +542,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
 
   /***/
-  "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js":
+  "./node_modules/@ionic/core/dist/esm/theme-3f0b0c04.js":
   /*!*************************************************************!*\
-    !*** ./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js ***!
+    !*** ./node_modules/@ionic/core/dist/esm/theme-3f0b0c04.js ***!
     \*************************************************************/
 
   /*! exports provided: c, g, h, o */
 
   /***/
-  function node_modulesIonicCoreDistEsmTheme18cbe2ccJs(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesIonicCoreDistEsmTheme3f0b0c04Js(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -1054,21 +619,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var SCHEME = /^[a-z][a-z0-9+\-.]*:/;
 
     var openURL = /*#__PURE__*/function () {
-      var _ref10 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(url, ev, direction) {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url, ev, direction, animation) {
         var router;
-        return regeneratorRuntime.wrap(function _callee9$(_context9) {
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context9.prev = _context9.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 if (!(url != null && url[0] !== '#' && !SCHEME.test(url))) {
-                  _context9.next = 5;
+                  _context2.next = 5;
                   break;
                 }
 
                 router = document.querySelector('ion-router');
 
                 if (!router) {
-                  _context9.next = 5;
+                  _context2.next = 5;
                   break;
                 }
 
@@ -1076,21 +641,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   ev.preventDefault();
                 }
 
-                return _context9.abrupt("return", router.push(url, direction));
+                return _context2.abrupt("return", router.push(url, direction, animation));
 
               case 5:
-                return _context9.abrupt("return", false);
+                return _context2.abrupt("return", false);
 
               case 6:
               case "end":
-                return _context9.stop();
+                return _context2.stop();
             }
           }
-        }, _callee9);
+        }, _callee2);
       }));
 
-      return function openURL(_x16, _x17, _x18) {
-        return _ref10.apply(this, arguments);
+      return function openURL(_x6, _x7, _x8, _x9) {
+        return _ref3.apply(this, arguments);
       };
     }();
     /***/
