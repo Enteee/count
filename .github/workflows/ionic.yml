@@ -54,10 +54,10 @@ jobs:
     - name: install cli tools
       run: |
         npm install -g --no-save \
-          @ionic/cli@6.1.0 \
-          native-run@0.3.0 \
+          @ionic/cli@6.10.1 \
+          native-run@1.0.0 \
           cordova@9.0.0 \
-          cordova-res@0.8.1
+          cordova-res@0.15.1
 
     - name: npm lint
       run: npm run lint
