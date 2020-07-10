@@ -31,3 +31,6 @@ npm-debug.log*
 /www
 /.npm-global
 /.android-sdk
+
+# output app
+*.apk

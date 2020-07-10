@@ -3,6 +3,39 @@ name: Count CI
 on: [push, pull_request]
 
 jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: npm install
+      run: npm install
+      env:
+        NODE_ENV: # don't set to production: also install devDependencies
+
+    - name: npm lint
+      run: npm run lint
+
+    - name: npm build
+      run: npm run build --if-present
+
+    - name: npm test
+      run: npm run test-headless
+
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+
   build:
 
     runs-on: ubuntu-latest
@@ -50,40 +83,17 @@ jobs:
 
     - name: npm install
       run: npm install
-
-    - name: install cli tools
-      run: |
-        npm install -g --no-save \
-          @ionic/cli@6.1.0 \
-          native-run@0.3.0 \
-          cordova@9.0.0 \
-          cordova-res@0.8.1
-
-    - name: npm lint
-      run: npm run lint
-
-    - name: npm build
-      run: npm run build --if-present
-
-    - name: npm test
-      run: npm run test-headless
-
-    - name: Coveralls Parallel
       env:
-        COVERALLS_FLAG_NAME: ${{ steps.artifact_name.outputs.ARTIFACT_NAME }}
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        parallel: true
+        NODE_ENV: # don't set to production: also install devDependencies
 
     - name: Use JDK ${{ matrix.java-version }}
       uses: actions/setup-java@v1
       with:
         java-version: ${{ matrix.java-version }}
 
-    - name: ionic cordova build
+    - name: npx ionic cordova build
       run: |
-        ionic \
+        npx ionic \
           cordova build \
             android ${{ matrix.build-args }}
       env:
@@ -122,12 +132,6 @@ jobs:
         echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
         echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}
         echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}
-
-    - name: Coveralls Finished
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        parallel-finished: true
 
     - name: Download Release Artifact
       uses: actions/download-artifact@v2
