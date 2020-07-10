@@ -93,7 +93,7 @@ jobs:
 
     - name: npx ionic cordova build
       run: |
-        ionic \
+        npx ionic \
           cordova build \
             android ${{ matrix.build-args }}
       env:
