@@ -15,6 +15,6 @@ export class AppState extends Model {
   @autoserialize swipeCounting = true;
   @autoserialize recordPosition = true;
   @autoserialize vibrate = true;
-  @autoserialize directMonitization = true;
+  @autoserialize directMonetization = true;
   @autoserialize developmentMode = false;
 }

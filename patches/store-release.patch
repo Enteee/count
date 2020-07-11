@@ -6,7 +6,7 @@ index 31a117f..6bd64ac 100644
    @autoserialize swipeCounting = true;
    @autoserialize recordPosition = true;
    @autoserialize vibrate = true;
--  @autoserialize directMonitization = true;
-+  @autoserialize directMonitization = false;
+-  @autoserialize directMonetization = true;
++  @autoserialize directMonetization = false;
    @autoserialize developmentMode = false;
  }
