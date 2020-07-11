@@ -14,6 +14,7 @@ set -exuo pipefail
 
 APK="${1?Missing APK}"
 APK_OUT="${2?Missing Output apk}"
+STOREPASS="${STOREPASS?Missing Storepass}"
 
 KEYSTORE="${KEYSTORE:-count-release-key.keystore}"
 KEY_ALIAS="${KEY_ALIAS:-count-release-key}"

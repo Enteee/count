@@ -15,7 +15,7 @@ export class AppComponent {
   public appPages = [
     {
       title: 'Count',
-      src: 'assets/icon.svg',
+      icon: 'add-circle',
       url: '/counters'
     },
     {
