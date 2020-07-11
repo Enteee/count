@@ -145,7 +145,7 @@ jobs:
         serviceAccountJsonPlainText: ${{ secrets.ACTIONS_GOOGLE_PLAY_SERVICE_ACCOUNT }}
         packageName: ch.duckpond.count
         releaseFile: release/count-prod-release-store-release-node12.x-jdk1.8/count-prod-release-store-release-node12.x-jdk1.8.apk
-        track: beta
+        track: alpha
 
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/v')
