@@ -138,7 +138,7 @@ jobs:
       with:
         path: release/
 
-    - name: Upload Beta APK
+    - name: Upload APK to Play Console
       if: startsWith(github.ref, 'refs/tags/v')
       uses: r0adkll/upload-google-play@v1
       with:
