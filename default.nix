@@ -23,7 +23,6 @@ let
 
     multiPkgs = pkgs: with pkgs; [
       coreutils
-      gradle
     ];
 
     extraInstallCommands = ''
@@ -104,7 +103,6 @@ in
         build "''${STOREPASS}" --prod --release "''${@}"
       }
       export -f buildRelease
-
 
       export ANDROID_SDK_ROOT="$PWD/.android-sdk"
       export ANDROID_HOME="$ANDROID_SDK_ROOT"
