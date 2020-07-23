@@ -31,10 +31,13 @@ jobs:
     - name: npm test
       run: npm run test-headless
 
-    - name: Coveralls
+    - name: Coveralls Parallel
+      env:
+        COVERALLS_FLAG_NAME: "test"
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        parallel: true
 
   build:
 
@@ -125,6 +128,12 @@ jobs:
     timeout-minutes: 5
 
     steps:
+
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        parallel-finished: true
 
     - name: Branch name
       id: branch_name
