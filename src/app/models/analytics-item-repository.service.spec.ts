@@ -15,7 +15,7 @@ describe('AnalyticsItemRepositoryService', () => {
   });
 
   it('can init', async () => {
-    await repositoryService.init(AnalyticsItem);
+    await repositoryService.init(AnalyticsItem, 'AnalyticsItem');
     expect(repositoryService.all.length).toBeGreaterThan(1);
   });
 });

@@ -6,6 +6,9 @@ import { Serialize, Deserialize } from 'cerialize';
 
 import { Model } from './model';
 
+// use this to ensure that no MCtorName is used twice
+const KnownMCtorNames: string[] = [];
+
 /**
  * A generic ModelRepositoryService which stores models in a Ionic Storage.
  *
@@ -20,14 +23,27 @@ import { Model } from './model';
 export class ModelRepositoryService<M extends Model> implements Resolve<M> {
 
   private MCtor: new (...args: any[]) => M;
+  private MCtorName: string;
   protected models: Record<string, M> = {};
 
   constructor(private storage: Storage) {}
 
-  public async init(MCtor: new (...args: any[]) => M) {
-    // Because Typescript does not have type information available,
-    // at runtime we have to pass in here the constructor of M (MCtor).
+  public async init(MCtor: new (...args: any[]) => M, MCtorName: string) {
+    /**
+     * Because Typescript does not have type information available,
+     * at runtime we have to pass in here the constructor of M (MCtor).
+     * Because of uglify.js name mangling, we can not just use MCtor.name
+     * here to get a unique object identifiert for the store. Therefore we have
+     * to also ask for MCtorName here.
+     * ref: https://stackoverflow.com/questions/48438666/typescript-get-class-name-in-its-own-property-at-compile-time
+     */
+    if (KnownMCtorNames.includes(MCtorName)){
+      throw new Error(`MCtorName not unique: ${MCtorName}`);
+    }
+    KnownMCtorNames.push(MCtorName);
+
     this.MCtor = MCtor;
+    this.MCtorName = MCtorName;
     await this.loadAll();
   }
 
@@ -37,15 +53,16 @@ export class ModelRepositoryService<M extends Model> implements Resolve<M> {
 
   public async save(m: M) {
     this.models[m.id] = m;
+
     await this.storage.set(
-      this.MCtor.name + m.id,
+      this.MCtorName + m.id,
       Serialize(m, this.MCtor)
     );
   }
 
   public async delete(m: M) {
     await this.storage.remove(
-      this.MCtor.name + m.id,
+      this.MCtorName + m.id,
     );
     delete this.models[m.id];
   }
@@ -56,7 +73,7 @@ export class ModelRepositoryService<M extends Model> implements Resolve<M> {
     await this.storage.forEach(
       (v: object, k: string) => {
         // only delete instance of this class
-        if (k.startsWith(this.MCtor.name)) {
+        if (k.startsWith(this.MCtorName)) {
           modelsToDelete.push(
             Deserialize(
               v,
@@ -72,7 +89,7 @@ export class ModelRepositoryService<M extends Model> implements Resolve<M> {
         async (model) => {
           delete this.models[model.id];
           await this.storage.remove(
-            this.MCtor.name + model.id,
+            this.MCtorName + model.id,
           );
         }
       )
@@ -86,7 +103,7 @@ export class ModelRepositoryService<M extends Model> implements Resolve<M> {
   public resolve(route: ActivatedRouteSnapshot) {
     return this.getById(
       route.paramMap.get(
-        this.MCtor.name.toLowerCase() + '-id'
+        this.MCtorName.toLowerCase() + '-id'
       )
     );
   }
@@ -95,7 +112,7 @@ export class ModelRepositoryService<M extends Model> implements Resolve<M> {
     await this.storage.forEach(
       (v: object, k: string) => {
         // only load instance of this class
-        if (k.startsWith(this.MCtor.name)) {
+        if (k.startsWith(this.MCtorName)) {
           const model = Deserialize(
             v,
             this.MCtor

@@ -21,10 +21,10 @@ export function initializeModelServices(
 ) {
   return async () => {
     await Promise.all([
-      appStateRepositoryService.init(AppState),
-      analyticsItemRepositoryService.init(AnalyticsItem),
-      counterRepositoryService.init(Counter),
-      countEventRepositoryService.init(CountEvent),
+      appStateRepositoryService.init(AppState, 'AppState'),
+      analyticsItemRepositoryService.init(AnalyticsItem, 'AnalyticsItem'),
+      counterRepositoryService.init(Counter, 'Counter'),
+      countEventRepositoryService.init(CountEvent, 'CounterEvent'),
     ]);
   };
 }
