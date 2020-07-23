@@ -38,8 +38,20 @@ export class ModelRepositoryService<M extends Model> implements Resolve<M> {
      * ref: https://stackoverflow.com/questions/48438666/typescript-get-class-name-in-its-own-property-at-compile-time
      */
     if (KnownMCtorNames.includes(MCtorName)){
-      throw new Error(`MCtorName not unique: ${MCtorName}`);
+      throw new Error(`MCtorName not unique: "${MCtorName}"`);
     }
+
+    // we also have to make sure that no MCtorName is a prefix of another.
+    for (const otherMCtorName of KnownMCtorNames) {
+      if (otherMCtorName.startsWith(MCtorName)) {
+        throw new Error(`MCtorName "${MCtorName}" is a prefix of ${otherMCtorName}"`);
+      }
+
+      if (MCtorName.startsWith(otherMCtorName)) {
+        throw new Error(`MCtorName "${otherMCtorName}" is a prefix of ${MCtorName}"`);
+      }
+    }
+
     KnownMCtorNames.push(MCtorName);
 
     this.MCtor = MCtor;

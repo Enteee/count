@@ -24,7 +24,7 @@ export function initializeModelServices(
       appStateRepositoryService.init(AppState, 'AppState'),
       analyticsItemRepositoryService.init(AnalyticsItem, 'AnalyticsItem'),
       counterRepositoryService.init(Counter, 'Counter'),
-      countEventRepositoryService.init(CountEvent, 'CounterEvent'),
+      countEventRepositoryService.init(CountEvent, 'CounteEvent'),
     ]);
   };
 }
