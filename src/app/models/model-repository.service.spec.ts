@@ -26,4 +26,17 @@ describe('ModelRepositoryService', () => {
     ).toBeRejectedWithError();
   });
 
+  it('should throw error on MCtorName prefix collision', async () => {
+    await repositoryService.init({} as any, 'ABCD');
+    expectAsync(
+      repositoryService.init({} as any, 'ABC')
+    ).toBeRejectedWithError();
+
+    await repositoryService.init({} as any, 'DEF');
+    expectAsync(
+      repositoryService.init({} as any, 'DEFG')
+    ).toBeRejectedWithError();
+
+  });
+
 });
