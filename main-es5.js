@@ -1730,7 +1730,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       _createClass(AppStateRepositoryService, [{
         key: "init",
-        value: function init(MCtor) {
+        value: function init(MCtor, MCtorName) {
           var _this4 = this;
 
           var _super = Object.create(null, {
@@ -1752,7 +1752,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context2.prev = _context2.next) {
                   case 0:
                     _context2.next = 2;
-                    return _super.init.call(this, MCtor);
+                    return _super.init.call(this, MCtor, MCtorName);
 
                   case 2:
                     // no matter how many app states were saved, only keep one.
@@ -1915,7 +1915,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _this6.swipeCounting = true;
         _this6.recordPosition = true;
         _this6.vibrate = true;
-        _this6.directMonitization = true;
+        _this6.directMonetization = true;
         _this6.developmentMode = false;
         return _this6;
       }
@@ -1928,7 +1928,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AppState.prototype, "swipeCounting", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AppState.prototype, "recordPosition", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AppState.prototype, "vibrate", void 0);
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AppState.prototype, "directMonitization", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AppState.prototype, "directMonetization", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)], AppState.prototype, "developmentMode", void 0);
     AppState = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(cerialize__WEBPACK_IMPORTED_MODULE_1__["inheritSerialization"])(_model__WEBPACK_IMPORTED_MODULE_2__["Model"])], AppState);
     /***/
@@ -2335,7 +2335,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var cerialize__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(cerialize__WEBPACK_IMPORTED_MODULE_3__);
+    var cerialize__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(cerialize__WEBPACK_IMPORTED_MODULE_3__); // use this to ensure that no MCtorName is used twice
+
+
+    var KnownMCtorNames = [];
     /**
      * A generic ModelRepositoryService which stores models in a Ionic Storage.
      *
@@ -2347,7 +2350,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * ModelRepositoryService implements basic separation of models using constructor names.
      */
 
-
     var ModelRepositoryService = /*#__PURE__*/function () {
       function ModelRepositoryService(storage) {
         _classCallCheck(this, ModelRepositoryService);
@@ -2358,19 +2360,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       _createClass(ModelRepositoryService, [{
         key: "init",
-        value: function init(MCtor) {
+        value: function init(MCtor, MCtorName) {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
             return regeneratorRuntime.wrap(function _callee4$(_context4) {
               while (1) {
                 switch (_context4.prev = _context4.next) {
                   case 0:
-                    // Because Typescript does not have type information available,
-                    // at runtime we have to pass in here the constructor of M (MCtor).
+                    if (!KnownMCtorNames.includes(MCtorName)) {
+                      _context4.next = 2;
+                      break;
+                    }
+
+                    throw new Error("MCtorName not unique: ".concat(MCtorName));
+
+                  case 2:
+                    KnownMCtorNames.push(MCtorName);
                     this.MCtor = MCtor;
-                    _context4.next = 3;
+                    this.MCtorName = MCtorName;
+                    _context4.next = 7;
                     return this.loadAll();
 
-                  case 3:
+                  case 7:
                   case "end":
                     return _context4.stop();
                 }
@@ -2388,7 +2398,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   case 0:
                     this.models[m.id] = m;
                     _context5.next = 3;
-                    return this.storage.set(this.MCtor.name + m.id, Object(cerialize__WEBPACK_IMPORTED_MODULE_3__["Serialize"])(m, this.MCtor));
+                    return this.storage.set(this.MCtorName + m.id, Object(cerialize__WEBPACK_IMPORTED_MODULE_3__["Serialize"])(m, this.MCtor));
 
                   case 3:
                   case "end":
@@ -2407,7 +2417,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context6.prev = _context6.next) {
                   case 0:
                     _context6.next = 2;
-                    return this.storage.remove(this.MCtor.name + m.id);
+                    return this.storage.remove(this.MCtorName + m.id);
 
                   case 2:
                     delete this.models[m.id];
@@ -2435,7 +2445,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     _context8.next = 3;
                     return this.storage.forEach(function (v, k) {
                       // only delete instance of this class
-                      if (k.startsWith(_this9.MCtor.name)) {
+                      if (k.startsWith(_this9.MCtorName)) {
                         modelsToDelete.push(Object(cerialize__WEBPACK_IMPORTED_MODULE_3__["Deserialize"])(v, _this9.MCtor));
                       }
                     });
@@ -2450,7 +2460,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                               case 0:
                                 delete this.models[model.id];
                                 _context7.next = 3;
-                                return this.storage.remove(this.MCtor.name + model.id);
+                                return this.storage.remove(this.MCtorName + model.id);
 
                               case 3:
                               case "end":
@@ -2477,7 +2487,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "resolve",
         value: function resolve(route) {
-          return this.getById(route.paramMap.get(this.MCtor.name.toLowerCase() + '-id'));
+          return this.getById(route.paramMap.get(this.MCtorName.toLowerCase() + '-id'));
         }
       }, {
         key: "loadAll",
@@ -2492,7 +2502,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     _context9.next = 2;
                     return this.storage.forEach(function (v, k) {
                       // only load instance of this class
-                      if (k.startsWith(_this10.MCtor.name)) {
+                      if (k.startsWith(_this10.MCtorName)) {
                         var model = Object(cerialize__WEBPACK_IMPORTED_MODULE_3__["Deserialize"])(v, _this10.MCtor);
                         _this10.models[model.id] = model;
                       }
@@ -2750,7 +2760,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               switch (_context14.prev = _context14.next) {
                 case 0:
                   _context14.next = 2;
-                  return Promise.all([appStateRepositoryService.init(_app_state__WEBPACK_IMPORTED_MODULE_4__["AppState"]), analyticsItemRepositoryService.init(_analytics_item__WEBPACK_IMPORTED_MODULE_6__["AnalyticsItem"]), counterRepositoryService.init(_counter__WEBPACK_IMPORTED_MODULE_8__["Counter"]), countEventRepositoryService.init(_count_event__WEBPACK_IMPORTED_MODULE_10__["CountEvent"])]);
+                  return Promise.all([appStateRepositoryService.init(_app_state__WEBPACK_IMPORTED_MODULE_4__["AppState"], 'AppState'), analyticsItemRepositoryService.init(_analytics_item__WEBPACK_IMPORTED_MODULE_6__["AnalyticsItem"], 'AnalyticsItem'), counterRepositoryService.init(_counter__WEBPACK_IMPORTED_MODULE_8__["Counter"], 'Counter'), countEventRepositoryService.init(_count_event__WEBPACK_IMPORTED_MODULE_10__["CountEvent"], 'CounterEvent')]);
 
                 case 2:
                 case "end":
@@ -3056,7 +3066,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](13);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r17.appState.directMonitization);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r17.appState.directMonetization);
       }
     }
 

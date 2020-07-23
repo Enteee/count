@@ -1261,13 +1261,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class AppStateRepositoryService extends _model_repository_service__WEBPACK_IMPORTED_MODULE_2__["ModelRepositoryService"] {
-    init(MCtor) {
+    init(MCtor, MCtorName) {
         const _super = Object.create(null, {
             init: { get: () => super.init },
             deleteAll: { get: () => super.deleteAll }
         });
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            yield _super.init.call(this, MCtor);
+            yield _super.init.call(this, MCtor, MCtorName);
             // no matter how many app states were saved, only keep one.
             this.appState = this.all[0] || new _app_state__WEBPACK_IMPORTED_MODULE_3__["AppState"]();
             yield _super.deleteAll.call(this);
@@ -1335,7 +1335,7 @@ let AppState = class AppState extends _model__WEBPACK_IMPORTED_MODULE_2__["Model
         this.swipeCounting = true;
         this.recordPosition = true;
         this.vibrate = true;
-        this.directMonitization = true;
+        this.directMonetization = true;
         this.developmentMode = false;
     }
 };
@@ -1362,7 +1362,7 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"],
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
-], AppState.prototype, "directMonitization", void 0);
+], AppState.prototype, "directMonetization", void 0);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     cerialize__WEBPACK_IMPORTED_MODULE_1__["autoserialize"],
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
@@ -1615,6 +1615,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// use this to ensure that no MCtorName is used twice
+const KnownMCtorNames = [];
 /**
  * A generic ModelRepositoryService which stores models in a Ionic Storage.
  *
@@ -1630,11 +1632,22 @@ class ModelRepositoryService {
         this.storage = storage;
         this.models = {};
     }
-    init(MCtor) {
+    init(MCtor, MCtorName) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            // Because Typescript does not have type information available,
-            // at runtime we have to pass in here the constructor of M (MCtor).
+            /**
+             * Because Typescript does not have type information available,
+             * at runtime we have to pass in here the constructor of M (MCtor).
+             * Because of uglify.js name mangling, we can not just use MCtor.name
+             * here to get a unique object identifiert for the store. Therefore we have
+             * to also ask for MCtorName here.
+             * ref: https://stackoverflow.com/questions/48438666/typescript-get-class-name-in-its-own-property-at-compile-time
+             */
+            if (KnownMCtorNames.includes(MCtorName)) {
+                throw new Error(`MCtorName not unique: ${MCtorName}`);
+            }
+            KnownMCtorNames.push(MCtorName);
             this.MCtor = MCtor;
+            this.MCtorName = MCtorName;
             yield this.loadAll();
         });
     }
@@ -1644,12 +1657,12 @@ class ModelRepositoryService {
     save(m) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.models[m.id] = m;
-            yield this.storage.set(this.MCtor.name + m.id, Object(cerialize__WEBPACK_IMPORTED_MODULE_3__["Serialize"])(m, this.MCtor));
+            yield this.storage.set(this.MCtorName + m.id, Object(cerialize__WEBPACK_IMPORTED_MODULE_3__["Serialize"])(m, this.MCtor));
         });
     }
     delete(m) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            yield this.storage.remove(this.MCtor.name + m.id);
+            yield this.storage.remove(this.MCtorName + m.id);
             delete this.models[m.id];
         });
     }
@@ -1658,13 +1671,13 @@ class ModelRepositoryService {
             const modelsToDelete = [];
             yield this.storage.forEach((v, k) => {
                 // only delete instance of this class
-                if (k.startsWith(this.MCtor.name)) {
+                if (k.startsWith(this.MCtorName)) {
                     modelsToDelete.push(Object(cerialize__WEBPACK_IMPORTED_MODULE_3__["Deserialize"])(v, this.MCtor));
                 }
             });
             yield Promise.all(modelsToDelete.map((model) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
                 delete this.models[model.id];
-                yield this.storage.remove(this.MCtor.name + model.id);
+                yield this.storage.remove(this.MCtorName + model.id);
             })));
         });
     }
@@ -1672,13 +1685,13 @@ class ModelRepositoryService {
         return this.models[id];
     }
     resolve(route) {
-        return this.getById(route.paramMap.get(this.MCtor.name.toLowerCase() + '-id'));
+        return this.getById(route.paramMap.get(this.MCtorName.toLowerCase() + '-id'));
     }
     loadAll() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             yield this.storage.forEach((v, k) => {
                 // only load instance of this class
-                if (k.startsWith(this.MCtor.name)) {
+                if (k.startsWith(this.MCtorName)) {
                     const model = Object(cerialize__WEBPACK_IMPORTED_MODULE_3__["Deserialize"])(v, this.MCtor);
                     this.models[model.id] = model;
                 }
@@ -1764,10 +1777,10 @@ __webpack_require__.r(__webpack_exports__);
 function initializeModelServices(appStateRepositoryService, analyticsItemRepositoryService, counterRepositoryService, countEventRepositoryService) {
     return () => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
         yield Promise.all([
-            appStateRepositoryService.init(_app_state__WEBPACK_IMPORTED_MODULE_4__["AppState"]),
-            analyticsItemRepositoryService.init(_analytics_item__WEBPACK_IMPORTED_MODULE_6__["AnalyticsItem"]),
-            counterRepositoryService.init(_counter__WEBPACK_IMPORTED_MODULE_8__["Counter"]),
-            countEventRepositoryService.init(_count_event__WEBPACK_IMPORTED_MODULE_10__["CountEvent"]),
+            appStateRepositoryService.init(_app_state__WEBPACK_IMPORTED_MODULE_4__["AppState"], 'AppState'),
+            analyticsItemRepositoryService.init(_analytics_item__WEBPACK_IMPORTED_MODULE_6__["AnalyticsItem"], 'AnalyticsItem'),
+            counterRepositoryService.init(_counter__WEBPACK_IMPORTED_MODULE_8__["Counter"], 'Counter'),
+            countEventRepositoryService.init(_count_event__WEBPACK_IMPORTED_MODULE_10__["CountEvent"], 'CounterEvent'),
         ]);
     });
 }
@@ -1929,7 +1942,7 @@ function NotImplementedModalPage_ion_item_group_13_Template(rf, ctx) { if (rf & 
 } if (rf & 2) {
     const ctx_r17 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r17.appState.directMonitization);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r17.appState.directMonetization);
 } }
 class NotImplementedModalPage {
     constructor(modalController, iab, appStateService) {
