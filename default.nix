@@ -1,4 +1,13 @@
-with (import <nixpkgs> {
+with ( import (builtins.fetchGit {
+  # Descriptive name to make the store path easier to identify
+  name = "nixos-20.03";
+  url = "https://github.com/nixos/nixpkgs-channels/";
+
+  # Commit hash :
+  # `git ls-remote https://github.com/nixos/nixpkgs-channels nixos-20.03`
+  ref = "refs/heads/nixos-20.03";
+  rev = "9ea61f7bc4454734ffbff73c9b6173420fe3147b";
+}) {
   config = {
     allowUnfree = true;
     android_sdk.accept_license = true;
@@ -10,7 +19,7 @@ let
 
   androidComposition = androidenv.composeAndroidPackages {
     toolsVersion = "26.1.1";
-    platformToolsVersion = "29.0.6";
+    platformToolsVersion = "28.0.1";
     platformVersions = [
       "28"
     ];
@@ -23,7 +32,6 @@ let
 
     multiPkgs = pkgs: with pkgs; [
       coreutils
-      gradle
     ];
 
     extraInstallCommands = ''
@@ -104,7 +112,6 @@ in
         build "''${STOREPASS}" --prod --release "''${@}"
       }
       export -f buildRelease
-
 
       export ANDROID_SDK_ROOT="$PWD/.android-sdk"
       export ANDROID_HOME="$ANDROID_SDK_ROOT"

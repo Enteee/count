@@ -22,7 +22,7 @@ describe('AppStateRepositoryService', () => {
   });
 
   it('can init', async () => {
-    await repositoryService.init(AppState);
+    await repositoryService.init(AppState, 'AppState');
     expect(repositoryService.all.length).toEqual(1);
   });
 });

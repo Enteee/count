@@ -1,16 +1,29 @@
+import { Storage } from '@ionic/storage';
+import { StorageMock } from './mocks/storage.mock.spec';
 import { Model } from './model';
 import { ModelRepositoryService } from './model-repository.service';
 
 describe('ModelRepositoryService', () => {
+  let storage: Storage;
   let repositoryService: ModelRepositoryService<Model>;
 
   beforeEach(() => {
+    storage = StorageMock.instance();
+
     repositoryService = new ModelRepositoryService<Model>(
-      {} as any
+      storage
     );
   });
 
   it('should be created', () => {
     expect(repositoryService).toBeTruthy();
   });
+
+  it('should throw error on MCtorName reuse', async () => {
+    await repositoryService.init({} as any, 'Reuse');
+    expectAsync(
+      repositoryService.init({} as any, 'Reuse')
+    ).toBeRejectedWithError();
+  });
+
 });
