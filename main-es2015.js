@@ -1643,7 +1643,16 @@ class ModelRepositoryService {
              * ref: https://stackoverflow.com/questions/48438666/typescript-get-class-name-in-its-own-property-at-compile-time
              */
             if (KnownMCtorNames.includes(MCtorName)) {
-                throw new Error(`MCtorName not unique: ${MCtorName}`);
+                throw new Error(`MCtorName not unique: "${MCtorName}"`);
+            }
+            // we also have to make sure that no MCtorName is a prefix of another.
+            for (const otherMCtorName of KnownMCtorNames) {
+                if (otherMCtorName.startsWith(MCtorName)) {
+                    throw new Error(`MCtorName "${MCtorName}" is a prefix of ${otherMCtorName}"`);
+                }
+                if (MCtorName.startsWith(otherMCtorName)) {
+                    throw new Error(`MCtorName "${otherMCtorName}" is a prefix of ${MCtorName}"`);
+                }
             }
             KnownMCtorNames.push(MCtorName);
             this.MCtor = MCtor;
@@ -1780,7 +1789,7 @@ function initializeModelServices(appStateRepositoryService, analyticsItemReposit
             appStateRepositoryService.init(_app_state__WEBPACK_IMPORTED_MODULE_4__["AppState"], 'AppState'),
             analyticsItemRepositoryService.init(_analytics_item__WEBPACK_IMPORTED_MODULE_6__["AnalyticsItem"], 'AnalyticsItem'),
             counterRepositoryService.init(_counter__WEBPACK_IMPORTED_MODULE_8__["Counter"], 'Counter'),
-            countEventRepositoryService.init(_count_event__WEBPACK_IMPORTED_MODULE_10__["CountEvent"], 'CounterEvent'),
+            countEventRepositoryService.init(_count_event__WEBPACK_IMPORTED_MODULE_10__["CountEvent"], 'CounteEvent'),
         ]);
     });
 }

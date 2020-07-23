@@ -2362,6 +2362,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "init",
         value: function init(MCtor, MCtorName) {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+            var _iterator, _step, otherMCtorName;
+
             return regeneratorRuntime.wrap(function _callee4$(_context4) {
               while (1) {
                 switch (_context4.prev = _context4.next) {
@@ -2371,21 +2373,72 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       break;
                     }
 
-                    throw new Error("MCtorName not unique: ".concat(MCtorName));
+                    throw new Error("MCtorName not unique: \"".concat(MCtorName, "\""));
 
                   case 2:
+                    // we also have to make sure that no MCtorName is a prefix of another.
+                    _iterator = _createForOfIteratorHelper(KnownMCtorNames);
+                    _context4.prev = 3;
+
+                    _iterator.s();
+
+                  case 5:
+                    if ((_step = _iterator.n()).done) {
+                      _context4.next = 13;
+                      break;
+                    }
+
+                    otherMCtorName = _step.value;
+
+                    if (!otherMCtorName.startsWith(MCtorName)) {
+                      _context4.next = 9;
+                      break;
+                    }
+
+                    throw new Error("MCtorName \"".concat(MCtorName, "\" is a prefix of ").concat(otherMCtorName, "\""));
+
+                  case 9:
+                    if (!MCtorName.startsWith(otherMCtorName)) {
+                      _context4.next = 11;
+                      break;
+                    }
+
+                    throw new Error("MCtorName \"".concat(otherMCtorName, "\" is a prefix of ").concat(MCtorName, "\""));
+
+                  case 11:
+                    _context4.next = 5;
+                    break;
+
+                  case 13:
+                    _context4.next = 18;
+                    break;
+
+                  case 15:
+                    _context4.prev = 15;
+                    _context4.t0 = _context4["catch"](3);
+
+                    _iterator.e(_context4.t0);
+
+                  case 18:
+                    _context4.prev = 18;
+
+                    _iterator.f();
+
+                    return _context4.finish(18);
+
+                  case 21:
                     KnownMCtorNames.push(MCtorName);
                     this.MCtor = MCtor;
                     this.MCtorName = MCtorName;
-                    _context4.next = 7;
+                    _context4.next = 26;
                     return this.loadAll();
 
-                  case 7:
+                  case 26:
                   case "end":
                     return _context4.stop();
                 }
               }
-            }, _callee4, this);
+            }, _callee4, this, [[3, 15, 18, 21]]);
           }));
         }
       }, {
@@ -2760,7 +2813,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               switch (_context14.prev = _context14.next) {
                 case 0:
                   _context14.next = 2;
-                  return Promise.all([appStateRepositoryService.init(_app_state__WEBPACK_IMPORTED_MODULE_4__["AppState"], 'AppState'), analyticsItemRepositoryService.init(_analytics_item__WEBPACK_IMPORTED_MODULE_6__["AnalyticsItem"], 'AnalyticsItem'), counterRepositoryService.init(_counter__WEBPACK_IMPORTED_MODULE_8__["Counter"], 'Counter'), countEventRepositoryService.init(_count_event__WEBPACK_IMPORTED_MODULE_10__["CountEvent"], 'CounterEvent')]);
+                  return Promise.all([appStateRepositoryService.init(_app_state__WEBPACK_IMPORTED_MODULE_4__["AppState"], 'AppState'), analyticsItemRepositoryService.init(_analytics_item__WEBPACK_IMPORTED_MODULE_6__["AnalyticsItem"], 'AnalyticsItem'), counterRepositoryService.init(_counter__WEBPACK_IMPORTED_MODULE_8__["Counter"], 'Counter'), countEventRepositoryService.init(_count_event__WEBPACK_IMPORTED_MODULE_10__["CountEvent"], 'CounteEvent')]);
 
                 case 2:
                 case "end":
@@ -4111,12 +4164,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             data.push(undefined);
           }
 
-          var _iterator = _createForOfIteratorHelper(countEvents),
-              _step;
+          var _iterator2 = _createForOfIteratorHelper(countEvents),
+              _step2;
 
           try {
-            for (_iterator.s(); !(_step = _iterator.n()).done;) {
-              var countEvent = _step.value;
+            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+              var countEvent = _step2.value;
 
               if (!countEventFilterCallback(countEvent)) {
                 continue;
@@ -4132,9 +4185,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             } // replace all undefined values
 
           } catch (err) {
-            _iterator.e(err);
+            _iterator2.e(err);
           } finally {
-            _iterator.f();
+            _iterator2.f();
           }
 
           for (var _i = 0; _i < data.length; ++_i) {
@@ -4167,12 +4220,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
           };
 
-          var _iterator2 = _createForOfIteratorHelper(countEvents),
-              _step2;
+          var _iterator3 = _createForOfIteratorHelper(countEvents),
+              _step3;
 
           try {
-            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-              var countEvent = _step2.value;
+            for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+              var countEvent = _step3.value;
 
               if (!countEventFilterCallback(countEvent)) {
                 continue;
@@ -4202,9 +4255,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
             }
           } catch (err) {
-            _iterator2.e(err);
+            _iterator3.e(err);
           } finally {
-            _iterator2.f();
+            _iterator3.f();
           }
 
           return data;
