@@ -15,7 +15,7 @@ export class AppComponent {
   public appPages = [
     {
       title: 'Count',
-      icon: 'add-circle',
+      icon: 'infinite',
       url: '/counters'
     },
     {
