@@ -594,7 +594,7 @@ class AppComponent {
         this.appPages = [
             {
                 title: 'Count',
-                icon: 'add-circle',
+                icon: 'infinite',
                 url: '/counters'
             },
             {

@@ -95,6 +95,7 @@ function CounterAnalyticsSelectionPage_ion_item_2_Template(rf, ctx) { if (rf & 1
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "ion-icon", 4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const analyticsItem_r41 = ctx.$implicit;
@@ -120,10 +121,10 @@ class CounterAnalyticsSelectionPage {
     }
 }
 CounterAnalyticsSelectionPage.ɵfac = function CounterAnalyticsSelectionPage_Factory(t) { return new (t || CounterAnalyticsSelectionPage)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_analytics_item_service__WEBPACK_IMPORTED_MODULE_2__["AnalyticsItemService"])); };
-CounterAnalyticsSelectionPage.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: CounterAnalyticsSelectionPage, selectors: [["app-counter-analytics-selection"]], decls: 3, vars: 1, consts: [[3, "routerLink", 4, "ngFor", "ngForOf"], [3, "routerLink"], ["slot", "start"], ["size", "large", 3, "name"]], template: function CounterAnalyticsSelectionPage_Template(rf, ctx) { if (rf & 1) {
+CounterAnalyticsSelectionPage.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: CounterAnalyticsSelectionPage, selectors: [["app-counter-analytics-selection"]], decls: 3, vars: 1, consts: [[3, "routerLink", 4, "ngFor", "ngForOf"], [3, "routerLink"], ["slot", "start"], ["size", "large", 3, "name"], ["slot", "end", "name", "chevron-forward-outline"]], template: function CounterAnalyticsSelectionPage_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-content");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "ion-list");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, CounterAnalyticsSelectionPage_ion_item_2_Template, 8, 7, "ion-item", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, CounterAnalyticsSelectionPage_ion_item_2_Template, 9, 7, "ion-item", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {

@@ -258,7 +258,7 @@ CountersPage.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineCompo
     } if (rf & 2) {
         var _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.reorderGroup = _t.first);
-    } }, decls: 14, vars: 1, consts: [["slot", "start"], ["name", "add-circle"], ["slot", "end"], [3, "click"], ["name", "options"], [3, "ionItemReorder"], [4, "ngFor", "ngForOf"], [3, "counter"]], template: function CountersPage_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 14, vars: 1, consts: [["slot", "start"], ["name", "infinite"], ["slot", "end"], [3, "click"], ["name", "options"], [3, "ionItemReorder"], [4, "ngFor", "ngForOf"], [3, "counter"]], template: function CountersPage_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-header");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "ion-toolbar");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "ion-buttons", 0);

@@ -182,6 +182,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "ion-icon", 4);
+
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
 
@@ -238,14 +240,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       selectors: [["app-counter-analytics-selection"]],
       decls: 3,
       vars: 1,
-      consts: [[3, "routerLink", 4, "ngFor", "ngForOf"], [3, "routerLink"], ["slot", "start"], ["size", "large", 3, "name"]],
+      consts: [[3, "routerLink", 4, "ngFor", "ngForOf"], [3, "routerLink"], ["slot", "start"], ["size", "large", 3, "name"], ["slot", "end", "name", "chevron-forward-outline"]],
       template: function CounterAnalyticsSelectionPage_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-content");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "ion-list");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, CounterAnalyticsSelectionPage_ion_item_2_Template, 8, 7, "ion-item", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, CounterAnalyticsSelectionPage_ion_item_2_Template, 9, 7, "ion-item", 0);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 

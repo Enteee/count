@@ -502,7 +502,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.appStateService = appStateService;
         this.appPages = [{
           title: 'Count',
-          icon: 'add-circle',
+          icon: 'infinite',
           url: '/counters'
         }, {
           title: 'Contribute',
